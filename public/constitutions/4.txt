@@ -1,0 +1,61 @@
+<ul>
+<li>4.1 The following officers of the Ontario Liberal Party shall be elected at each annual meeting:
+<ul class="abclist">
+<li>a) President</li>
+<li>b) Executive Vice-President</li>
+<li>c) Treasurer</li>
+<li>d) Secretary</li>
+<li>e) Operational Vice-President (Policy)</li>
+<li>f) Operational Vice-President (Organization)</li>
+<li>g) Operational Vice-President (Communications)</li>
+<li>h) Operational Vice-President (Engagement)</li>
+<li>i) Regional Vice-President (Northern Region)</li>
+<li>j) Regional Vice-President (Eastern Region)</li>
+<li>k) Regional Vice-President (Central Region)</li>
+<li>l) Regional Vice-President (Toronto Region)</li>
+<li>m) Regional Vice-President (South Central Region)</li>
+<li>n) Regional Vice-President (Southwestern Region)</li>
+</ul>
+</li>
+<li>4.2 The following shall be officers of the Ontario Liberal Party <em>ex-officio</em>: a) Immediate Past President; b) Leader of the Ontario Liberal Party; c) Campaign Chair; d) President of the Ontario Young Liberals, or a designate in the President's place; and, e) President of the Ontario Women's Liberal Commission, or a designate in the President's place.</li>
+<li>4.3 The term of office of an elected officer shall expire upon the election or appointment of a successor to the office, or upon a vacancy in the office, whichever may occur first.</li>
+<li>4.4 Elections to offices of the Ontario Liberal Party shall be conducted in accordance with this Constitution and any procedure adopted at an Annual Meeting for that purpose.</li>
+<li>4.5 A candidate for the office of a Regional Vice - President shall be a member of an Affiliated Association in the region that he or she is seeking to represent.</li>
+<li>4.6 The nomination of a candidate for the office of a Regional Vice-President shall be made and seconded by delegates who are members Affiliated Associations in the region that the Regional Vice-President will represent.</li>
+<li>4.7 No vote shall be cast for the office of Regional Vice-President by a delegate who is not a member of an Affiliated Association in the region that the Regional Vice-President will represent.</li>
+<li>4.8 A delegate may only be deemed to be from one Region for the purposes of the Regional Vice-Presidency elections held at any one Annual General Meeting.</li>
+</ul>
+<h4>President</h4>
+<ul>
+<li>34.9 The President shall have charge of the administration of the affairs of the Ontario Liberal Party between the meetings of the Executive Council, and shall be responsible for: a) day to day operation of the Ontario Liberal Party; b) preparation of the annual budget of the Ontario Liberal Party; c) expenditures within the budget as approved by the Executive Council and further approved by the Provincial Council; d) management of the staff and the office of the Ontario Liberal Party.</li>
+<li>4.10 The President shall possess and may exercise all powers and shall perform the duties that may be assigned to him or her from time to time by Executive Council.</li>
+<li>4.11 In exercising his or her duties and authorities, the President shall consult with members of Executive Council as appropriate.</li>
+<li>4.12 The President shall follow the directions of Executive Council, and any act or decision of the President that conflicts with a decision of Executive Council shall, to the extent of the conflict, be of no force or effect.</li>
+<li>4.13 The President shall, when present, preside at all meetings of the Executive Council and of members of the Ontario Liberal Party and of the Provincial Council and shall report to the annual meeting of members.</li>
+</ul>
+<h4>Executive Vice-President</h4>
+<ul>
+<li>4.14 The Executive Vice-President shall be vested with the powers and shall perform the duties of the President in the absence, inability or refusal to act of the President.</li>
+<li>4.15 The Executive Vice-President shall possess and may exercise other powers and duties that may be assigned to him or her from time to time by Executive Council.</li>
+</ul>
+<h4>Treasurer</h4>
+<ul>
+<li>4.16 The Treasurer shall keep the books of record and bank account of the Ontario Liberal Party.</li>
+<li>4.17 The Treasurer shall present a financial report at each meeting of Executive Council and at the annual meeting.</li>
+<li>4.18 The Treasurer shall perform all other duties incident to his or her office and other duties that are properly required of him or her from time to time by the Executive Council.</li>
+</ul>
+<h4>Secretary</h4>
+<ul>
+<li>4.19 The Secretary shall keep a record of all meetings of Executive Council, Provincial Council and of the members of the Ontario Liberal Party.</li>
+<li>4.20 The Secretary is responsible for preparing and circulating notices of meetings and minutes of meetings of Executive Council, Provincial Council and of the members of the Ontario Liberal Party.</li>
+<li>4.21 The Secretary shall prepare and maintain a list of the members of the Ontario Liberal Party.</li>
+<li>4.22 The Secretary shall perform all other duties incident to his or her office and other duties that are properly required of him or her from time to time by the Executive Council.</li>
+</ul>
+<h4>Operational Vice-Presidents</h4>
+<ul>
+<li>4.23 Each Operational Vice-President shall be responsible for matters related to his or her office, and other duties and responsibilities assigned from time to time by Executive council.</li>
+</ul>
+<h4>Regional Vice-Presidents</h4>
+<ul>
+<li>4.24 A Regional Vice-President shall, in respect of the region that he or she represents: a) monitor and help to coordinate the work of the Area Coordinators and constituency associations in their respective Regions; b) report to Executive Council on the political activity and other concerns within or affecting the region; c) communicate the decisions of Executive Council and Provincial Council to the Area Coordinators and Affiliated Association in the region; d) take all reasonable steps to ensure that there are sufficient capable candidates to serve as Area Coordinators for the region; e) perform any duty required of him or her by this Constitution; and, f) perform other duties that are assigned to him or her from time to time by the Executive Council.</li>
+</ul>

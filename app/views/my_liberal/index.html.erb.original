@@ -1,0 +1,40 @@
+<p>You're currently logged in as <span style="color:red;"><%= current_user.full_name%></span></p>
+<% if @bites_documents != nil && @bites_documents.length > 0 %>
+	<% @bites_documents.each do |document| %>
+		<% if document.image_name != nil && document.image_name.strip != "" %>
+			<%= link_to image_tag(document.image_name, :class => "frame grayscale"), '/News/' + document.id.to_s + '?l=' + @language %>
+		<% end %>
+		<div class="listh1"><%= link_to raw(document.headline), '/News/' + document.id.to_s + '?l=' + @language %></div>
+		<div class="listh2"><%= link_to raw(document.subtitle), '/News/' + document.id.to_s + '?l=' + @language %></div>
+		<div class="detail"><%= raw(document.introduction) %></div>
+		<div class="detail small last" style="display:block;"><span class="posted"><%= if @language == 'FR' then 'Publié' else 'Posted' end %>:&nbsp;</span><%= raw(localized_date_str(document.document_date, @language)) %></div>
+		<div style="display:block; clear:left; padding-bottom:3px; height:6px;">&nbsp;</div>
+	<% end %>
+<% end %>
+<p>Your riding is <%= current_user.riding.name %>, click <%= link_to 'here', 'http://' + @olp_passport_user_web_site_manager.r_str + '.ridingassociation.org', :target => '_blank' %> to visit your riding association web site.</p>
+<% if @local_pla_documents != nil && @local_pla_documents.length > 0 %>
+	<p>Local news from your riding association</p>
+	<% @local_pla_documents.each do |document| %>
+		<div class="listh1"><%= link_to raw(document.headline), 'http://' + @olp_passport_user_web_site_manager.r_str + '.ridingassociation.org/pNews/' + document.id.to_s + '?l=' + @language, :target => '_blank' %></div>
+		<div class="listh2"><%= link_to raw(document.subtitle), 'http://' + @olp_passport_user_web_site_manager.r_str + '.ridingassociation.org/pNews/' + document.id.to_s + '?l=' + @language, :target => '_blank' %></div>
+		<div class="detail small last" style="display:block;"><span class="posted"><%= if @language == 'FR' then 'Publié' else 'Posted' end %>:&nbsp;</span><%= raw(localized_date_str(document.document_date, @language)) %></div>
+		<div style="display:block; clear:left; padding-bottom:3px; height:6px;">&nbsp;</div>
+	<% end %>
+<% end %>
+<% if @olp_passport_user_web_site_manager.r_fsr %>
+	<p>Your MPP: <%= raw(@olp_passport_user_web_site_manager.m_nf + ' ' + @olp_passport_user_web_site_manager.m_nl) %>, click <%= link_to 'here', 'http://' + @olp_passport_user_web_site_manager.m_nf + @olp_passport_user_web_site_manager.m_nl + '.onmpp.ca', :target => '_blank' %> to visit your MPP web site.</p>
+	<% if @local_mpp_documents != nil && @local_mpp_documents.length > 0 %>
+		<p>Local news from your MPP</p>
+		<% @local_mpp_documents.each do |document| %>
+			<div class="listh1"><%= link_to raw(document.headline), 'http://' + @olp_passport_user_web_site_manager.m_nf + @olp_passport_user_web_site_manager.m_nl + '.onmpp.ca/mNews/' + document.id.to_s + '?l=' + @language, :target => '_blank' %></div>
+			<div class="listh2"><%= link_to raw(document.subtitle), 'http://' + @olp_passport_user_web_site_manager.m_nf + @olp_passport_user_web_site_manager.m_nl + '.onmpp.ca/mNews/' + document.id.to_s + '?l=' + @language, :target => '_blank' %></div>
+			<div class="detail small last" style="display:block;"><span class="posted"><%= if @language == 'FR' then 'Publié' else 'Posted' end %>:&nbsp;</span><%= raw(localized_date_str(document.document_date, @language)) %></div>
+			<div style="display:block; clear:left; padding-bottom:3px; height:6px;">&nbsp;</div>
+		<% end %>
+	<% end %>
+<% end %>
+<% form_tag do %>
+<%#= hidden_field_tag 'OlpPassportHidden', 'logout' %></p>
+<%#= submit_tag 'Logout', :class => "pure-button pure-button-active" %>
+<% end %>
+<p>Edit <%= link_to 'profile', '/Profile' %></p>

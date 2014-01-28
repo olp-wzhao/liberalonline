@@ -1,0 +1,50 @@
+<div id="inside_column_main" style="height:600px;">
+<div id="storywrapperlarge">
+<% if @enewssubscriber_form_result == nil %>
+    <%= form_tag do %>
+        <% if @language == 'FR' %>
+            <h1>Abonnez-vous à la cyberlettre</h1>
+            <p>Choisissez l'abonnement qui vous convient : recevez toutes nos cyberlettres, qui paraissent en fonction de l'actualité du moment, ou notre cyberlettre mensuelle seulement – un résumé des événements les plus marquants de la campagne électorale.</p>
+        <% else %>
+            <h1>Subscribe to newsletter</h1>
+            <p>Choose the frequency with which you'd like to be updated. Choose news as it happens for
+            alerts when news happens or recieve a monthly update recapping important developments.</p>
+        <% end %>
+        <div id="storywrappermedium">
+            <div class="enews_subscribe_form_clear"></div>
+            <div id="enews_subscribe_form_post">
+                <div class="enews_subscribe_form_post_filed">
+                    <p><%= if @language == 'FR' then 'Nom' else 'Name' end %></p>
+                    <%= text_field_tag 'enews_subscribe_form_tname', nil, :class => "rounded" %><br />
+                    <div class="enews_subscribe_form_clear"></div>
+		            <p class="formlabel"><%= if @language == 'FR' then 'Courriel' else 'Email' end %></p>
+                    <%= text_field_tag 'enews_subscribe_form_temail', nil, :class => "rounded" %><br />
+                    <div class="enews_subscribe_form_clear"></div>
+                    <div id="storywrappermedium">
+                        <p class="formlabel"><%= if @language == 'FR' then 'Abonnement' else 'Frequency' end %><br /></p>
+                        <p class="formlabel"><%= radio_button_tag 'enews_subscribe_form_rfrequency', 'daily', true, :class => "enews_subscribe_form_radiobutton" %>&nbsp;<%= if @language == 'FR' then 'Toutes les Cyberlettres' else 'News as it happens' end %></p>
+						<p class="formlabel"><%= radio_button_tag 'enews_subscribe_form_rfrequency', 'Report and Alert', false, :class => "enews_subscribe_form_radiobutton" %>&nbsp;<%= if @language == 'FR' then 'Cyberlettre mensuelle seulement' else 'Just monthly updates' end %></p>
+                        <div class="enews_subscribe_form_clear" style="padding-bottom:20px;"></div>
+                        <%= submit_tag (@language == 'FR' ? 'Envoyer' : 'Submit'), :id => "enews_subscribe_form_submit", :class => "enews_subscribe_form_submit" %>
+                    </div>
+                </div>
+            </div>
+        </div>
+    <% end %>
+<% else %>
+    <div class="enews_subscribe_form_projectstrip">
+        <%= if @language == 'FR' then 'Merci' else 'Thank you.' end %>
+    </div>
+    <%= form_tag do %>
+        <div class="enews_subscribe_form_clear"></div>
+        <div id="enews_subscribe_form_post">
+            <div class="enews_subscribe_form_post_filed">
+                <%= raw(@enewssubscriber_form_result.gsub("\n", "<br />")) %>
+                <div class="enews_subscribe_form_clear"></div>
+                <%= submit_tag 'Close', :id => "enews_subscribe_form_submit", :class => "enews_subscribe_form_submit" %>
+            </div>
+        </div>
+    <% end %>
+<% end %>
+</div>
+</div>

@@ -1,0 +1,78 @@
+<% content_for :header do %>
+<%= stylesheet_link_tag "/stylesheets/multimedia_" + @language.downcase + ".css" %>
+<%= javascript_include_tag "/javascripts/swfobject.js", "/javascripts/youtubevideo.js" %>
+<%= javascript_include_tag 'prototype' %>
+<%= stylesheet_link_tag "jQuery/fancybox/jquery.fancybox-1.3.0.css" %>
+<%= javascript_include_tag "jQuery/jquery-1.4.1.min", "jQuery/fancybox/jquery.mousewheel-3.0.2.pack", "jQuery/fancybox/jquery.fancybox-1.3.0.pack" %>
+<script type="text/javascript">
+	$(document).ready(function() {
+	  $("a[rel=featured_video]").fancybox({
+			'transitionIn'      : 'none',
+			'transitionOut'     : 'none',
+			'titlePosition'     : 'over',
+			'titleFormat'       : function(title, currentArray, currentIndex, currentOpts) {
+				return '<span id="fancybox-title-over">' + title + '</span>';
+			}
+		});
+	});
+</script>
+<% end %>
+
+<% content_for :enews_subscribe do %>
+<% end %>
+
+
+
+<div id="inside_column_main">
+<div id="storywrapperlarge">
+    <% if @video != nil %>
+		<div id="vidholder<%= @video.id.to_s %>x">
+			<div id="ytapiplayer">You need Flash player 8+ to view this video on the site. <a href="http://www.youtube.com/watch?v=<%= @video.video_uri %>" target="_blank">Watch here...</a></div>
+			<script type="text/javascript">
+				var params = { allowScriptAccess: "always" };
+				var atts = { id: "myytLibplayer'<%= @video.id.to_s %>'" };
+				swfobject.embedSWF("http://www.youtube.com/v/<%= @video.video_uri %>&amp;border=0&amp;autoplay=1&amp;enablejsapi=1&amp;playerapiid=ytplayer", "ytapiplayer", "560", "360", "8", null, null, params, atts);
+			</script>
+			<div class="clearer"></div>
+
+			<div class="videoinfo">
+				<div class="listh1 first"><%= raw(@video.title) %></div>
+				<p><%= raw(@video.summary) %></p>
+				<div class="date" style="padding-top:3px; padding-bottom:13px;"><span class="posted">Posted:&nbsp;</span><%= @video.created_date.strftime('%B %d, %Y %I:%M %p') %></div>
+			</div>
+			<br />
+			<br />
+		</div>
+		<div class="clearer"></div>
+		<% if @other_videos != nil && @other_videos.length > 0 %>
+			<div class="sectionheaderbig">	
+				<h1>&nbsp;</h1>
+				<h1>&nbsp;</h1>
+				<h2>Related provincial videos</h2>
+			</div>	
+			<% @other_videos.each do |other_video| %>
+				<% if other_video.id.to_s.eql?(@video.id.to_s) == false %>
+					<div id="vidholder<%= other_video.id.to_s %>" class="videocontainer">	
+						<div class="videoinfo">			
+							<p>&nbsp;</p>
+							<div class="vidthumb" style="background-image:url(http://i4.ytimg.com/vi/<%= other_video.video_uri %>/default.jpg)">
+								<a href=<%= "/videos/" + other_video.id.to_s %>>
+									<img src="/stylesheets/img/play.png" border="0" alt="" />
+								</a>
+							</div>
+							<div class="listh1">&nbsp;<%= raw(other_video.title) %></div>
+							<p>&nbsp;<%= raw(other_video.summary) %></p>
+		                	<div class="date" style="padding-top:3px;"><span class="posted">Posted:&nbsp;</span><%= other_video.created_date.strftime('%B %d, %Y %I:%M %p') %></div>
+				        </div>
+					</div>
+					<div class="clearer"></div>
+				<% end %>
+			<% end %>
+		<% end %>	
+	<% end %>	
+
+</div>
+</div>
+
+<div id="inside_column_three">
+</div>

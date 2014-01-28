@@ -1,0 +1,2 @@
+module MyLiberalHelper
+end

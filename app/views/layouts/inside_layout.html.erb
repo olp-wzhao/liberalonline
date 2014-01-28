@@ -1,0 +1,194 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<title>Ontario Liberal Party</title>
+<%= if @allow_google_index then raw('<META NAME="ROBOTS" CONTENT="INDEX, FOLLOW">') 
+else raw('<META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">') end %>
+
+<meta name="keywords" content="Ontario Liberal Party" />
+<meta name="description" content="Ontario Liberal Party" />
+
+<meta property="og:title" content="<%= raw(@web_site_og_title) %>" />
+<meta property="og:description" content="<%= raw(@web_site_og_description) %>" />
+<meta property="og:image" content="<%= raw(@web_site_og_image) %>" />
+<meta property="og:url" content="<%= raw('http://' + request.env['HTTP_HOST'].downcase + request.env['REQUEST_URI']) %>" />
+<meta property="og:type" content="politician" />
+<meta property="og:site_name" content="http://www.ontarioliberal.ca" />
+
+<meta property="fb:admins" content="100003812622252,686700080,552055122" />
+
+
+<link rel="stylesheet" href="/stylesheets/mgmenulib.css" type="text/css" media="screen" />
+<link href='http://fonts.googleapis.com/css?family=Oswald:400,700' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Droid+Sans:400,700' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Roboto+Condensed:400,700,300italic,300' rel='stylesheet' type='text/css'>
+
+<link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.2.1/pure-min.css">
+
+
+<link href="/stylesheets/backgroundA2_en.css" media="screen" rel="stylesheet" type="text/css" />
+<link href="/stylesheets/fontA2_en.css" media="screen" rel="stylesheet" type="text/css" />
+
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+<script type="text/javascript">var addthis_config = {"data_track_clickback":true};</script>
+<script type="text/javascript">
+    var addthis_config = {
+        pubid: "ra-5150c0b15241e409"
+    }
+</script>
+<script>
+    function googleTranslateElementInit() {
+        new google.translate.TranslateElement({
+            pageLanguage: 'en',
+            multilanguagePage: true
+        }, 'google_translate_element');
+    }
+</script>
+
+
+<script src="http://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+<script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js" charset="utf-8"></script>
+
+<script type="text/javascript">
+   var addthis_config = {
+      data_ga_property: '<%= @website_google_analytics_account %>',
+      data_track_clickback: true
+   };
+</script>
+
+<script src="http://flexslider.woothemes.com/js/modernizr.js"></script>
+<script type="text/javascript" src="/fancyapps-fancyBox-v2.1.5-0/lib/jquery-1.10.1.min.js"></script>
+<script src="/javascripts/mgmenu_plugins.js"></script><!-- Mega Menu Plugins -->
+<script src="/javascripts/mgmenu.js"></script><!-- Mega Menu Script -->
+<script>
+$(document).ready(function($){
+    $('#mgmenu1').universalMegaMenu({
+        menu_effect: 'hover_slide',
+        menu_speed_show: 300,
+        menu_speed_hide: 200,
+        menu_speed_delay: 200,
+        menu_click_outside: true,
+        menubar_trigger : false,
+        menubar_hide : false,
+        menu_responsive: true
+    });
+});
+</script>
+<%#= render "shared/menujs" %>
+<%= yield :header %>
+
+<!--
+<%= @url_str %>
+-->
+
+</head>
+
+<body>
+
+<div id="emailpopout" class="in">
+Where's this
+</div>
+
+
+<script>
+ $("#emailpopout").click(function(){
+     if($("#emailpopout").css('left') == '-240px'){
+       $("#emailpopout").stop().animate({left:'2px'},1000);
+     };
+     if($("#emailpopout").css('left') == '2px'){
+        $("#emailpopout").stop().animate({left:'-240px'},1000);
+     };
+ });
+</script>
+
+
+<!-- Facebook Discussion SDK - This is using MyLiberal App ID -->
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=539610256085770";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+
+
+<div id="bodywrapper1">
+<div class="wrapper">
+
+<%= render "shared/micromenu" %>
+
+<div id="socialmediaicons" class="nomobile">
+<ul>
+<li class="facebook"><a href="#" title="facebook" target="_blank"></a></li>
+<li class="twitter"><a href="#" title="twitter" target="_blank"></a></li>
+<li class="flickr"><a href="#" title="flickr" target="_blank"></a></li>
+<li class="youtube"><a href="#" title="youtube" target="_blank"></a></li>
+<li class="fred"><a href="http://www.fred.ca" title="fred" target="_blank"></a></li>
+<li class="linkedin"><a href="#" class="linkedin" target="_blank"></a></li>
+</ul>
+</div>
+
+<div style="clear:both; width:100%; display:block;">&nbsp;</div>
+
+<%= render "shared/menu" %>
+
+<div style="clear:both; margin-top:40px;">&nbsp;</div>
+
+<div class="maininside">
+    <%= yield %>
+	
+<div style="clear:both;">&nbsp;</div>
+
+</div><!-- closes .maininside -->
+
+
+<%= yield :column %>
+
+
+<div class="m_sidecolumn">
+This won't even be visible until browser width reaches 640 pixels.
+</div> <!-- closes .m_sidecolumn -->
+
+</div><!-- closes first .wrapper -->
+
+<div style="clear:both;">&nbsp;</div>
+
+<!--- opening the second wrapper to hold sitemenu and footer --->
+<div class="footerbg">
+<div class="wrapper">
+
+<%= render "shared/sitemenu" %>
+
+
+    <div id="footer" style="display:block; clear:both;">
+        <span class="defaultbody small reverse">
+        <%= label_tag 'label_footer',
+            if @language == 'FR'
+                'Copyright © 2013 Parti Libéral de l\'Ontario - Autorisé par le DF pour le Parti Libéral de l\'Ontario'
+            else
+                'Copyright © 2013 Ontario Liberal Party - Authorized by the CFO for the Ontario Liberal Party'
+            end
+          %>
+        </span>
+        <div id="google_translate_element"></div>
+
+    </div><!-- closes footer -->
+
+<div style="clear:both;">&nbsp;</div>
+
+</div> <!-- closes second wrapper -->
+
+</div> <!-- closes footerbg -->
+
+
+
+
+</div><!-- close bodywrapper1 -->
+
+
+</body>
+</html>

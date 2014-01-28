@@ -1,0 +1,17 @@
+%h1 Listing riding_addresses
+
+%table
+  %tr
+    %th
+    %th
+    %th
+
+  - @riding_addresses.each do |riding_address|
+    %tr
+      %td= link_to 'Show', riding_address
+      %td= link_to 'Edit', edit_riding_address_path(riding_address)
+      %td= link_to 'Destroy', riding_address, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Riding address', new_riding_address_path

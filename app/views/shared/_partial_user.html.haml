@@ -1,0 +1,41 @@
+- if !current_user.nil?
+    %p 
+        = current_user.first_name
+    %p 
+        = current_user.last_name
+    %p 
+        = current_user.address
+    %p 
+        = current_user.postal_code
+    %p 
+        = current_user.city
+    %p 
+        = current_user.phone_number
+    %p 
+        = current_user.email
+- else
+    = simple_fields_for :user do |u|
+        = u.input :email, :required => true, :autofocus => true
+        = u.input :first_name
+        = u.input :last_name
+        = u.input :address
+        = u.input :postal_code
+        #riding_box
+        = u.input :city
+        = u.input :phone_number, :size => 30
+        = u.input :birthday, as: :date, start_year: 1920, end_year: Date.today.year
+
+= content_for :scripts_for_body do
+    :javascript
+        $(document).ready(function(){
+          $('#user_email').blur( function() {
+            $.get("#{validate_user_url}", { email: $('#user_email').val() })
+          });
+
+          $("#user_postal_code").blur( function() {
+            $.getJSON("#{find_riding_url}", {search: $("#user_postal_code").val()})
+                .done(function(data){
+                    $("#riding_box").html(data.name);
+                });
+            });
+        });

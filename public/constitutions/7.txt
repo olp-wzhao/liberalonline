@@ -1,0 +1,41 @@
+<h4>Permanent and Special Committees</h4>
+<div class="maininside">
+<ul>
+<li>7.1 There shall be six permanent committees of Executive Council:
+<ul class="abclist">
+<li>a) Nominations Committee;</li>
+<li>b) Constitution Committee;</li>
+<li>c) Membership Committee;</li>
+<li>d) Finance Committee;</li>
+<li>e) Engagement Committee; and</li>
+<li>f) Policy Committee</li>
+</ul>
+</li>
+<li>7.2 As soon as practicable following an annual meeting, Executive Council shall appoint one member in good standing to be the Chair of each of the permanent committees.</li>
+<li>7.3 The Nominations Committee Chair shall appoint additional members, at least one (1) of whom shall be a woman and one (1) of whom shall be a man. The Nominations Committee shall endeavour to recruit candidates to stand for election to the Executive Council who reflect the diversity of Ontario.</li>
+<li>7.4 The Constitution Committee Chair shall appoint additional members, at least two (2) of whom shall be women and at least two (2) of whom shall be men. The Executive Council may direct the Constitution Committee to consider such aspects of the Constitution as it sees fit. The Constitution Committee shall also consider suggestions for amendments to the Constitution received from members of the Committee itself, or any member of the Party, or any recognized organization, committee or association of the Party. The Constitution Committee shall propose such amendments as it deems beneficial to the business of the Ontario Liberal Party.</li>
+<li>7.5 The Policy Committee shall be comprised of the following members:
+<ul class="abclist">
+<li>a)The Operational Vice - President (Policy), who shall be the Chair of the Committee;</li>
+<li>b) The President or his or her designate;</li>
+<li>c) The Chair of the Liberal Caucus;</li>
+<li>d) The President of the Ontario Young Liberals or his or her designate;</li>
+<li>e) The President of the Ontario Women&rsquo;s&rsquo; Liberal Commission or her designate;</li>
+<li>f) The Chair of the Platform Committee for the next forthcoming general election (if appointed);</li>
+<li>g) Each Regional Vice President or his or her designate;</li>
+<li>h) The Operational Vice-President (Engagement); and</li>
+<li>i) Such other members as may be appointed by the Operational Vice-President (Policy).</li>
+</ul>
+</li>
+<li>7.6 No person shall be the Chair of more than one permanent committee.</li>
+<li>7.7 Each permanent committee shall have a minimum of three (3) members who may be appointed by Executive Council in consultation with the Chair of the committee. The Chair of the Committee may appoint additional members.</li>
+<li>7.8 Executive Council may establish special committees from time to time as needed.</li>
+<li>7.9 Executive Council shall appoint a member in good standing to be the Chair of a special committee at the time it is established.</li>
+<li>7.10 Executive Council may direct the activities of the permanent committees and any special committees that it has established.</li>
+</ul>
+<h4>Ad Hoc Committees</h4>
+<ul>
+<li>7.11 Each Operational Vice-President may establish ad hoc committees from time to time as needed to assist with the organization and promotion of matters within his or her area of responsibility.</li>
+<li>7.12 An Operational Vice-President who establishes an ad hoc committee shall, at the time the committee is established, appoint a member in good standing to be Chair of the ad hoc committee.</li>
+</ul>
+</div>

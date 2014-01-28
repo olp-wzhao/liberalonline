@@ -1,0 +1,2 @@
+module LeaderHelper
+end

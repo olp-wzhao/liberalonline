@@ -1,0 +1,31 @@
+<h1>Contact Us</h1>
+
+       <h2 class="inpage">The Ontario Liberal Party</h2>
+       <p class="mobile"><a href="tel:1.800.268.7250">1.800.268.7250</a></p>
+	   <p class="nomobile">1.800.268.7250</p>
+       <p class="listp"> Fax: 416.323.9425</p>
+       <p class="listp"> info@ontarioliberal.ca </p>
+       <p class="listp"> 10 St. Mary Street Suite 210 </p>
+       <p class="listp"> Toronto, ON </p>
+       <p class="listp"> M4Y 1P9 </p>  
+
+
+    <h3><%= if @language == 'FR' then 'Dites-nous ce que vous en pensez' else 'We\'d love to hear from you!' end %></h3>
+
+    <%= form_tag do %>
+        <p><%= if @language == 'FR' then 'Prénom' else 'First Name' end %>:<p/>
+        <%= text_field_tag 'contactformfirstname', nil, :size => 50, :class => "rounded" %><br />
+        <p><%= if @language == 'FR' then 'Nom de famille' else 'Last Name' end %>:<p/>
+        <%= text_field_tag 'contactformlastname', nil, :size => 50, :class => "rounded" %><br />
+        <p><%= if @language == 'FR' then 'Courriel' else 'Email' end %>:<p/>
+        <%= text_field_tag 'contactformemail', nil, :size => 50, :class => "rounded" %><br />
+        <p><%= if @language == 'FR' then 'Phone' else 'Phone' end %>:<p/>
+        <%= text_field_tag 'contactformphone', nil, :size => 20, :class => "rounded" %><br />
+        <p><%= if @language == 'FR' then 'Postal Code' else 'Postal Code' end %>:<p/>
+        <%= text_field_tag 'contactformpostalcode', nil, :size => 10, :class => "rounded" %><br />
+        <p><%= if @language == 'FR' then 'Message' else 'Message' end %>:<p/>
+        <%= text_area_tag 'contactformmessage', nil, :rows => 10, :cols => 50, :class => "rounded" %><br />
+        <br /><br />
+        <%= submit_tag (@language == 'FR' ? 'Envoyer' : 'Submit'), :class => "contactform_submit_button" %><br />
+        <div class="defaultbody"><%= @submit_contact_form_error %></div>
+    <% end %>

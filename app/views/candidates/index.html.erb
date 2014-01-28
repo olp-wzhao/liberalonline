@@ -1,0 +1,51 @@
+<div id="inside_column_main">
+
+	<div class="sectionheaderbig">
+		<h1>Liberal Candidates</h1>
+	</div>
+
+<% if false %>
+
+
+	<div id="storywrapperlarge" style="margin-bottom:40px;">
+		<!------- HERE ARE THE CLASSES FOR THE DATA REPEATER -------->
+		<!------- DON'T FORGET THE FRAME CLASS ON IMG -------->
+		<% @web_site_managers.each do |web_site_manager| %>
+			<% if web_site_manager.c_fpes %>
+				<div class="last" style="height:auto; overflow:auto; margin-right:13px; float:left; width:340px; clear:right;">
+					<img src="http://pantone201.ca/webskins/vote/candidate_photos/<%= web_site_manager.r_id.to_s %>_thumbnail.jpg" class="frame" style="float:left;">
+					<div style="float:right; width:194px;">
+						<div class="listh1"><%= web_site_manager.c_nf %> <%= web_site_manager.c_nl %></div>
+						<div class="listh2"><%= raw(web_site_manager.r_name_en) %></div>
+						<p><%= raw(web_site_manager.c_nm) %></p>
+						<span class="tinynav"><a href="http://<%= web_site_manager.c_dl %>" target="_blank">website</a> | <a href="#">Bio</a></span>
+					</div>
+				</div>
+			<% end %>
+		<% end %>
+	</div>
+	
+	
+<% end %>
+
+
+	<div id="storywrapperlarge" style="margin-bottom:40px;">
+		<!------- HERE ARE THE CLASSES FOR THE DATA REPEATER -------->
+		<!------- DON'T FORGET THE FRAME CLASS ON IMG -------->
+		<% @web_site_managers.each do |web_site_manager| %>
+			<% if web_site_manager.c_fpes %>
+				<div style="margin-right:5px; float:left; width:330px;">
+					<img src="http://pantone201.ca/webskins/vote/candidate_photos/<%= web_site_manager.r_id.to_s %>_thumbnail.jpg" class="frame" style="float:left; margin-bottom:8px;">
+					<div style="float:left; width:140px; margin-left:20px;">
+						<h3 style="margin-top:40px; margin-bottom:0px; padding:0px;"><%= web_site_manager.c_nf %> <%= web_site_manager.c_nl %></h3>
+						<h4 style="margin-top:0px; padding:0px;"><%= raw(web_site_manager.r_name_en) %></h4>
+					</div>
+				</div>	
+			<% end %>
+		<% end %>
+	</div>
+
+
+
+
+</div>

@@ -1,0 +1,2 @@
+module PartyHistoryHelper
+end

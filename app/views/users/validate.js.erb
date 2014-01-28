@@ -1,0 +1,6 @@
+<% if @email_exists %>
+	$("#user_email").after('This email already exists');
+<% else %>
+	$("#user_email").after("");
+<% end %>
+

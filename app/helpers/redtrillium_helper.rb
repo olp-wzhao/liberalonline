@@ -1,0 +1,2 @@
+module RedtrilliumHelper
+end

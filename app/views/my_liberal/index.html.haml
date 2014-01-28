@@ -1,0 +1,58 @@
+= flash[:notice]
+%p
+  You're currently logged in as
+  %span{style: "color:red;"}= current_user.full_name
+- if @bites_documents != nil && @bites_documents.length > 0
+  - @bites_documents.each do |document|
+    - if document.image_name != nil && document.image_name.strip != ""
+      = link_to image_tag(document.image_name, :class => "frame grayscale"), '/news/' + document.id.to_s + '?l=' + @language
+    .listh1
+      = link_to raw(document.headline), '/news/' + document.id.to_s + '?l=' + @language
+    .listh2
+      = link_to raw(document.subtitle), '/news/' + document.id.to_s + '?l=' + @language
+    .detail
+      = raw(document.introduction)
+    .detail.small.last{style: "display:block;"}
+      %span.posted
+        = t(:posted)
+        \: 
+      = raw(localized_date_str(document.document_date, @language))
+    %div{style: "display:block; clear:left; padding-bottom:3px; height:6px;"}  
+%p
+  Your riding is #{current_user.riding.title}, click #{link_to 'here', 'http://' + current_user.riding.web_site_manager.r_str + '.ridingassociation.org', :target => '_blank'} to visit your riding association web site.
+- if @local_pla_documents != nil && @local_pla_documents.length > 0
+  %p Local news from your riding association
+  - @local_pla_documents.each do |document|
+    .listh1= link_to raw(document.headline), 'http://' + current_user.riding.web_site_manager.r_str + '.ridingassociation.org/pNews/' + document.id.to_s + '?l=' + @language, :target => '_blank'
+    .listh2= link_to raw(document.subtitle), 'http://' + current_user.riding.web_site_manager.r_str + '.ridingassociation.org/pNews/' + document.id.to_s + '?l=' + @language, :target => '_blank'
+    .detail.small.last{style: "display:block;"}
+      %span.posted
+        = t(:posted)
+        \: 
+      = raw(localized_date_str(document.document_date, @language))
+    %div{style: "display:block; clear:left; padding-bottom:3px; height:6px;"}  
+- if current_user.riding.web_site_manager.r_fsr
+  %p
+    Your MPP: 
+    - if current_user.riding.web_site_manager.m_nf?
+      = current_user.riding.web_site_manager.m_nf + current_user.riding.web_site_manager.m_nl
+      = link_to 'here', 'http://' + current_user.riding.web_site_manager.m_nf + current_user.riding.web_site_manager.m_nl + '.onmpp.ca', :target => '_blank' 
+    - else
+      = link_to 'complete your profile for more detailed information', edit_user_registration_url
+    
+    click to visit your MPP web site.
+  - if @local_mpp_documents != nil && @local_mpp_documents.length > 0
+    %p Local news from your MPP
+    - @local_mpp_documents.each do |document|
+      .listh1
+        = link_to raw(document.headline), 'http://' + current_user.riding.web_site_manager.m_nf + @current_user.riding.web_site_manager.m_nl + '.onmpp.ca/mNews/' + document.id.to_s + '?l=' + @language, :target => '_blank'
+      .listh2
+        = link_to raw(document.subtitle), 'http://' + current_user.riding.web_site_manager.m_nf + @current_user.riding.web_site_manager.m_nl + '.onmpp.ca/mNews/' + document.id.to_s + '?l=' + @language, :target => '_blank'
+      .detail.small.last{style: "display:block;"}
+        %span.posted
+          = t(:posted)
+          \: 
+        = raw(localized_date_str(document.document_date, @language))
+      %div{style: "display:block; clear:left; padding-bottom:3px; height:6px;"}  
+%p
+  Edit #{link_to 'profile', edit_user_registration_url}

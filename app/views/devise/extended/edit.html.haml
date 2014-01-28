@@ -1,0 +1,143 @@
+#inside_column_one{style: "margin-left:80px; margin-top:10px;"}
+  #storywrapperlarge
+    - if @volunteer_result == nil
+      %h1
+        You're Registered! Thanks #{raw(@olp_user.first_name + ' ' + @olp_user.last_name)}!
+      %br/
+      %p
+        Here is your information:
+        %br/
+        = raw(@olp_user.first_name + ' ' + @olp_user.last_name)
+        %br/
+        = if @olp_user.address != nil && @olp_user.address != '' then raw(@olp_user.address + '<br />') end
+        = if @olp_user.city != nil && @olp_user.city != '' then raw(@olp_user.city + '<br />') end
+        = if @olp_user.postal_code != nil && @olp_user.postal_code != '' then raw(@olp_user.postal_code + '<br />') end
+        = if @olp_user.phone_number != nil && @olp_user.phone_number != '' then raw(@olp_user.phone_number + '<br />') end
+        = raw(@olp_user.email)
+        %br/
+      %br/
+      %p{style: "width:420px;"} We’ll email you with some opportunities. But If you have a moment now, please help us by filling in your skills so we know how to maximize your skills.
+      %br/
+      %h2 Skills Survey
+      %br/
+      %p Campaigns will always need people to canvass and work the phones, but it doesn’t end there. If you’re interested in dedicating your special talents to a good cause you can start by letting us know what you’re good at - we may have some special projects for you to consider.
+      %br/
+      = simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put, :class => 'form-horizontal' }) do |f|
+        %h2 Arts and Creative
+        .defaultbody
+          = check_box_tag 'volunteerextended01', 'StillPhotography', @volunteer_extended_flag_01, :class => "volunteer_checkbox"
+           Still Photography
+        .defaultbody
+          = check_box_tag 'volunteerextended02', 'VideoProduction', @volunteer_extended_flag_02, :class => "volunteer_checkbox"
+           Video Production
+        .defaultbody
+          = check_box_tag 'volunteerextended03', 'GraphicDesign', @volunteer_extended_flag_03, :class => "volunteer_checkbox"
+           Graphic Design (RGD)
+        .defaultbody
+          = check_box_tag 'volunteerextended04', 'VoiceActingModelling', @volunteer_extended_flag_04, :class => "volunteer_checkbox"
+           Voice Acting/Modelling
+        .defaultbody
+          = check_box_tag 'volunteerextended05', 'SetDesign', @volunteer_extended_flag_05, :class => "volunteer_checkbox"
+           Set Design
+        .defaultbody
+          = check_box_tag 'volunteerextended06', 'ScreenwriterCopyWriter', @volunteer_extended_flag_06, :class => "volunteer_checkbox"
+           Screenwriter/Copy Writer
+        .defaultbody
+          = check_box_tag 'volunteerextended07', 'WebDesignHTML', @volunteer_extended_flag_07, :class => "volunteer_checkbox"
+           Web Design (HTML)
+        .defaultbody
+          = check_box_tag 'volunteerextended08', 'ComposerMusician', @volunteer_extended_flag_08, :class => "volunteer_checkbox"
+           Composer/Musician
+        .defaultbody
+          = check_box_tag 'volunteerextended09', 'MotionGraphics3DModelling', @volunteer_extended_flag_09, :class => "volunteer_checkbox"
+           Motion Graphics/3D Modelling
+        .defaultbody
+          = check_box_tag 'volunteerextended10', 'PhotoshopImageEditing', @volunteer_extended_flag_10, :class => "volunteer_checkbox"
+           Photoshop/Image Editing
+        %br/
+        %div{style: "clear:left; padding-top:20px; margin-top:20px; margin-bottom:200px;"}
+          %h2 Analysis and Information Technology
+          .defaultbody
+            = check_box_tag 'volunteerextended11', 'Datamininganalysisspss', @volunteer_extended_flag_11, :class => "volunteer_checkbox"
+             Data mining/analysis/spss
+          .defaultbody
+            = check_box_tag 'volunteerextended12', 'Processanalysis', @volunteer_extended_flag_12, :class => "volunteer_checkbox"
+             Process analysis
+          .defaultbody
+            = check_box_tag 'volunteerextended13', 'Programming', @volunteer_extended_flag_13, :class => "volunteer_checkbox"
+             Programming (VB, C#, Ruby etc...)
+          .defaultbody
+            = check_box_tag 'volunteerextended14', 'ArcViewGISmapping', @volunteer_extended_flag_14, :class => "volunteer_checkbox"
+             ArcView/GIS mapping
+          .defaultbody
+            = check_box_tag 'volunteerextended15', 'Excelandspreadsheets', @volunteer_extended_flag_15, :class => "volunteer_checkbox"
+             Excel and spreadsheets
+          .defaultbody
+            = check_box_tag 'volunteerextended16', 'EmailMarketingandexecution', @volunteer_extended_flag_16, :class => "volunteer_checkbox"
+             Email Marketing and execution
+          .defaultbody
+            = check_box_tag 'volunteerextended17', 'SQL', @volunteer_extended_flag_17, :class => "volunteer_checkbox"
+             SQL
+          %br/
+          %div{style: "clear:left; padding-top:20px; margin-top:20px; margin-bottom:200px;"}
+            %h2 Election Experience
+            .defaultbody
+              = check_box_tag 'volunteerextended21', 'TrainedonLibE', @volunteer_extended_flag_21, :class => "volunteer_checkbox"
+               Trained on LibE
+            .defaultbody
+              = check_box_tag 'volunteerextended22', 'Canvassing', @volunteer_extended_flag_22, :class => "volunteer_checkbox"
+               Canvassing
+            .defaultbody
+              = check_box_tag 'volunteerextended23', 'TrainedonLiberalist', @volunteer_extended_flag_23, :class => "volunteer_checkbox"
+               Trained on Liberalist
+            .defaultbody
+              = check_box_tag 'volunteerextended24', 'TelemarketingTeleresearch', @volunteer_extended_flag_24, :class => "volunteer_checkbox"
+               Telemarketing/Tele-research
+            .defaultbody
+              = check_box_tag 'volunteerextended25', 'CampaignManager', @volunteer_extended_flag_25, :class => "volunteer_checkbox"
+               Campaign Manager
+            .defaultbody
+              = check_box_tag 'volunteerextended26', 'Digitaladbuying', @volunteer_extended_flag_26, :class => "volunteer_checkbox"
+               Digital ad buying
+            %br/
+            %div{style: "clear:left; padding-top:20px; margin-top:20px; margin-bottom:200px;"}
+              %h2 Other
+              .defaultbody
+                = check_box_tag 'volunteerextended31', 'PrintingPrintAcquisition', @volunteer_extended_flag_31, :class => "volunteer_checkbox"
+                 Printing/Print Acquisition
+              .defaultbody
+                = check_box_tag 'volunteerextended32', 'Adbuying', @volunteer_extended_flag_32, :class => "volunteer_checkbox"
+                 Ad buying
+              .defaultbody
+                = check_box_tag 'volunteerextended33', 'Screen Printing', @volunteer_extended_flag_33, :class => "volunteer_checkbox"
+                 Screen Printing
+              .defaultbody
+                = check_box_tag 'volunteerextended34', 'Accounting', @volunteer_extended_flag_34, :class => "volunteer_checkbox"
+                 Accounting
+              %br/
+              %div{style: "clear:left; padding-top:20px; margin-top:20px; margin-bottom:200px;"}
+                %p If you have any physical limitations let us know, and better yet, let us know what we can do to accomodate you.
+                %p
+                = text_area_tag 'volunteerextended91', @physical_limitation, :rows => 3, :cols => 50, :class => "volunteer_textfield"
+                %br/
+                %br/
+                %div{style: "clear:left; padding-top:20px; margin-top:20px; margin-bottom:200px;"}
+                  %p If you posses a skill you think we’ve overlooked tell us about it
+                  %p
+                  = text_area_tag 'volunteerextended92', @skill_set_note, :rows => 3, :cols => 50, :class => "volunteer_textfield"
+                  %br/
+                  %p{style: "width: 1px; height: 1px; overflow: hidden;"}
+                    = text_field_tag 'volunteercommet', nil, :size => 30, :class => "volunteer_textfield"
+                    %br/
+                  %br/
+                  %div{style: "clear:left; padding-top:20px; margin-top:20px; margin-bottom:200px;"}
+                    = submit_tag (@language == 'FR' ? 'Envoyer' : 'Submit'), :class => "volunteer_submit_button"
+                    %br/
+                    .defaultbody= @submit_volunteer_error
+                  - else
+                    %h1
+                      = if @language == 'FR' then 'Merci' else 'Thank you' end
+                      \!
+                    %br/
+                    %p= raw(@volunteer_result.gsub("\n", "<br />"))
+                    %br/

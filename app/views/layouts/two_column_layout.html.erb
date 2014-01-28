@@ -1,0 +1,286 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<title>Ontario Liberal Party</title>
+<%= if @allow_google_index then raw('<META NAME="ROBOTS" CONTENT="INDEX, FOLLOW">') 
+else raw('<META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">') end %>
+
+<meta name="keywords" content="Ontario Liberal Party" />
+<meta name="description" content="Ontario Liberal Party" />
+
+<meta property="og:title" content="<%= raw(@web_site_og_title) %>" />
+<meta property="og:description" content="<%= raw(@web_site_og_description) %>" />
+<meta property="og:image" content="<%= raw(@web_site_og_image) %>" />
+<meta property="og:url" content="<%= raw('http://' + request.env['HTTP_HOST'].downcase + request.env['REQUEST_URI']) %>" />
+<meta property="og:type" content="politician" />
+<meta property="og:site_name" content="http://www.ontarioliberal.ca" />
+
+<meta property="fb:admins" content="100003812622252,686700080,552055122" />
+
+
+
+<link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.2.1/pure-min.css">
+
+
+
+<link href="/stylesheets/fonts.css" media="screen" rel="stylesheet" type="text/css" />
+<link href="/stylesheets/structure.css" media="screen" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="/stylesheets/mgmenulib.css" type="text/css" media="screen" />
+
+<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+<script src="http://bigspotteddog.github.io/ScrollToFixed/jquery-scrolltofixed-min.js"></script>
+
+<script type="text/javascript">var addthis_config = {"data_track_clickback":true};</script>
+<script type="text/javascript">
+    var addthis_config = {
+        pubid: "ra-5150c0b15241e409"
+    }
+</script>
+<script>
+    function googleTranslateElementInit() {
+        new google.translate.TranslateElement({
+            pageLanguage: 'en',
+            multilanguagePage: true
+        }, 'google_translate_element');
+    }
+</script>
+
+
+<script src="http://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+<script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js" charset="utf-8"></script>
+
+<script type="text/javascript">
+   var addthis_config = {
+      data_ga_property: '<%= @website_google_analytics_account %>',
+      data_track_clickback: true
+   };
+</script>
+
+<script src="http://flexslider.woothemes.com/js/modernizr.js"></script>
+<script type="text/javascript" src="/fancyapps-fancyBox-v2.1.5-0/lib/jquery-1.10.1.min.js"></script>
+<script src="/javascripts/mgmenu_plugins.js"></script><!-- Mega Menu Plugins -->
+<script src="/javascripts/mgmenu.js"></script><!-- Mega Menu Script -->
+<script>
+$(document).ready(function($){
+    $('#mgmenu1').universalMegaMenu({
+        menu_effect: 'hover_slide',
+        menu_speed_show: 300,
+        menu_speed_hide: 200,
+        menu_speed_delay: 200,
+        menu_click_outside: true,
+        menubar_trigger : false,
+        menubar_hide : false,
+        menu_responsive: true
+    });
+});
+</script>
+<%#= render "shared/menujs" %>
+<%= yield :header %>
+
+<!--
+<%= @url_str %>
+-->
+
+</head>
+
+<body>
+
+<div id="emailpopout" class="in">
+Where's this
+</div>
+
+
+<script>
+ $("#emailpopout").click(function(){
+     if($("#emailpopout").css('left') == '-240px'){
+       $("#emailpopout").stop().animate({left:'2px'},1000);
+     };
+     if($("#emailpopout").css('left') == '2px'){
+        $("#emailpopout").stop().animate({left:'-240px'},1000);
+     };
+ });
+</script>
+
+
+<!-- Facebook Discussion SDK - This is using MyLiberal App ID -->
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=539610256085770";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+
+
+<div class="container">
+
+
+
+This is where the micro menu and social networking icons go.
+  
+</div><div style="clear:both; width:100%; display:block;">&nbsp;</div>
+
+<div style="float:left; width:400px; margin-top:5px;"><img src="http://dev.olp.myliberal.org/images/logo-sm.png"></div>
+
+<!-- THE MENU STARTS HERE -->
+
+<%= render "shared/menu" %>
+
+
+<div id="pageimageholder">
+			  <div class="container">
+			        <div class="col-8">
+                      <h1>Lorem ipsum doloru</h1><h2>Sit amet justo</h2>
+					  <p>Leo sed sed pulvinar et magna id eget condimentum laborum vel suspendisse. Porttitor mattis aenean. Accumsan sed adipiscing. Amet penatibus rutrum vitae vehicula viverra amet nibh semper nunc libero tincidunt massa vitae sagittis urna consectetuer magna a diam parturient. Nec nec dolor. Venenatis purus quis. In turpis in. Officiis hic mauris lorem wisi maecenas.</p><h2>Velit sed eget donec placerat vestibulum</h2>
+					  <p>Orci id gravida per neque nibh. Nullam sit commodo tincidunt et diam vitae pharetra sed. Tempus sit sodales. Voluptatem wisi mattis inceptos tellus dolor rhoncus sed et eu turpis torquent ligula eu dui lorem nec accumsan platea lacinia ac. Non faucibus per sit in vehicula magna lacus deleniti. Tincidunt per aliquam. Vestibulum adipiscing laoreet eget eros commodo. Laoreet molestie a eros in nec sed justo venenatis. Eu lorem gravida. Nisl non a sociis convallis leo. Est nunc nisl porta dignissim turpis. Sapien sed nulla. Amet mi diam. Sem risus accumsan. Posuere viverra convallis. Est at netus. Tortor eget quam. Wisi nulla erat vestibulum tempor eu hendrerit vel dolor. Aliquam magnis sed etiam felis eros.</p><h2>Scelerisque in justo neque ultricies vel eget libero quam vitae metus ante nonummy amet augue</h2>
+					  <p>Velit tellus enim. Vitae et ultrices. Odio torquent ligula. Quam in a scelerisque malesuada non. Sem enim congue sed odio libero. Lacinia commodo feugiat sed nonummy lobortis erat maecenas vivamus. Lectus diam pede. Eget risus mauris. In dapibus libero suspendisse pellentesque urna. Id metus libero. Metus id accumsan curabitur id congue. Elementum diam placerat posuere vivamus felis. Arcu ante vestibulum. Orci ut ut magna nibh eu aliquam mi qui vel pretium nullam. Tellus ligula malesuada. Consequat id nulla. Feugiat suscipit ligula dolor amet congue urna etiam amet accumsan consequat distinctio natoque placerat nec. Eget lectus mauris molestie fusce dui. Vel consectetuer imperdiet tempus at sed. Proin aliquam nec. Ligula sit elit eget faucibus cras arcu in rhoncus. Lorem id integer. Vestibulum nec cum. Ligula aliquam tellus elit nisl lectus in diam tortor wisi mauris tempus.</p><p>Fermentum ipsum augue. Lectus in nunc vulputate tellus neque tortor erat cursus. Congue wisi enim. Nam eget dui auctor amet quis donec ipsum nibh. Nisl leo magna officia leo nibh.</p>
+					  <h2>Mollis in ornare</h2>
+					  <div id="toptrigger">#toptrigger</div>
+					  <p>Nec a ut. Ut nullam urna. Quis tortor mauris blandit non corrupti. Rutrum in at id dignissim dictum. Duis ac ornare parturient ultrices amet odio feugiat aenean cras mus pede. Praesent egestas netus. Urna esse pharetra commodi commodo curabitur. A lacinia sed etiam ut vel maxime platea porta odio mollis non nisl nulla nullam. Vitae impedit pulvinar.</p><h2>Sem velit maiores</h2>
+					  <p>Accumsan blandit ut. Varius velit ante. Leo tincidunt nulla lorem gravida nulla tempus volutpat donec phasellus aliquet nec. Sapien tempor id pharetra magna mi. Nunc fusce venenatis nam mi nam. Eget senectus convallis donec urna suscipit donec natoque lacinia rutrum lorem est adipiscing sed lectus. Dictumst faucibus ut. Vulputate sodales ipsum. Purus vehicula sed vestibulum eget integer.</p>
+					  <h2>Ut turpis tempor integer fusce bibendum sem ipsum rutrum</h2><p>Nec in nibh. A amet condimentum. Commodo fringilla amet sit ut quis. Facilisi ac a ut id morbi. Aut pretium orci donec dui vel risus eros amet quis ut molestiae. Molestie nulla sem vestibulum urna aptent aliquam etiam auctor. Erat eu duis. Imperdiet vestibulum ut. Nibh risus fusce viverra wisi lectus.</p>
+					  <h2>Sed curabitur ut vel condimentum fermentum a felis suspendisse</h2>
+					  <p>Neque lacus lorem ut massa lacinia. Amet nulla est. Vitae in vel turpis diam elit lacinia amet quis. Sem a in. Architecto magna sit vel vehicula elit ullam consectetuer non. Vel vulputate elit facilisis accumsan justo. Ridiculus pharetra fusce. A volutpat curabitur. Senectus amet in elementum ipsum ut sit eros tellus.</p>
+			
+					  <a href="#" class="button-white">Test Button</a>
+					  <div id="bottomtrigger">#bottomtrigger</div>
+					  <div id="col8picblocker">&nbsp;</div>
+					 </div>
+					 
+				     <div class="col-4 fixed">
+                       <p>Kathleen Wynne</p>
+				       <p>Party History</p>
+				       <p>MPPs</p>
+				       <p>Candidates</p>
+                     </div>
+					 
+					 
+
+			
+			  </div>
+</div>
+
+
+<%= render "shared/sitemenu" %>
+
+
+<div id="footertrigger">
+            &nbsp;
+        </div>
+		
+		
+
+
+        <div id="footertrigger">
+            &nbsp;
+        </div>
+		
+        <div id="footer">
+		 <div class="container">
+            <div class="col5"><h2>Sit amet justo</h2><p>Leo sed sed pulvinar et magna id eget condimentum laborum vel suspendisse.</p></div>
+			<div class="col5"><h2>Sit amet justo</h2><p>Leo sed sed pulvinar et magna id eget condimentum laborum vel suspendisse.</p></div>
+			<div class="col5"><h2>Sit amet justo</h2><p>Leo sed sed pulvinar et magna id eget condimentum laborum vel suspendisse.</p></div>
+			<div class="col5"><h2>Sit amet justo</h2><p>Leo sed sed pulvinar et magna id eget condimentum laborum vel suspendisse.</p></div>
+			<div class="col5"><h2>Sit amet justo</h2><p>Leo sed sed pulvinar et magna id eget condimentum laborum vel suspendisse.</p></div>
+		 </div>
+        </div>	
+
+		
+<script> 
+ 
+ 
+$(document).ready(function() {
+// this works -->   $('.col-4').scrollToFixed({ marginTop: 10, limit: $($('h2')[4]).offset().top });
+//  this works too -->  $('.col-4').scrollToFixed({ marginTop: 10, limit: $('#toptrigger').offset().top });
+//    var stickingpoint = $('.col-8').height()-700; // 700 is the height of col-4, the difference is the heightofdiv variable
+
+var stickingpoint = $('.col-8').height()-$('.col-4').height();
+$('.col-4').scrollToFixed({ marginTop: 10, limit: stickingpoint });
+	
+        $('#footertrigger').scrollToFixed( {
+            bottom: 0,
+            limit: $('#footertrigger').offset().top
+        });
+		
+$(function(){
+    $('.col-8').scroll(function() { 
+        if ($(this).scrollTop() === 332) { 
+            $(".col-4").fadeOut("slow"); 
+			alert("got to 332");
+        } 
+        else {     
+            $(".col-4").fadeIn('slow'); 
+        }  
+    });
+});		
+		
+		
+});	
+
+
+$('body').click(function(){
+    var scrollPost = $(document).scrollTop();
+    alert("You're scrolled to " + scrollPost);
+});
+
+</script>
+
+ <script>
+var $col4 = $('.col-4');
+var $toptrigger = $('#toptrigger');
+var $bottomtrigger = $('#bottomtrigger');
+var $col8 = $('.col-8');
+var top = $toptrigger.offset().top;
+var bottom = top + $bottomtrigger.height();
+
+var distancedown = $col8.offset().top;
+
+var bottomtriggerposition = $bottomtrigger.position();
+var toptriggerposition = $toptrigger.position();
+var col4scrollposition = $col4.position();
+
+// var vanishingpoint = $(".col-8").height($(".col-4").height(), 10);
+var footerstart = $('#footer').offset().top;
+
+
+
+  </script>
+  
+  
+<script src="http://pantone201.ca/webskins/newolp/javascript/mgmenu_plugins.js"></script><!-- Mega Menu Plugins -->
+<script src="http://pantone201.ca/webskins/newolp/javascript/mgmenu.js"></script><!-- Mega Menu Script -->
+<script>
+$(document).ready(function($){
+    $('#mgmenu1').universalMegaMenu({
+        menu_effect: 'hover_slide',
+        menu_speed_show: 300,
+        menu_speed_hide: 200,
+        menu_speed_delay: 200,
+        menu_click_outside: true,
+        menubar_trigger : false,
+        menubar_hide : false,
+        menu_responsive: true
+    });
+});
+</script>
+
+<script>
+window.onload = choosePic;
+
+var myPix = new Array("wynne_1.png", "wynne_2.png", "wynne_3.png");
+
+function choosePic() {
+    var randomNum = Math.floor((Math.random() * myPix.length));
+    document.getElementById("pageimageholder").style.backgroundImage =
+        "url(" + myPix[randomNum] + ")";
+}
+</script>
+  
+</body>
+
+
+
+</html>

@@ -1,0 +1,65 @@
+<div id="inside_column_one" style="min-height:700px;">
+<div id="storywrapperlarge">
+<h1>Create an Account</h1>
+<p>Sign up for your Ontario Liberal passport. <br>Or click <%= link_to 'here to retrieve password »', '/Password' %></p>
+<% if @olp_user_register_form_result != nil && @olp_user_register_form_result.eql?('') == false %>
+	<p><%= raw(@olp_user_register_form_result) %></p>
+<% end %>
+<p>&nbsp;</p>
+<% if cookies[:OlpPassportKey] == nil || cookies[:OlpPassportKey].strip == '' %>
+	<% form_tag do %>
+	<p>
+	Email:<br />
+	<%= text_field_tag 'OlpPassportEmail', @olp_passport_email, :size => 30, :class => "rounded" %>
+	<% if @is_missing_email && @olp_user_register_form_result != nil %><font color = "F00">*</font><% end %>
+	</p>
+	<p>
+	Password:<br />
+	<%= password_field_tag 'OlpPassportPassword1', nil, :size => 30, :class => "rounded" %>
+	<% if @is_missing_password1 && @olp_user_register_form_result != nil %><font color = "F00">*</font><% end %>
+	</p>
+	<p>
+	Retype Password:<br />
+	<%= password_field_tag 'OlpPassportPassword2', nil, :size => 30, :class => "rounded" %>
+	<% if @is_missing_password2 && @olp_user_register_form_result != nil %><font color = "F00">*</font><% end %>
+	</p>
+	<p>&nbsp;</p>
+	<p>
+	First Name:<br />
+	<%= text_field_tag 'OlpPassportFname', @olp_passport_fname, :size => 30, :class => "rounded" %>
+	</p>
+	<p>
+	Last Name:<br />
+	<%= text_field_tag 'OlpPassportLname', @olp_passport_lname, :size => 30, :class => "rounded" %>
+	</p>
+	<p>
+	Address:<br />
+	<%= text_field_tag 'OlpPassportAddress', @olp_passport_address, :size => 80, :class => "rounded" %>
+	</p>
+	<p>
+	City:<br />
+	<%= text_field_tag 'OlpPassportCity', @olp_passport_city, :size => 20, :class => "rounded" %>
+	</p>
+	<p>
+	Date of birth:<br />
+	<%= select_tag 'OlpPassportDobDay', options_for_select(1..31, @olp_passport_dob_day) %>
+	<%= select_tag 'OlpPassportDobMonth', options_for_select(["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"], @olp_passport_dob_month_str) %>
+	<%= select_tag 'OlpPassportDobYear', options_for_select(1900..2013, @olp_passport_dob_year) %>
+	</p>
+	<p style="width: 1px; height: 1px; overflow: hidden;">
+	<%= text_field_tag 'OlpPassportComment', nil, :size => 90, :class => "rounded" %><br />
+	</p>
+	<%= submit_tag 'Create Account', :class => "pure-button pure-button-active" %>
+	<% end %>
+	<p>&nbsp;</p>
+	<p>Already have an account? <%= link_to 'Log In »', '/Login' %></p>
+<% else %>
+	<p>Welcome <%= @olp_passport_user.first_name %>!</p>
+	<p><%= link_to 'Take some time to fill your profile »', '/Profile' %></p>
+	<% form_tag do %>
+	<%#= hidden_field_tag 'OlpPassportHidden', 'logout' %></p>
+	<%#= submit_tag 'Logout', :class => "olp_passport_submit_button" %>
+	<% end %>
+<% end %>
+</div>
+</div>

@@ -1,0 +1,15 @@
+<% if @is_missing_email %>
+<h1>Resend Log in Information</h1>
+
+	<% form_tag do %>
+	<p>Email:<br />
+	<%= text_field_tag 'OlpPassportEmail', nil, :size => 30, :class => "rounded" %></p>
+	<p>&nbsp;</p>
+	<%= submit_tag 'Submit', :class => "pure-button pure-button-active" %>
+	<% end %>
+	<p><%= link_to 'Login »', '/Login' %></p>
+<% else %>
+<h1>Check your Inbox!</h1>
+	<p><%= raw(@olp_passport_user_password_form_result) %> </p>
+	<p><%= link_to 'Retrieve password »', '/Password' %> | <%= link_to 'Login »', '/Login' %></p>
+<% end %>

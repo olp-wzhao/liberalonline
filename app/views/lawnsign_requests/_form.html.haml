@@ -1,0 +1,9 @@
+= simple_form_for(@lawnsign_request) do |f|
+  = render 'shared/partial_user', user: :user
+  = f.collection_radio_buttons :sign_size_large, [[true, t(:large)], [false, t(:normal)]], :first, :last, :class => "lawnsign_radiobutton"
+  %p
+    = t(:lawnsign_instructions)
+  %p
+  = f.input :message, :rows => 10, :cols => 50, :class => "lawnsign_textarea"
+  %br/
+  = f.button :submit

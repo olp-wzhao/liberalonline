@@ -1,0 +1,64 @@
+#inside_column_one{style: "margin-left:80px; margin-top:10px;"}
+  #storywrapperlarge
+= simple_form_for(@volunteer, :html => {:class => 'form-horizontal' }) do |f|
+  %h2 Arts and Creative
+  
+  = f.input :still_photography
+  = f.input :video_production
+  = f.input :graphic_design
+  = f.input :voice_acting
+  = f.input :set_design
+  = f.input :screenwriter
+  = f.input :web_design
+  = f.input :composer
+  = f.input :motion_graphics
+
+  %div{style: "clear:left; padding-top:20px; margin-top:20px; margin-bottom:200px;"}
+    %h2 Analysis and Information Technology
+    
+    = f.input :data_mining
+    = f.input :process_analysis
+    = f.input :programming
+    = f.input :arc_view
+    = f.input :excel
+    = f.input :email_marketing
+    = f.input :sql
+
+  %div{style: "clear:left; padding-top:20px; margin-top:20px; margin-bottom:200px;"}
+    %h2 Election Experience
+
+    = f.input :trained_on_libe
+    = f.input :canvassing
+    = f.input :trained_on_liberalist
+    = f.input :telemarketing
+    = f.input :campaign_manager
+    = f.input :digital_ad_buying
+
+  %div{style: "clear:left; padding-top:20px; margin-top:20px; margin-bottom:200px;"}
+    %h2 Other
+
+    = f.input :printing
+    = f.input :ad_buying
+    = f.input :screen_printing
+    = f.input :accounting
+
+  %div{style: "clear:left; padding-top:20px; margin-top:20px; margin-bottom:200px;"}
+    %p If you have any physical limitations let us know, and better yet, let us know what we can do to accomodate you.
+    %p
+    = f.input :physical_limitation, as: :text, :rows => 3, :cols => 50, :class => "volunteer_textfield"
+    %br/
+    %br/
+
+  %div{style: "clear:left; padding-top:20px; margin-top:20px; margin-bottom:200px;"}
+    %p If you posses a skill you think we’ve overlooked tell us about it
+    %p
+    =f.input :skill_set_note, as: :text, :rows => 3, :cols => 50, :class => "volunteer_textfield"
+    %br/
+    %p{style: "width: 1px; height: 1px; overflow: hidden;"}
+      = f.input :comment, as: :text, :size => 30, :class => "volunteer_textfield"
+      %br/
+    %br/
+  %div{style: "clear:left; padding-top:20px; margin-top:20px; margin-bottom:200px;"}
+    = f.button :submit
+    %br/
+    .defaultbody= @submit_volunteer_error

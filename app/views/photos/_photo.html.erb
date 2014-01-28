@@ -1,0 +1,6 @@
+ <%= link_to image_tag("http://pantone201.ca/webskins/olp/photos/Thumbnails/" + @photos[i-1].temp_id.to_s + "_" + @photos[i-1].riding_id.to_s + @photos[i-1].filename.to_s + "_Thumbnail.jpg", :class => "frame",:border => "0", :alt => if @language == 'FR' then 'Cliquez pour voir la photo...' else 'Click to view...' end),
+                            "http://pantone201.ca/webskins/olp/photos/" + @photos[i-1].temp_id.to_s + "_" + @photos[i-1].riding_id.to_s + @photos[i-1].filename.to_s + "_PhotoUp.jpg",
+                            :rel => "media-gallery",
+                            :class => "fancybox",
+                            :title => raw(if @language == "FR" then @photos[i-1].caption_fr else @photos[i-1].caption_en end)
+                %>

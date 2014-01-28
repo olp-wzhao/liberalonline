@@ -1,0 +1,38 @@
+<% if @olp_passport_user == nil %>
+	<h1>Please Log In</h1>
+	<p>&nbsp;</p>
+	<% if @olp_passport_user_form_result != nil && @olp_passport_user_form_result.eql?('') == false %>
+		<p><%= raw(@olp_passport_user_form_result) %></p>
+	<% end %>
+	
+	<% form_tag do %>
+	<p>Email:<br />
+	<%= text_field_tag 'OlpPassportEmail', nil, :size => 30, :class => "rounded" %></p>
+	<p>Password:<br />
+	<%= password_field_tag 'OlpPassportPassword', nil, :size => 30, :class => "rounded" %></p>
+	<%= submit_tag 'Login', :class => "pure-button pure-button-active" %>
+	<% end %>
+	<p>&nbsp;</p>
+	<p>Don't have an account yet? <%= link_to 'Create an account »', '/register' %></p>
+	<p>Forgot password? <%= link_to 'Retrieve your password »', '/password' %></p>
+<% else %>
+	<%#= view will not present, redirect to /MyLiberal %>
+	<p>You're currently logged in as <span style="color:red;"><%= link_to raw(@olp_passport_user.first_name + ' ' + @olp_passport_user.last_name), '/Profile' %></span></p>
+	<% if @bites_documents != nil && @bites_documents.length > 0 %>
+		<% @bites_documents.each do |document| %>
+			<% if document.image_name != nil && document.image_name.strip != "" %>
+				<%= link_to image_tag(document.image_name, :class => "frame grayscale"), '/News/' + document.id.to_s + '?l=' + @language %>
+			<% end %>
+			<div class="listh1"><%= link_to raw(document.headline), '/news/' + document.id.to_s + '?l=' + @language %></div>
+			<div class="listh2"><%= link_to raw(document.subtitle), '/news/' + document.id.to_s + '?l=' + @language %></div>
+			<div class="detail"><%= raw(document.introduction) %></div>
+			<div class="detail small last" style="display:block;"><span class="posted"><%= if @language == 'FR' then 'Publié' else 'Posted' end %>:&nbsp;</span><%= raw(localized_date_str(document.document_date, @language)) %></div>
+			<div style="display:block; clear:left; padding-bottom:3px; height:6px;">&nbsp;</div>
+		<% end %>
+	<% end %>
+	<% form_tag do %>
+	<%#= hidden_field_tag 'OlpPassportHidden', 'logout' %></p>
+	<%#= submit_tag 'Logout', :class => "pure-button pure-button-active" %>
+	<% end %>
+	<p>Edit <%= link_to 'profile', '/profile' %></p>
+<% end %>

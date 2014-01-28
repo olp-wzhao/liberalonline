@@ -1,0 +1,145 @@
+<script src="http://www.tectual.com.au/downloads/jquery/editable/jquery.editable-1.0.1.js"></script>
+
+<div id="inside_column_one" style="margin-left:80px; margin-top:10px;">
+<div id="storywrapperlarge">
+<% if current_user %>
+	<h1><%= if @language == 'FR' then 'Profile' else 'Profile' end %></h1>
+	<br />
+	<p><%= raw(@olp_passport_user_profile_form_result) %></p>
+	<br />
+	<% form_tag do %>
+		<!-- <p><%= if @language == 'FR' then 'Prénom :' else 'First Name:' end %><p/>-->
+		<%= text_field_tag 'OlpPassportFname', current_user.first_name, :size => 50, :class => "rounded" %><br />
+		<!-- <p><%= if @language == 'FR' then 'Nom de famille :' else 'Last Name:' end %><p/>-->
+		<%= text_field_tag 'OlpPassportLname', current_user.last_name, :size => 50, :class => "rounded" %><br />
+		<!-- <p><%= if @language == 'FR' then 'Courriel :' else 'Email:' end %><p/> -->	
+	    <%= text_field_tag 'OlpPassportEmail', current_user.email, :size => 30, :disabled  => true, :class => "rounded" %><br />
+		<!-- <p><%= if @language == 'FR' then 'Adresse :' else 'Address:' end %><p/>-->
+		<%= text_field_tag 'OlpPassportAddress', current_user.address, :size => 50, :class => "rounded" %><br />
+		<!-- <p><%= if @language == 'FR' then 'Code postal :' else 'Postal Code:' end %><p/>-->
+		<%= text_field_tag 'OlpPassportPostalCode', current_user.postal_code, :size => 20, :class => "rounded" %><br />
+		<!-- <p><%= if @language == 'FR' then 'Ville :' else 'City:' end %><p/>-->
+		<%= text_field_tag 'OlpPassportCity', current_user.city, :size => 30, :class => "rounded" %><br />
+		<!-- <p><%= if @language == 'FR' then 'Numéro de téléphone :' else 'Phone Number:' end %><p/>-->
+		<%= text_field_tag 'OlpPassportPhoneNumber', current_user.phone_number, :size => 30, :class => "rounded" %><br />
+
+
+
+<h2>Activity</h2>
+<%= raw(current_user.first_name) %><%= raw(current_user.last_name) %>
+
+		<p style="width: 1px; height: 1px; overflow: hidden;">
+		<%= text_field_tag 'OlpPassportCommet', nil, :size => 30, :class => "rounded" %><br />
+		</p>
+
+		<br />
+		
+		<div style="clear:left; padding-top:20px; margin-top:20px; margin-bottom:200px;">
+
+		<h2><%= if @language == 'FR' then 'Ma préférence :' else 'Interested in:' end %></h2><br />
+		<div style="float:left;">
+			<div class="defaultbody"><%= check_box_tag 'OlpPassportCanvassing', 'canvassing', current_user.canvassing, :class => "OlpPassportCheckbox" %>&nbsp;<%= if @language == 'FR' then 'Porte à porte' else 'Canvassing' end %></div>
+			<div class="defaultbody"><%= check_box_tag 'OlpPassportSignCrew', 'sign_crew', current_user.sign_crew, :class => "OlpPassportCheckbox" %>&nbsp;<%= if @language == 'FR' then "Équipe d'enseignes" else 'Sign Crew' end %></div>
+			<div class="defaultbody"><%= check_box_tag 'OlpPassportDroppingLiterature', 'dropping_literature', current_user.dropping_literature, :class => "OlpPassportCheckbox" %>&nbsp;<%= if @language == 'FR' then 'Distribuer des circulaires' else 'Dropping Literature' end %></div>
+			<div class="defaultbody"><%= check_box_tag 'OlpPassportOfficeWork', 'office_work', current_user.office_work, :class => "OlpPassportCheckbox" %>&nbsp;<%= if @language == 'FR' then 'Travail de bureau' else 'Office Work' end %></div>
+		</div>
+		<div style="float:left; margin-left:20px;">
+			<div class="defaultbody"><%= check_box_tag 'OlpPassportElectionDay', 'election_day', current_user.election_day, :class => "OlpPassportCheckbox" %>&nbsp;<%= if @language == 'FR' then "Jour de l'élection" else 'Election Day' end %></div>
+			<div class="defaultbody"><%= check_box_tag 'OlpPassportDriver', 'driver', current_user.driver, :class => "OlpPassportCheckbox" %>&nbsp;<%= if @language == 'FR' then 'Conductrice/Conducteur' else 'Driver' end %></div>
+			<div class="defaultbody"><%= check_box_tag 'OlpPassportScrutineer', 'scrutineer', current_user.scrutineer, :class => "OlpPassportCheckbox" %>&nbsp;<%= if @language == 'FR' then 'Scrutatrice/Scrutateur' else 'Scrutineer' end %></div>
+			<div class="defaultbody"><%= check_box_tag 'OlpPassportLocalCaptain', 'local_captain', current_user.local_captain, :class => "OlpPassportCheckbox" %>&nbsp;<%= if @language == 'FR' then 'Français:Local Captain' else 'Local Captain' end %></div>
+		</div>
+
+		<br />
+		<div style="clear:left; padding-top:20px; margin-top:20px; margin-bottom:200px;">
+	
+		<h2><%= if @language == 'FR' then 'Disponibilité' else 'Availability' end %>:</h2><br />
+		<div style="float:left;">
+			<div class="defaultbody"><%= check_box_tag 'OlpPassportAvailabilityWeekdays', 'weekdays', current_user.availability_weekdays, :class => "OlpPassportCheckbox" %>&nbsp;<%= if @language == 'FR' then 'Le jour' else 'Weekdays' end %></div>
+			<div class="defaultbody"><%= check_box_tag 'OlpPassportAvailabilityWeeknights', 'weeknights', current_user.availability_weeknights, :class => "OlpPassportCheckbox" %>&nbsp;<%= if @language == 'FR' then 'Soirée' else 'Weeknights' end %></div>
+			<div class="defaultbody"><%= check_box_tag 'OlpPassportAvailabilityWeekends', 'weekends', current_user.availability_weekends, :class => "OlpPassportCheckbox" %>&nbsp;<%= if @language == 'FR' then 'Fin de semaine' else 'Weekends' end %></div>
+		</div>
+		
+		<br />
+		<div style="clear:left; padding-top:20px; margin-top:20px; margin-bottom:200px;">
+		
+		<h2>Arts and Creative</h2>
+		<div style="float:left;">
+			<div class="defaultbody"><%= check_box_tag 'volunteerextended01', 'StillPhotography', @volunteer_extended_flag_01, :class => "volunteer_checkbox" %>&nbsp;Still Photography</div>
+			<div class="defaultbody"><%= check_box_tag 'volunteerextended02', 'VideoProduction', @volunteer_extended_flag_02, :class => "volunteer_checkbox" %>&nbsp;Video Production</div>
+			<div class="defaultbody"><%= check_box_tag 'volunteerextended03', 'GraphicDesign', @volunteer_extended_flag_03, :class => "volunteer_checkbox" %>&nbsp;Graphic Design (RGD)</div>
+			<div class="defaultbody"><%= check_box_tag 'volunteerextended04', 'VoiceActingModelling', @volunteer_extended_flag_04, :class => "volunteer_checkbox" %>&nbsp;Voice Acting/Modelling</div>
+			<div class="defaultbody"><%= check_box_tag 'volunteerextended05', 'SetDesign', @volunteer_extended_flag_05, :class => "volunteer_checkbox" %>&nbsp;Set Design</div>
+			<div class="defaultbody"><%= check_box_tag 'volunteerextended06', 'ScreenwriterCopyWriter', @volunteer_extended_flag_06, :class => "volunteer_checkbox" %>&nbsp;Screenwriter/Copy Writer</div>
+			<div class="defaultbody"><%= check_box_tag 'volunteerextended07', 'WebDesignHTML', @volunteer_extended_flag_07, :class => "volunteer_checkbox" %>&nbsp;Web Design (HTML)</div>
+			<div class="defaultbody"><%= check_box_tag 'volunteerextended08', 'ComposerMusician', @volunteer_extended_flag_08, :class => "volunteer_checkbox" %>&nbsp;Composer/Musician</div>
+			<div class="defaultbody"><%= check_box_tag 'volunteerextended09', 'MotionGraphics3DModelling', @volunteer_extended_flag_09, :class => "volunteer_checkbox" %>&nbsp;Motion Graphics/3D Modelling</div>
+			<div class="defaultbody"><%= check_box_tag 'volunteerextended10', 'PhotoshopImageEditing', @volunteer_extended_flag_10, :class => "volunteer_checkbox" %>&nbsp;Photoshop/Image Editing</div>
+		</div>
+
+		<br />
+		<div style="clear:left; padding-top:20px; margin-top:20px; margin-bottom:200px;">
+
+		<h2>Analysis and Information Technology</h2>
+		<div style="float:left;">
+			<div class="defaultbody"><%= check_box_tag 'volunteerextended11', 'Datamininganalysisspss', @volunteer_extended_flag_11, :class => "volunteer_checkbox" %>&nbsp;Data mining/analysis/spss</div>
+			<div class="defaultbody"><%= check_box_tag 'volunteerextended12', 'Processanalysis', @volunteer_extended_flag_12, :class => "volunteer_checkbox" %>&nbsp;Process analysis</div>
+			<div class="defaultbody"><%= check_box_tag 'volunteerextended13', 'Programming', @volunteer_extended_flag_13, :class => "volunteer_checkbox" %>&nbsp;Programming (VB, C#, Ruby etc...)</div>
+			<div class="defaultbody"><%= check_box_tag 'volunteerextended14', 'ArcViewGISmapping', @volunteer_extended_flag_14, :class => "volunteer_checkbox" %>&nbsp;ArcView/GIS mapping</div>
+			<div class="defaultbody"><%= check_box_tag 'volunteerextended15', 'Excelandspreadsheets', @volunteer_extended_flag_15, :class => "volunteer_checkbox" %>&nbsp;Excel and spreadsheets</div>
+			<div class="defaultbody"><%= check_box_tag 'volunteerextended16', 'EmailMarketingandexecution', @volunteer_extended_flag_16, :class => "volunteer_checkbox" %>&nbsp;Email Marketing and execution</div>
+			<div class="defaultbody"><%= check_box_tag 'volunteerextended17', 'SQL', @volunteer_extended_flag_17, :class => "volunteer_checkbox" %>&nbsp;SQL</div>
+		</div>
+
+		<br />
+		<div style="clear:left; padding-top:20px; margin-top:20px; margin-bottom:200px;">
+
+		<h2>Election Experience</h2>
+		<div style="float:left;">
+			<div class="defaultbody"><%= check_box_tag 'volunteerextended21', 'TrainedonLibE', @volunteer_extended_flag_21, :class => "volunteer_checkbox" %>&nbsp;Trained on LibE</div>
+			<div class="defaultbody"><%= check_box_tag 'volunteerextended22', 'Canvassing', @volunteer_extended_flag_22, :class => "volunteer_checkbox" %>&nbsp;Canvassing</div>
+			<div class="defaultbody"><%= check_box_tag 'volunteerextended23', 'TrainedonLiberalist', @volunteer_extended_flag_23, :class => "volunteer_checkbox" %>&nbsp;Trained on Liberalist</div>
+			<div class="defaultbody"><%= check_box_tag 'volunteerextended24', 'TelemarketingTeleresearch', @volunteer_extended_flag_24, :class => "volunteer_checkbox" %>&nbsp;Telemarketing/Tele-research</div>
+			<div class="defaultbody"><%= check_box_tag 'volunteerextended25', 'CampaignManager', @volunteer_extended_flag_25, :class => "volunteer_checkbox" %>&nbsp;Campaign Manager</div>
+			<div class="defaultbody"><%= check_box_tag 'volunteerextended26', 'Digitaladbuying', @volunteer_extended_flag_26, :class => "volunteer_checkbox" %>&nbsp;Digital ad buying</div>
+		</div>
+
+		<br />
+		<div style="clear:left; padding-top:20px; margin-top:20px; margin-bottom:200px;">
+
+		<h2>Other</h2>
+		<div style="float:left;">
+			<div class="defaultbody"><%= check_box_tag 'volunteerextended31', 'PrintingPrintAcquisition', @volunteer_extended_flag_31, :class => "volunteer_checkbox" %>&nbsp;Printing/Print Acquisition</div>
+			<div class="defaultbody"><%= check_box_tag 'volunteerextended32', 'Adbuying', @volunteer_extended_flag_32, :class => "volunteer_checkbox" %>&nbsp;Ad buying</div>
+			<div class="defaultbody"><%= check_box_tag 'volunteerextended33', 'Screen Printing', @volunteer_extended_flag_33, :class => "volunteer_checkbox" %>&nbsp;Screen Printing</div>
+			<div class="defaultbody"><%= check_box_tag 'volunteerextended34', 'Accounting', @volunteer_extended_flag_34, :class => "volunteer_checkbox" %>&nbsp;Accounting</div>
+		</div>
+
+		<br />
+		<div style="clear:left; padding-top:20px; margin-top:20px; margin-bottom:200px;">
+		
+		<p>If you have any physical limitations let us know, and better yet, let us know what we can do to accomodate you. <p/>
+        <%= text_area_tag 'volunteerextended91', @physical_limitation, :rows => 3, :cols => 50, :class => "volunteer_textfield" %><br />
+
+		<br />
+
+		<p>If you posses a skill you think we’ve overlooked tell us about it<p/>
+        <%= text_area_tag 'volunteerextended92', @skill_set_note, :rows => 3, :cols => 50, :class => "volunteer_textfield" %><br />
+
+		<p style="width: 1px; height: 1px; overflow: hidden;">
+		<%= text_field_tag 'volunteercommet', nil, :size => 30, :class => "volunteer_textfield" %><br />
+		</p>
+		
+		<div style="clear:left; padding-top:20px; margin-top:20px; margin-bottom:200px;">
+		<%= submit_tag (@language == 'FR' ? 'Envoyer' : 'Submit'), :class => "OlpPassportSubmitButton" %><br />
+		<div class="defaultbody"><%= @OlpPassportSubmitError %></div>
+		</div>
+	<% end %>
+<% else %>
+	<h1><%= if @language == 'FR' then 'Merci' else 'Thank you' end %>!</h1>
+	<br />
+	<p>OlpPassportResults go here</p><br />
+<% end %>
+
+</div>
+</div>

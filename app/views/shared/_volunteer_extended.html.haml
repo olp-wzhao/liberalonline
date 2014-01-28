@@ -1,0 +1,88 @@
+%h2
+  Activity
+= raw(current_user.first_name)
+= raw(current_user.last_name)
+%p{style: "width: 1px; height: 1px; overflow: hidden;"}
+  = text_field_tag 'OlpPassportCommet', nil, :size => 30
+%h2
+  = t(:interests)
+= f.input :canvassing, as: :boolean, :class => "form-control" #, prompt: t(:canvassing)
+= f.input :sign_crew, as: :boolean #, prompt: t(:sign_crew)
+= f.input :dropping_literature, as: :boolean #, prompt: t(:dropping_literature)
+= f.input :office_work, as: :boolean #, prompt: t(:office_work)
+= f.input :election_day, as: :boolean #, prompt: t(:election_day)
+= f.input :driver, as: :boolean#, prompt: t(:driver)
+= f.input :scrutineer, as: :boolean#, prompt: t(:scrutineer)
+= f.input :local_captain, as: :boolean#, prompt: t(:local_captain)
+%h2
+  = t(:availability)
+= f.input :availability_weekdays#, prompt(:availability_weekdays)
+= f.input :availability_weeknights#, prompt t(:availability_weeknights)
+= f.input :availability_weekends#, prompt t(:availability_weekends)
+%h2
+  Arts and Creative
+= check_box_tag 'volunteerextended01', 'StillPhotography', @volunteer_extended_flag_01, :class => "volunteer_checkbox"
+Still StillPhotography
+= check_box_tag 'volunteerextended02', 'VideoProduction', @volunteer_extended_flag_02, :class => "volunteer_checkbox"
+Video Production
+= check_box_tag 'volunteerextended03', 'GraphicDesign', @volunteer_extended_flag_03, :class => "volunteer_checkbox"
+Graphic Design (RGD)
+= check_box_tag 'volunteerextended04', 'VoiceActingModelling', @volunteer_extended_flag_04, :class => "volunteer_checkbox"
+Voice Acting/Modelling
+= check_box_tag 'volunteerextended05', 'SetDesign', @volunteer_extended_flag_05, :class => "volunteer_checkbox"
+Set Design
+= check_box_tag 'volunteerextended06', 'ScreenwriterCopyWriter', @volunteer_extended_flag_06, :class => "volunteer_checkbox"
+Screenwriter/Copy Writer
+= check_box_tag 'volunteerextended07', 'WebDesignHTML', @volunteer_extended_flag_07, :class => "volunteer_checkbox"
+Web Design (HTML)
+= check_box_tag 'volunteerextended08', 'ComposerMusician', @volunteer_extended_flag_08, :class => "volunteer_checkbox"
+Composer/Musician
+= check_box_tag 'volunteerextended09', 'MotionGraphics3DModelling', @volunteer_extended_flag_09, :class => "volunteer_checkbox"
+Motion Graphics/3D Modelling
+= check_box_tag 'volunteerextended10', 'PhotoshopImageEditing', @volunteer_extended_flag_10, :class => "volunteer_checkbox"
+Photoshop/Image Editing
+%h2 Analysis and Information Technology
+= check_box_tag 'volunteerextended11', 'Datamininganalysisspss', @volunteer_extended_flag_11, :class => "volunteer_checkbox"
+Data mining/analysis/spss
+= check_box_tag 'volunteerextended12', 'Processanalysis', @volunteer_extended_flag_12, :class => "volunteer_checkbox"
+Process analysis
+= check_box_tag 'volunteerextended13', 'Programming', @volunteer_extended_flag_13, :class => "volunteer_checkbox"
+Programming (VB, C#, Ruby etc...)
+= check_box_tag 'volunteerextended14', 'ArcViewGISmapping', @volunteer_extended_flag_14, :class => "volunteer_checkbox"
+ArcView/GIS mapping
+= check_box_tag 'volunteerextended15', 'Excelandspreadsheets', @volunteer_extended_flag_15, :class => "volunteer_checkbox"
+Excel and spreadsheets
+= check_box_tag 'volunteerextended16', 'EmailMarketingandexecution', @volunteer_extended_flag_16, :class => "volunteer_checkbox"
+Email Marketing and execution
+= check_box_tag 'volunteerextended17', 'SQL', @volunteer_extended_flag_17, :class => "volunteer_checkbox"
+SQL
+%h2 Election Experience
+= check_box_tag 'volunteerextended21', 'TrainedonLibE', @volunteer_extended_flag_21, :class => "volunteer_checkbox"
+Trained on LibE
+= check_box_tag 'volunteerextended22', 'Canvassing', @volunteer_extended_flag_22, :class => "volunteer_checkbox"
+Canvassing
+= check_box_tag 'volunteerextended23', 'TrainedonLiberalist', @volunteer_extended_flag_23, :class => "volunteer_checkbox"
+Trained on Liberalist
+= check_box_tag 'volunteerextended24', 'TelemarketingTeleresearch', @volunteer_extended_flag_24, :class => "volunteer_checkbox"
+Telemarketing/Tele-research
+= check_box_tag 'volunteerextended25', 'CampaignManager', @volunteer_extended_flag_25, :class => "volunteer_checkbox"
+Campaign Manager
+= check_box_tag 'volunteerextended26', 'Digitaladbuying', @volunteer_extended_flag_26, :class => "volunteer_checkbox"
+Digital ad buying
+%h2 Other
+= check_box_tag 'volunteerextended31', 'PrintingPrintAcquisition', @volunteer_extended_flag_31, :class => "volunteer_checkbox"
+Printing/Print Acquisition
+= check_box_tag 'volunteerextended32', 'Adbuying', @volunteer_extended_flag_32, :class => "volunteer_checkbox"
+Ad buying
+= check_box_tag 'volunteerextended33', 'Screen Printing', @volunteer_extended_flag_33, :class => "volunteer_checkbox"
+Screen Printing
+= check_box_tag 'volunteerextended34', 'Accounting', @volunteer_extended_flag_34, :class => "volunteer_checkbox"
+Accounting
+%p
+  If you have any physical limitations let us know, and better yet, let us know what we can do to accomodate you.
+= text_area_tag 'volunteerextended91', @physical_limitation, :rows => 3, :cols => 50, :class => "volunteer_textfield"
+%p
+  If you posses a skill you think we’ve overlooked tell us about it
+= text_area_tag 'volunteerextended92', @skill_set_note, :rows => 3, :cols => 50, :class => "volunteer_textfield"
+= text_field_tag 'volunteercommet', nil, :size => 30, :class => "volunteer_textfield"
+%br

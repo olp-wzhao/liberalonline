@@ -1,0 +1,15 @@
+<div id="inside_column_main">
+
+	<div class="sectionheaderbig">
+        <h2><%= @mpp_info.first_name %> <%= @mpp_info.last_name %></h2>
+        <div class="subtitle big block"><%= raw(if @language == 'EN' then @mpp_info.title_en else @mpp_info.title_fr end) %></div>
+	</div>
+    <div class="biopic">
+		<%= image_tag("/photos/mpp/mpp_photos/" + (@mpp_info.riding_id + 9000).to_s + ".jpg", :alt => @mpp_info.first_name + " " + @mpp_info.last_name, :width => "280") %>
+    </div>
+
+	<div id="storywrapperlarge" style="margin-bottom:40px;">
+        <div class="defaultbody"><%= if @language == 'EN' then raw(CGI.unescapeHTML(@mpp_info.biography_non_partisan_en)) else raw(CGI.unescapeHTML(@mpp_info.biography_non_partisan_fr)) end %></div>
+	</div>
+
+</div>

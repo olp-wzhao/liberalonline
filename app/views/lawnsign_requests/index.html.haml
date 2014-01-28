@@ -1,0 +1,17 @@
+%h1 Listing lawnsign_requests
+
+%table
+  %tr
+    %th
+    %th
+    %th
+
+  - @lawnsign_requests.each do |lawnsign_request|
+    %tr
+      %td= link_to 'Show', lawnsign_request
+      %td= link_to 'Edit', edit_lawnsign_request_path(lawnsign_request)
+      %td= link_to 'Destroy', lawnsign_request, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Lawnsign request', new_lawnsign_request_path

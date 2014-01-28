@@ -1,0 +1,15 @@
+<%= simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
+
+  <%= f.input :email, :required => true, :autofocus => true, :class => 'submittable', placeholder: "Enter Email" %>
+  <%= f.input :first_name, placeholder: "First Name" %>
+  <%= f.input :last_name, placeholder: "Last Name" %>
+  <%= f.input :password, :required => true, placeholder: "Password" %>
+  <%= f.input :password_confirmation, :required => true, placeholder: "Repeat Password" %>
+  <%= f.input :address, placeholder: "Address" %>
+  <%= f.input :postal_code, placeholder: "Postal Code" %><span id="riding_box"></span>
+  <%= f.input :city, placeholder: "City" %>
+  <%= f.input :phone_number, :size => 30, placeholder: "Phone Number" %>
+  <%= f.input :birthday, as: :date, start_year: 1920, end_year: Date.today.year, placeholder: "Birthday", wrapper: :standard %>
+  <%= f.button :submit, 'Sign up', :class => 'btn-primary' %>
+  <%= devise_error_messages!%>
+<% end %>

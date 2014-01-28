@@ -1,0 +1,80 @@
+﻿<h1><%= if @language == 'FR' then 'Français:Events Around Ontario' else 'Events Around Ontario' end %></h1>
+
+
+<% if @event_documents != nil && @event_documents.length > 0 %>
+        <% @event_documents.each do |event_document| %>
+                <div class="listh1" itemprop="name" style="padding-top:20px;"><%= raw(event_document.title.to_s) %></div>
+                <div class="icon_event listh2" itemprop="startDate" style="margin-top:10px;"><%= raw(localized_date_str(event_document.event_datetime, @language, true)) %></div>
+                <p class="listp"  itemprop="startDate"><%= if @language == "FR" then "cet événement commence à" else "Start time" end %>: <span class="red"><%= event_document.event_datetime.strftime('%I:%M %p') %></span></p>
+                <p class="listp" itemprop="location"><%= raw(event_document.location.to_s) %></p>
+                <p class="listp" itemprop="location"><%= raw(event_document.address.to_s) %></p>
+                <p class="listp"  itemprop="location"><%= raw(event_document.address_hint.to_s) %></p>
+                <p class="listp"  itemprop="description"><%= raw(event_document.summary.to_s) %></p>
+                <p class="listp"  class="minimize"><%= link_to raw(event_document.email.to_s), 'mailto:' + raw(event_document.email.to_s) %></p>
+                <% if event_document.ticket_for_sell %>
+
+                              <div id="tickets">
+                                  <ul>
+                                  <% if event_document.ticket_price_single > 0 %>
+                                  <li class="regular"><a href="#" title="regular" target="_blank"></a>
+                                     <ul><li><a href="<%= raw("https://contribute.ontarioliberal.ca/home/checkout?edid=9000&qty=1&price=" + (event_document.ticket_price_single/100).to_s + "&desc=A ticket to " + raw(event_document.title)) %>" target="_blank" class="ticketinfo"><%= if @language == 'FR' then 'Un billet' else 'One ticket.' end %>
+									 <span class="ticketprice"><%= "$" + (event_document.ticket_price_single/100).to_s %></span></a></li></ul>
+                                  </li>
+                                  <% end %>
+                                  <% if event_document.ticket_price_pair > 0 %>
+                                  <li class="pair"><a href="#" title="pair" target="_blank"></a>
+                                     <ul><li><a href="<%= raw("https://contribute.ontarioliberal.ca/home/checkout?edid=9000&qty=1&price=" + (event_document.ticket_price_pair/100).to_s + "&desc=A pair of tickets to " + raw(event_document.title)) %>" target="_blank" class="ticketinfo"><%= if @language == 'FR' then 'Une paire de billets' else 'A pair.' end %>
+                                          <span class="ticketprice"><%= "$" + (event_document.ticket_price_pair/100).to_s %></span></a></li></ul>
+                                  </li>
+                                  <% end %>
+                                  <% if event_document.ticket_price_table > 0 %>
+                                  <li class="table"><a href="#" title="table" target="_blank"></a>
+                                     <ul><li><a href="<%= raw("https://contribute.ontarioliberal.ca/home/checkout?edid=9000&qty=1&price=" + (event_document.ticket_price_table/100).to_s + "&desc=A table for ten at " + raw(event_document.title)) %>" target="_blank" class="ticketinfo"><%= raw (if @language == 'FR' then "Achat d'une table" else "Table <br> (10 seats)" end) %>
+                                          <span class="ticketprice"><%= "$" + (event_document.ticket_price_table/100).to_s %></a></li></ul>
+                                  </li>
+                                  <% end %>
+                                  <% if event_document.ticket_price_abc > 0 %>
+                                  <li class="abc"><a href="#" title="abc" target="_blank"></a>
+                                     <ul><li><a href="<%= raw("https://contribute.ontarioliberal.ca/home/checkout?edid=9000&qty=1&price=" + (event_document.ticket_price_abc/100).to_s + "&desc=ABC ticket at " + raw(event_document.title)) %>" target="_blank" class="ticketinfo"><%= if @language == 'FR' then "ABC billet" else "ABC ticket" end %>
+                                          <span class="ticketprice"><%= "$" + (event_document.ticket_price_abc/100).to_s %></span></a></li></ul>
+                                  </li>
+                                  <% end %>
+                                  <% if event_document.ticket_price_red_trillium > 0 %>
+                                  <li class="redtrillium"><a href="#" title="redtrillium" target="_blank"></a>
+                                     <ul><li><a href="<%= raw("https://contribute.ontarioliberal.ca/home/checkout?edid=9000&qty=1&price=" + (event_document.ticket_price_red_trillium/100).to_s + "&desc=Red trillium ticket at " + raw(event_document.title)) %>" target="_blank" class="ticketinfo"><%= if @language == 'FR' then "Red trillium billet" else "Red trillium ticket" end %>
+                                        <span class="ticketprice"><%= "$" + (event_document.ticket_price_red_trillium/100).to_s %></span></a></li></ul>
+                                  </li>
+                                  <% end %>
+                                  <% if event_document.ticket_price_youth > 0 %>
+                                  <li class="youth"><a href="#" class="youth" target="_blank"></a>
+                                     <ul><li><a href="<%= raw("https://contribute.ontarioliberal.ca/home/checkout?edid=9000&qty=1&price=" + (event_document.ticket_price_youth/100).to_s + "&desc=Youth ticket at " + raw(event_document.title)) %>" target="_blank" class="ticketinfo"><%= if @language == 'FR' then "Youth billet" else "Youth ticket" end %>
+                                        <span class="ticketprice"><%= "$" + (event_document.ticket_price_youth/100).to_s %></span></a></li></ul>
+                                  </li>
+                                  <% end %>
+                                  <% if event_document.ticket_price_senior > 0 %>
+                                  <li class="senior"><a href="#" class="senior" target="_blank"></a>
+                                          <ul><li><a href="<%= raw("https://contribute.ontarioliberal.ca/home/checkout?edid=9000&qty=1&price=" + (event_document.ticket_price_senior/100).to_s + "&desc=Senior ticket at " + raw(event_document.title)) %>" target="_blank" class="ticketinfo"><%= if @language == 'FR' then "Senior billet" else "Senior ticket" end %>
+                                        <span class="ticketprice"><%= "$" + (event_document.ticket_price_senior/100).to_s %></span></a></li></ul>
+                                  </li>
+                                  <% end %>
+                                  <% if event_document.ticket_price_observer > 0 %>
+                                  <li class="observer"><a href="#" class="observer" target="_blank"></a>
+                                          <ul><li><a href="<%= raw("https://contribute.ontarioliberal.ca/home/checkout?edid=9000&qty=1&price=" + (event_document.ticket_price_observer/100).to_s + "&desc=Observer ticket at " + raw(event_document.title)) %>" target="_blank" class="ticketinfo"><%= if @language == 'FR' then "Observer billet" else "Observer ticket" end %>
+                                          <span class="ticketprice"><%= "$" + (event_document.ticket_price_observer/100).to_s %></span></a></li></ul>
+                                  </li>
+                                  <% end %>
+
+                                  </ul>
+
+                                </div>
+
+<div style="width:100%; display:block; clear:both; padding-bottom:15px; height:20px;">&nbsp;</div>
+
+
+                <% end %>
+        <% end %>
+<% else %>
+        <h2>
+                <%= if @language == 'FR' then ' ' else 'Little quiet right now, check back later.' end %>
+        </h2>
+<% end %>
