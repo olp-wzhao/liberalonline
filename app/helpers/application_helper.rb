@@ -798,14 +798,15 @@ MEGAMENU_JAVASCRIPT
 			photo_file = '_Thumbnail.jpg'
 			photo_url['_Thumbnail.jpg'] = ''
 		end
-
-        if Net::HTTP.get_response(URI.parse('http://' + request.host + '/photos/' + photo_site + photo_dir + photo_url + photo_file)).kind_of?(Net::HTTPSuccess) == false
-			open('/home/service201/webdocs/photos/' + photo_site + photo_dir + photo_url + photo_file, 'wb') do |file|
-				file << open('http://pantone201.ca/webskins/' + photo_site + 'photos/' + photo_dir + photo_url + photo_file).read
-			end
-        end
         
-        '/photos/' + photo_site + photo_dir + photo_url + photo_file
+   #      if Net::HTTP.get_response(URI.parse('http://' + request.host + '/photos/' + photo_site + photo_dir + photo_url + photo_file)).kind_of?(Net::HTTPSuccess) == false
+			# open('photos/' + photo_site + photo_dir + photo_url + photo_file, 'wb') do |file|
+			# 	file << open('http://pantone201.ca/webskins/' + photo_site + 'photos/' + photo_dir + photo_url + photo_file).read
+			# end
+   #      end
+        
+        #'photos/' + photo_site + photo_dir + photo_url + photo_file
+        'http://pantone201.ca/webskins/' + photo_site + 'photos/' + photo_dir + photo_url + photo_file
 	end
     
 

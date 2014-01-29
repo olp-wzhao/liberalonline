@@ -25,17 +25,15 @@ class LawnsignRequestsController < ApplicationController
   # POST /lawnsign_requests.json
   def create
     @lawnsign_request = LawnsignRequest.new(lawnsign_request_params)
-    binding.pry
     
     if current_user.nil?
       #create a new user and send a confirmation email to the user
-      binding.pry
       user = User.create(email: lawnsign_request_params[:email])
     end
 
     respond_to do |format|
       if @lawnsign_request.save
-        format.html { redirect_to @lawnsign_request, notice: 'Lawnsign request was successfully created.' }
+        format.html { redirect_to root_url, notice: 'Lawnsign request was successfully created.' }
         format.json { render action: 'show', status: :created, location: @lawnsign_request }
       else
         format.html { render action: 'new' }

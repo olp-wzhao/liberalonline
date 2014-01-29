@@ -47,7 +47,7 @@ end
 
 group :development, :test do
   gem "rspec-rails"
-  gem "factory_girl_rails"
+  gem "factory_girl_rails", "~> 4.0"
   gem "capybara"
   gem 'rb-inotify', :require => false
   gem 'rb-fsevent', :require => false
@@ -62,7 +62,7 @@ group :test do
   gem "ffaker"
   gem "simplecov", require: false
   gem "database_cleaner"
-  gem 'rb-inotify'
+  gem 'rb-inotify', require: false
   gem 'libnotify', :require => false
 end
 
@@ -84,5 +84,5 @@ gem 'mandrill-api'
 #gem 'fastercsv' # Only required on Ruby 1.8 and below
 gem 'rails_admin', :git => 'git://github.com/sferik/rails_admin.git'
 
-gem 'newrelic_rpm'
 gem "best_in_place"
+gem 'bootstrap-wysihtml5-rails'

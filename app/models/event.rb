@@ -42,6 +42,7 @@ class Event
   field :partisan, type: Boolean
   field :web_site, type: String
   field :updated_time, type: DateTime
+  field :temp_id, type: Integer
   
   belongs_to :user
   belongs_to :riding

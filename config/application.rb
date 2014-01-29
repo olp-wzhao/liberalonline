@@ -26,5 +26,7 @@ module V44
     # config.i18n.default_locale = :de
 
     config.autoload_paths += %W(#{config.root}/lib)
+
+    config.secret_key_base = 'blipblapblup'
   end
 end

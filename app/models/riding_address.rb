@@ -12,16 +12,8 @@ class RidingAddress
   #   [street, city, postal_code].compact.join(', ')
   # end
 
-  geocoded_by :postal_code#, :if => :address_changed?
-  after_validation :geocode #, :reverse_geocode
-  # reverse_geocoded_by :coordinates do |obj, results|
-  #   if geo = results.first
-  #     binding.pry
-  #     obj.street      = geo.intersection["street"]
-  #     obj.city        = geo.intersection["city"]
-  #     obj.postal_code = geo.postal_code
-  #   end
-  # end
+  geocoded_by :postal_code
+  after_validation :geocode
 
   field :coordinates, :type => Array
 

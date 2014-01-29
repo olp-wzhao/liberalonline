@@ -2,7 +2,7 @@ class RidingExecutive
   include Mongoid::Document
   include Mongoid::Timestamps
   
-  scope :presidents, where(role_title: "President")
+  scope :presidents, -> { where(role_title: "President") }
 
   field :id, type: Integer
   field :title, type: String

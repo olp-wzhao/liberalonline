@@ -10,11 +10,11 @@ class Mpp < User
   field :public_status, type: Boolean
   field :web_site, type: String
 
-  embeds_many :olp_documents
+  #embeds_many :olp_documents
   belongs_to :riding
 
   field :temp_id, type: Integer
 
-  accepts_nested_attributes_for :olp_documents
+  #accepts_nested_attributes_for :olp_documents
 
 end

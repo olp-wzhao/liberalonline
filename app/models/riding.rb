@@ -13,7 +13,7 @@ class Riding
   #TODO: WebSiteManager needs to be migrated into Riding instead of being referenced
   has_one :web_site_manager
 
-  scope :central, where(riding_id: 0)
+  scope :central, -> { where(riding_id: 0) }
 
   field :address, type: String
   field :address2, type: String

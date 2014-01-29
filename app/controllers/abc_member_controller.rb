@@ -1,6 +1,6 @@
 class AbcMemberController < ApplicationController
 
-    layout "inside_layout"
+    
 
     def index
         load_application_action

@@ -14,7 +14,7 @@ class Ability
     #   else
     #     can :read, :all
     #   end
-    if user.has_role? :admin
+    if user.has_role? :webadmin
         can :manage, :all
         can :access, :rails_admin #grant access to rails_admin
         can :dashboard #gives access to the dashboard

@@ -39,6 +39,8 @@ class Document
   field :user_id, type: Integer
   field :updated_time, type: DateTime
 
+  validates_presence_of :display_date
+
   #lets make this a table
   field :doctype, type: Integer
   field :temp_id, type: Integer
@@ -48,21 +50,25 @@ class Document
   
   belongs_to :petition
   belongs_to :user
-  belongs_to :customizedcategory
+  belongs_to :customized_category
   belongs_to :riding
   has_many :elect_rotators
   has_many :comments
   has_many :mpp_rotators
-  has_many :omni_facebook_users
   has_many :pla_rotators
   has_many :rotators
 
-  scope :mpp, where(:riding_id => 0, :published => true, :publish_on_mpp => true).order_by(:document_date.desc)
-  scope :pla, where(:riding_id => 0, :published => true, :publish_on_pla => true).order_by(:document_date.desc)
-  scope :elect, where(:riding_id => 0, :published => true, :publish_on_elect => true).order_by(:document_date.desc)
+  scope :mpp, -> { where(:riding_id => 0, :published => true, :publish_on_mpp => true).order_by(:document_date.desc) }
+  scope :pla, -> { where(:riding_id => 0, :published => true, :publish_on_pla => true).order_by(:document_date.desc) }
+  scope :elect, -> { where(:riding_id => 0, :published => true, :publish_on_elect => true).order_by(:document_date.desc) }
 
-  scope :news_documents, where(:riding_id => 0, :published => true, :publish_on_pla => true)
+  scope :news_documents, -> {  where(:riding_id => 0, :published => true, :publish_on_pla => true)
                                      .between(doctype: 0..1)
-                                     .order_by(:document_date.desc)
+                                     .order_by(:document_date.desc) }
+
+  # def initialize(options={})
+  #   self.headline = options[:headline]
+  # end
+
 
 end

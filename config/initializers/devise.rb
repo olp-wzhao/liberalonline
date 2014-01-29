@@ -167,7 +167,7 @@ Devise.setup do |config|
   # ==> Configuration for :timeoutable
   # The time you want to timeout the user session without activity. After this
   # time the user will be asked for credentials again. Default is 30 minutes.
-  # config.timeout_in = 30.minutes
+  config.timeout_in = 30.minutes
 
   # If true, expires auth token on session timeout.
   # config.expire_auth_token_on_timeout = false
@@ -251,7 +251,32 @@ Devise.setup do |config|
   # Add a new OmniAuth provider. Check the wiki for more information on setting
   # up on your models and hooks.
   # config.omniauth :github, 'APP_ID', 'APP_SECRET', :scope => 'user,public_repo'
-  config.omniauth :facebook, '173872612791834', '98c61e444430c94e4dba1de6b821eff0', scope: 'email,user_birthday,read_stream', :display => "popup"
+  config.omniauth :facebook, '539610256085770', 'ebc87510eab37711e89b788259f09751', scope: 'email,user_birthday,read_streamid,first_name,hometown,bio,religion,middle_name,about,is_verified,gender,third_party_id,relationship_status,last_name,locale,verified', :display => "popup"
+# Indicates whether the user account has been verified. This is distinct from the is_verified field. Someone is considered verified if they take any of the following actions:
+
+# Register for mobile
+# Confirm their account via SMS
+# Enter a valid credit card
+# bool
+# political
+# The user's political views
+# string
+# name_format
+# The user's name formatted to correctly handle Chinese, Japanese, Korean ordering
+# string
+# significant_other
+# The user's significant other
+# User
+# website
+# The user's website
+# string
+# location
+# The user's current location
+# Page
+# username
+# The user's username
+
+
   #config.omniauth :twitter,'tqfa7iV6zrbglF7Kjr3zg', '4UjibpBNP9EO9gtKkJG952mrE0X6IsaQYHwsT4weYQ'
 
   # ==> Warden configuration

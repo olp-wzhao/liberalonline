@@ -1,11 +1,11 @@
-require 'spec_helper'
+# require 'spec_helper'
 
-describe "PasswordResets" do
-  it "emails user when requesting password reset" do
-    user = FactoryGirl.build(:user)
-    visit new_user_session_path
-    click_link "password"
-    fill_in "Email", :with => user.email
-    click_button "Send me reset password instructions"
-  end
-end
+# describe "PasswordResets" do
+#   it "emails user when requesting password reset" do
+#     user = FactoryGirl.build(:user)
+#     visit new_user_session_path
+#     click_link "password"
+#     fill_in "Email", :with => user.email
+#     click_button "Send me reset password instructions"
+#   end
+# end

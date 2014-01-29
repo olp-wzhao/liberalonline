@@ -24,7 +24,6 @@ class User
   field :relationship_status, type: String
   field :significant_other, type: String
   field :timezone, type: String
-  field :updated_time, type: DateTime
   field :work, type: String
   field :verified, type: Boolean
   field :roles_mask, type: Integer
@@ -33,14 +32,13 @@ class User
   #field :riding_id, type: Integer
   field :web_site, type: String
   field :updated_time, type: DateTime
-  field :birthday, type: DateTime
+  field :birthday, type: DateTime, default: Date.new
+  field :referal_url, type: String
 
   validates_presence_of :email, :first_name, :city, :postal_code, :address, :phone_number, :birthday
   validates_uniqueness_of :email
 
-  #address_riding
   belongs_to :riding
-  #membership riding
 
   has_many :identities
   has_many :invitees, :class_name => self.name, :as => :invited_by
@@ -100,9 +98,9 @@ class User
   has_many :mpp_twitter_contents
   has_many :mpp_video_galleries
   has_many :mpp_videos
-  has_many :omni_facebook_users
-  has_many :petition_subscribers
-  has_many :petitions
+
+  has_and_belongs_to_many  :petitions
+  
   has_many :photo_albums
   has_many :photos
   has_many :pla_attachments
@@ -143,28 +141,29 @@ class User
 
   def add_to_riding
     #check for postal code and find the nearest riding or add them to a central riding
-    if self.postal_code.nil?
-      self.riding = Riding.where(riding_id: 0).first
-
-      #this condition should only exist with new data. Consider removing it if the system is stable
-      if self.riding.web_site_manager.nil?
-        web_site_manager = WebSiteManager.new
-        web_site_manager.r_id = 9000
-        web_site_manager.r_str = 'olp'
-        web_site_manager.r_name_en = 'ontario'
-        self.riding.web_site_manager = web_site_manager
-      end
-    else
-      #check if the postal code is valid
-      if Geocoder.search(self.postal_code).empty?
-        #if the riding cannot be found assign them to the central
+    if self.riding.nil? && self.riding_id.nil?
+      if self.postal_code.nil?
         self.riding = Riding.where(riding_id: 0).first
+        #this condition should only exist with new data. Consider removing it if the system is stable
+        # if self.riding.web_site_manager.nil?
+        #   web_site_manager = WebSiteManager.new
+        #   web_site_manager.r_id = 9000
+        #   web_site_manager.r_str = 'olp'
+        #   web_site_manager.r_name_en = 'ontario'
+        #   self.riding.web_site_manager = web_site_manager
+        # end
       else
-        self.riding = RidingAddress.near(self.postal_code, 10, :order => :distance).first.riding
-      end
+        #check if the postal code is valid
+        if Geocoder.search(self.postal_code).empty?
+          #if the riding cannot be found assign them to the central
+          self.riding = Riding.where(riding_id: 0).first
+        else
+          self.riding = RidingAddress.near(self.postal_code, 10, :order => :distance).first.riding
+        end
 
-      if self.riding.web_site_manager.nil? || self.riding.web_site_manager.r_name_en == 'ontario'
-        self.riding.web_site_manager = WebSiteManager.where(r_id: self.riding.riding_id + 9000).first
+        if self.riding.web_site_manager.nil? || self.riding.web_site_manager.r_name_en == 'ontario'
+          self.riding.web_site_manager = WebSiteManager.where(r_id: self.riding.riding_id + 9000).first
+        end
       end
     end
   end
@@ -173,6 +172,6 @@ class User
 
   def age
     now = Time.now.utc.to_date
-    now.year - birthday.year - (birthday.to_date.change(:year => now.year) > now ? 1 : 0)
+    now.year - self.birthday.year - (self.birthday.to_date.change(:year => now.year) > now ? 1 : 0)
   end
 end

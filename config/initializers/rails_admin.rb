@@ -13,6 +13,7 @@ RailsAdmin.config do |config|
 
   # RailsAdmin may need a way to know who the current user is]
   config.current_user_method { current_user } # auto-generated
+  config.authorize_with :cancan
 
   # If you want to track changes on your models:
   # config.audit_with :history, 'User'
@@ -41,11 +42,25 @@ RailsAdmin.config do |config|
   # Each model configuration can alternatively:
   #   - stay here in a `config.model 'ModelName' do ... end` block
   #   - go in the model definition file in a `rails_admin do ... end` block
-  config.models do |config|
+  config.model 'Document' do
+    label "News or Documents"
+
     list do
-      exclude_fields :id, :created_at, :created_by, :modified_at, :modified_by
+      exclude_fields :id, :created_at, :created_by, :modified_at, :modified_by, :updated_at, :_id
+
+      field :headline do
+        formatted_value do
+          unless value.nil?
+            value
+          end
+        end
+      end
     end
   end
+
+  config.navigation_static_links = {
+    'Google' => 'http://www.google.com'
+  }
 
   # This is your choice to make:
   #   - This initializer is loaded once at startup (modifications will show up when restarting the application) but all RailsAdmin configuration would stay in one place.

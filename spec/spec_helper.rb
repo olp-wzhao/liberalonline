@@ -1,12 +1,3 @@
-def zeus_running?
-  File.exists? '.zeus.sock'
-end
- 
-if !zeus_running?
-  require 'simplecov'
-  SimpleCov.start 'rails'
-end
-
 # This file is copied to spec/ when you run 'rails generate rspec:install'
 ENV["RAILS_ENV"] ||= 'test'
 require File.expand_path("../../config/environment", __FILE__)
@@ -20,11 +11,13 @@ Dir[Rails.root.join("spec/support/**/*.rb")].each { |f| require f }
 
 # Checks for pending migrations before tests are run.
 # If you are not using ActiveRecord, you can remove this line.
-ActiveRecord::Migration.check_pending! if defined?(ActiveRecord::Migration)
+#ActiveRecord::Migration.check_pending! if defined?(ActiveRecord::Migration)
 
 RSpec.configure do |config|
   config.include Devise::TestHelpers, :type => :controller
   config.include Mongoid::Matchers
+  config.include Requests::JsonHelpers, type: :request
+  #config.include FactoryGirl::SyntaxMethods
   # ## Mock Framework
   #
   # If you prefer to use mocha, flexmock or RR, uncomment the appropriate line:

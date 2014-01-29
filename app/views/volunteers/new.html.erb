@@ -1,0 +1,7 @@
+<% if current_user.nil? %>
+	<h1> New volunteer </h1>
+<% else %>
+	<h1> Authenticated Volunteer </h1>
+<% end %>
+
+<%= render 'form' %>

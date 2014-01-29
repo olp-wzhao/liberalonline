@@ -1,0 +1,70 @@
+<h1>
+  <%= t('volunteer') %>
+</h1>
+<p style="width:420px;">
+  <%= t("volunteer_heading", :riding_name => (current_user.nil? ? "" : current_user.riding.title)) %>
+</p>
+<br/>
+<br/>
+<p>
+  <%= t("volunteer_second_paragraph") %>
+</p>
+<% if current_user.nil? %>
+  <%= simple_form_for(@volunteer, :html => {:class => 'form-horizontal' }) do |f| %>
+    <%= f.error_notification %>
+    <% if current_user.nil? %>
+      <%= render 'shared/partial_user', user: :user %>
+    <% end %>
+    <h2>
+      <%= t("interests") %>
+    </h2>
+    <br/>
+    <%= render 'simple', volunteer: f %>
+    <%= f.button :submit %>
+  <% end %>
+  <% unless current_user.nil?   %>
+    <% if current_user.volunteer %>
+      <h1>
+        <%= t("thank_you") %>
+      </h1>
+      <p>
+        <%= raw(@volunteer_result.gsub("\n", "<br />")) %>
+      </p>
+      <p>
+        <%= link_to 'Tell us more detail about you', volunteer_edit_path(current_user.volunteer) %>
+      </p>
+    <% end %>
+  <% end %>
+<% else %>
+  <h1>
+    You're Registered! Thanks #{raw(current_user.first_name + ' ' + current_user.last_name)}!
+  </h1>
+  <p>
+    Here is your information:
+    <br/>
+    <%= raw(current_user.first_name + ' ' + current_user.last_name) %>
+    <br/>
+  </p>
+  <p>
+    <%= current_user.address %>
+  </p>
+  <p>
+    <%= current_user.postal_code %>
+  </p>
+  <p>
+    <%= current_user.city %>
+  </p>
+  <p>
+    <%= current_user.phone_number %>
+  </p>
+  <p></p>
+  <%= current_user.email %>
+  <p style="width:420px;">We’ll email you with some opportunities. But If you have a moment now, please help us by filling in your skills so we know how to maximize your skills.</p>
+  <br/>
+  <h2>Skills Survey</h2>
+  <br/>
+  <p>Campaigns will always need people to canvass and work the phones, but it doesn’t end there. If you’re interested in dedicating your special talents to a good cause you can start by letting us know what you’re good at - we may have some special projects for you to consider.</p>
+  <br/>
+  <%= render 'extended' %>
+<% end %>
+<div style="display:block; clear:both;"></div>

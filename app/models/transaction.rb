@@ -12,7 +12,7 @@ class Transaction
   field :email, type: String
   field :card_name, type: String
   field :card_security, type: String
-  field :card_expiry, type: String
+  field :card_expiry, type: DateTime
   field :card_reference, type: String
   field :card_type, type: String
   field :personal, type: Float
@@ -27,6 +27,8 @@ class Transaction
   field :comments, type: String
   field :complete, type: Float
   field :reference, type: String
+  field :temp_id, type: Integer
+  field :success, type: Boolean
   
   belongs_to :user
 end

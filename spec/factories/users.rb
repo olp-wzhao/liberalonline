@@ -1,7 +1,15 @@
 FactoryGirl.define do
-  factory:user do
-    first_name "test"
+  factory :user do
+    first_name "factory_girl_guest"
     sequence(:email) { |n| "foo#{n}@example.com" }
-    password "secret1234"
+    roles ['webadmin']
+    postal_code 'M2H2N1'
+    birthday Date.parse('31-12-1978')
+    sequence(:password) { |n| "secret1234#{n}" }
+    sequence(:password_confirmation) { |n| "secret1234#{n}" }
+    city "Toronto"
+    address "1 Rspec Dr"
+    phone_number "555-5555"
+    riding FactoryGirl.create(:riding)
   end
 end

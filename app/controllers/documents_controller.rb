@@ -2,6 +2,8 @@ class DocumentsController < ApplicationController
   before_filter :authenticate_user!, :except => [:show, :index]
   before_action :set_document, only: [:show, :edit, :update, :destroy]
 
+  respond_to :html, :json
+
   # GET /documents
   # GET /documents.json
   def index
@@ -66,12 +68,20 @@ class DocumentsController < ApplicationController
   # POST /documents
   # POST /documents.json
   def create
-    @document = Document.new(document_params)
+    success = false
+    @document = Document.where(temp_id: document_params["temp_id"])
+    if @document.any?
+      @document = @document.first
+      success = @document.update(document_params)
+    else
+      @document = Document.new(document_params)
+      success = @document.save
+    end
 
     respond_to do |format|
-      if @document.save
+      if success
         format.html { redirect_to @document, notice: 'Document was successfully created.' }
-        format.json { render action: 'show', status: :created, location: @document }
+        format.json { render json: 'document saved to mongodb', status: :created }
       else
         format.html { render action: 'new' }
         format.json { render json: @document.errors, status: :unprocessable_entity }
@@ -111,6 +121,49 @@ class DocumentsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def document_params
-      params.require(:document).permit(:name)
+      params.require(:document).permit(:name,
+        :headline, 
+        :subtitle, 
+        :introduction, 
+        :body, 
+        :author, 
+        :reference_url, 
+        :reference_name, 
+        :attached_photo_ids, 
+        :attached_video_ids, 
+        :attached_pdf_ids, 
+        :petition_ids, 
+        :created_date, 
+        :created_ip, 
+        :created_user_id, 
+        :updated_ip, 
+        :language, 
+        :helpfulness_rating, 
+        :applicability_rating, 
+        :allow_comment, 
+        :published, 
+        :copy_protect, 
+        :document_date, 
+        :display_date, 
+        :expiry_date, 
+        :image_name, 
+        :publish_on_olp, 
+        :publish_on_mpp, 
+        :publish_on_pla, 
+        :publish_on_elect, 
+        :partisan, 
+        :author_photo, 
+        :is_draft, 
+        :riding_id, 
+        :web_site, 
+        :user_id, 
+        :updated_time, 
+
+        #lets make this a table
+        :doctype, 
+        :temp_id, 
+        :category_id, 
+        :customized_category_id,  
+        :issue_id)
     end
 end

@@ -65,7 +65,7 @@ V44::Application.routes.draw do
   get "privacy/index"
   get "loginhelp/index"
   get "executive_council/index"
-  get "plapresidents" => 'pla_presidents#index'
+  get "pla_presidents" => 'pla_presidents#index'
   get "history/index"
   get "commissions/index"
   get "cabinet/index"
@@ -101,8 +101,6 @@ V44::Application.routes.draw do
   get 'donationlimits' => 'donationlimits#index'
   get 'eligibility' => 'eligibility#index'
   get 'enewsletter' => 'enewsletter#subscribe'
-  get 'event' => 'event#index'
-  get 'event/:id' => 'event#show'
   get 'executive_council' => 'executive_council#index'
   get 'getinvolved' => 'getinvolved#index'
   get 'history' => 'history#index'

@@ -28,10 +28,10 @@ class ApplicationController < ActionController::Base
 
   def load_application_action(home_action=false)
     
-    @olp_passport_user = nil
-    if cookies[:OlpPassportKey] != nil && cookies[:OlpPassportKey].strip.eql?('') == false
-      @olp_passport_user = OlpUser.find_by_security_key(cookies[:OlpPassportKey].strip)
-    end
+    # @olp_passport_user = nil
+    # if cookies[:OlpPassportKey] != nil && cookies[:OlpPassportKey].strip.eql?('') == false
+    #   @olp_passport_user = OlpUser.find_by_security_key(cookies[:OlpPassportKey].strip)
+    # end
     
     # @web_site_type = 'olp'
     @webskin = 'A2'
@@ -82,44 +82,43 @@ class ApplicationController < ActionController::Base
       @olp_user = OlpUser.find_by_security_key(cookies[:OlpUserKey].to_s)
     end
         
-    end
+  end
 
-    def riding_id
-        current_user.nil? ? 0 : current_user.riding.riding_id - 9000
-    end
+  def riding_id
+      current_user.nil? ? 0 : current_user.riding.riding_id - 9000
+  end
     
-    def load_application_layout
+  def load_application_layout
 
-      # Time.zone = 'Eastern Time (US & Canada)'
+    # Time.zone = 'Eastern Time (US & Canada)'
 
-      # set language parameter
-      @language = "EN"
-      if params[:l] != nil && params[:l].upcase == "FR" then @language = "FR" end
+    # set language parameter
+    @language = "EN"
+    if params[:l] != nil && params[:l].upcase == "FR" then @language = "FR" end
 
-      @remote_ip = request.env["HTTP_X_FORWARDED_FOR"]
-      if @remote_ip == nil || @remote_ip == '' then @remote_ip = request.remote_ip end
+    @remote_ip = request.env["HTTP_X_FORWARDED_FOR"]
+    if @remote_ip == nil || @remote_ip == '' then @remote_ip = request.remote_ip end
 
-      if @web_site_type == 'candidate'
-        @web_site_title = (@language == 'FR' ? ('Voter ' + @web_site_manager.c_nf + ' ' + @web_site_manager.c_nl + ' pour le ' + @web_site_manager.r_name_fr + ' de MPP - le Jour d&#39;Election est le 6 september, 2012') : ('Vote ' + @web_site_manager.c_nf + ' ' + @web_site_manager.c_nl + ' for MPP ' + @web_site_manager.r_name_en + ' - Election Day is September 6, 2012'))
-        @web_site_og_title = (@language == 'FR' ? ('Voter ' + @web_site_manager.c_nf + ' ' + @web_site_manager.c_nl + ' pour le ' + @web_site_manager.r_name_fr + ' de MPP - le Jour d&#39;Election est le 6 september, 2012') : ('Vote ' + @web_site_manager.c_nf + ' ' + @web_site_manager.c_nl + ' for MPP ' + @web_site_manager.r_name_en + ' - Election Day is September 6, 2012'))
-        @web_site_og_site_name = (@language == 'FR' ? ('Voter ' + @web_site_manager.c_nf + ' ' + @web_site_manager.c_nl + ' pour le ' + @web_site_manager.r_name_fr + ' de MPP - le Jour d&#39;Election est le 6 september, 2012') : ('Vote ' + @web_site_manager.c_nf + ' ' + @web_site_manager.c_nl + ' for MPP ' + @web_site_manager.r_name_en + ' - Election Day is September 6, 2012'))
-        @web_site_og_description = (@language == 'FR' ? ('Voter ' + @web_site_manager.c_nf + ' ' + @web_site_manager.c_nl + ' pour le ' + @web_site_manager.r_name_fr + ' de MPP - le Jour d&#39;Election est le 6 september, 2012') : ('Vote ' + @web_site_manager.c_nf + ' ' + @web_site_manager.c_nl + ' for MPP ' + @web_site_manager.r_name_en + ' - Election Day is September 6, 2012'))
-        @web_site_og_image = 'http://pantone201.ca/webskins/vote/candidate_photos/' + @web_site_manager.r_id.to_s + '.jpg'
-        @web_site_og_url = 'http://' + @url_str
-      end
+    if @web_site_type == 'candidate'
+      @web_site_title = (@language == 'FR' ? ('Voter ' + @web_site_manager.c_nf + ' ' + @web_site_manager.c_nl + ' pour le ' + @web_site_manager.r_name_fr + ' de MPP - le Jour d&#39;Election est le 6 september, 2012') : ('Vote ' + @web_site_manager.c_nf + ' ' + @web_site_manager.c_nl + ' for MPP ' + @web_site_manager.r_name_en + ' - Election Day is September 6, 2012'))
+      @web_site_og_title = (@language == 'FR' ? ('Voter ' + @web_site_manager.c_nf + ' ' + @web_site_manager.c_nl + ' pour le ' + @web_site_manager.r_name_fr + ' de MPP - le Jour d&#39;Election est le 6 september, 2012') : ('Vote ' + @web_site_manager.c_nf + ' ' + @web_site_manager.c_nl + ' for MPP ' + @web_site_manager.r_name_en + ' - Election Day is September 6, 2012'))
+      @web_site_og_site_name = (@language == 'FR' ? ('Voter ' + @web_site_manager.c_nf + ' ' + @web_site_manager.c_nl + ' pour le ' + @web_site_manager.r_name_fr + ' de MPP - le Jour d&#39;Election est le 6 september, 2012') : ('Vote ' + @web_site_manager.c_nf + ' ' + @web_site_manager.c_nl + ' for MPP ' + @web_site_manager.r_name_en + ' - Election Day is September 6, 2012'))
+      @web_site_og_description = (@language == 'FR' ? ('Voter ' + @web_site_manager.c_nf + ' ' + @web_site_manager.c_nl + ' pour le ' + @web_site_manager.r_name_fr + ' de MPP - le Jour d&#39;Election est le 6 september, 2012') : ('Vote ' + @web_site_manager.c_nf + ' ' + @web_site_manager.c_nl + ' for MPP ' + @web_site_manager.r_name_en + ' - Election Day is September 6, 2012'))
+      @web_site_og_image = 'http://pantone201.ca/webskins/vote/candidate_photos/' + @web_site_manager.r_id.to_s + '.jpg'
+      @web_site_og_url = 'http://' + @url_str
+    end
 
-      @menu_news_documents = prepare_news_documents.limit(4)
-      
+    @menu_news_documents = prepare_news_documents.limit(4)
       
       #Photo.find(:all, :limit => 1, :order => "created_date DESC", :conditions => {:riding_id => 0, :published => true})
 
-      @display_right_side_column = true;
+    @display_right_side_column = true;
 
-      #we are using better metrics from now on!!
-      # if !@is_test_site
-      #   add_web_site_visit_count(@web_site_manager.r_id, @remote_ip, @url_str, request.request_uri)
-      # end
-    end
+    #we are using better metrics from now on!!
+    # if !@is_test_site
+    #   add_web_site_visit_count(@web_site_manager.r_id, @remote_ip, @url_str, request.request_uri)
+    # end
+  end
 
     
 

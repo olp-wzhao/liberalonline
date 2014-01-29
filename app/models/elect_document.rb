@@ -40,7 +40,7 @@ class ElectDocument
   field :temp_id, type: Integer
   
   belongs_to :petition
-  belongs_to :customizedcategory
+  belongs_to :customized_category
   belongs_to :riding
   belongs_to :user
 
