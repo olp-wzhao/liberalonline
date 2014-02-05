@@ -69,8 +69,10 @@ class DocumentsController < ApplicationController
   # POST /documents.json
   def create
     success = false
-    @document = Document.where(temp_id: document_params["temp_id"])
-    logger.debug "New or Updated Document: #{@post.attributes.inspect}"
+    @document = Document.find_or_create_by(temp_id: document_params["temp_id"])
+    
+    logger.info "New or Updated Document: #{@document.attributes.inspect}"
+    logger.info "document parameters: #{document_params}"
     if @document.any?
       @document = @document.first
       success = @document.update(document_params)

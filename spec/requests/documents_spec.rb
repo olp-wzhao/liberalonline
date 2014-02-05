@@ -34,6 +34,7 @@ describe "Documents" do
     it"accepts JSON document" do
       json = File.read("spec/fixtures/valid_document.json")
       post "#{documents_path}/?auth_token=#{@token}", json,  {'CONTENT_TYPE' => 'application/json', 'ACCEPT' => 'application/json' }
+      binding.pry
     end
 
   end
