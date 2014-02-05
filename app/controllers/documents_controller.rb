@@ -81,7 +81,7 @@ class DocumentsController < ApplicationController
 
     respond_to do |format|
       if success
-        logger.info "Updated @document
+        logger.info "Updated @document"
         format.html { redirect_to @document, notice: 'Document was successfully created.' }
         format.json { render json: 'document saved to mongodb', status: :created }
       else
