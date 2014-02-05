@@ -17,6 +17,7 @@ RSpec.configure do |config|
   config.include Devise::TestHelpers, :type => :controller
   config.include Mongoid::Matchers
   config.include Requests::JsonHelpers, type: :request
+  config.include RequestMacros, :type => :request
   #config.include FactoryGirl::SyntaxMethods
   # ## Mock Framework
   #

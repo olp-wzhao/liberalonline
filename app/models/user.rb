@@ -36,7 +36,7 @@ class User
   field :referal_url, type: String
 
   validates_presence_of :email, :first_name, :city, :postal_code, :address, :phone_number, :birthday
-  validates_uniqueness_of :email
+  #validates_uniqueness_of :email
 
   belongs_to :riding
 
@@ -135,7 +135,8 @@ class User
   end
 
   geocoded_by :postal_code
-  after_validation :geocode, :add_to_riding
+  after_validation :geocode
+  after_create :add_to_riding
 
   field :coordinates, :type => Array
 
@@ -158,11 +159,25 @@ class User
           #if the riding cannot be found assign them to the central
           self.riding = Riding.where(riding_id: 0).first
         else
-          self.riding = RidingAddress.near(self.postal_code, 10, :order => :distance).first.riding
+          if !RidingAddress.near(self.postal_code, 10, :order => :distance).empty?
+           self.riding = RidingAddress.near(self.postal_code, 10, :order => :distance).first.riding
+          else
+            self.riding = Riding.where(riding_id: 0).first
+          end
         end
-
-        if self.riding.web_site_manager.nil? || self.riding.web_site_manager.r_name_en == 'ontario'
-          self.riding.web_site_manager = WebSiteManager.where(r_id: self.riding.riding_id + 9000).first
+        
+        if !self.riding.nil?
+          if self.riding.web_site_manager.nil? 
+            self.riding.web_site_manager = WebSiteManager.where(r_id: self.riding.riding_id + 9000).first
+          end
+          if self.riding.web_site_manager.r_name_en == 'ontario'
+            self.riding.web_site_manager = WebSiteManager.where(r_id: self.riding.riding_id + 9000).first
+          end
+        else
+          #this is a really hacky table and this code is messy just to tie the riding to this one-to-one data. 
+          #consider merging this entire table with the riding table
+          self.riding = Riding.create(riding_id: 9000)
+          self.riding.web_site_manager = WebSiteManager.create(r_id: 9000)
         end
       end
     end

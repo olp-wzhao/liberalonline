@@ -1,5 +1,5 @@
 class EventsController < ApplicationController
-    before_filter :authenticate_user!
+    before_filter :authenticate_user!, :only => [:create, :update, :destroy]
 
     respond_to :html, :json
 
@@ -7,6 +7,7 @@ class EventsController < ApplicationController
 		  @event_documents = Event.where(:doc_type => 0, :language => @language, :published => true)
                             .gt(event_datetime: DateTime.now)
                             .order_by(:event_datetime.desc)
+                            #binding.pry
     end
 
     def show

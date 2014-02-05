@@ -3,7 +3,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :null_session
   #before_filter :check_registration
   before_filter :configure_permitted_parameters, if: :devise_controller?
-  before_filter :load_application_action, :load_application_layout
+  before_filter :load_application_action, :load_application_layout, :most_recent_event
   
   rescue_from CanCan::AccessDenied do |exception|
     redirect_to root_path, :alert => exception.message
@@ -13,6 +13,8 @@ class ApplicationController < ActionController::Base
 
   @@myliberal_dev_site_user = 'DevSite'
   @@myliberal_dev_site_pswd = 'DevPass'
+
+
 
   def secure_ip_by_country
     #is_secure = false
@@ -24,6 +26,10 @@ class ApplicationController < ActionController::Base
     #if country_code != nil && country_code == 'CA' then is_secure = true end
     
     is_secure
+  end
+
+  def most_recent_event
+    @most_recent_event = Event.gt(expiry_date: DateTime.now).order_by(:expiry_date.desc).first
   end
 
   def load_application_action(home_action=false)

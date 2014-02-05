@@ -32,16 +32,16 @@ group :doc do
 end
 
 group :production do
-  gem 'rails_12factor'
-  gem 'rails_serve_static_assets'
+  #gem 'rails_12factor'
+  #gem 'rails_serve_static_assets'
 end
 
 group :development do
   gem "pry"
   gem "quiet_assets"
   gem "thin"
-  gem "better_errors"
-  gem "binding_of_caller"
+  #gem "better_errors"
+  #gem "binding_of_caller"
   gem 'meta_request'
 end
 
@@ -84,5 +84,5 @@ gem 'mandrill-api'
 #gem 'fastercsv' # Only required on Ruby 1.8 and below
 gem 'rails_admin', :git => 'git://github.com/sferik/rails_admin.git'
 
-gem "best_in_place"
+#gem "best_in_place"
 gem 'bootstrap-wysihtml5-rails'

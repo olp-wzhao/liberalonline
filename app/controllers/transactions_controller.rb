@@ -40,7 +40,9 @@ class TransactionsController < ApplicationController
     respond_to do |format|
       if success
         #format.html { redirect_to @transaction, notice: 'Transaction was successfully created.' }
-        format.json { render json: {id: @transaction.temp_id, status: :created } }
+        #succesful transactions will attempt to check for a new user
+        create_or_update_transaction_user(@transaction)
+        format.json { render json: {transaction_id: @transaction.temp_id, id: @user.id, status: :created } }
       else
         #format.html { render action: 'new' }
         format.json { render json: @transaction.errors, status: :unprocessable_entity }
@@ -117,5 +119,24 @@ class TransactionsController < ApplicationController
         end
       end
     end
+
+  def create_or_update_transaction_user(transaction)
+    # Check for unique email and don't attempt to create a new user
+
+    if cookies["liberalonline_user_id"].nil?
+      @user = User.create( { first_name: transaction.first_name, 
+        last_name: transaction.last_name,
+        address: transaction.street_address,
+        postal_code: transaction.postal_code,
+        city: transaction.city,
+        phone_number: transaction.telephone,
+        email: transaction.email } )
+    else
+      @user = User.find(cookies["liberalonline_user_id"])
+    end
+    @user.transactions << transaction
+    binding.pry
+    @user.save!(validate: false)
+  end
 
 end

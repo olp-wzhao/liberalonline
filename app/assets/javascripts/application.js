@@ -13,21 +13,6 @@
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
-//= require bootstrap-transition
-//= require bootstrap-affix
-//= require bootstrap-alert
-//= require bootstrap-carousel
-// require bootstrap-button
-//= require bootstrap-collapse
-//= require bootstrap-dropdown
-//= require bootstrap-modal
-// require bootstrap-scrollspy
-// require bootstrap-tab
-//= require bootstrap-tooltip
-//= require bootstrap-popover
-//= require bootstrap-typeahead
-//= require bootstrap-datepicker/core
-//= require bootstrap-datepicker/locales/bootstrap-datepicker.fr
 
 // require rails.validations
 

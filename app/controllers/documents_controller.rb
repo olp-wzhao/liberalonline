@@ -70,6 +70,7 @@ class DocumentsController < ApplicationController
   def create
     success = false
     @document = Document.where(temp_id: document_params["temp_id"])
+    logger.debug "New or Updated Document: #{@post.attributes.inspect}"
     if @document.any?
       @document = @document.first
       success = @document.update(document_params)
@@ -80,6 +81,7 @@ class DocumentsController < ApplicationController
 
     respond_to do |format|
       if success
+        logger.info "Updated @document
         format.html { redirect_to @document, notice: 'Document was successfully created.' }
         format.json { render json: 'document saved to mongodb', status: :created }
       else

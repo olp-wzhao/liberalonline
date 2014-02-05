@@ -51,7 +51,7 @@ module User::AuthDefinitions
 
     index( {invitation_token: 1}, {:background => true} )
     index( {invitation_by_id: 1}, {:background => true} ) 
-    index({ email: 1 }, { unique: true, background: true })
+    index({ email: 1 }, { background: true }) #unique: true, 
 
 
     # Password not required when using omniauth

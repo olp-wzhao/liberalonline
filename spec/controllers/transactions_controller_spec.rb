@@ -29,6 +29,10 @@
 #   # in order to pass any filters (e.g. authentication) defined in
 #   # TransactionsController. Be sure to keep this updated too.
 #   let(:valid_session) { {} }
+#   let(:user) { FactoryGirl.create(:user) }
+#   before(:each) do
+#     sign_in user
+#   end
 
 #   describe "GET index" do
 #     it "assigns all transactions as @transactions" do
