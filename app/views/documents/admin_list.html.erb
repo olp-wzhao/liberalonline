@@ -1,6 +1,6 @@
 <div>
         <% @documents.each do |document| %>
-                <%= document.headline %><br/>
+                <%= raw(document.headline) %><br/>
                 <%= document.subtitle %><br/>
                 <%= document.introduction %><br/>
                 <%= document.body %><br/>
