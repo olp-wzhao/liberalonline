@@ -1,24 +1,12 @@
+<ul>
+  <li>
+    <%= link_to remote "donations", :url => "#{olpadmin_transactions_url}?scope='donations'", :method => :get  %>
+  </li>
+</ul>
+
 <h1>Listing transactions</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @transactions.each do |transaction| %>
-      <tr>
-        <td><%= transaction.first_name %> </td>
-        <td><%= transaction.last_name %></td>
-        <td><%= link_to 'Show', transaction %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<div id="index_data"></div>
 
 <br>
 

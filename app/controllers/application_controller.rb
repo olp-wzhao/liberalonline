@@ -4,6 +4,7 @@ class ApplicationController < ActionController::Base
   #before_filter :check_registration
   before_filter :configure_permitted_parameters, if: :devise_controller?
   before_filter :load_application_action, :load_application_layout, :most_recent_event
+  respond_to :html
   
   rescue_from CanCan::AccessDenied do |exception|
     redirect_to root_path, :alert => exception.message
@@ -33,7 +34,6 @@ class ApplicationController < ActionController::Base
   end
 
   def load_application_action(home_action=false)
-    
     # @olp_passport_user = nil
     # if cookies[:OlpPassportKey] != nil && cookies[:OlpPassportKey].strip.eql?('') == false
     #   @olp_passport_user = OlpUser.find_by_security_key(cookies[:OlpPassportKey].strip)

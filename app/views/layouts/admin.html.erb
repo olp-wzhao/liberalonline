@@ -1,0 +1,41 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <title>Ontario Liberal Party - BETA - Kathleen Wynne - Not for Release</title>
+    <%= if @allow_google_index then raw('<META NAME="ROBOTS" CONTENT="INDEX, FOLLOW">') else raw('<META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">') end %>
+
+    <meta name="keywords" content="ontario Liberal Party - Kathleen Wynne, olp PLA" />
+    <meta name="description" content="The Official site of the Ontario Liberal Party" />
+
+    <meta property="og:title" content="More Support for Low-Income Families" />
+    <meta property="og:type" content="politician" />
+    <meta property="og:url" content="" />
+    <meta property="og:image" content="" />
+    <meta property="og:site_name" content="More Support for Low-Income Families" />
+    <meta property="fb:admins" content="100003812622252,686700080,552055122" />
+    <meta property="og:description" content="More Support for Low-Income Families" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0;">
+
+    <link href='https://fonts.googleapis.com/css?family=Droid+Sans:400,700' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Oswald:400,700' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Roboto+Condensed:400,700,300italic,300' rel='stylesheet' type='text/css'/>
+
+    <%= stylesheet_link_tag "application", :media => "all" %>
+    <%= javascript_include_tag "application" %>
+    <%= csrf_meta_tags %>
+  
+  <%= yield :header %>
+  
+  </head>
+
+</head>
+<body>
+ 
+<h1>ADMIN<h1>
+    <%= yield %>
+
+
+<%= yield :scripts_for_body %>
+</body>
+</html>

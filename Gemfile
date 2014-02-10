@@ -40,8 +40,8 @@ group :development do
   gem "pry"
   gem "quiet_assets"
   gem "thin"
-  #gem "better_errors"
-  #gem "binding_of_caller"
+  gem "better_errors"
+  gem "binding_of_caller"
   gem 'meta_request'
 end
 

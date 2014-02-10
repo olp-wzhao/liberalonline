@@ -3,14 +3,19 @@ require 'spec_helper'
 describe "Documents" do
   
   let(:event) { FactoryGirl.create(:event) }
+  let(:document) { FactoryGirl.create(:document) }
+  before(:each) do
+    User.any_instance.stub(:geocode).and_return([1,1]) 
+  end
 
-  # describe "GET /documents" do
-  #   it "unauthenticated requests" do
-  #     # Run the generator again with the --webrat flag if you want to use webrat methods/matchers
-  #     get documents_path
-  #     response.status.should be(200)
-  #   end
-  # end
+  describe "GET /admin/documents" do
+    it "refuses unauthenticated requests" do
+      # Run the generator again with the --webrat flag if you want to use webrat methods/matchers
+      get admin_documents_list_path
+      response.status.should be(300)
+      binding.pry
+    end
+  end
 
   describe "POST /documents" do
 
@@ -24,9 +29,10 @@ describe "Documents" do
     #let(:auth_token) {}
   
     it "accepts JSON data" do
-      post "#{documents_path}/?auth_token=#{@token}", FactoryGirl.create(:document).to_json,  {'CONTENT_TYPE' => 'application/json', 'ACCEPT' => 'application/json' }
+      post "#{documents_path}/?auth_token=#{@token}", document.to_json,  {'CONTENT_TYPE' => 'application/json', 'ACCEPT' => 'application/json' }
       #response.header['Content-Type'].should include 'text/javascript'
       
+      binding.pry
       response.status.should be(201)
       #assert_redirected_to document_url(Document.last)
     end

@@ -1,18 +1,27 @@
 class TransactionsController < ApplicationController
   before_filter :authenticate_user!
   before_action :set_transaction, only: [:show, :destroy]
-  respond_to :json
+  respond_to :json, :html, :js
 
   # GET /transactions
   # GET /transactions.json
   def index
     search_params
-    @transactions = Transaction.all.limit(100)
+    @transactions = @transactions.order_by(id: :desc).limit(100)
+    respond_to do |format|
+      format.json { render json: @transactions }
+      format.html { render layout: 'admin'}
+      format.js
+    end
   end
 
   # GET /transactions/1
   # GET /transactions/1.json
   def show
+    @transaction = Transaction.find(params[:id])
+    respond_to do |format|
+      format.json { render json: {transaction_id: @transaction} }
+    end
   end
 
   # GET /transactions/new
@@ -41,8 +50,8 @@ class TransactionsController < ApplicationController
       if success
         #format.html { redirect_to @transaction, notice: 'Transaction was successfully created.' }
         #succesful transactions will attempt to check for a new user
-        create_or_update_transaction_user(@transaction)
-        format.json { render json: {transaction_id: @transaction.temp_id, id: @user.id, status: :created } }
+        #create_or_update_transaction_user(@transaction)
+        format.json { render json: { transaction_id: @transaction.id }, status: :created  }
       else
         #format.html { render action: 'new' }
         format.json { render json: @transaction.errors, status: :unprocessable_entity }
@@ -74,10 +83,39 @@ class TransactionsController < ApplicationController
     end
   end
 
+  #charting queries
+  def total_by_user(email)
+    total = Transaction.where(email: email).sum(:total)
+    respond_to do |format|
+      format.json { render json: total }
+    end
+  end
+
+  def admin_index
+    @transactions = Transaction.all
+    search_params
+    binding.pry
+    @transactions = @transactions.order_by(id: :desc).limit(100)
+    respond_to do |format|
+      format.json { render json: @transactions }
+      format.html { render layout: 'admin'}
+      format.js
+    end
+  end
+
+  def scopes
+    if params[:id] == 'donations'
+      @transactions = Transaction.donations    
+    end
+    respond_to do |format|
+      format.js
+    end
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_transaction
-      @transaction = Transaction.find(params[:id])
+      @transaction = Transaction.find_or_create_by(temp_id: params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
@@ -91,8 +129,8 @@ class TransactionsController < ApplicationController
         :email, 
         :card_name, 
         :card_security, 
-        :card_expiry, 
-        :card_reference, 
+        #:card_expiry, 
+        #:card_reference, 
         :card_type, 
         :personal,
         :company_name, 
@@ -100,43 +138,61 @@ class TransactionsController < ApplicationController
         :origin_url, 
         :target_url, 
         :promo_code, 
-        :gateway_response, 
+        #:gateway_response, 
         :home_riding,
         :type, 
         :comments, 
         :complete,
         :reference, 
         :temp_id,
-        :success)
+        :success,
+        :total)
     end
 
     def search_params
-      params.each do |key, value|
-        # target groups using regular expressions
-        skip_list = ["auth_token", "action", "controller", "format"]
-        unless skip_list.include?(key)
-          @transactions = Transaction.where(key => value)
+      if !params[:scope].nil?
+        binding.pry
+        if params[:scope] =='donations'
+          @transactions = Transaction.donations
+        elsif params[:scope] == 'memberships'
+          @transactions = Transaction.memberships
+        elsif params[:scope] == 'volunteers'
+          @transactions = Transaction.volunteers
+        else
+          puts 'what the heck is this scope'
         end
       end
+      params.each do |key, value|
+        # target groups using regular expressions
+        skip_list = ["auth_token", "action", "controller", "format", "scope"]
+        unless skip_list.include?(key)
+          @transactions = @transactions.where(key => value)
+        end
+      end
+
     end
 
-  def create_or_update_transaction_user(transaction)
-    # Check for unique email and don't attempt to create a new user
-
-    if cookies["liberalonline_user_id"].nil?
-      @user = User.create( { first_name: transaction.first_name, 
-        last_name: transaction.last_name,
-        address: transaction.street_address,
-        postal_code: transaction.postal_code,
-        city: transaction.city,
-        phone_number: transaction.telephone,
-        email: transaction.email } )
-    else
-      @user = User.find(cookies["liberalonline_user_id"])
+    def controller_scopes
+      @total_transactions = Transaction.sum(:total)
     end
-    @user.transactions << transaction
-    binding.pry
-    @user.save!(validate: false)
-  end
+
+  # def create_or_update_transaction_user(transaction)
+  #   # Check for unique email and don't attempt to create a new user
+
+  #   if cookies["liberalonline_user_id"].nil?
+  #     @user = User.create( { first_name: transaction.first_name, 
+  #       last_name: transaction.last_name,
+  #       address: transaction.street_address,
+  #       postal_code: transaction.postal_code,
+  #       city: transaction.city,
+  #       phone_number: transaction.telephone,
+  #       email: transaction.email } )
+  #   else
+  #     @user = User.find(cookies["liberalonline_user_id"])
+  #   end
+  #   @user.transactions << transaction
+  #   binding.pry
+  #   @user.save!(validate: false)
+  # end
 
 end

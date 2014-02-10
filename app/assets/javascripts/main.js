@@ -1,3 +1,3 @@
-$(function() {
-  $('input.datepicker').datepicker();
-});
+// $(function() {
+//   $('input.datepicker').datepicker();
+// });

@@ -10,6 +10,8 @@ V44::Application.routes.draw do
     invitations: 'invitations'
   }
 
+
+
    #resources :users
   resources :documents
   resources :transactions
@@ -78,6 +80,11 @@ V44::Application.routes.draw do
   get "news/index" => 'news#index'
   get "news/show" => 'documents#show'
   get 'news/:id' => 'documents#show'
+
+  get 'olpadmin/documents' => "documents#admin_list"
+  get 'olpadmin/transactions' => 'transactions#admin_index'
+  get 'olpadmin/transaction_scopes/:id' => 'transactions#scopes'
+
   get "platform/index"
   get "team/index"
   get "team/show"
@@ -133,7 +140,6 @@ V44::Application.routes.draw do
   get 'team/:id' => 'team#show'
   get 'video' => 'video#index'
   get 'video/:id' => 'video#show'
-  get 'volunteer' => 'volunteer#index'
   get 'volunteerextendedprofile' => 'volunteerextendedprofile#index'
   #get 'fbtest' => 'fbtest#index'
   #get 'fbtest/:id' => 'fbtest#show'

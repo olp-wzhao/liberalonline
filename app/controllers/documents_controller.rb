@@ -117,6 +117,18 @@ class DocumentsController < ApplicationController
     end
   end
 
+  #Admin routes
+  def admin_list
+    if current_user.roles.include? 'webadmin'
+      @documents = Document.all.order_by(email: :desc).page params[:page]
+      render :layout => "admin"
+    else
+      binding.pry
+      flash[:notice] = "You do not have authorization to view this site"
+      redirect_to new_user_session_url
+    end
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_document
