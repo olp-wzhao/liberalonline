@@ -1,16 +1,17 @@
 class TransactionsController < ApplicationController
   before_filter :authenticate_user!
   before_action :set_transaction, only: [:show, :destroy]
-  respond_to :json
+  respond_to :json, :html, :js
 
   # GET /transactions
   # GET /transactions.json
   def index
     search_params
-    @transactions = Transaction.all.limit(100)
-    jt = @transactions.to_json
+    @transactions = @transactions.order_by(id: :desc).limit(100)
     respond_to do |format|
-      format.json { render json: jt }
+      format.json { render json: @transactions }
+      format.html { render layout: 'admin'}
+      format.js
     end
   end
 
@@ -90,6 +91,27 @@ class TransactionsController < ApplicationController
     end
   end
 
+  def admin_index
+    @transactions = Transaction.all
+    search_params
+    binding.pry
+    @transactions = @transactions.order_by(id: :desc).limit(100)
+    respond_to do |format|
+      format.json { render json: @transactions }
+      format.html { render layout: 'admin'}
+      format.js
+    end
+  end
+
+  def scopes
+    if params[:id] == 'donations'
+      @transactions = Transaction.donations    
+    end
+    respond_to do |format|
+      format.js
+    end
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_transaction
@@ -128,13 +150,20 @@ class TransactionsController < ApplicationController
     end
 
     def search_params
-      params.each do |key, value|
-        # target groups using regular expressions
-        skip_list = ["auth_token", "action", "controller", "format"]
-        unless skip_list.include?(key)
-          @transactions = Transaction.where(key => value)
+      if !params[:scope].nil?
+        if params[:scope] == 'donations'
+          @transactions = Transaction.donations
         end
       end
+      params.each do |key, value|
+        # target groups using regular expressions
+        skip_list = ["auth_token", "action", "controller", "format", "scope"]
+        unless skip_list.include?(key)
+          binding.pry
+          @transactions = @transactions.where(key => value)
+        end
+      end
+
     end
 
     def controller_scopes

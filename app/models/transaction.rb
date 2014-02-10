@@ -34,6 +34,7 @@ class Transaction
   
   belongs_to :user
   before_create :set_total#, :fill_total_f
+  #after_find :check_and_set_total
 
   scope :by_email, -> (email) { where(email: email).group } 
   scope :memberships, -> { where(type: "Membership") }
@@ -51,7 +52,17 @@ class Transaction
   end
 
   def get_total
-    Hash.from_xml(self.gateway_response)["Result"]["FullTotal"].to_i
+    if self.gateway_response.nil?
+      0
+    else
+      Hash.from_xml(self.gateway_response)["Result"]["FullTotal"].to_i
+    end
+  end
+
+  def check_and_set_total
+    if self.total.nil?
+      set_total
+    end
   end
 
   def set_total

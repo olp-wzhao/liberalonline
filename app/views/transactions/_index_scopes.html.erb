@@ -1,0 +1,23 @@
+<div id="index_data">
+  <table>
+    <thead>
+      <tr>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @transactions.each do |transaction| %>
+        <tr>
+          <td><%= transaction.first_name %></td>
+          <td><%= transaction.last_name %></td>
+          <td><%= transaction.email %></td>
+          <td><%= transaction.get_total %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

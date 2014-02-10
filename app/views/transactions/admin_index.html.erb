@@ -1,0 +1,13 @@
+<ul>
+  <li>
+    <%= link_to "donations", "#{olpadmin_transactions_url}?scope=donations"%>
+  </li>
+</u>
+
+<h1>Listing transactions</h1>
+
+<div id="index_data"></div>
+  <%= render partial: "index_scopes" %>
+<br>
+
+<%= link_to 'New Transaction', new_transaction_path %>
