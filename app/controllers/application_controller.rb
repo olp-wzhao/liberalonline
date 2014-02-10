@@ -115,6 +115,8 @@ class ApplicationController < ActionController::Base
     end
 
     @menu_news_documents = prepare_news_documents.limit(4)
+	@menu_photo = prepare_menu_photo
+	@menu_video = prepare_menu_video
       
       #Photo.find(:all, :limit => 1, :order => "created_date DESC", :conditions => {:riding_id => 0, :published => true})
 
