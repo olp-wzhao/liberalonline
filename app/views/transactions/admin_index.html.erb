@@ -2,6 +2,12 @@
   <li>
     <%= link_to "donations", "#{olpadmin_transactions_url}?scope=donations"%>
   </li>
+  <li>
+    <%= link_to "memberships", "#{olpadmin_transactions_url}?scope=memberships"%>
+  </li>
+  <li>
+    <%= link_to "events", "#{olpadmin_transactions_url}?scope=events"%>
+  </li>
 </u>
 
 <h1>Listing transactions</h1>
@@ -9,5 +15,3 @@
 <div id="index_data"></div>
   <%= render partial: "index_scopes" %>
 <br>
-
-<%= link_to 'New Transaction', new_transaction_path %>

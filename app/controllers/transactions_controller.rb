@@ -151,15 +151,21 @@ class TransactionsController < ApplicationController
 
     def search_params
       if !params[:scope].nil?
-        if params[:scope] == 'donations'
+        binding.pry
+        if params[:scope] =='donations'
           @transactions = Transaction.donations
+        elsif params[:scope] == 'memberships'
+          @transactions = Transaction.memberships
+        elsif params[:scope] == 'volunteers'
+          @transactions = Transaction.volunteers
+        else
+          puts 'what the heck is this scope'
         end
       end
       params.each do |key, value|
         # target groups using regular expressions
         skip_list = ["auth_token", "action", "controller", "format", "scope"]
         unless skip_list.include?(key)
-          binding.pry
           @transactions = @transactions.where(key => value)
         end
       end
