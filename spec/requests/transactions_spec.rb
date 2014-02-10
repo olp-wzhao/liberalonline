@@ -17,22 +17,30 @@ describe "Transactions" do
     response.status.should be(200)
   end
 
+  describe "GET /transactions/" do
+    it "accepts a transaction id and returns json of record" do
+      get "#{transactions_path}/#{transaction.id}.json?auth_token=#{@token}"
+      
+      response.body.should_not be_empty
+
+    end
+  end
+
   describe "POST /transaction" do
     it "accepts JSON data" do
       post "#{transactions_path}/?auth_token=#{@token}", transaction.to_json,  {'CONTENT_TYPE' => 'application/json', 'ACCEPT' => 'application/json' }
       response.header['Content-Type'].should include 'application/json'
-      response.status.should be(200)
+      response.status.should be(201)
       #assert_redirected_to document_url(Document.last)
     end
 
     it "returns the _id field" do
       post "#{transactions_path}/?auth_token=#{@token}", transaction.to_json,  {'CONTENT_TYPE' => 'application/json', 'ACCEPT' => 'application/json' }
       json = JSON.parse(response.body)
-      binding.pry
       json.should_not == nil
-      json["id"].should_not == nil
+      json["transaction_id"].should_not == nil
     end
-
   end
+
 end
  

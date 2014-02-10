@@ -10,6 +10,8 @@ V44::Application.routes.draw do
     invitations: 'invitations'
   }
 
+
+
    #resources :users
   resources :documents
   resources :transactions
@@ -78,6 +80,8 @@ V44::Application.routes.draw do
   get "news/index" => 'news#index'
   get "news/show" => 'documents#show'
   get 'news/:id' => 'documents#show'
+  get 'olpadmin/documents/list' => "documents#admin_list"
+
   get "platform/index"
   get "team/index"
   get "team/show"

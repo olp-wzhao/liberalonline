@@ -24,9 +24,13 @@ FactoryGirl.define do
     type "Donation" 
     comments "Central" 
     complete 0.0 
-    reference "2014012914440900257" 
-    temp_id 28712 
+    sequence :reference do |n|
+        "2014012914440900257#{n}"
+    end 
+    sequence :temp_id do |n|
+        28712 + n
+    end
     success nil
-    user_id nil
+    #user
   end
 end

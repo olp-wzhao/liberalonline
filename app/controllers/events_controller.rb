@@ -21,7 +21,7 @@ class EventsController < ApplicationController
         else
           format.html { render json: 'event updated successfully', status: :updated }
           format.json { render json: @event.errors, status: :unprocessable_entity }
-        end
+        end 
       end
     end
 

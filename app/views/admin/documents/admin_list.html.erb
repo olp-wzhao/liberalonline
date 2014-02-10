@@ -1,0 +1,20 @@
+<div id="inside_column_main">
+        <% if @news_documents != nil && @news_documents.length > 0 %>
+                <div class="sectionheaderbig">
+                        <h1>Provincial News</h1>
+                </div>
+                <br />
+                <% @news_documents.each do |document| %>
+                                <div class="listh1"><%= link_to raw(document.headline), '/news/' + document.id.to_s + '?l=' + @language %></div>
+                                <div class="listh2"><%= link_to raw(document.subtitle), '/news/' + document.id.to_s + '?l=' + @language %></div>
+                                <div class="detail small last" style="display:block;"><span class="posted"><%= if @language == 'FR' then 'Publié' else 'Posted' end %>:&nbsp;</span><%= raw(localized_date_str(document.document_date, @language)) %></div>
+                                <div style="display:block; clear:left; padding-bottom:3px; height:6px;">&nbsp;</div>
+                <% end %>
+                <%= paginate @news_documents %>
+        <% else %>
+                &nbsp;
+        <% end %>
+</div>
+
+<div id="inside_column_three">
+</div>

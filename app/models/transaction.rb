@@ -29,6 +29,50 @@ class Transaction
   field :reference, type: String
   field :temp_id, type: Integer
   field :success, type: Boolean
+  field :total, type: Integer
+  #field :total_f, type: Float
   
   belongs_to :user
+  before_create :set_total#, :fill_total_f
+
+  scope :by_email, -> (email) { where(email: email).group } 
+  scope :memberships, -> { where(type: "Membership") }
+  scope :donations, -> { where(type: "Donation") }
+  scope :events, -> { where(type: "Item") }
+  scope :under_twenty_dollars, -> { lte(total: 20) }
+  scope :total_sum, ->(email) { where(email: email).sum(:total) }
+  #scope :between, -> (first, last) {  }
+
+  def fill_total
+    unless self.gateway_response.nil?
+      dollars = Hash.from_xml(self.gateway_response)["Result"]["FullTotal"].to_f * 100
+      self.total = Money.new(dollars, "CAD")
+    end
+  end
+
+  def get_total
+    Hash.from_xml(self.gateway_response)["Result"]["FullTotal"].to_i
+  end
+
+  def set_total
+    self.total = get_total
+  end
+
+  # def fill_total_f
+  #   binding.pry
+  #    self.total_f = Hash.from_xml(self.gateway_response)["Result"]["FullTotal"].to_f
+  # end  
+
+  # def self.total_overall
+  #   sum('get_total')
+  # end
+
+  # def self.total_overall_f
+  #   t = 0
+  #   grouped_emails = self.where(email: "jessenaiman@gmail.com")
+  #   t = grouped_emails.each { |e| t += e.total_f }
+  #   t
+  # end
+
+  #scope: total_transactions_to_date, gt(expiry_date: DateTime.now).sum(:)
 end
