@@ -4,148 +4,137 @@
 <div class="nomobile" style="float:left; width:400px; margin-top:5px;"><img src="/stylesheets/img/logo-sm.png"></div>
 
 <div id="mgmenu1" class="mgmenu_container" style="margin-top:10px;"><!-- Begin Mega Menu Container -->
-        <ul class="mgmenu"><!-- Begin Mega Menu -->
-                <li class="mgmenu_button">Menu</li><!-- Button (Mobile Devices) -->
-                <li><span><a href="/home">Home</a><br /><span class="subzy">Start Here</span></span></li><!-- Begin and end Home -->
-                <li>
-                        <span class="top"><a href="#">About</a><br /><span class="subzy">About Us</span></span><!-- Begin About Us -->
-                        <div class="dropdown_container dropdown_fullwidth">
-                                <div class="col_4">
-                                        <h3><%= link_to "Kathleen Wynne", "/leader" %></h3>
-                                        <p>Kathleen Wynne was elected Leader of the Ontario Liberal Party
-                                        on January 26, 2013. She was sworn in as the 25th Premier on February 11, 2013, becoming the first woman to hold the position in Ontario's history. <%= link_to "[Read]", "/leader" %></p>
-                                        <hr/>
-                                </div>
-                                <div class="col_4">
-                                        <h4><%= link_to "Party History", "/history" %></h4>
-                                        <p>From George Brown to Kathleen Wynn, learn about the history of the Ontario Liberal Party.<%= link_to "[Read]", "/history" %></p>
-                                        <h4><%= link_to "MPPs", "/mpps" %></h4>
-                                        <p>Meet the Liberal Members of the Legislative Assembly.<%= link_to "[Read]", "/mpps" %></p>
-                                        <h4><%= link_to "Cabinet", "/cabinet" %></h4>
-                                        <p>Meet the Liberal Members of the Legislative Assembly.<%= link_to "[Read]", "/cabinet" %></p>
-                                </div>
-                                <div class="col_4">
-                                        <h4><%= link_to "PLA Presidents", "/plapresidents" %></h4>
-                                        <p>Looking for your local provincial Liberal association <%= link_to "PLA president", "/plapresidents" %>?</a></p>
-                                        <h4><%= link_to "Executive Council", "/executive_council" %></h4>
-                                        <h4><%= link_to "Constitution", "/constitution" %></h4>
-                                        <h4>Ontario Liberal Fund</h4>
-                                        <h4><%= link_to "Contact Us", "/contact" %></h4>
-
-                                                <p class="mobile"><a href="tel:1.800.268.7250">1.800.268.7250</a><br /></p>
-                                                <p class="nomobile">1.800.268.7250<br></p>
-                                                <p>Fax: 416.323.9425<br />
-                                                info@ontarioliberal.ca<br />
-                                                10 St. Mary Street Suite 210<br />
-                                                Toronto, ON<br />
-                                                M4Y 1P9<br /></p>
-
-                                </div>
-                        </div>
-                </li><!-- End About Us -->
-                <li>
-                        <span><a href="#">Get Involved</a><br /><span class="subzy">Take the Next Step</span></span><!-- Begin Item -->
-                        <div class="dropdown_container dropdown_fullwidth"><!-- Begin Item Container -->
-                                <div class="col_3">
-                                        <h4>Join the Party</h4>
-                                        <%= image_tag "join.jpg", class: "inline_img", width: "220", height: "140", alt: "" %>
-                                        <p>Sign up online. Price is $5 for youth, $10 for adults and $5 for Seniors. Join Today.</p>
-                                </div>
-                                <div class="col_3">
-                                        <h4>Lawn Sign</h4>
-                                        <%= link_to image_tag("lawnsign.jpg", class: "inline_img", width: "220", height: "140", alt: ""), new_lawnsign_request_path %>
-                                        <p>Support your local candidate, order a lawn sign.</p>
-                                </div>
-                                <div class="col_3">
-                                        <h4>Volunteer</h4>
-                                        <% if current_user.nil? || current_user.volunteer.nil? %>
-                                                <%= link_to image_tag("volunteer.jpg", class: "inline_img", width: "220", height: "140", alt: ""), new_volunteer_path %>
-                                        <% else  %>
-                                                <%= link_to image_tag("volunteer.jpg", class: "inline_img", width: "220", height: "140", alt: ""), edit_volunteer_path(current_user.volunteer.id) %>
-                                        <% end %>
-                                        <p>Campaigns are successful because of volunteers like you.</p>
-                                </div>
-                                <div class="col_3">
-                                        <h4>Subscribe</h4>
-                                        <a href="#">
-                                                <%= image_tag "enewsletter.jpg", class: "inline_img", width: "220", height: "140", alt: "" %>
-                                        </a>
-                                        <p>Subscribe to the Wire, the OntarioLiberal enewsletter.</p>
-                                </div>
-                        </div><!-- End Item Container -->
-                </li><!-- End Item -->
-                <li>
-                        <span><a href="#">Donate</a><br /><span class="subzy">See the Benefits</span></span><!-- Begin Item -->
-                        <div class="dropdown_container dropdown_fullwidth"><!-- Begin Item Container -->
-                                <div class="col_3">
-                                        <h4>Donate Now</h4>
-                                        <a href="#"><img src="img/products/product01@2x.jpg" style="clip:rect(0px,60px,200px,0px)" width="220" height="140" alt="" class="inline_img" /></a>
-                                        <p>Your donations allow us to get our message out. Even a small donation can make a big difference.</p>
-                                </div>
-                                <div class="col_3">
-                                        <h4>Make a Monthly Contribution (ABC)</h4>
-                                        <a href="#"><img src="img/products/product02@2x.jpg" width="220" height="140" alt="" class="inline_img" /></a>
-                                        <p>Automatic membership renewal and special prices for Ontario Liberal events are just some of the perks of signing up for monthly contributions.</p>
-                                </div>
-                                <div class="col_3">
-                                        <h4>Taxable Benefits</h4>
-                                        <a href="#"><img src="img/products/product03@2x.jpg" width="220" height="140" alt="" class="inline_img" /></a>
-                                        <p>If you gave $300.00, you'd get back $225 at tax time. Read more about the benefits of donating.</p>
-                                </div>
-                                <div class="col_3">
-                                        <h4>About Donations</h4>
-                                        <a href="#"><img src="img/products/product03@2x.jpg" width="220" height="140" alt="" class="inline_img" /></a>
-                                        <p>They're our schools, our hospitals, our environment, our economy, and our future. Your donation makes a big difference in the fight.</p>
-                                </div>
-                        </div><!-- End Item Container -->
-                </li><!-- End Item -->
-                <li><span><a href="#">News</a><br /><span class="subzy">Pics and Videos</span></span><!-- Begin Item -->
-                        <div class="dropdown_container dropdown_fullwidth"><!-- Begin Item Container -->
-                                <div class="col_3">
-                                        <% cache do %>
-                                                <h4><%= link_to "Provincial News", news_path %></h4>
-                                                <% @menu_news_documents.each do |document| %>
-                                                        <p><a href="<%= '/news/' + document.temp_id.to_s + '?l=' + @language %>"><%= raw(document.headline) %></a></p>
-                                                <% end %>
-                                        <% end %>
-                                </div>
-                                <div class="col_3">
-                                        <% cache do %>
-                                                <% most_recent_photos = Photo.where(:riding_id => 0, :published => true)
-                                        .order_by(:created_date.desc).limit(1).first %>
-                                                <% if most_recent_photos %>
-                                                        <%= link_to image_tag(photo_to_local("http://pantone201.ca/webskins/olp/photos/thumbnails/" + most_recent_photos.temp_id.to_s + "_" + most_recent_photos.riding_id.to_s + most_recent_photos.filename.to_s + "_thumbnail.jpg"), :class => "inline_img frame",:border => "0", :alt => if @language == 'FR' then 'Cliquez pour voir la photo...' else 'Click to view...' end), photos_path %>
-                                                        <h4>Photo of the Day</h4>
-                                                        <p><%= raw(if @language == "FR" then most_recent_photos.caption_fr else most_recent_photos.caption_en end) %></p>
-                                                <% end %>
-                                        <% end %>
-                                </div>
-                                <div class="col_3">
-                                        <% cache do %>
-                                                <% if Video.count > 0 %>
-                                                        <% latest_video = Video.first %>
-                                                        <%= link_to latest_video.title, videos_path(latest_video) %>
-                                                        <a href="/video">
-                                                                <div class="inline_img frame" style="background-size:100% 100%; background-image:url(http://i4.ytimg.com/vi/<%= latest_video.video_uri %>/default.jpg)">
-                                                                        <img src="/stylesheets/img/play.png" border="0" alt="" />
-                                                                </div>
-                                                        </a>
-                                                
-                                                        <h4><%= link_to "In Video", videos_path %></h4>
-                                                        <p><%= raw(latest_video.title) %></p>
-                                                <% end %>
-                                        <% end %>
-                                </div>
-                                <div class="col_3">
-                                        <h4><%= link_to "Events", events_path %></h4>
-                                        <a href="#"><img src="img/products/product03@2x.jpg" width="220" height="140" alt="" class="inline_img" /></a>
-                                        <%  cache do %>
-                                                <%= link_to image_tag("img/products/product03@2x.jpg", width: "220", height: "140", alt: "#{most_recent_event.title}", class: "inline_img" ), event_path(@most_recent_event) %>
-                                        <% end %>
-                                        <p>If live event count is <1 Create an account to get notifications of upcoming events. If Featured event count is >0 show Featured Event else next most recent event</p>
-                                </div>
-                        </div><!-- End Item Container -->
-                </li><!-- End Item -->
-        </ul><!-- End Mega Menu -->
+	<ul class="mgmenu"><!-- Begin Mega Menu -->
+		<li class="mgmenu_button">Menu</li><!-- Button (Mobile Devices) -->
+		<li><span><a href="/home">Home</a><br /><span class="subzy">Start Here</span></span></li><!-- Begin and end Home -->
+		<li>
+			<span class="top"><a href="#">About</a><br /><span class="subzy">About Us</span></span><!-- Begin About Us -->
+			<div class="dropdown_container dropdown_fullwidth">
+				<div class="col_4">
+					<h3><%= link_to "Kathleen Wynne", "/leader" %></h3>
+					<p>Kathleen Wynne was elected Leader of the Ontario Liberal Party on January 26, 2013. She was sworn in as the 25th Premier on February 11, 2013, becoming the first woman to hold the position in Ontario's history. <%= link_to "[Read]", "/leader" %></p>
+					<hr/>
+				</div>
+				<div class="col_4">
+					<h4><%= link_to "Party History", "/history" %></h4>
+					<p>From George Brown to Kathleen Wynn, learn about the history of the Ontario Liberal Party.<%= link_to "[Read]", "/history" %></p>
+					<h4><%= link_to "MPPs", "/mpps" %></h4>
+					<p>Meet the Liberal Members of the Legislative Assembly.<%= link_to "[Read]", "/mpps" %></p>
+					<h4><%= link_to "Cabinet", "/cabinet" %></h4>
+					<p>Meet the Liberal Members of the Legislative Assembly.<%= link_to "[Read]", "/cabinet" %></p>
+				</div>
+				<div class="col_4">
+					<h4><%= link_to "PLA Presidents", "/plapresidents" %></h4>
+					<p>Looking for your local provincial Liberal association <%= link_to "PLA president", "/plapresidents" %>?</a></p>
+					<h4><%= link_to "Executive Council", "/executive_council" %></h4>
+					<h4><%= link_to "Constitution", "/constitution" %></h4>
+					<h4>Ontario Liberal Fund</h4>
+					<h4><%= link_to "Contact Us", "/contact" %></h4>					
+					<p class="mobile"><a href="tel:1.800.268.7250">1.800.268.7250</a><br /></p>
+					<p class="nomobile">1.800.268.7250<br></p>
+					<p>
+						Fax: 416.323.9425<br />
+						info@ontarioliberal.ca<br />
+						10 St. Mary Street Suite 210<br />
+						Toronto, ON<br />
+						M4Y 1P9<br />
+					</p>
+				</div>
+			</div>
+		</li><!-- End About Us -->
+		<li>
+			<span><a href="#">Get Involved</a><br /><span class="subzy">Take the Next Step</span></span><!-- Begin Item -->
+			<div class="dropdown_container dropdown_fullwidth"><!-- Begin Item Container -->
+				<div class="col_3">
+					<h4>Join the Party</h4>
+					<%= image_tag "join.jpg", class: "inline_img", width: "220", height: "140", alt: "" %>
+					<p>Sign up online. Price is $5 for youth, $10 for adults and $5 for Seniors. Join Today.</p>
+				</div>
+				<div class="col_3">
+					<h4>Lawn Sign</h4>
+					<%= link_to image_tag("lawnsign.jpg", class: "inline_img", width: "220", height: "140", alt: ""), new_lawnsign_request_path %>
+					<p>Support your local candidate, order a lawn sign.</p>
+				</div>
+				<div class="col_3">
+					<h4>Volunteer</h4>
+					<% if current_user.nil? || current_user.volunteer.nil? %>
+						<%= link_to image_tag("volunteer.jpg", class: "inline_img", width: "220", height: "140", alt: ""), new_volunteer_path %>
+					<% else  %>
+						<%= link_to image_tag("volunteer.jpg", class: "inline_img", width: "220", height: "140", alt: ""), edit_volunteer_path(current_user.volunteer.id) %>
+					<% end %>
+					<p>Campaigns are successful because of volunteers like you.</p>
+				</div>
+				<div class="col_3">
+					<h4>Subscribe</h4>
+					<a href="#">
+						<%= image_tag "enewsletter.jpg", class: "inline_img", width: "220", height: "140", alt: "" %>
+					</a>
+					<p>Subscribe to the Wire, the OntarioLiberal enewsletter.</p>
+				</div>
+			</div><!-- End Item Container -->
+		</li><!-- End Item -->
+		<li>
+			<span><a href="#">Donate</a><br /><span class="subzy">See the Benefits</span></span><!-- Begin Item -->
+			<div class="dropdown_container dropdown_fullwidth"><!-- Begin Item Container -->
+				<div class="col_3">
+					<h4>Donate Now</h4>
+					<a href="#"><img src="img/products/product01@2x.jpg" style="clip:rect(0px,60px,200px,0px)" width="220" height="140" alt="" class="inline_img" /></a>
+					<p>Your donations allow us to get our message out. Even a small donation can make a big difference.</p>
+				</div>
+				<div class="col_3">
+					<h4>Make a Monthly Contribution (ABC)</h4>
+					<a href="#"><img src="img/products/product02@2x.jpg" width="220" height="140" alt="" class="inline_img" /></a>
+					<p>Automatic membership renewal and special prices for Ontario Liberal events are just some of the perks of signing up for monthly contributions.</p>
+				</div>
+				<div class="col_3">
+					<h4>Taxable Benefits</h4>
+					<a href="#"><img src="img/products/product03@2x.jpg" width="220" height="140" alt="" class="inline_img" /></a>
+					<p>If you gave $300.00, you'd get back $225 at tax time. Read more about the benefits of donating.</p>
+				</div>
+				<div class="col_3">
+					<h4>About Donations</h4>
+					<a href="#"><img src="img/products/product03@2x.jpg" width="220" height="140" alt="" class="inline_img" /></a>
+					<p>They're our schools, our hospitals, our environment, our economy, and our future. Your donation makes a big difference in the fight.</p>
+				</div>
+			</div><!-- End Item Container -->
+		</li><!-- End Item -->
+		<li>
+			<span><a href="#">News</a><br /><span class="subzy">Pics and Videos</span></span><!-- Begin Item -->
+			<div class="dropdown_container dropdown_fullwidth"><!-- Begin Item Container -->
+				<div class="col_3">
+					<% cache do %>
+						<h4><%= link_to "Provincial News", news_path %></h4>
+						<% @menu_news_documents.each do |document| %>
+							<p><a href="<%= '/news/' + document.temp_id.to_s + '?l=' + @language %>"><%= raw(document.headline) %></a></p>
+						<% end %>
+					<% end %>
+				</div>
+				<div class="col_3">
+					<h4><%= link_to "Photo of the Day", photos_path %></h4>
+					<% if @menu_photo != nil %>
+						<%= link_to image_tag(photo_to_local("http://pantone201.ca/webskins/olp/photos/thumbnails/" + @menu_photo.temp_id.to_s + "_" + @menu_photo.riding_id.to_s + @menu_photo.filename.to_s + "_Thumbnail.jpg"), :class => "inline_img frame",:border => "0", :alt => if @language == 'FR' then 'Cliquez pour voir la photo...' else 'Click to view...' end), photos_path %>
+						<p><%= raw(if @language == "FR" then @menu_photo.caption_fr else @menu_photo.caption_en end) %></p>
+					<% end %>
+				</div>
+				<div class="col_3">
+					<h4><%= link_to "In Video", videos_path %></h4>
+					<% if @menu_video != nil %>
+						<a href="/videos">
+							<div class="inline_img frame" style="background-size:100% 100%; background-image:url(http://i4.ytimg.com/vi/<%= @menu_video.video_uri %>/default.jpg)">
+								<img src="/stylesheets/img/play.png" border="0" alt="" />
+							</div>
+						</a>
+						<p><%= raw(@menu_video.title) %></p>
+					<% end %>
+				</div>
+				<div class="col_3">
+					<h4><%= link_to "Events", events_path %></h4>
+					<a href="#"><img src="img/products/product03@2x.jpg" width="220" height="140" alt="" class="inline_img" /></a>
+					<%#= link_to image_tag("img/products/product03@2x.jpg", width: "220", height: "140", alt: "#{most_recent_event.title}", class: "inline_img" ), event_path(@most_recent_event) %>
+					<p>If live event count is <1 Create an account to get notifications of upcoming events. If Featured event count is >0 show Featured Event else next most recent event</p>
+				</div>
+			</div><!-- End Item Container -->
+		</li><!-- End Item -->
+	</ul><!-- End Mega Menu -->
 </div><!-- End Mega Menu Container -->
 <!-- THE MENU ENDS HERE -->

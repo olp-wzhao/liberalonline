@@ -2,38 +2,99 @@
 <html lang="en">
 <head>
         <meta charset="utf-8" />
-        <title>FitText</title>
+        <title>Inside Page setup</title>
 		
-<link href="http://dev.olp.myliberal.org/stylesheets/mgmenulib.css" rel="stylesheet" type="text/css" media="screen" />		
-<link href='http://fonts.googleapis.com/css?family=Roboto+Condensed:400,700,300italic,300' rel='stylesheet' type='text/css'/>
+        <link href="/stylesheets/mgmenulib.css" rel="stylesheet" type="text/css" media="screen" />	
+
 	
 	
-<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
-<script src="http://bigspotteddog.github.io/ScrollToFixed/jquery-scrolltofixed-min.js"></script>
-<script src="http://flexslider.woothemes.com/js/modernizr.js"></script>
-<script src="http://dev.commonground.myliberal.org/jquery.slabtext.min.js"></script><!-- Slab Text -->
-<script src="http://pantone201.ca/webskins/newolp/javascript/mgmenu_plugins.js"></script><!-- Mega Menu Plugins -->
-<script src="http://pantone201.ca/webskins/newolp/javascript/mgmenu.js"></script><!-- Mega Menu Script -->
+<script src="javascripts/jquery-1.9.1.min.js"></script>
+<script src="javascripts/jquery-scrolltofixed-min.js"></script>
+
+        <script src="javascripts/mgmenu_plugins.js"></script><!-- Mega Menu Plugins -->
+        <script src="javascripts/mgmenu.js"></script><!-- Mega Menu Script -->
 
 
-<script>
-$(document).ready(function($){
-    $('#mgmenu1').universalMegaMenu({
-        menu_effect: 'hover_slide',
-        menu_speed_show: 300,
-        menu_speed_hide: 200,
-        menu_speed_delay: 200,
-        menu_click_outside: true,
-        menubar_trigger : false,
-        menubar_hide : false,
-        menu_responsive: true
-    });
-});
-</script>
-
-    <link href='http://fonts.googleapis.com/css?family=Oswald:400,700' rel='stylesheet' type='text/css'>
-    <link href='http://fonts.googleapis.com/css?family=Droid+Sans:400,700' rel='stylesheet' type='text/css'>
+        <script>
+        $(document).ready(function($){
+            $('#mgmenu1').universalMegaMenu({
+                menu_effect: 'hover_slide',
+                menu_speed_show: 300,
+                menu_speed_hide: 200,
+                menu_speed_delay: 200,
+                menu_click_outside: true,
+                menubar_trigger : false,
+                menubar_hide : false,
+                menu_responsive: true
+            });
+        });
+        </script>
+ 
+<!-- Pulling these locally    
+<link href='http://fonts.googleapis.com/css?family=Oswald:400,700' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Droid+Sans:400,700' rel='stylesheet' type='text/css'>
+-->
         <style type="text/css">
+		
+@font-face {
+  font-family: 'Oswald';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Oswald Regular'), local('Oswald-Regular'), url(fonts/Oswald400.woff) format('woff');
+}
+@font-face {
+  font-family: 'Oswald';
+  font-style: normal;
+  font-weight: 700;
+  src: local('Oswald Bold'), local('Oswald-Bold'), url(fonts/Oswald700.woff) format('woff');
+}
+@font-face {
+  font-family: 'Droid Sans';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Droid Sans'), local('DroidSans'), url(fonts/DroidSans400.woff) format('woff');
+}
+@font-face {
+  font-family: 'Droid Sans';
+  font-style: normal;
+  font-weight: 700;
+  src: local('Droid Sans Bold'), local('DroidSans-Bold'), url(fonts/DroidSans700.woff) format('woff');
+}
+@font-face {
+  font-family: 'League Gothic';
+  font-style: normal;
+  font-weight: 400;
+  src: local('League Gothic'), local('LeagueGothic400'), url(fonts/LeagueGothic400.woff) format('woff');
+}
+
+
+@font-face {
+  font-family: 'Roboto Condensed';
+  font-style: normal;
+  font-weight: 300;
+  src: local('Roboto Condensed Light'), local('RobotoCondensed-Light'), url(fonts/RobotoCondensed300.woff) format('woff');
+}
+@font-face {
+  font-family: 'Roboto Condensed';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Roboto Condensed Regular'), local('RobotoCondensed-Regular'), url(fonts/RobotoCondensed400.woff) format('woff');
+}
+@font-face {
+  font-family: 'Roboto Condensed';
+  font-style: normal;
+  font-weight: 700;
+  src: local('Roboto Condensed Bold'), local('RobotoCondensed-Bold'), url(fonts/RobotoCondensed700.woff) format('woff');
+}
+@font-face {
+  font-family: 'Roboto Condensed';
+  font-style: italic;
+  font-weight: 300;
+  src: local('Roboto Condensed Light Italic'), local('RobotoCondensed-LightItalic'), url(fonts/RobotoCondensedItalic300.woff) format('woff');
+}
+
+		
+		
 body {
     font-family: arial, sans-serif;
     margin: 0 auto 0;
@@ -42,25 +103,11 @@ body {
 }
 h1,h2,h3,h4,h5,h6,button-white {	
     font-weight:400;
-	font-size:20px;
-	font-family: 'Oswald', sans-serif; 	
+	font-family: 'Oswald', sans-serif;
+	margin:0px;
+	padding:0px;
 	}
-.banner {
-    background-color: #eee;
-    height: 15px;
-    padding: 5px;
-	max-width:1080px;
-	margin-left:auto;
-	margin-right:auto;
-}
-.header {
-    background-color: #eee;
-    height: 50px;
-    padding: 5px;
-	max-width:1080px;
-	margin-left:auto;
-	margin-right:auto;
-}
+
 .container { 
 
 /* Holds the two columns and centres them  */
@@ -146,88 +193,6 @@ min-height:100px;
 .activated {background-color: #2b4170;}
 .fixed {position: static; top: 85px;}
 .static {position: static; top: 85px;}
-/* BUTTON GRADIENTS  */
-a.button-white,
-a.button-red,
-a.button-facebook,
-a.button-twitter {
-	border-radius: 3px;
-	box-shadow: 0 1px 1px #999;
-	color: #fff;
-	display: inline-block;
-	font-size: 16px;
-	margin: 0 20px 20px 0;
-	margin: 0 2rem 2rem 0;
-	padding: 7px 11px;
-	padding: .8rem 1.1rem;
-	text-align: center;
-	width: 140px;
-	text-decoration:none;
-
-}
-a.button-facebook {
-	background-color: #2b4170; /* fallback color */
-	background: -moz-linear-gradient(top, #3b5998, #2b4170);
-	background: -ms-linear-gradient(top, #3b5998, #2b4170);
-	background: -webkit-linear-gradient(top, #3b5998, #2b4170);
-	border: 1px solid #2b4170;
-	text-shadow: 0 -1px -1px #1f2f52;
-}
- 
-a.button-facebook:hover {
-	background-color: #3b5998; /* fallback color */
-	background: -moz-linear-gradient(top, #2b4170, #3b5998);
-	background: -ms-linear-gradient(top, #2b4170, #3b5998);
-	background: -webkit-linear-gradient(top, #2b4170, #3b5998);
-}
-a.button-twitter {
-	background-color: #0081ce; /* fallback color */
-	background: -moz-linear-gradient(top, #00aced, #0081ce);
-	background: -ms-linear-gradient(top, #00aced, #0081ce);
-	background: -webkit-linear-gradient(top, #00aced, #0081ce);
-	border: 1px solid #0081ce;
-	text-shadow: 0 -1px -1px #005ea3;
-}
- 
-a.button-twitter:hover {
-	background-color: #00aced; /* fallback color */
-	background: -moz-linear-gradient(top, #0081ce, #00aced);
-	background: -ms-linear-gradient(top, #0081ce, #00aced);
-	background: -webkit-linear-gradient(top, #0081ce, #00aced);
-}
-
-a.button-red {
-	background-color: #a0171c; /* fallback color */
-	background: -moz-linear-gradient(top, #cb2027, #a0171c);
-	background: -ms-linear-gradient(top, #cb2027, #a0171c);
-	background: -webkit-linear-gradient(top, #cb2027, #a0171c);
-	border: 1px solid #a0171c;
-	text-shadow: 0 -1px -1px #761114;
-}
- 
-a.button-red:hover {
-	background-color: #cb2027; /* fallback color */
-	background: -moz-linear-gradient(top, #a0171c, #cb2027);
-	background: -ms-linear-gradient(top, #a0171c, #cb2027);
-	background: -webkit-linear-gradient(top, #a0171c, #cb2027);
-}
-a.button-white {
-	background-color: #e9e9e9; /* fallback color */
-	background: -moz-linear-gradient(top, #e9e9e9, #f9f8f8);
-	background: -ms-linear-gradient(top, #e9e9e9, #f9f8f8);
-	background: -webkit-linear-gradient(top, #e9e9e9, #f9f8f8);
-	border: 1px solid #dfdfdf;
-	text-shadow: 0 -1px -1px #761114;
-	color: #9b9b9b;
-
-}
-a.button-white:hover {
-	background-color: #cb2027; /* fallback color */
-	background: -moz-linear-gradient(top, #f9f8f8, #e9e9e9);
-	background: -ms-linear-gradient(top, #f9f8f8, #e9e9e9);
-	background: -webkit-linear-gradient(top, #f9f8f8, #e9e9e9);
-		color: #c4c4c4;
-}
 
 
 
@@ -346,9 +311,8 @@ a.button-white:hover {
 
 
 
-<div style="float:left; width:200px; margin-top:5px; outline:solid 1px yellow;"><img src="http://dev.olp.myliberal.org/images/logo-sm.png"></div>
+<div style="float:left; width:400px; margin-top:5px;"><img src="http://dev.olp.myliberal.org/images/logo-sm.png"></div>
 
-<div style="float:right;>
 <div id="mgmenu1" class="mgmenu_container" style="margin-top:10px;"><!-- Begin Mega Menu Container -->
         <ul class="mgmenu"><!-- Begin Mega Menu -->
                 <li class="mgmenu_button">Menu</li><!-- Button (Mobile Devices) -->
@@ -480,7 +444,7 @@ a.button-white:hover {
         </ul><!-- End Mega Menu -->
 </div><!-- End Mega Menu Container -->
 <!-- THE MENU ENDS HERE -->
-</div><!-- End inline float container -->
+
 
 
 
@@ -506,21 +470,11 @@ a.button-white:hover {
 					<p>Orci id gravida per neque nibh. Nullam sit commodo tincidunt et diam vitae pharetra sed. Tempus sit sodales. Voluptatem wisi mattis inceptos tellus dolor rhoncus sed et eu turpis torquent ligula eu dui lorem nec accumsan platea lacinia ac. Non faucibus per sit in vehicula magna lacus deleniti. Tincidunt per aliquam. Vestibulum adipiscing laoreet eget eros commodo. Laoreet molestie a eros in nec sed justo venenatis. Eu lorem gravida. Nisl non a sociis convallis leo. Est nunc nisl porta dignissim turpis. Sapien sed nulla. Amet mi diam. Sem risus accumsan. Posuere viverra convallis. Est at netus. Tortor eget quam. Wisi nulla erat vestibulum tempor eu hendrerit vel dolor. Aliquam magnis sed etiam felis eros.</p><h2>Scelerisque in justo neque ultricies vel eget libero quam vitae metus ante nonummy amet augue</h2>
 					<p>Velit tellus enim. Vitae et ultrices. Odio torquent ligula. Quam in a scelerisque malesuada non. Sem enim congue sed odio libero. Lacinia commodo feugiat sed nonummy lobortis erat maecenas vivamus. Lectus diam pede. Eget risus mauris. In dapibus libero suspendisse pellentesque urna. Id metus libero. Metus id accumsan curabitur id congue. Elementum diam placerat posuere vivamus felis. Arcu ante vestibulum. Orci ut ut magna nibh eu aliquam mi qui vel pretium nullam. Tellus ligula malesuada. Consequat id nulla. Feugiat suscipit ligula dolor amet congue urna etiam amet accumsan consequat distinctio natoque placerat nec. Eget lectus mauris molestie fusce dui. Vel consectetuer imperdiet tempus at sed. Proin aliquam nec. Ligula sit elit eget faucibus cras arcu in rhoncus. Lorem id integer. Vestibulum nec cum. Ligula aliquam tellus elit nisl lectus in diam tortor wisi mauris tempus.</p><p>Fermentum ipsum augue. Lectus in nunc vulputate tellus neque tortor erat cursus. Congue wisi enim. Nam eget dui auctor amet quis donec ipsum nibh. Nisl leo magna officia leo nibh.</p>
 					<h2>Mollis in ornare</h2>
-					<div id="toptrigger">#toptrigger</div>
-					<p>Nec a ut. Ut nullam urna. Quis tortor mauris blandit non corrupti. Rutrum in at id dignissim dictum. Duis ac ornare parturient ultrices amet odio feugiat aenean cras mus pede. Praesent egestas netus. Urna esse pharetra commodi commodo curabitur. A lacinia sed etiam ut vel maxime platea porta odio mollis non nisl nulla nullam. Vitae impedit pulvinar.</p><h2>Sem velit maiores</h2>
-					<p>Accumsan blandit ut. Varius velit ante. Leo tincidunt nulla lorem gravida nulla tempus volutpat donec phasellus aliquet nec. Sapien tempor id pharetra magna mi. Nunc fusce venenatis nam mi nam. Eget senectus convallis donec urna suscipit donec natoque lacinia rutrum lorem est adipiscing sed lectus. Dictumst faucibus ut. Vulputate sodales ipsum. Purus vehicula sed vestibulum eget integer.</p>
-					<h2>Ut turpis tempor integer fusce bibendum sem ipsum rutrum</h2><p>Nec in nibh. A amet condimentum. Commodo fringilla amet sit ut quis. Facilisi ac a ut id morbi. Aut pretium orci donec dui vel risus eros amet quis ut molestiae. Molestie nulla sem vestibulum urna aptent aliquam etiam auctor. Erat eu duis. Imperdiet vestibulum ut. Nibh risus fusce viverra wisi lectus.</p>
-					<h2>Sed curabitur ut vel condimentum fermentum a felis suspendisse</h2>
-					<p>Neque lacus lorem ut massa lacinia. Amet nulla est. Vitae in vel turpis diam elit lacinia amet quis. Sem a in. Architecto magna sit vel vehicula elit ullam consectetuer non. Vel vulputate elit facilisis accumsan justo. Ridiculus pharetra fusce. A volutpat curabitur. Senectus amet in elementum ipsum ut sit eros tellus.</p>
-					<h2>Phasellus enim metus vestibulum scelerisque mauris</h2>
-					<p>Donec nisl massa. Hendrerit suscipit turpis sed eget quis. Mauris wisi aenean amet semper morbi. Orci hendrerit vestibulum dolor a semper nullam nesciunt amet.</p><p>Erat ac non. Accumsan arcu mauris. Consectetuer vivamus convallis. Vestibulum neque vitae risus vivamus ut. Egestas elit eget. Venenatis mattis orci. Malesuada eget massa vitae est nec lacus et parturient nunc enim curabitur mollis vitae dictumst et malesuada non amet wisi amet sit lacus cras quis accumsan tortor tempore vulputate ante. Corrupti est sem dignissim ante vehicula ac cursus in tempus suspendisse at. Neque pariatur sed. Ac malesuada a. Hac duis pellentesque. Libero varius fugiat. Iaculis aliquam ac eros tempus sit sit in fusce. Luctus wisi amet. Vestibulum est vitae ut libero massa. Eu hendrerit velit. Et per massa congue vivamus sapien. Nibh nibh pulvinar. Libero velit est. Et lorem ipsum. Pretium sagittis nisl. Id ut viverra. Arcu dis sapien vehicula amet lacus sodales sagittis quam minim in mauris integer ante eu. Nisl id id eget sed molestie nec ac mauris nonummy proin porttitor. Vestibulum orci a sed in ligula.</p><h2>Lorem pede adipiscing massa eu eros</h2><p>Proin a at. Sagittis congue vitae. Eu arcu sem. A pede cras volutpat faucibus dui. Est ridiculus vestibulum blandit a dui montes dignissim mauris ac tellus diam. Rutrum gravida orci id eget morbi. Nec ut mollis. Dolore nulla donec. Nunc accumsan consectetuer. Erat orci vel. Primis erat nostra nec laoreet tempor eos porttitor sem hendrerit dignissim venenatis faucibus vel pellentesque. Lobortis in mi vitae donec metus faucibus amet viverra at ut dolor varius felis ante blandit sit litora ac autem ante. Pellentesque pede quisque. In nonummy pulvinar. Eget nunc quam. Massa torquent ut penatibus hendrerit et nulla scelerisque odio dolor vitae quis. In in quam dolor nec arcu. Magna vitae feugiat. Donec fermentum bibendum.</p><h2>Pretium dui dui</h2><p>Convallis wisi urna. Ipsum tellus ultricies. Non ac pretium. In non accumsan purus nec aliquip hendrerit fusce ornare ut turpis quis dictum tincidunt in vestibulum fringilla ad. In et dui. Eget tellus quisque arcu varius per tellus neque sit convallis nulla tellus. Nam faucibus aliquam. Vitae vel sed turpis nascetur ultricies aliquam vitae ultricies sed lobortis vestibulum sapien non eu. Sem amet nulla. Leo elit ipsum imperdiet sit dictumst. Enim turpis vivamus. Posuere odio ipsum in augue quisque nisl duis metus. Etiam imperdiet curabitur. Quis velit arcu. Ipsum turpis libero vel donec et. Ac risus a tempus.</p>
-					<h2>Sit amet dolore</h2>
-					<p>Praesent ipsum nibh ut curabitur justo. Ut proin faucibus. Ornare molestie magnis nec tempus ultricies eu amet sed. Et egestas aptent. Vel dignissim justo sodales suscipit lorem quis ullamcorper lacinia. Ac ligula nascetur. Tortor non leo at lacus non feugiat nisl aut suscipit nec ac rhoncus sed ipsum. Mauris condimentum erat rutrum ultricies justo.</p><h2>Rhoncus mauris vivamus</h2><p>Consectetuer quam euismod id accumsan a tellus ultrices quam suspendisse metus sit aliquam nec fermentum. Fusce aenean wisi. Purus eget rutrum non risus duis. Risus varius commodo egestas diam est. Dictum tellus nullam pede in ligula egestas neque pharetra vel justo non. Eu pharetra vestibulum. Mauris pede mauris. Erat a tellus. Orci vivamus mauris in morbi et.</p>
-					<h2>Scelerisque diamlorem sollicitudin</h2>
-					<p>Elementum libero etiam magna vitae velit scelerisque purus suspendisse. Amet torquent diam. In lacus vestibulum a ligula etiam. Vel convallis sapien. Cras platea rutrum. Leo pede volutpat. Ullamcorper dui sollicitudin consectetuer donec amet cras lorem nunc mattis sed dapibus metus enim ligula. Volutpat eu dictum mus vel ultrices. Sit nunc mattis. Mus donec tellus amet in a quaerat non vivamus sed in condimentum. Lacus posuere in. Condimentum sodales lacinia. Eget ante sagittis quisque duis scelerisque praesent tristique ut. Ipsum justo nulla viverra ornare in nam lectus aliquam.</p><p>Donec eget id est nulla nisl ipsa sollicitudin lectus vel fusce neque. Phasellus egestas commodo. Orci ipsum ut. Etiam vitae turpis vitae sed velit. Orci sollicitudin at. Felis id sem. Pharetra nisl dui nam enim non. Donec ullamcorper cras ligula dui mattis eget proin vitae. Nisl suspendisse tristique laoreet in etiam. Ac maecenas bibendum dis vel suspendisse. Et quisque integer. In lacus magna vel in aenean dolor facilisis nec. Mi ad tincidunt a nec felis duis nec nulla id sit vitae elementum egestas gravida. Wisi maecenas lectus. Nec ut nullam.</p><h2>Asperiores lectus minim</h2><p>Lorem integer faucibus lorem eget augue. Vulputate eget facilisis eu sollicitudin eget. Justo libero tincidunt tincidunt quam lacus. Leo ipsum felis. Eget potenti suscipit. Porta at omnis aliquam eleifend luctus. Est morbi tristique libero pellentesque nunc nec consectetuer in eget ante arcu eget sit integer. Metus magna sem vitae quam luctus id in sit neque suspendisse lacinia. Et arcu eget ac ante vivamus. Vitae magna cursus. Sollicitudin a vivamus. Pede eu nunc vehicula erat ipsum. Fusce quisque tincidunt. Fermentum sed aliquam elementum ut vitae wisi curabitur eget. Posuere nulla in curabitur sapien nascetur. Et proin maecenas integer hendrerit ultricies sed sed eu eget feugiat sem pellentesque velit eu. Suspendisse dui lectus. Ut tincidunt vitae. Et molestie donec.</p><h2>Auctor malesuada lorem</h2><p>In feugiat ut aliquam turpis vehicula. Dolor aut in gravida in nam eget euismod erat. Dignissim dictum non. Elit erat lorem ipsum lorem ac leo at turpis tristique amet aliquam morbi et per aliquam suspendisse cras. Sed elementum mi. Magna gravida facilisis ante dis mattis. Accumsan magnis elementum. Lacus dolor dictum. Sit vivamus integer. Nonummy ut torquent. Massa penatibus sit. Condimentum pulvinar ullamcorper. Vulputate laoreet primis lacus nec donec dictum eu pellentesque eros dictum amet risus dui.</p>
 					
 					<a href="#" class="button-white">Test Button</a>
 					<div id="bottomtrigger">#bottomtrigger</div>
+					<div id="col8picblocker">&nbsp;</div>
+					
                 </div>
 				
                 <div class="col-4 fixed">
@@ -594,51 +548,8 @@ $('body').click(function(){
 	
  
 </script>
-  <script>
-    // Function to slabtext the H1 headings
-    function slabTextHeadlines() {
-        $(".slabtext").slabText({
-            // Don't slabtext the headers if the viewport is under 380px
-            "viewportBreakpoint":380
-        });
-    };
-  </script>
- <script>
-var $col4 = $('.col-4');
-var $toptrigger = $('#toptrigger');
-var $bottomtrigger = $('#bottomtrigger');
-var $col8 = $('.col-8');
-var top = $toptrigger.offset().top;
-var bottom = top + $bottomtrigger.height();
-
-var distancedown = $col8.offset().top;
-
-var bottomtriggerposition = $bottomtrigger.position();
-var toptriggerposition = $toptrigger.position();
-var col4scrollposition = $col4.position();
-
-// var vanishingpoint = $(".col-8").height($(".col-4").height(), 10);
-var footerstart = $('#footer').offset().top;
 
 
-
-
-$col8.click(function() {
-alert( "The footer appears at " + footerstart + "\n col-8 height is " + $col8.height() + " offset: " + distancedown + "\n position of bottom trigger: " + bottomtriggerposition.top + "\n position of top trigger: " + toptriggerposition.top + "\n col-4 position: " + col4scrollposition.top + "scrolltop(): " + $col8.scrollTop());
-});
-
-$col4.click(function() {
-$("div.fixed").toggleClass("static", true);
-alert("col-4 was clicked");
-});
-
-$('body').click(function(){
-    var scrollPost = $(document).scrollTop();
-    alert("You're scrolled to " + scrollPost);
-});
-
-
-  </script>
   
   
 <script src="http://pantone201.ca/webskins/newolp/javascript/mgmenu_plugins.js"></script><!-- Mega Menu Plugins -->
@@ -661,7 +572,7 @@ $(document).ready(function($){
 <script>
 window.onload = choosePic;
 
-var myPix = new Array("images/image1.gif", "images/image2.gif");
+var myPix = new Array("wynne_1.png", "wynne_2.png", "wynne_3.png");
 
 function choosePic() {
     var randomNum = Math.floor((Math.random() * myPix.length));
@@ -669,7 +580,6 @@ function choosePic() {
         "url(" + myPix[randomNum] + ")";
 }
 </script>
-
   
 </body>
 </html>

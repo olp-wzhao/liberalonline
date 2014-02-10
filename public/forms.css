@@ -16,19 +16,17 @@ $(document).ready(function(){
   /* f84241   lightred  */
   /* d43839   dark red  */
   /* 494949  textgrey  */
+ 
+/*
+ 
+Horizontal rule
+     Highlight f8f8f8
+     Lowlight 494949
+*/
+
   /* warm white #f0ecec            */
   /* portrait bg clr #d7e6f4  */
-  /* new portrait bg #e8eae5 */
-
-.hrbreake7e6e7 {
-	background-image: url("images/hr_e7e6e7.gif");
-	background-repeat: repeat-x;
-    background-position: left center;
-	width:100%;
-	min-height:10px;
-}
-.or {background-color:#e7e6e7; padding-left:7px; padding-right:7px;}
-   
+  
 body {
   font-family: 'Oswald', sans-serif;
   color: #f0ecec;
@@ -44,12 +42,6 @@ body {
 .black a:visited,
 .black a:hover,
 .black { color: #302728; }
-
-.grey a:link,
-.grey a:visited,
-.grey a:hover,
-.grey { color: #494949; }
-
 
 .redtype a:link,
 .redtype a:visited,
@@ -108,8 +100,9 @@ a:visited { color: #fff;}
   margin-left: auto;
   margin-right: auto;
   width: 100%;
-  background-color:#e7e6e7;
+  background-color:#d4dded;
   max-height: 675px;
+  background-color: #d7e6f4;
   border:solid 1px black;
   }
 
@@ -133,22 +126,6 @@ a:visited { color: #fff;}
 
 
 
-
-
-.error {font-size:10px; margin-top:3px; margin-bottom:12px; line-height:22px; color:red;}
-.tiny  {font-size:10px; margin-top:3px; margin-bottom:12px; line-height:22px;}
-.legal {
-    line-height: 13px;
-    text-shadow: none;
-    margin: 10px 0px 0px;
-    padding: 0px;
-    border: 0px none;
-    outline: 0px none;
-    font-size: 10px;
-    vertical-align: baseline;
-    font-family: "HelveticaNeue","Helvetica Neue","HelveticaNeueRoman","HelveticaNeue-Roman","Helvetica Neue Roman",'TeXGyreHerosRegular',"Helvetica","Tahoma","Geneva","Arial",sans-serif;
-    font-weight: 400;
-}
 
 input[type="submit"] {
     background: -moz-linear-gradient(center top , rgb(203, 32, 39), rgb(160, 23, 28)) repeat scroll 0% 0% transparent;
@@ -184,8 +161,8 @@ input[type="submit"]:hover {
 #user_first_name,
 #user_last_name,
 #user_postal_code {
-	width:100%; 
-    height: 38px;
+	width:90%; 
+	height:45px; 
 	margin-right:19px;
 	margin-bottom:10px;
     border: 1px solid rgb(204, 204, 204);
@@ -202,12 +179,11 @@ input[type="submit"]:hover {
 #user_postal_code:focus {
     border-color: rgb(243, 81, 73);
 }
-#birthMonth {width:47%; display:inline; box-shadow: 2px 3px 2px #8e7575;}
-#birthDay {width:22%; display:inline; box-shadow: 2px 3px 2px #8e7575;}
-#birthYear {width:25%; display:inline; box-shadow: 2px 3px 2px #7e8a9a;}
-#birthDay a {color:red;}
+#birthMonth {width:100px; display:inline; box-shadow: 2px 3px 2px #7e8a9a;}
+#birthDay {width:50px; display:inline; box-shadow: 2px 3px 2px #7e8a9a;}
+#birthYear {width:100px; display:inline; box-shadow: 2px 3px 2px #7e8a9a;}
 .signup select {
-    height: 38px;
+    height: 34px;
     margin-right: 5px;
     padding: 4px;
     line-height: 30px;
@@ -221,42 +197,8 @@ input[type="submit"]:hover {
 	}
 
 
-#facebooklogin {
-text-shadow: none;
-background-color: #EB4924;
-color: #FFF;
-background: url('/images/f.png') no-repeat scroll 0% 0% transparent;
-border-right: 1px solid #5272AA;
-height: 48px;
-width: 48px;
-position: absolute;
-left: 2px;
-top: 1px;
-content: " ";
-width: 100%;
-color: #F1F1F1;
-text-shadow: 0px 1px #173B86;
-border: 1px solid transparent;
-background: linear-gradient(to bottom, #4D78CE 0%, #456FA7 100%) repeat scroll 0% 0% transparent;
-height: 52px;
-padding: 0px 18px 0px 62px;
-line-height: 50px;
-position: relative;
-display: inline-block;
-cursor: pointer;
-font-size: 16px;
-font-family: "HelveticaNeueMedium","HelveticaNeue-Medium","Helvetica Neue Medium","HelveticaNeue","Helvetica Neue",'TeXGyreHerosRegular',"Helvetica","Tahoma","Geneva","Arial",sans-serif;
-font-weight: 500;
-font-stretch: normal;
--moz-box-sizing: border-box;
-border-radius: 3px;
-text-decoration: none;
-vertical-align: baseline;
-outline: 0px none;
-)
-
-
-
+.error {font-size:10px; margin-top:3px; margin-bottom:12px; line-height:22px; color:red;}
+.tiny  {font-size:10px; margin-top:3px; margin-bottom:12px; line-height:22px;}
 
 
 /* BUTTON GRADIENTS  */
@@ -412,9 +354,7 @@ a.button-red:hover {
 			  
                 <div class="centerclass"><img src="images/logo_sm_white_vert.png">
 			      <div style="cleaar:left; display:block; height:30px;">&nbsp;</div>
-				  <div id="facebooklogin">Login with facebook</div>
 			      <a class="btn button-facebook" href="#"><span style="font-size:13px; font-family: arial,helvetica;">Sign up with </span>facebook</a>
-<div class="hrbreake7e6e7"><span class="or">or</span></div>
                   <input class="signup" id="user_first_name" name="user[first_name]" placeholder="First Name" type="text" />
                   <input class="signup" id="user_last_name" name="user[last_name]" placeholder="Last Name" type="text" />
                   <input class="signup" id="user_email" name="user[email]" placeholder="Email" type="text" />			  
@@ -583,14 +523,11 @@ a.button-red:hover {
 
 </div>
 			   
+			   
 			  
-                   <div class="buttonbump">
-				   <input class="button-red" id="signup_submit" name="commit" type="submit" value="Sign Up" />
-			       <p class="grey"><a href="#">Login</a> | <a href="#">No thanks</a></p>
+                   <div class="buttonbump"><input class="btn button-red" id="petition_submit" name="commit" type="submit" value="Sign Up" />
+			       <p class="dark"><a href="#">Login</a> | <a href="#">No thanks</a></p>
 			       </div>
-				   
-				   <div class="legal grey">The information you are providing will allow us to improve your experience and the responsiveness of our member services should you require assistance. We respect your <a href="privacy">privacy</a> and will not share your information with a third party. </div>			   
-
 			  
       </div>
 

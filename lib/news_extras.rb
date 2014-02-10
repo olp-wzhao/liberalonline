@@ -6,6 +6,20 @@ module NewsExtras
     end
     news_documents
   end
+  
+  def prepare_menu_photo
+  	photo = nil 
+  	photos = Photo.where({riding_id: 0, published: true}).order_by(:created_date.desc)
+	if photos != nil && photos.length > 0 then photo = photos[0] end 
+	photo 
+  end 
+  
+  def prepare_menu_video
+  	video = nil 
+  	videos = Video.where(:riding_id => 0, :published => true, language: @language).order_by(:created_date.desc)
+	if videos != nil && videos.length > 0 then video = videos[0] end 
+	video
+  end
 
   def prepare_document_photo(document, is_local, is_thumbnail=true)
     document.image_name = ''
