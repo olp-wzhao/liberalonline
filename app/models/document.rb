@@ -61,7 +61,11 @@ class Document
   scope :mpp, -> { where(:riding_id => 0, :published => true, :publish_on_mpp => true).order_by(:document_date.desc) }
   scope :pla, -> { where(:riding_id => 0, :published => true, :publish_on_pla => true).order_by(:document_date.desc) }
   scope :elect, -> { where(:riding_id => 0, :published => true, :publish_on_elect => true).order_by(:document_date.desc) }
+
+  #only central
+  scope :press_release, -> { where(doctype: 0).order_by(:document_date.desc) }
   scope :toolkit, -> { where(doctype: 20).order_by(:document_date.desc) }
+  
 
   scope :news_documents, -> {  where(:riding_id => 0, :published => true, :publish_on_pla => true)
                                      .between(doctype: 0..1)
