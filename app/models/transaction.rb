@@ -47,7 +47,6 @@ class Transaction
   def find_or_create_user
     if self.user.nil?
       self.user = User.find_or_create_by(email: self.email)
-      binding.pry
       if self.user.new_record?
         self.user = User.new(email: self.email, first_name: self.first_name, last_name: self.last_name, address: self.street_address, postal_code: self.postal_code, roles: [AppConfig.default_role])
         self.user.save!(validate: false)
