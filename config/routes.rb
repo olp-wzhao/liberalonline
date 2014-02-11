@@ -81,7 +81,7 @@ V44::Application.routes.draw do
   get "news/show" => 'documents#show'
   get 'news/:id' => 'documents#show'
 
-  get 'olpadmin/documents' => "documents#admin_list"
+  get 'olpadmin/toolkit' => "documents#toolkit"
   get 'olpadmin/transactions' => 'transactions#admin_index'
   get 'olpadmin/transaction_scopes/:id' => 'transactions#scopes'
 

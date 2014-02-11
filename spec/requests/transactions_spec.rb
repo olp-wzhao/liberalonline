@@ -40,6 +40,11 @@ describe "Transactions" do
       json.should_not == nil
       json["transaction_id"].should_not == nil
     end
+
+    it "should create a user when email is unique" do
+      post "#{transactions_path}/?auth_token=#{@token}", transaction.to_json,  {'CONTENT_TYPE' => 'application/json', 'ACCEPT' => 'application/json' }
+      binding.pry
+    end
   end
 
 end

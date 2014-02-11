@@ -1,9 +1,9 @@
 <ul>
   <li>
-    <%= link_to "donations", "#{olpadmin_transactions_url}?scope=donations"%>
+    <%= link_to "donations", "#{olpadmin_transactions_url}?scope=donations"%>(<%= @donation_count %>)
   </li>
   <li>
-    <%= link_to "memberships", "#{olpadmin_transactions_url}?scope=memberships"%>
+    <%= link_to "memberships", "#{olpadmin_transactions_url}?scope=memberships"%>(<%= @membership_count %>)
   </li>
   <li>
     <%= link_to "events", "#{olpadmin_transactions_url}?scope=events"%>

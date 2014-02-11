@@ -30,19 +30,30 @@ class Transaction
   field :temp_id, type: Integer
   field :success, type: Boolean
   field :total, type: Integer
-  #field :total_f, type: Float
+  field :riding_id, type: Integer
   
   belongs_to :user
-  before_create :set_total#, :fill_total_f
-  #after_find :check_and_set_total
+  before_create :set_total
+  before_save :find_or_create_user
 
   scope :by_email, -> (email) { where(email: email).group } 
   scope :memberships, -> { where(type: "Membership") }
   scope :donations, -> { where(type: "Donation") }
   scope :events, -> { where(type: "Item") }
-  scope :under_twenty_dollars, -> { lte(total: 20) }
+  scope :under_twenty_dollars, -> { lte(get_total: 20) }
   scope :total_sum, ->(email) { where(email: email).sum(:total) }
   #scope :between, -> (first, last) {  }
+
+  def find_or_create_user
+    if self.user.nil?
+      self.user = User.find_or_create_by(email: self.email)
+      binding.pry
+      if self.user.new_record?
+        self.user = User.new(email: self.email, first_name: self.first_name, last_name: self.last_name, address: self.street_address, postal_code: self.postal_code, roles: [AppConfig.default_role])
+        self.user.save!(validate: false)
+      end
+    end
+  end
 
   def fill_total
     unless self.gateway_response.nil?

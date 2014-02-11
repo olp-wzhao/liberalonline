@@ -118,9 +118,9 @@ class DocumentsController < ApplicationController
   end
 
   #Admin routes
-  def admin_list
+  def toolkit
     if current_user.roles.include? 'webadmin'
-      @documents = Document.all.order_by(email: :desc).page params[:page]
+      @documents = Document.toolkit
       render :layout => "admin"
     else
       binding.pry

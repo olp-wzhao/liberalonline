@@ -7,6 +7,7 @@ class TransactionsController < ApplicationController
   # GET /transactions.json
   def index
     search_params
+
     @transactions = @transactions.order_by(id: :desc).limit(100)
     respond_to do |format|
       format.json { render json: @transactions }
@@ -94,7 +95,7 @@ class TransactionsController < ApplicationController
   def admin_index
     @transactions = Transaction.all
     search_params
-    binding.pry
+    controller_scopes
     @transactions = @transactions.order_by(id: :desc).limit(100)
     respond_to do |format|
       format.json { render json: @transactions }
@@ -151,13 +152,15 @@ class TransactionsController < ApplicationController
 
     def search_params
       if !params[:scope].nil?
-        binding.pry
-        if params[:scope] =='donations'
+        case params[:scope]  
+        when 'donations'
           @transactions = Transaction.donations
-        elsif params[:scope] == 'memberships'
+        when 'memberships'
           @transactions = Transaction.memberships
-        elsif params[:scope] == 'volunteers'
+        when 'volunteers'
           @transactions = Transaction.volunteers
+        when 'under_twenty_dollars'
+          @transaction = Transaction.under_twenty_dollars
         else
           puts 'what the heck is this scope'
         end
@@ -174,6 +177,8 @@ class TransactionsController < ApplicationController
 
     def controller_scopes
       @total_transactions = Transaction.sum(:total)
+      @membership_count = Transaction.memberships.count
+      @donation_count = Transaction.donations.count
     end
 
   # def create_or_update_transaction_user(transaction)
