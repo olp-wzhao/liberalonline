@@ -1,5 +1,6 @@
 V44::Application.routes.draw do
   
+  devise_for :admins
   get "party_history/index"
   resources :lawnsign_requests
 
@@ -85,6 +86,7 @@ V44::Application.routes.draw do
   get 'olpadmin/toolkit_show' => "documents#toolkit_show"
   get 'olpadmin/transactions' => 'transactions#admin_index'
   get 'olpadmin/transaction_scopes/:id' => 'transactions#scopes'
+  get 'olpadmin/petitions/:id' => 'petitions#index'
 
   get "platform/index"
   get "team/index"

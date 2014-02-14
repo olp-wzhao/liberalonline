@@ -15,6 +15,7 @@ class Photo
   field :web_site, type: String
   field :updated_time, type: DateTime
   field :source_url, type: String
+  field :album_id, type: Integer
   
   belongs_to :riding
   belongs_to :user

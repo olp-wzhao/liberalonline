@@ -800,8 +800,19 @@ MEGAMENU_JAVASCRIPT
 		end
         
         if Net::HTTP.get_response(URI.parse('http://' + request.host + '/photos/' + photo_site + photo_dir + photo_url + photo_file)).kind_of?(Net::HTTPSuccess) == false
-			open('/home/service201/webdocs/photos/' + photo_site + photo_dir + photo_url + photo_file, 'wb') do |file|
-				file << open('http://pantone201.ca/webskins/' + photo_site + 'photos/' + photo_dir + photo_url + photo_file).read
+            
+            save_path = 'public/photos/' + photo_site + photo_dir + photo_url
+            save_path_with_filename = Rails.root.join(save_path).to_s + photo_file
+            
+            dir = File.dirname(save_path)
+
+            unless File.directory?(dir)
+                FileUtils.mkdir_p(dir)
+            end
+
+			open(save_path_with_filename, 'wb') do |file|
+                external_image = open('http://pantone201.ca/webskins/' + photo_site + 'photos/' + photo_dir + photo_url + photo_file)
+				file << external_image.read
 			end
         end
         

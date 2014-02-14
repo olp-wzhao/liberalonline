@@ -80,7 +80,7 @@ class Transaction
   end
 
   # def fill_total_f
-  #   binding.pry
+  #   @document
   #    self.total_f = Hash.from_xml(self.gateway_response)["Result"]["FullTotal"].to_f
   # end  
 
