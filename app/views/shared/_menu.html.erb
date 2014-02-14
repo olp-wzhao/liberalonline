@@ -129,9 +129,10 @@
 				</div>
 				<div class="col_3">
 					<h4><%= link_to "Events", events_path %></h4>
-					<a href="#"><img src="img/products/product03@2x.jpg" width="220" height="140" alt="" class="inline_img" /></a>
-					<%#= link_to image_tag("img/products/product03@2x.jpg", width: "220", height: "140", alt: "#{most_recent_event.title}", class: "inline_img" ), event_path(@most_recent_event) %>
-					<p>If live event count is <1 Create an account to get notifications of upcoming events. If Featured event count is >0 show Featured Event else next most recent event</p>
+					<% if @menu_event_document != nil %>
+						<p><%= localized_date_str(@menu_event_document.event_datetime, @language) %></p>
+						<p><%= raw(@menu_event_document.title) %></p>
+					<% end %>
 				</div>
 			</div><!-- End Item Container -->
 		</li><!-- End Item -->

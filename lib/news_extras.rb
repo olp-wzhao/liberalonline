@@ -23,7 +23,7 @@ module NewsExtras
   
   def prepare_menu_event_document
   	event_document = nil 
-	event_documents = Event.where(:doc_type => 0, :language => @language, :published => true).gt(event_datetime: DateTime.now-100).order_by(:event_datetime.desc)
+	event_documents = Event.where(:doc_type => 0, :language => @language, :published => true).gt(event_datetime: DateTime.now-100).order_by(:feature_level.desc, :event_datetime.desc)
 	if event_documents != nil && event_documents.length > 0 then event_document = event_documents[0] end
 	event_document
   end 
