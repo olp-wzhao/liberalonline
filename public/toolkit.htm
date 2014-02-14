@@ -1,0 +1,182 @@
+<html>
+<head>
+<script src="javascripts/jquery-1.9.1.min.js"></script>
+<script>
+
+
+
+
+
+$(function (){ $(".float").each(function () { 
+var $this = $(this); $this.data("startTop", $this.offset().top);});
+$(window).scroll(function () { var documentScrollTop = $(document).scrollTop();
+$(".float").each(function () { var $this = $(this); 
+$this.offset({ top: $this.data("startTop") + documentScrollTop * $this.data("friction"), left: $this.offset().left });
+});
+document.oldScrollTop = documentScrollTop; });
+});
+
+
+
+
+</script>
+
+<style type="text/css">
+
+  /* Sample pallete  */
+
+  /* e5e5e5   warmwhite  */
+  /* f84241   lightred  */
+  /* d43839   dark red  */
+  /* 494949  textgrey  */
+  /* warm white #f0ecec            */
+  /* portrait bg clr #d7e6f4  */
+  /* new portrait bg #e8eae5 */
+@font-face {
+  font-family: 'Oswald';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Oswald Regular'), local('Oswald-Regular'), url(fonts/Oswald400.woff) format('woff');
+}
+@font-face {
+  font-family: 'Oswald';
+  font-style: normal;
+  font-weight: 700;
+  src: local('Oswald Bold'), local('Oswald-Bold'), url(fonts/Oswald700.woff) format('woff');
+}
+@font-face {
+  font-family: 'Droid Sans';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Droid Sans'), local('DroidSans'), url(fonts/DroidSans400.woff) format('woff');
+}
+@font-face {
+  font-family: 'Droid Sans';
+  font-style: normal;
+  font-weight: 700;
+  src: local('Droid Sans Bold'), local('DroidSans-Bold'), url(fonts/DroidSans700.woff) format('woff');
+}
+@font-face {
+  font-family: 'League Gothic';
+  font-style: normal;
+  font-weight: 400;
+  src: local('League Gothic'), local('LeagueGothic400'), url(fonts/LeagueGothic400.woff) format('woff');
+}
+
+
+@font-face {
+  font-family: 'Roboto Condensed';
+  font-style: normal;
+  font-weight: 300;
+  src: local('Roboto Condensed Light'), local('RobotoCondensed-Light'), url(fonts/RobotoCondensed300.woff) format('woff');
+}
+@font-face {
+  font-family: 'Roboto Condensed';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Roboto Condensed Regular'), local('RobotoCondensed-Regular'), url(fonts/RobotoCondensed400.woff) format('woff');
+}
+@font-face {
+  font-family: 'Roboto Condensed';
+  font-style: normal;
+  font-weight: 700;
+  src: local('Roboto Condensed Bold'), local('RobotoCondensed-Bold'), url(fonts/RobotoCondensed700.woff) format('woff');
+}
+@font-face {
+  font-family: 'Roboto Condensed';
+  font-style: italic;
+  font-weight: 300;
+  src: local('Roboto Condensed Light Italic'), local('RobotoCondensed-LightItalic'), url(fonts/RobotoCondensedItalic300.woff) format('woff');
+}
+.grey a:link,
+.grey a:visited,
+.grey a:hover,
+.grey { color: #494949; }
+
+
+.red a:link,
+.red a:visited,
+.red a:hover,
+.red { color: #bf0612; }
+
+h1,h2,h3,h4,h5,h6,button-white {	
+    font-weight:400;
+	font-family: 'Oswald', sans-serif;
+	margin:0px;
+	padding:0px;
+	}
+p {font-size:19px;}
+h1,h2{ font-size:32px;}
+
+.centerclass {
+  text-align:center;
+  margin-top:20px;
+}
+
+
+.containerbg {
+    background-color:#e5e5e5;
+	width:100%;
+	min-height:200px;
+	border:solid 1px red;
+}
+
+body { background-color:#e5e5e5; margin:0px; padding:0px; }
+.container {max-width:960px; margin-left:auto; margin-right:auto;}
+
+.top { padding:4px; text-align:center; display: block; min-height:32px; width:100%; background-color:white; border:solid 1px black; }
+
+.float { display: block; position: fixed;  }    
+
+#float-1 { top: 50px; width:100%; } 
+
+#float-2 { top: 400px; width:100%; } 
+
+#float-3 { top: 850px; width:100%; } 
+
+.content { position: relative; z-index: 2; }
+
+.opening {min-height:250px; height:250px; background:none; border:solid 1px purple;}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="top">This should be at the top</div>
+
+<div class="content">
+
+
+<div class="containerbg">
+   <div class="container"><!--  this will set the content margins left and right -->
+      <div class="centerclass"><img src="images/logo_sm_white_vert.png"><br><h1 class="grey">Toolkit</h1></div>
+   </div><!-- close container -->
+</div><!-- close containerbg -->
+
+<div class="opening">&nbsp;</div>
+
+<div class="container"><!--  this will set the content margins left and right -->
+   <div style="min-height:300px; width:100%; background-color:none;">
+       <p>Wolf master cleanse readymade lo-fi leggings, photo booth 3 wolf moon mixtape helvetica single-origin coffee wayfarers. Tumblr photo booth vice VHS, banh mi locavore aesthetic DIY mixtape thundercats banksy american apparel. Squid single-origin coffee tattooed letterpress, viral lo-fi keffiyeh etsy retro. Pitchfork banh mi shoreditch, brunch cred scenester +1 seitan wes anderson before they sold out lomo messenger bag 8-bit jean shorts. Art party portland brooklyn, organic stumptown pitchfork viral. Artisan pitchfork sartorial gentrify synth beard, iphone before they sold out marfa PBR vegan you probably haven't heard of them lo-fi skateboard. DIY chambray dreamcatcher farm-to-table you probably haven't heard of them, beard before they sold out.</p>
+	   <p>Blog vinyl cosby sweater, put a bird on it tumblr salvia four loko tofu stumptown helvetica gentrify craft beer banh mi. Carles put a bird on it keffiyeh, brunch brooklyn fanny pack jean shorts PBR trust fund marfa four loko freegan artisan. Skateboard photo booth 3 wolf moon, sartorial bicycle rights artisan aesthetic vinyl. Mustache sustainable wes anderson leggings, art party banh mi tattooed fap lomo freegan blog craft beer synth etsy brooklyn. Next level aesthetic cosby sweater, 8-bit raw denim tumblr +1 DIY letterpress master cleanse twee four loko helvetica sartorial. Cosby sweater high life skateboard, mlkshk mustache before they sold out american apparel whatever squid fanny pack scenester terry richardson irony vice. Single-origin coffee freegan ethical high life locavore brooklyn.</p>
+   </div>
+   <div style="min-height:200px; width:100%; background-color:#f84241; color:white;">This was messing things up</div>
+       <p>Wolf master cleanse readymade lo-fi leggings, photo booth 3 wolf moon mixtape helvetica single-origin coffee wayfarers. Tumblr photo booth vice VHS, banh mi locavore aesthetic DIY mixtape thundercats banksy american apparel. Squid single-origin coffee tattooed letterpress, viral lo-fi keffiyeh etsy retro. Pitchfork banh mi shoreditch, brunch cred scenester +1 seitan wes anderson before they sold out lomo messenger bag 8-bit jean shorts. Art party portland brooklyn, organic stumptown pitchfork viral. Artisan pitchfork sartorial gentrify synth beard, iphone before they sold out marfa PBR vegan you probably haven't heard of them lo-fi skateboard. DIY chambray dreamcatcher farm-to-table you probably haven't heard of them, beard before they sold out.</p>
+       <p>Blog vinyl cosby sweater, put a bird on it tumblr salvia four loko tofu stumptown helvetica gentrify craft beer banh mi. Carles put a bird on it keffiyeh, brunch brooklyn fanny pack jean shorts PBR trust fund marfa four loko freegan artisan. Skateboard photo booth 3 wolf moon, sartorial bicycle rights artisan aesthetic vinyl. Mustache sustainable wes anderson leggings, art party banh mi tattooed fap lomo freegan blog craft beer synth etsy brooklyn. Next level aesthetic cosby sweater, 8-bit raw denim tumblr +1 DIY letterpress master cleanse twee four loko helvetica sartorial. Cosby sweater high life skateboard, mlkshk mustache before they sold out american apparel whatever squid fanny pack scenester terry richardson irony vice. Single-origin coffee freegan ethical high life locavore brooklyn.</p>
+</div><!-- close container -->
+
+
+</div>
+
+
+<img class="float" id="float-1" data-friction="0.5" src="http://thelethbridgeveg.files.wordpress.com/2011/09/apples-553.jpg" /> 
+<img class="float" id="float-2" data-friction="0.5" src="http://thelethbridgeveg.files.wordpress.com/2011/09/apples-553.jpg" /> 
+<img class="float" id="float-3" data-friction="0.5" src="http://thelethbridgeveg.files.wordpress.com/2011/09/apples-553.jpg" />
+
+
+
+
+</body>
+</html>
