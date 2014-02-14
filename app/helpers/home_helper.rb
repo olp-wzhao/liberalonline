@@ -21,9 +21,9 @@ module HomeHelper
         image_buffer_url += image_url
         image_utility_url['.jpg'] = ''
         image_buffer_url['.jpg'] = '_' + x.to_s + '_' + y.to_s + '_' + width.to_s + '_' + height.to_s + '.jpg'
-        if Net::HTTP.get_response(URI.parse(image_buffer_url)).kind_of?(Net::HTTPSuccess)
-             image_utility_url = image_buffer_url
-        end
+        # if Net::HTTP.get_response(URI.parse(image_buffer_url)).kind_of?(Net::HTTPSuccess)
+        #      image_utility_url = image_buffer_url
+        # end
         image_utility_url
     end
 end

@@ -4,10 +4,19 @@ class ApplicationController < ActionController::Base
   #before_filter :check_registration
   before_filter :configure_permitted_parameters, if: :devise_controller?
   before_filter :load_application_action, :load_application_layout, :most_recent_event
-  respond_to :html
+
+  layout :layout_by_resource
+
+  def layout_by_resource
+    if devise_controller? && resource_name == :admin
+      "admin"
+    else
+      "application"
+    end
+  end
   
   rescue_from CanCan::AccessDenied do |exception|
-    redirect_to root_path, :alert => exception.message
+    redirect_to "/", :alert => exception.message
   end
 
   include NewsExtras

@@ -2,7 +2,7 @@ source "https://rubygems.org"
 ruby '2.0.0'
 
 gem "rails", "4.0.0"
-gem "haml-rails"
+#gem "haml-rails"
 gem "mongoid", github: "mongoid/mongoid"
 
 gem 'carrierwave'
@@ -40,8 +40,8 @@ group :development do
   gem "pry"
   gem "quiet_assets"
   gem "thin"
-  #gem "better_errors"
-  #gem "binding_of_caller"
+  gem "better_errors"
+  gem "binding_of_caller"
   gem 'meta_request'
 end
 
@@ -86,3 +86,4 @@ gem 'rails_admin', :git => 'git://github.com/sferik/rails_admin.git'
 
 #gem "best_in_place"
 gem 'bootstrap-wysihtml5-rails'
+gem "mongoid_slug"
