@@ -119,13 +119,8 @@ class DocumentsController < ApplicationController
 
   #Admin routes
   def toolkit
-    if current_user.roles.include? 'webadmin'
-      @documents = Document.press_release.limit(10)
-      render :layout => "admin"
-    else
-      flash[:notice] = "You do not have authorization to view this site"
-      redirect_to new_user_session_url
-    end
+    @documents = Document.press_release.limit(10)
+    render :layout => "admin"
   end
 
   def toolkit_show
