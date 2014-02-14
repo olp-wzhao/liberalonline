@@ -1,5 +1,6 @@
 class PetitionsController < ApplicationController
   before_action :set_petition, only: [:show, :edit, :update, :destroy]
+  before_filter :authenticate_admin!
 
   # GET /petitions
   # GET /petitions.json

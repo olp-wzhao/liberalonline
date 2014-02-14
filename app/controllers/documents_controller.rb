@@ -1,5 +1,6 @@
 class DocumentsController < ApplicationController
-  before_filter :authenticate_admin!, :except => [:show, :index]
+  before_filter :authenticate_user!, :except => [:show, :index]
+  before_filter :authenticate_admin!, :only => [:toolkit]
   before_action :set_document, only: [:show, :edit, :update, :destroy]
 
   respond_to :html, :json
@@ -75,6 +76,7 @@ class DocumentsController < ApplicationController
     logger.info "document parameters: #{document_params}"
     if @document.any?
       @document = @document.first
+      binding.pry
       success = @document.update(document_params)
     else
       @document = Document.new(document_params)
