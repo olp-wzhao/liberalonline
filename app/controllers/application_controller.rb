@@ -14,6 +14,15 @@ class ApplicationController < ActionController::Base
       "application"
     end
   end
+
+  #this is supposed to handle csrf token errors
+  def verified_request?
+    if request.content_type == "application/json"
+      true
+    else
+      super()
+    end
+  end
   
   rescue_from CanCan::AccessDenied do |exception|
     redirect_to "/", :alert => exception.message
@@ -43,60 +52,40 @@ class ApplicationController < ActionController::Base
   end
 
   def load_application_action(home_action=false)
-    # @olp_passport_user = nil
-    # if cookies[:OlpPassportKey] != nil && cookies[:OlpPassportKey].strip.eql?('') == false
-    #   @olp_passport_user = OlpUser.find_by_security_key(cookies[:OlpPassportKey].strip)
-    # end
-    
-    # @web_site_type = 'olp'
-    @webskin = 'A2'
-    # @is_test_site = true
-    # @is_live_site = false
-    @allow_google_index = false
+    unless request.content_type == "application/json"
+      @webskin = 'A2'
+      @allow_google_index = false
 
-    # @url_str = request.env['HTTP_HOST'].downcase
-    # @uri_str = request.url
-    # if @uri_str == nil || @uri_str == '' || @uri_str == '/' then @uri_str = '/Home' end
+      
+      @twitter_facebook = nil
 
-    # if !current_user.nil?
-    #   set_default_web_site_manager
-    # end
+      @send_forward_url = ''
 
-    #@web_site_manager = WebSiteManager.first
-    #@web_site_manager.r_id = 9000
-    #@web_site_manager.r_str = 'olp'
-    #@web_site_manager.r_name_en = @web_site_manager.r_name_fr = 'ontario'
-    #@web_site_managers = WebSiteManager.all.order_by(:r_id.desc) #, :conditions => {:expiry_date => DateTime.now..(DateTime.now+3650)})
-    
-    @twitter_facebook = nil
+      @html_head_value_vmmpxl_home = nil
+      @html_head_value_vmmpxl_inside = nil
 
-    @send_forward_url = ''
+      if @twitter_facebook != nil && @twitter_facebook.facebook_flag && @twitter_facebook.facebook_account != ""
+          if @twitter_facebook.facebook_account.start_with?("/")
+              @twitter_facebook.facebook_account = "http://www.facebook.com" + @twitter_facebook.facebook_account
+          elsif !@twitter_facebook.facebook_account.start_with?("http://www.facebook.com/")
+              @twitter_facebook.facebook_account = "http://www.facebook.com/" + @twitter_facebook.facebook_account
+          end
+      end
 
-    @html_head_value_vmmpxl_home = nil
-    @html_head_value_vmmpxl_inside = nil
-
-    if @twitter_facebook != nil && @twitter_facebook.facebook_flag && @twitter_facebook.facebook_account != ""
-        if @twitter_facebook.facebook_account.start_with?("/")
-            @twitter_facebook.facebook_account = "http://www.facebook.com" + @twitter_facebook.facebook_account
-        elsif !@twitter_facebook.facebook_account.start_with?("http://www.facebook.com/")
-            @twitter_facebook.facebook_account = "http://www.facebook.com/" + @twitter_facebook.facebook_account
-        end
+      @is_facebook_user_login = false;
+      @fu_id = cookies[:fu_id]
+      @fu_name = cookies[:fu_name]
+      @fu_gender = cookies[:fu_gender]
+      @fu_bio = cookies[:fu_bio]
+      if @fu_id != nil && @fu_id != ''
+        @is_facebook_user_login = true;
+      end
+          
+      @olp_user = nil
+      if cookies[:OlpUserKey] != nil && cookies[:OlpUserKey] != ''
+        @olp_user = OlpUser.find_by_security_key(cookies[:OlpUserKey].to_s)
+      end
     end
-
-    @is_facebook_user_login = false;
-    @fu_id = cookies[:fu_id]
-    @fu_name = cookies[:fu_name]
-    @fu_gender = cookies[:fu_gender]
-    @fu_bio = cookies[:fu_bio]
-    if @fu_id != nil && @fu_id != ''
-      @is_facebook_user_login = true;
-    end
-        
-    @olp_user = nil
-    if cookies[:OlpUserKey] != nil && cookies[:OlpUserKey] != ''
-      @olp_user = OlpUser.find_by_security_key(cookies[:OlpUserKey].to_s)
-    end
-        
   end
 
   def riding_id
@@ -105,37 +94,39 @@ class ApplicationController < ActionController::Base
     
   def load_application_layout
 
-    # Time.zone = 'Eastern Time (US & Canada)'
+    unless request.content_type == "application/json"
+      # Time.zone = 'Eastern Time (US & Canada)'
 
-    # set language parameter
-    @language = "EN"
-    if params[:l] != nil && params[:l].upcase == "FR" then @language = "FR" end
+      # set language parameter
+      @language = "EN"
+      if params[:l] != nil && params[:l].upcase == "FR" then @language = "FR" end
 
-    @remote_ip = request.env["HTTP_X_FORWARDED_FOR"]
-    if @remote_ip == nil || @remote_ip == '' then @remote_ip = request.remote_ip end
+      @remote_ip = request.env["HTTP_X_FORWARDED_FOR"]
+      if @remote_ip == nil || @remote_ip == '' then @remote_ip = request.remote_ip end
 
-    if @web_site_type == 'candidate'
-      @web_site_title = (@language == 'FR' ? ('Voter ' + @web_site_manager.c_nf + ' ' + @web_site_manager.c_nl + ' pour le ' + @web_site_manager.r_name_fr + ' de MPP - le Jour d&#39;Election est le 6 september, 2012') : ('Vote ' + @web_site_manager.c_nf + ' ' + @web_site_manager.c_nl + ' for MPP ' + @web_site_manager.r_name_en + ' - Election Day is September 6, 2012'))
-      @web_site_og_title = (@language == 'FR' ? ('Voter ' + @web_site_manager.c_nf + ' ' + @web_site_manager.c_nl + ' pour le ' + @web_site_manager.r_name_fr + ' de MPP - le Jour d&#39;Election est le 6 september, 2012') : ('Vote ' + @web_site_manager.c_nf + ' ' + @web_site_manager.c_nl + ' for MPP ' + @web_site_manager.r_name_en + ' - Election Day is September 6, 2012'))
-      @web_site_og_site_name = (@language == 'FR' ? ('Voter ' + @web_site_manager.c_nf + ' ' + @web_site_manager.c_nl + ' pour le ' + @web_site_manager.r_name_fr + ' de MPP - le Jour d&#39;Election est le 6 september, 2012') : ('Vote ' + @web_site_manager.c_nf + ' ' + @web_site_manager.c_nl + ' for MPP ' + @web_site_manager.r_name_en + ' - Election Day is September 6, 2012'))
-      @web_site_og_description = (@language == 'FR' ? ('Voter ' + @web_site_manager.c_nf + ' ' + @web_site_manager.c_nl + ' pour le ' + @web_site_manager.r_name_fr + ' de MPP - le Jour d&#39;Election est le 6 september, 2012') : ('Vote ' + @web_site_manager.c_nf + ' ' + @web_site_manager.c_nl + ' for MPP ' + @web_site_manager.r_name_en + ' - Election Day is September 6, 2012'))
-      @web_site_og_image = 'http://pantone201.ca/webskins/vote/candidate_photos/' + @web_site_manager.r_id.to_s + '.jpg'
-      @web_site_og_url = 'http://' + @url_str
+      if @web_site_type == 'candidate'
+        @web_site_title = (@language == 'FR' ? ('Voter ' + @web_site_manager.c_nf + ' ' + @web_site_manager.c_nl + ' pour le ' + @web_site_manager.r_name_fr + ' de MPP - le Jour d&#39;Election est le 6 september, 2012') : ('Vote ' + @web_site_manager.c_nf + ' ' + @web_site_manager.c_nl + ' for MPP ' + @web_site_manager.r_name_en + ' - Election Day is September 6, 2012'))
+        @web_site_og_title = (@language == 'FR' ? ('Voter ' + @web_site_manager.c_nf + ' ' + @web_site_manager.c_nl + ' pour le ' + @web_site_manager.r_name_fr + ' de MPP - le Jour d&#39;Election est le 6 september, 2012') : ('Vote ' + @web_site_manager.c_nf + ' ' + @web_site_manager.c_nl + ' for MPP ' + @web_site_manager.r_name_en + ' - Election Day is September 6, 2012'))
+        @web_site_og_site_name = (@language == 'FR' ? ('Voter ' + @web_site_manager.c_nf + ' ' + @web_site_manager.c_nl + ' pour le ' + @web_site_manager.r_name_fr + ' de MPP - le Jour d&#39;Election est le 6 september, 2012') : ('Vote ' + @web_site_manager.c_nf + ' ' + @web_site_manager.c_nl + ' for MPP ' + @web_site_manager.r_name_en + ' - Election Day is September 6, 2012'))
+        @web_site_og_description = (@language == 'FR' ? ('Voter ' + @web_site_manager.c_nf + ' ' + @web_site_manager.c_nl + ' pour le ' + @web_site_manager.r_name_fr + ' de MPP - le Jour d&#39;Election est le 6 september, 2012') : ('Vote ' + @web_site_manager.c_nf + ' ' + @web_site_manager.c_nl + ' for MPP ' + @web_site_manager.r_name_en + ' - Election Day is September 6, 2012'))
+        @web_site_og_image = 'http://pantone201.ca/webskins/vote/candidate_photos/' + @web_site_manager.r_id.to_s + '.jpg'
+        @web_site_og_url = 'http://' + @url_str
+      end
+
+      @menu_news_documents = prepare_news_documents.limit(4)
+  	  @menu_photo = prepare_menu_photo
+      @menu_video = prepare_menu_video
+      @menu_event_document = prepare_menu_event_document
+        
+        #Photo.find(:all, :limit => 1, :order => "created_date DESC", :conditions => {:riding_id => 0, :published => true})
+
+      @display_right_side_column = true;
+
+      #we are using better metrics from now on!!
+      # if !@is_test_site
+      #   add_web_site_visit_count(@web_site_manager.r_id, @remote_ip, @url_str, request.request_uri)
+      # end
     end
-
-    @menu_news_documents = prepare_news_documents.limit(4)
-	  @menu_photo = prepare_menu_photo
-    @menu_video = prepare_menu_video
-    @menu_event_document = prepare_menu_event_document
-      
-      #Photo.find(:all, :limit => 1, :order => "created_date DESC", :conditions => {:riding_id => 0, :published => true})
-
-    @display_right_side_column = true;
-
-    #we are using better metrics from now on!!
-    # if !@is_test_site
-    #   add_web_site_visit_count(@web_site_manager.r_id, @remote_ip, @url_str, request.request_uri)
-    # end
   end
 
     

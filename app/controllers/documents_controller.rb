@@ -1,9 +1,9 @@
 class DocumentsController < ApplicationController
   before_filter :authenticate_user!, :except => [:show, :index]
-  before_filter :authenticate_admin!, :only => [:toolkit]
+  #before_filter :authenticate_admin!, :only => [:toolkit]
   before_action :set_document, only: [:show, :edit, :update, :destroy]
 
-  respond_to :html, :json
+  #respond_to :html, :json
 
   # GET /documents
   # GET /documents.json
@@ -74,9 +74,9 @@ class DocumentsController < ApplicationController
     
     logger.info "New or Updated Document: #{@document.attributes.inspect}"
     logger.info "document parameters: #{document_params}"
-    if @document.any?
-      @document = @document.first
-      binding.pry
+    
+    if !@document.nil?
+      @document = @document
       success = @document.update(document_params)
     else
       @document = Document.new(document_params)
@@ -89,6 +89,7 @@ class DocumentsController < ApplicationController
         format.html { redirect_to @document, notice: 'Document was successfully created.' }
         format.json { render json: 'document saved to mongodb', status: :created }
       else
+        binding.pry
         format.html { render action: 'new' }
         format.json { render json: @document.errors, status: :unprocessable_entity }
       end
@@ -121,11 +122,13 @@ class DocumentsController < ApplicationController
 
   #Admin routes
   def toolkit
+    binding.pry
     @documents = Document.press_release.limit(10)
     render :layout => "admin"
   end
 
   def toolkit_show
+    binding.pry
     if current_user.roles.include? 'webadmin'
       @document = Document.find_by(temp_id: params[:id])
       render :layout => "admin"
@@ -138,6 +141,7 @@ class DocumentsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_document
+      binding.pry
       @document = Document.where(temp_id: params[:id]).first
     end
 
