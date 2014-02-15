@@ -6,7 +6,7 @@
 
 function fbFetch(){
     //Set Url of JSON data from the facebook graph api. make sure callback is set   with a '?' to overcome the cross domain problems with JSON
-    var url = document.location.protocol + "//graph.facebook.com/tenniswarehouse?callback=?";
+    var url = document.location.protocol + "//graph.facebook.com/OntarioLiberalParty?callback=?";
 
     //Use jQuery getJSON method to fetch the data from the url and then create our unordered list with the relevant data.
     $.getJSON(url,function(json){
