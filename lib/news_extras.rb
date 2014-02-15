@@ -238,5 +238,4 @@ module NewsExtras
       @sidecolumn_blog_documents.delete_at(5)
     end
   end
-
 end

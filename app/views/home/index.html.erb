@@ -46,7 +46,7 @@
         <% @photos.each do |photo| %>
             <div class="threeup">
                 <%#= link_to image_tag(photo_to_local("http://pantone201.ca/webskins/olp/photos/thumbnails/" + photo.temp_id.to_s + "_" + photo.riding_id.to_s + photo.filename.to_s + "_Thumbnail.jpg"), :class => "frame grayscale"), '/photos' %>
-                <%= link_to image_tag(photo_to_local("http://pantone201.ca/webskins/olp/photos/" + photo.temp_id.to_s + "_" + photo.riding_id.to_s + photo.filename.to_s + "_PhotoUp.jpg"), :class => "frame grayscale"), '/photos' %>
+                <%#= link_to image_tag(photo_to_local("http://pantone201.ca/webskins/olp/photos/" + photo.temp_id.to_s + "_" + photo.riding_id.to_s + photo.filename.to_s + "_PhotoUp.jpg"), :class => "frame grayscale"), '/photos' %>
                 <hr class="style-one">
                 <p><%= raw(photo.caption_en) %></p>
             </div>
@@ -80,7 +80,7 @@
         <% @photos.each do |photo| %>
             <div class="floatpicleft">
                 <%#= link_to image_tag(photo_to_local("http://pantone201.ca/webskins/olp/photos/thumbnails/" + photo.temp_id.to_s + "_" + photo.riding_id.to_s + photo.filename.to_s + "_Thumbnail.jpg"), :class => "frame grayscale"), '/photos' %>
-                <%= link_to image_tag(photo_to_local("http://pantone201.ca/webskins/olp/photos/" + photo.temp_id.to_s + "_" + photo.riding_id.to_s + photo.filename.to_s + "_PhotoUp.jpg"), :class => "frame grayscale"), '/photos' %>
+                <%#= link_to image_tag(photo_to_local("http://pantone201.ca/webskins/olp/photos/" + photo.temp_id.to_s + "_" + photo.riding_id.to_s + photo.filename.to_s + "_PhotoUp.jpg"), :class => "frame grayscale"), '/photos' %>
             </div>
             <div class="floattextright">
                 <div class="listp"><%= raw(photo.caption_en) %></div>

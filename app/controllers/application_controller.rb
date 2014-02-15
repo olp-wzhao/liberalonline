@@ -181,11 +181,11 @@ class ApplicationController < ActionController::Base
         @sidecolumn_issue_documents = nil
         @sidecolumn_accomplishment_documents = nil
     if @web_site_type == 'mpp'
-      @sidecolumn_accomplishment_documents = Document.mpp.where(doctype: 7, language: @language)
+      @sidecolumn_accomplishment_documents = Document.mpp.where(doc_type: 7, language: @language)
     elsif @web_site_type == 'pla'
-      @sidecolumn_accomplishment_documents = Document.pla.where(doctype: 7, language: @language)
+      @sidecolumn_accomplishment_documents = Document.pla.where(doc_type: 7, language: @language)
     else
-      @sidecolumn_accomplishment_documents = Document.elect.where(doctype: 7, language: @language)
+      @sidecolumn_accomplishment_documents = Document.elect.where(doc_type: 7, language: @language)
     end
         # Get photo for the central accomplishment document
         if @sidecolumn_accomplishment_documents != nil && @sidecolumn_accomplishment_documents.length > 0
@@ -197,13 +197,13 @@ class ApplicationController < ActionController::Base
         if @web_site_manager.r_id - 9000 != 0
       sidecolumn_local_accomplishment_documents = nil
       if @web_site_type == 'mpp'
-        sidecolumn_local_accomplishment_documents = MppDocument.where(:riding_id => @web_site_manager.r_id - 9000, :doctype => 7, :published => true, :language => @language)
+        sidecolumn_local_accomplishment_documents = MppDocument.where(:riding_id => @web_site_manager.r_id - 9000, :doc_type => 7, :published => true, :language => @language)
                                                               .order_by(:document_date.desc)
       elsif @web_site_type == 'pla'
-        sidecolumn_local_accomplishment_documents = PlaDocument.where(:riding_id => @web_site_manager.r_id - 9000, :doctype => 7, :published => true, :language => @language)
+        sidecolumn_local_accomplishment_documents = PlaDocument.where(:riding_id => @web_site_manager.r_id - 9000, :doc_type => 7, :published => true, :language => @language)
                                                               .order_by(:document_date.desc)
       else
-        sidecolumn_local_accomplishment_documents = ElectDocument.where(:riding_id => @web_site_manager.r_id - 9000, :doctype => 7, :published => true, :language => @language)
+        sidecolumn_local_accomplishment_documents = ElectDocument.where(:riding_id => @web_site_manager.r_id - 9000, :doc_type => 7, :published => true, :language => @language)
                                                               .order_by(:document_date.desc)
       end
             if sidecolumn_local_accomplishment_documents != nil && sidecolumn_local_accomplishment_documents.length > 0
@@ -226,11 +226,11 @@ class ApplicationController < ActionController::Base
         # Get all the central news documents
         @sidecolumn_news_documents = nil
     if @web_site_type == 'mpp'
-      @sidecolumn_news_documents = Document.mpp #find(:all, :order => "document_date DESC", :conditions => {:riding_id => 0, :doctype => 0..1, :published => true, :publish_on_mpp => true, :language => @language})
+      @sidecolumn_news_documents = Document.mpp #find(:all, :order => "document_date DESC", :conditions => {:riding_id => 0, :doc_type => 0..1, :published => true, :publish_on_mpp => true, :language => @language})
     elsif @web_site_type == 'pla'
-      @sidecolumn_news_documents = Document.pla #find(:all, :order => "document_date DESC", :conditions => {:riding_id => 0, :doctype => 0..1, :published => true, :publish_on_pla => true, :language => @language})
+      @sidecolumn_news_documents = Document.pla #find(:all, :order => "document_date DESC", :conditions => {:riding_id => 0, :doc_type => 0..1, :published => true, :publish_on_pla => true, :language => @language})
     else
-      @sidecolumn_news_documents = Document.find(:all, :order => "document_date DESC", :conditions => {:riding_id => 0, :doctype => 0..1, :published => true, :publish_on_elect => true, :language => @language})
+      @sidecolumn_news_documents = Document.find(:all, :order => "document_date DESC", :conditions => {:riding_id => 0, :doc_type => 0..1, :published => true, :publish_on_elect => true, :language => @language})
     end
         # Get photo for the central news document
         if @sidecolumn_news_documents != nil && @sidecolumn_news_documents.length > 0
@@ -242,11 +242,11 @@ class ApplicationController < ActionController::Base
         if @web_site_manager.r_id - 9000 != 0
       sidecolumn_local_news_documents = nil
       if @web_site_type == 'mpp'
-        sidecolumn_local_news_documents = MppDocument.find(:all, :order => "document_date DESC", :conditions => {:riding_id => @web_site_manager.r_id - 9000, :doctype => 0..1, :published => true, :language => @language})
+        sidecolumn_local_news_documents = MppDocument.find(:all, :order => "document_date DESC", :conditions => {:riding_id => @web_site_manager.r_id - 9000, :doc_type => 0..1, :published => true, :language => @language})
       elsif @web_site_type == 'pla'
-        sidecolumn_local_news_documents = PlaDocument.find(:all, :order => "document_date DESC", :conditions => {:riding_id => @web_site_manager.r_id - 9000, :doctype => 0..1, :published => true, :language => @language})
+        sidecolumn_local_news_documents = PlaDocument.find(:all, :order => "document_date DESC", :conditions => {:riding_id => @web_site_manager.r_id - 9000, :doc_type => 0..1, :published => true, :language => @language})
       else
-        sidecolumn_local_news_documents = ElectDocument.find(:all, :order => "document_date DESC", :conditions => {:riding_id => @web_site_manager.r_id - 9000, :doctype => 0..1, :published => true, :language => @language})
+        sidecolumn_local_news_documents = ElectDocument.find(:all, :order => "document_date DESC", :conditions => {:riding_id => @web_site_manager.r_id - 9000, :doc_type => 0..1, :published => true, :language => @language})
       end
             if sidecolumn_local_news_documents != nil && sidecolumn_local_news_documents.length > 0
                 if @sidecolumn_news_documents == nil
@@ -269,11 +269,11 @@ class ApplicationController < ActionController::Base
         # Get all the central blog documents
         @sidecolumn_blog_documents = nil
     if @web_site_type == 'mpp'
-      @sidecolumn_blog_documents = Document.find(:all, :order => "document_date DESC", :conditions => {:riding_id => 0, :doctype => 3, :published => true, :publish_on_mpp => true, :language => @language})
+      @sidecolumn_blog_documents = Document.find(:all, :order => "document_date DESC", :conditions => {:riding_id => 0, :doc_type => 3, :published => true, :publish_on_mpp => true, :language => @language})
     elsif @web_site_type == 'pla'
-      @sidecolumn_blog_documents = Document.find(:all, :order => "document_date DESC", :conditions => {:riding_id => 0, :doctype => 3, :published => true, :publish_on_pla => true, :language => @language})
+      @sidecolumn_blog_documents = Document.find(:all, :order => "document_date DESC", :conditions => {:riding_id => 0, :doc_type => 3, :published => true, :publish_on_pla => true, :language => @language})
     else
-      @sidecolumn_blog_documents = Document.find(:all, :order => "document_date DESC", :conditions => {:riding_id => 0, :doctype => 3, :published => true, :publish_on_elect => true, :language => @language})
+      @sidecolumn_blog_documents = Document.find(:all, :order => "document_date DESC", :conditions => {:riding_id => 0, :doc_type => 3, :published => true, :publish_on_elect => true, :language => @language})
     end
         # Get photo for the central blog document
         if @sidecolumn_blog_documents != nil && @sidecolumn_blog_documents.length > 0
@@ -286,11 +286,11 @@ class ApplicationController < ActionController::Base
         if @web_site_manager.r_id - 9000 != 0
       sidecolumn_local_blog_documents = nil
       if @web_site_type == 'mpp'
-        sidecolumn_local_blog_documents = MppDocument.find(:all, :order => "document_date DESC", :conditions => {:riding_id => @web_site_manager.r_id - 9000, :doctype => 3, :published => true, :language => @language})
+        sidecolumn_local_blog_documents = MppDocument.find(:all, :order => "document_date DESC", :conditions => {:riding_id => @web_site_manager.r_id - 9000, :doc_type => 3, :published => true, :language => @language})
       elsif @web_site_type == 'pla'
-        sidecolumn_local_blog_documents = PlaDocument.find(:all, :order => "document_date DESC", :conditions => {:riding_id => @web_site_manager.r_id - 9000, :doctype => 3, :published => true, :language => @language})
+        sidecolumn_local_blog_documents = PlaDocument.find(:all, :order => "document_date DESC", :conditions => {:riding_id => @web_site_manager.r_id - 9000, :doc_type => 3, :published => true, :language => @language})
       else
-        sidecolumn_local_blog_documents = ElectDocument.find(:all, :order => "document_date DESC", :conditions => {:riding_id => @web_site_manager.r_id - 9000, :doctype => 3, :published => true, :language => @language})
+        sidecolumn_local_blog_documents = ElectDocument.find(:all, :order => "document_date DESC", :conditions => {:riding_id => @web_site_manager.r_id - 9000, :doc_type => 3, :published => true, :language => @language})
       end
             if sidecolumn_local_blog_documents != nil && sidecolumn_local_blog_documents.length > 0
                 if @sidecolumn_blog_documents == nil
@@ -506,7 +506,7 @@ class ApplicationController < ActionController::Base
     end
 
   def load_pla_sidecolumn_documents
-        @pla_blog_documents = Document.find(:all, :limit => 3, :order => "document_date DESC", :conditions => {:riding_id => 0, :doctype => 3, :published => true, :publish_on_pla => true, :language => @language})
+        @pla_blog_documents = Document.find(:all, :limit => 3, :order => "document_date DESC", :conditions => {:riding_id => 0, :doc_type => 3, :published => true, :publish_on_pla => true, :language => @language})
     end
     
     def resized_image_url(image_url, width=500, height=337)

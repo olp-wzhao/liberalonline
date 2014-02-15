@@ -12,7 +12,7 @@ class MyLiberalController < ApplicationController
   		if current_user
   			# already login
         # this was removed from the query :riding_id => -6..0,
-  			@bites_documents = Document.where({ :doctype => 17, :published => true, :language => @language, :expiry_date => DateTime.now..(DateTime.now+3650)})
+  			@bites_documents = Document.where({ :doc_type => 17, :published => true, :language => @language, :expiry_date => DateTime.now..(DateTime.now+3650)})
                           .limit(3)
                           .order_by(:document_date.desc)
   			@bites_documents.each do |document|
@@ -21,24 +21,24 @@ class MyLiberalController < ApplicationController
   			@local_mpp_documents = MppDocument.where({:riding_id => current_user.riding.riding_id, :published => true, :language => @language})
                 .gt(expiry_date: DateTime.now) 
                 .between(document_date: (DateTime.now-30)..DateTime.now)
-                .between(doctype: 0..1)
+                .between(doc_type: 0..1)
                 .limit(99)
                 .order_by(:document_date.desc)
   			@local_pla_documents = PlaDocument.where({:riding_id => current_user.riding.riding_id, :published => true, :language => @language})
                 .gt(expiry_date: DateTime.now) 
                 .between(document_date: (DateTime.now-365)..DateTime.now)
-                .between(doctype: 0..1)
+                .between(doc_type: 0..1)
                 .limit(99)
                 .order_by(:document_date.desc)
         @local_candidate_documents = Document.where({:riding_id => current_user.riding.riding_id, :published => true, :language => @language})
                 .gt(expiry_date: DateTime.now)
                 .between(document_date: (DateTime.now-365)..DateTime.now)
-                .between(doctype: 0..1)
+                .between(doc_type: 0..1)
                 .limit(99)
                 .order_by(:document_date.desc)
-        #@local_mpp_documents = MppDocument.find(:all, :limit => 99, :order => "document_date DESC", :conditions => {:riding_id => @olp_passport_user.riding_id, :doctype => (0..1), :published => true, :language => @language, :expiry_date => DateTime.now..(DateTime.now+3650)})
-  			#@local_pla_documents = PlaDocument.find(:all, :limit => 99, :order => "document_date DESC", :conditions => {:riding_id => @olp_passport_user.riding_id, :doctype => (0..1), :published => true, :language => @language, :expiry_date => DateTime.now..(DateTime.now+3650)})
-  			#@local_candidate_documents = Document.find(:all, :limit => 99, :order => "document_date DESC", :conditions => {:riding_id => @olp_passport_user.riding_id, :doctype => (0..1), :published => true, :language => @language, :expiry_date => DateTime.now..(DateTime.now+3650)})
+        #@local_mpp_documents = MppDocument.find(:all, :limit => 99, :order => "document_date DESC", :conditions => {:riding_id => @olp_passport_user.riding_id, :doc_type => (0..1), :published => true, :language => @language, :expiry_date => DateTime.now..(DateTime.now+3650)})
+  			#@local_pla_documents = PlaDocument.find(:all, :limit => 99, :order => "document_date DESC", :conditions => {:riding_id => @olp_passport_user.riding_id, :doc_type => (0..1), :published => true, :language => @language, :expiry_date => DateTime.now..(DateTime.now+3650)})
+  			#@local_candidate_documents = Document.find(:all, :limit => 99, :order => "document_date DESC", :conditions => {:riding_id => @olp_passport_user.riding_id, :doc_type => (0..1), :published => true, :language => @language, :expiry_date => DateTime.now..(DateTime.now+3650)})
   			#@olp_passport_user_web_site_manager = WebSiteManager.find_by_id(@current_user.riding.riding_id)
   		else
   			redirect_to new_user_session_url
