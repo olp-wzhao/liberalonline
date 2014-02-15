@@ -3,7 +3,6 @@ require 'open-uri'
 
 module ApplicationHelper
     def pla_dynamic_site_menu(riding_id, language, customized_menus_en, customized_menus_fr, return_script=false)
-        binding.pry
         megamenu_return_str = nil
 
         if return_script
@@ -798,7 +797,7 @@ MEGAMENU_JAVASCRIPT
 			photo_file = '_Thumbnail.jpg'
 			photo_url['_Thumbnail.jpg'] = ''
 		end
-        binding.pry
+        
         if Net::HTTP.get_response(URI.parse('http://' + request.host + '/photos/' + photo_site + photo_dir + photo_url + photo_file)).kind_of?(Net::HTTPSuccess) == false
             
             save_path = 'public/photos/' + photo_site + photo_dir + photo_url

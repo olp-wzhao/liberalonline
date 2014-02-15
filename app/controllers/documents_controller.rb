@@ -89,7 +89,6 @@ class DocumentsController < ApplicationController
         format.html { redirect_to @document, notice: 'Document was successfully created.' }
         format.json { render json: 'document saved to mongodb', status: :created }
       else
-        binding.pry
         format.html { render action: 'new' }
         format.json { render json: @document.errors, status: :unprocessable_entity }
       end
@@ -122,7 +121,6 @@ class DocumentsController < ApplicationController
 
   #Admin routes
   def toolkit
-    binding.pry
     @documents = Document.press_release.limit(10)
     render :layout => "admin"
   end
@@ -135,7 +133,6 @@ class DocumentsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_document
-      binding.pry
       @document = Document.where(temp_id: params[:id]).first
     end
 
