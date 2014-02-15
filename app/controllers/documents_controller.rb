@@ -187,7 +187,7 @@ class DocumentsController < ApplicationController
         :updated_at,
 
         #lets make this a table
-        :doctype, 
+        :doc_type, 
         :temp_id, 
         :category_id, 
         :customized_category_id,  

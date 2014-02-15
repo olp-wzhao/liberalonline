@@ -43,7 +43,7 @@ class Document
   validates_presence_of :display_date
 
   #lets make this a table
-  field :doctype, type: Integer
+  field :doc_type, type: Integer
   field :temp_id, type: Integer
   field :category_id, type: Integer
   field :customized_category_id, type: Integer 
