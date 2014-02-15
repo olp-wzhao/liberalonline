@@ -14,6 +14,15 @@ class ApplicationController < ActionController::Base
       "application"
     end
   end
+
+  def verified_request?
+    binding.pry
+    if request.content_type == "application/json"
+      true
+    else
+      super()
+    end
+  end
   
   rescue_from CanCan::AccessDenied do |exception|
     redirect_to "/", :alert => exception.message
