@@ -41,7 +41,7 @@ V44::Application.configure do
   config.assets.debug = true
 
   config.action_controller.perform_caching = true
-	config.log_level = :info
+  
   #config.force_ssl = true
   config.log_level = :debug
 end
