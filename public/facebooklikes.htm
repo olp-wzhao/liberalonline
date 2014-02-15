@@ -1,0 +1,33 @@
+<html>
+<head>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+
+<script type="text/javascript">
+
+function fbFetch(){
+    //Set Url of JSON data from the facebook graph api. make sure callback is set   with a '?' to overcome the cross domain problems with JSON
+    var url = document.location.protocol + "//graph.facebook.com/tenniswarehouse?callback=?";
+
+    //Use jQuery getJSON method to fetch the data from the url and then create our unordered list with the relevant data.
+    $.getJSON(url,function(json){
+        var html = "<ul>
+                        <li>" + likes + "</li>
+                    </ul>";
+
+        //A little animation once fetched
+        $('.facebookfeed').animate({opacity:0}, 500, function(){
+            $('.facebookfeed').html(html);
+        });
+
+        $('.facebookfeed').animate({opacity:1}, 500);
+    });
+};
+
+</script>
+</head>
+<body onload="fbFetch()">
+    <div class="facebookfeed">
+        <h2>Loading...</h2>
+    </div>
+</body>
+</html>
