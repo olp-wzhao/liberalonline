@@ -38,6 +38,7 @@ class Document
   field :web_site, type: String
   field :user_id, type: Integer
   field :updated_time, type: DateTime
+  field :updated_at, type:DateTime
 
   validates_presence_of :display_date
 

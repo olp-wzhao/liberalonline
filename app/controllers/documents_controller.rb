@@ -184,6 +184,7 @@ class DocumentsController < ApplicationController
         :web_site, 
         :user_id, 
         :updated_time, 
+        :updated_at,
 
         #lets make this a table
         :doctype, 
