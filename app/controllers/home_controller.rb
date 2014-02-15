@@ -28,8 +28,9 @@ class HomeController < ApplicationController
                 rotator_document = Document.where(temp_id: rotator.document_id).first
                 if rotator_document != nil
                     rotator_document = prepare_document_photo(rotator_document, false, false)
-                    @mobile_rotator_documents << rotator_document.clone
-                    @rotator_documents << rotator_document
+                    #binding.pry
+                    #@mobile_rotator_documents << rotator_document.clone
+                    #@rotator_documents << rotator_document
                     if rotator.is_local_published
                         @top_feature_rotator_document = rotator_document
                     end
@@ -44,21 +45,21 @@ class HomeController < ApplicationController
                 if i != 1 then @rotator_js += "," end
                 @rotator_js += "{\n"
                 feature_type = 'News'
-                if @rotator_documents[i-1].doctype == 0
+                if @rotator_documents[i-1].doc_type == 0
                     #feature_type = 'Press Release'
-                elsif @rotator_documents[i-1].doctype == 1
+                elsif @rotator_documents[i-1].doc_type == 1
                     #feature_type = 'News Clip'
-                elsif @rotator_documents[i-1].doctype == 2
+                elsif @rotator_documents[i-1].doc_type == 2
                     #feature_type = 'Provincial Feature MPP'
-                elsif @rotator_documents[i-1].doctype == 3
+                elsif @rotator_documents[i-1].doc_type == 3
                     feature_type = 'Blog'
-                elsif @rotator_documents[i-1].doctype == 4
+                elsif @rotator_documents[i-1].doc_type == 4
                     feature_type = 'Issue'
-                elsif @rotator_documents[i-1].doctype == 5
+                elsif @rotator_documents[i-1].doc_type == 5
                     #feature_type = 'OLP Feature Alert'
-                elsif @rotator_documents[i-1].doctype == 6
+                elsif @rotator_documents[i-1].doc_type == 6
                     #feature_type = 'Need Help'
-                elsif @rotator_documents[i-1].doctype == 7
+                elsif @rotator_documents[i-1].doc_type == 7
                     feature_type = 'Progress'
                 end
                 @rotator_js += "\"title\" : \"" + feature_type + "\",\n"
@@ -87,7 +88,7 @@ class HomeController < ApplicationController
         end
         
         @all_picture_news_documents = Document.where(riding_id: 0, published: true, publish_on_pla: true, language: @language)
-                                                .between(doctype: 0..1)
+                                                .between(doc_type: 0..1)
                                                 .gt(expiry_date: DateTime.now)
                                                 .order_by(:document_date.desc) 
         picture_news_documents_size = 0

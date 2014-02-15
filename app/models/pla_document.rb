@@ -31,7 +31,7 @@ class PlaDocument
   field :is_draft, type: Boolean
   field :web_site, type: String
   field :updated_time, type: DateTime
-  field :doctype, type: Integer
+  field :doc_type, type: Integer
   
   belongs_to :petition
   belongs_to :customized_category

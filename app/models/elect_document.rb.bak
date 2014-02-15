@@ -36,7 +36,7 @@ class ElectDocument
   field :web_site, type: String
   field :user_id, type: Integer
   field :updated_time, type: DateTime
-  field :doctype, type: Integer
+  field :doc_type, type: Integer
   field :temp_id, type: Integer
   
   belongs_to :petition

@@ -293,8 +293,8 @@ MEGAMENU_JAVASCRIPT
             end
 
 
-            riding_news_documents = PlaDocument.find(:all, :order => "document_date DESC", :conditions => {:riding_id => riding_id, :doctype => (0..1), :published => true, :language => language, :expiry_date => DateTime.now..(DateTime.now+3650)})
-            central_news_documents = Document.find(:all, :order => "document_date DESC", :conditions => {:riding_id => 0, :doctype => (0..1), :published => true, :publish_on_pla => true, :language => language, :expiry_date => DateTime.now..(DateTime.now+3650)})
+            riding_news_documents = PlaDocument.find(:all, :order => "document_date DESC", :conditions => {:riding_id => riding_id, :doc_type => (0..1), :published => true, :language => language, :expiry_date => DateTime.now..(DateTime.now+3650)})
+            central_news_documents = Document.find(:all, :order => "document_date DESC", :conditions => {:riding_id => 0, :doc_type => (0..1), :published => true, :publish_on_pla => true, :language => language, :expiry_date => DateTime.now..(DateTime.now+3650)})
             customized_managements = PlaCustomizedManagement.find(:all, :order => "id", :conditions => {:riding_id => riding_id, :central_table => "documents"})
             if customized_managements != nil && customized_managements.length > 0 && central_news_documents != nil && central_news_documents.length > 0
                 customized_managements.each do |customized_management|
@@ -798,7 +798,7 @@ MEGAMENU_JAVASCRIPT
 			photo_file = '_Thumbnail.jpg'
 			photo_url['_Thumbnail.jpg'] = ''
 		end
-        
+        binding.pry
         if Net::HTTP.get_response(URI.parse('http://' + request.host + '/photos/' + photo_site + photo_dir + photo_url + photo_file)).kind_of?(Net::HTTPSuccess) == false
             
             save_path = 'public/photos/' + photo_site + photo_dir + photo_url

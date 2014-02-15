@@ -1,6 +1,6 @@
 class DocumentsController < ApplicationController
   before_filter :authenticate_user!, :except => [:show, :index]
-  #before_filter :authenticate_admin!, :only => [:toolkit]
+  before_filter :authenticate_admin!, :only => [:toolkit]
   before_action :set_document, only: [:show, :edit, :update, :destroy]
 
   #respond_to :html, :json
@@ -128,14 +128,8 @@ class DocumentsController < ApplicationController
   end
 
   def toolkit_show
-    binding.pry
-    if current_user.roles.include? 'webadmin'
       @document = Document.find_by(temp_id: params[:id])
       render :layout => "admin"
-    else
-      flash[:notice] = "You do not have authorization to view this site"
-      redirect_to new_user_session_url
-    end
   end
 
   private
