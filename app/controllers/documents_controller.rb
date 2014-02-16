@@ -121,7 +121,7 @@ class DocumentsController < ApplicationController
 
   #Admin routes
   def toolkit
-    @documents = Document.press_release.limit(10)
+    @documents = Document.toolkit.limit(10)
     render :layout => "admin"
   end
 
