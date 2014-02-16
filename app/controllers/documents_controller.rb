@@ -121,13 +121,13 @@ class DocumentsController < ApplicationController
 
   #Admin routes
   def toolkit
-    @documents = Document.all.limit(10)
-    render :layout => "admin"
+    @documents = Document.toolkit.limit(10)
+    render :layout => "toolkit_layout"
   end
 
   def toolkit_show
       @document = Document.find_by(temp_id: params[:id])
-      render :layout => "admin"
+      render :layout => "toolkit_layout"
   end
 
   private

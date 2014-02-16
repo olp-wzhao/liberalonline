@@ -35,9 +35,9 @@ V44::Application.routes.draw do
     root to: 'home#index', as: :authenticated_root
   end
 
-  #unauthenticated do
+  unauthenticated do
     root to: "home#index"
-  #end
+  end
 
 
   get 'contact' => 'contact#new'
