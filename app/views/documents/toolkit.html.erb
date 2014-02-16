@@ -1,4 +1,9 @@
 <div>
+
+<h1>Toolkit</h1>
+
+<p>The Toolkit on fRed.ca is an online database of materials that will help you maintain a strong presence in your community as a Provincial Liberal Association and carry out the hard work needed to win an election campaign. In order for you to get the most out of this resource, take a moment to find out more about how the Toolkit is organized and the types of resources it contains.</p>
+
         <% @documents.each do |document| %>
                 <div sytle="border:1px solid black">
                         <h1>ID: <%= document.temp_id %></h1>
@@ -12,6 +17,9 @@
                         <h2>attached_photo_ids</h2><%= document.attached_photo_ids %><br/>
                         <h2>attached_video_ids</h2><%= document.attached_video_ids %><br/>
                         <h2>attached_pdf_ids</h2><%= document.attached_pdf_ids %><br/>
+												<div style="float:left; width:50px;">           
+                                <a href="http://pantone201.ca/webskins/mpp/pdf/#{<%= document.attached_pdf_ids %>}.pdf" target="_blank"><img alt="Pdf_icon" src="http://pantone201.ca/webskins/css/img/pdf_icon.png"></a>
+                        </div>
                         <h2>created_date</h2><%= document.created_date %><br/>
                         <h2>created_ip</h2><%= document.created_ip %><br/>
                         <h2>created_user_id</h2><%= document.created_user_id %><br/>
