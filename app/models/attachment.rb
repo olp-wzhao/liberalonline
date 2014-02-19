@@ -14,6 +14,7 @@ class Attachment
   field :published, type: Boolean
   field :web_site, type: String
   field :updated_time, type: DateTime
+  field :temp_id, type: Integer
   
   belongs_to :riding
   belongs_to :user
