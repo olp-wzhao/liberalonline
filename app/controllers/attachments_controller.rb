@@ -56,6 +56,6 @@ class AttachmentsController < ApplicationController
         :published,
         :web_site,
         :updated_time,
-        :temp_id
+        :temp_id)
     end
 end
