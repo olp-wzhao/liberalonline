@@ -15,6 +15,7 @@ V44::Application.routes.draw do
 
    #resources :users
   resources :documents
+  resources :attachments
   resources :transactions
   resources :volunteers
   resources :photosf
