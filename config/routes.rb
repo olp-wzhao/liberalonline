@@ -18,7 +18,7 @@ V44::Application.routes.draw do
   resources :attachments
   resources :transactions
   resources :volunteers
-  resources :photosf
+  resources :photos
   resources :videos
   resources :enewsletters
   resources :tasks
