@@ -1,51 +1,110 @@
-<div>
+<div class="content">
 
-<h1>Toolkit</h1>
+<div class="toolkitheader">
+   <div class="container"><!--  this will set the content margins left and right -->
+              <div class="logoholder">
+	  	      <img src="https://secureolp.liberalonline.ca/images/logo_sm_white_vert.png">
+			  </div>
+			  <div class="menuholder">
+		      <span class="red" style="position : relative; top:.15em;"><a href="#">Fundraising</a> | <a href="#">Nominations</a> | <a href="#">Websites</a> &nbsp;&nbsp;</span> <span class="tiny grey">Logged in as: Webadmin@ontarioliberal.ca | <a href="#">Logout</a></span>
+			  </div>
+   </div><!-- close container -->
+</div><!-- close toolkitheader -->
 
-<p>The Toolkit on fRed.ca is an online database of materials that will help you maintain a strong presence in your community as a Provincial Liberal Association and carry out the hard work needed to win an election campaign. In order for you to get the most out of this resource, take a moment to find out more about how the Toolkit is organized and the types of resources it contains.</p>
+   <div class="opening">
+       <div class="container">
+	      <br>
+		  <h2 class="toolkittitle">Toolkit</h1> 
+		  <p class="toolkittag">Looking for<br>Stuff? We've<br>got stuff.</p>
+	   </div>
+   </div><!-- close opening -->
+
+<div class="containerbg">
+  <div class="container"> <!--  this will set the content margins left and right -->
+
+       
+    <p class="grey">Recently Added</p>
+    <div class="hrbreake7e6e7">&nbsp;</div>
 
         <% @documents.each do |document| %>
-                <div sytle="border:1px solid black">
-                        <h1>ID: <%= document.temp_id %></h1>
-                        <h2>headline</h2><%= raw document.headline %><br/>
-                        <h2>subtitle</h2><%= raw document.subtitle %><br/>
-                        <h2>introduction</h2><%= raw document.introduction %><br/>
-                        <h2>body</h2><%= raw document.body %><br/>
-                        <h2>author</h2><%= document.author %><br/>
-                        <h2>reference_url</h2><%= document.reference_url %><br/>
-                        <h2>reference_name</h2><%= document.reference_name %><br/>
-                        <h2>attached_photo_ids</h2><%= document.attached_photo_ids %><br/>
-                        <h2>attached_video_ids</h2><%= document.attached_video_ids %><br/>
-                        <h2>attached_pdf_ids</h2><%= document.attached_pdf_ids %><br/>
-												<div style="float:left; width:50px;">           
-                                <a href="http://pantone201.ca/webskins/mpp/pdf/#{<%= document.attached_pdf_ids %>}.pdf" target="_blank"><img alt="Pdf_icon" src="http://pantone201.ca/webskins/css/img/pdf_icon.png"></a>
-                        </div>
-                        <h2>created_date</h2><%= document.created_date %><br/>
-                        <h2>created_ip</h2><%= document.created_ip %><br/>
-                        <h2>created_user_id</h2><%= document.created_user_id %><br/>
-                        <h2>updated_ip</h2><%= document.updated_ip %><br/>
-                        <h2>language</h2><%= document.language %><br/>
-                        <h2>helpfulness_rating</h2><%= document.helpfulness_rating %><br/>
-                        <h2>applicability_rating</h2><%= document.applicability_rating %><br/>
-                        <h2>allow_comment</h2><%= document.allow_comment %><br/>
-                        <h2>published</h2><%= document.published %><br/>
-                        <h2>copy_protect</h2><%= document.copy_protect %><br/>
-                        <h2>document_date</h2><%= document.document_date %><br/>
-                        <h2>display_date</h2><%= document.display_date %><br/>
-                        <h2>expiry_date</h2><%= document.expiry_date %><br/>
-                        <h2>image_name</h2><%= document.image_name %><br/>
-                        <h2>publish_on_olp</h2><%= document.publish_on_olp %><br/>
-                        <h2>publish_on_mpp</h2><%= document.publish_on_mpp %><br/>
-                        <h2>publish_on_pla</h2><%= document.publish_on_pla %><br/>
-                        <h2>publish_on_elect</h2><%= document.publish_on_elect %><br/>
-                        <h2>partisan</h2><%= document.partisan %><br/>
-                        <h2>author_photo</h2><%= document.author_photo %><br/>
-                        <h2>is_draft</h2><%= document.is_draft %><br/>
-                        <h2>riding_id</h2><%= document.riding_id %><br/>
-                        <h2>web_site</h2><%= document.web_site %><br/>
-                        <h2>user_id</h2><%= document.user_id %><br/>
-                        <h2>updated_time</h2><%= document.updated_time %><br/>
-                        <%= link_to "Details", olpadmin_toolkit_url(document.temp_id) %>
-                </div>
+                
+                        <!-- <p>ID: <%= document.temp_id %></p> -->
+                        <div class="listh1 grey"><%= raw document.headline %></div>
+                        <div class="listh2 red"><%= raw document.subtitle %></div>
+                        <p><%= raw document.introduction %></p>
+                        <!-- <p>body</h2><%= raw document.body %></p> -->
+
+                        <!-- <p class="tiny"><%= document.reference_name %></p>
+                        <p class="tiny"><%= document.attached_photo_ids %></p>
+                        <p class="tiny"><%= document.attached_video_ids %></p>
+                        <p class="tiny"><%= document.attached_pdf_ids %></p> -->
+						  
+						<!-- <div style="float:left; width:50px;"> -->          
+						<!-- <a href="http://pantone201.ca/webskins/mpp/pdf/#{<%= document.attached_pdf_ids %>}.pdf" target="_blank"><img alt="Pdf_icon" src="http://pantone201.ca/webskins/css/img/pdf_icon.png"></a>  -->
+						<!-- </div>  -->
+						<!-- <div style="float:left; clear:right;"><p><a href="http://pantone201.ca/webskins/mpp/pdf/#{<%= document.attached_pdf_ids %>}.pdf" target="_blank">This is the pdf title</a></p><p class="tiny">And this is the description</p></div> -->
+						<!-- </div> -->
+					
+                   <!-- <p class="tiny">Created:<%= document.created_date %></p>  -->
+                   <!-- <p class="tiny"><%= document.document_date %></p>	-->					
+                   <!-- <p class="tiny">IP:<%= document.created_ip %></p>  -->
+                   <!-- <p class="tiny"><%= document.updated_ip %></p>  -->
+                   <!-- <p class="tiny"><%= document.language %></p>  -->
+                   <!-- <p class="tiny"><%= document.helpfulness_rating %></p>  -->
+                   <!-- <p class="tiny"><%= document.applicability_rating %></p>  -->
+                   <!-- <p class="tiny"><%= document.allow_comment %></p>  -->
+                   <!-- <p class="tiny"><%= document.published %></p>  -->
+                   <!-- <p class="tiny"><%= document.image_name %></p>  -->
+                   <!--  <p class="tiny"><%= document.is_draft %></p>  -->
+                   <!--  <p class="tiny"><%= document.user_id %></p>    -->
+                   <!-- <p class="tiny"><%= document.updated_time %></p> -->
+						<div class="hrbreake7e6e7">&nbsp;</div>
+                        <p class="red"><%= link_to "View a list of these PDFs", olpadmin_toolkit_url(document.temp_id) %></p>
+						<div class="hrbreake7e6e7">&nbsp;</div> <br><br>
+
+
         <% end %>
-</div>
+		
+	<br/><br/>
+
+		
+		
+
+		
+	   
+	   
+	   
+	   
+  </div><!-- close container -->
+</div><!-- close containerbg -->
+
+
+</div><!-- close content -->
+
+
+<img class="float" id="float-1" data-friction="0.5" src="https://secureolp.liberalonline.ca/images/toolkitusers4.jpg" /> 
+<img class="float" id="float-2" data-friction="0.5" src="https://secureolp.liberalonline.ca/images/toolkitusers4.jpg" /> 
+<img class="float" id="float-3" data-friction="0.5" src="https://secureolp.liberalonline.ca/images/toolkitusers4.jpg" />
+
+<!-- <div class="float" id="float-1" data-friction="0.5" style="background-image: url('https://secureolp.liberalonline.ca/images/toolkitusers3.jpg'); background:cover; width:100%;" />-->
+
+<div class="footer">
+   <div class="container"><!--  this will set the content margins left and right -->
+      <div class="centerclass" style="padding-top:30px; min-height:50px;">
+	  <p class="tiny grey">Ontario Liberal Party:
+
+	  <p class="tiny grey">Address: 10 St. Mary Street, Suite 210, Toronto, Ontario, M4Y 1P9</p>
+
+	  <p class="tiny grey">Phone: 416-961-3800</p>
+
+	  <p class="tiny grey">Toll Free Phone: 1-800-268-7250</p>
+
+	  <p class="tiny grey">Fax: 416-323-9425</p>
+
+	  <p class="tiny grey">President: Derek Teevan, Ext. 340</p>
+	  
+	  <p class="tiny grey">Copyright &copy; 2014 Ontario Liberal Party</p></div>
+   </div><!-- close container -->
+</div><!-- close footer -->
+
+
