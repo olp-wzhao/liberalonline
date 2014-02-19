@@ -1,36 +1,51 @@
-<h1>ID: <%= @document.temp_id %></h1>
-<h2>headline</h2><%= raw @document.headline %><br/>
-<h2>subtitle</h2><%= raw @document.subtitle %><br/>
-<h2>introduction</h2><%= raw @document.introduction %><br/>
-<h2>body</h2><%= raw @document.body %><br/>
-<h2>author</h2><%= @document.author %><br/>
-<h2>reference_url</h2><%= @document.reference_url %><br/>
-<h2>reference_name</h2><%= @document.reference_name %><br/>
-<h2>attached_photo_ids</h2><%= @document.attached_photo_ids %><br/>
-<h2>attached_video_ids</h2><%= @document.attached_video_ids %><br/>
-<h2>attached_pdf_ids</h2><%= @document.attached_pdf_ids %><br/>
-<h2>created_date</h2><%= @document.created_date %><br/>
-<h2>created_ip</h2><%= @document.created_ip %><br/>
-<h2>created_user_id</h2><%= @document.created_user_id %><br/>
-<h2>updated_ip</h2><%= @document.updated_ip %><br/>
-<h2>language</h2><%= @document.language %><br/>
-<h2>helpfulness_rating</h2><%= @document.helpfulness_rating %><br/>
-<h2>applicability_rating</h2><%= @document.applicability_rating %><br/>
-<h2>allow_comment</h2><%= @document.allow_comment %><br/>
-<h2>published</h2><%= @document.published %><br/>
-<h2>copy_protect</h2><%= @document.copy_protect %><br/>
-<h2>document_date</h2><%= @document.document_date %><br/>
-<h2>display_date</h2><%= @document.display_date %><br/>
-<h2>expiry_date</h2><%= @document.expiry_date %><br/>
-<h2>image_name</h2><%= @document.image_name %><br/>
-<h2>publish_on_olp</h2><%= @document.publish_on_olp %><br/>
-<h2>publish_on_mpp</h2><%= @document.publish_on_mpp %><br/>
-<h2>publish_on_pla</h2><%= @document.publish_on_pla %><br/>
-<h2>publish_on_elect</h2><%= @document.publish_on_elect %><br/>
-<h2>partisan</h2><%= @document.partisan %><br/>
-<h2>author_photo</h2><%= @document.author_photo %><br/>
-<h2>is_draft</h2><%= @document.is_draft %><br/>
-<h2>riding_id</h2><%= @document.riding_id %><br/>
-<h2>web_site</h2><%= @document.web_site %><br/>
-<h2>user_id</h2><%= @document.user_id %><br/>
-<h2>updated_time</h2><%= @document.updated_time %><br/>
+<div class="content">
+  <div class="container">
+    <br><br>
+<!-- ID: <%= @document.temp_id %> -->
+         <h1><%= raw @document.headline %></h1>
+         <h2><%= raw @document.subtitle %></h2>
+
+               <%= raw @document.body %>
+
+            <div class="hrbreake7e6e7">&nbsp;</div>
+               <div style="display:block; border=solid 1px blue;">
+               <div style="float:left; width:50px;">           
+               
+               </div>
+                        <div class="hrbreake7e6e7">&nbsp;</div>
+
+                        <p class="tiny"><%= @document.author %></p>
+                        <p class="tiny"><%= @document.reference_url %></p>
+                        <p class="tiny"><%= @document.reference_name %></p>
+                        <p class="tiny"><%= @document.attached_photo_ids %></p>
+                        <p class="tiny"><%= @document.attached_video_ids %></p>
+                        <p class="tiny"><%= @document.attached_pdf_ids %></p>
+                        <p class="tiny"><%= @document.created_date %></p>
+                        <p class="tiny"><%= @document.created_ip %></p>
+                        <p class="tiny"><%= @document.created_user_id %></p>
+                        <p class="tiny"><%= @document.updated_ip %></p>
+                        <p class="tiny"><%= @document.language %></p>
+                        <p class="tiny"><%= @document.helpfulness_rating %></p>
+                        <p class="tiny"><%= @document.applicability_rating %></p>
+                        <p class="tiny"><%= @document.allow_comment %></p>
+                        <p class="tiny"><%= @document.published %></p>
+                        <p class="tiny"><%= @document.copy_protect %></p>
+                        <p class="tiny"><%= @document.document_date %></p>
+                        <p class="tiny"><%= @document.display_date %></p>
+                        <p class="tiny"><%= @document.expiry_date %></p>
+                        <p class="tiny"><%= @document.image_name %></p>
+                        <p class="tiny"><%= @document.publish_on_olp %></p>
+                        <p class="tiny"><%= @document.publish_on_mpp %></p>
+                        <p class="tiny"><%= @document.publish_on_pla %></p>
+                        <p class="tiny"><%= @document.publish_on_elect %></p>
+                        <p class="tiny"><%= @document.partisan %></p>
+                        <p class="tiny"><%= @document.user_id %></p>
+                        <p class="tiny"><%= @document.updated_time %></p>
+            <% @document.attached_pdf_ids.split("|").each do |pdf| %>
+              <a href="http://pantone201.ca/webskins/mpp/pdf/<%= pdf %>.pdf" target="_blank"><img alt="Pdf_icon" src="http://pantone201.ca/webskins/css/img/pdf_icon.png"></a>
+                             </div>
+              <div style="float:left; clear:right;"><p><a href="http://pantone201.ca/webskins/mpp/pdf/<%= pdf %>.pdf" target="_blank">This is the pdf title</a></p><p class="tiny">And this is the description</p></div>
+            <% end %>
+
+  </div>          
+</div>
