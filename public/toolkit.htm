@@ -3,10 +3,6 @@
 <script src="javascripts/jquery-1.9.1.min.js"></script>
 <script>
 
-
-
-
-
 $(function (){ $(".float").each(function () { 
 var $this = $(this); $this.data("startTop", $this.offset().top);});
 $(window).scroll(function () { var documentScrollTop = $(document).scrollTop();
@@ -16,8 +12,8 @@ $this.offset({ top: $this.data("startTop") + documentScrollTop * $this.data("fri
 document.oldScrollTop = documentScrollTop; });
 });
 
-
-
+// Remove all empty paragraphs
+    $('p').filter(function () { return this.innerHTML == "" }).remove();
 
 </script>
 
