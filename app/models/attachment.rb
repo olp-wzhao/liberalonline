@@ -1,6 +1,7 @@
 class Attachment
   include Mongoid::Document
   include Mongoid::Timestamps
+  mount_uploader :pdf, PdfUploader
 
   field :icon_uri, type: String
   field :language, type: String
@@ -14,6 +15,7 @@ class Attachment
   field :published, type: Boolean
   field :web_site, type: String
   field :updated_time, type: DateTime
+  field :file_size, type: Integer
   field :temp_id, type: Integer
   
   belongs_to :riding

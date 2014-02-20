@@ -58,6 +58,7 @@ class Document
   has_many :mpp_rotators
   has_many :pla_rotators
   has_many :rotators
+  has_many :attachments
 
   scope :mpp, -> { where(:riding_id => 0, :published => true, :publish_on_mpp => true).order_by(:document_date.desc) }
   scope :pla, -> { where(:riding_id => 0, :published => true, :publish_on_pla => true).order_by(:document_date.desc) }
