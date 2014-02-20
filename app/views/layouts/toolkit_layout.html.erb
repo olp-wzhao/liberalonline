@@ -30,8 +30,13 @@
     });
     document.oldScrollTop = documentScrollTop; });
     });
-
-    </script>
+	
+    // Get rid of empty paragraphs
+    $(window).load(function(){
+        $('p').filter(function () { return this.innerHTML == "" }).remove();
+    });//]]> 
+	
+    </script>	
       
       <%= yield :header %>
       
