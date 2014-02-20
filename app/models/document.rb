@@ -2,6 +2,8 @@ class Document
   include Mongoid::Document
   include Mongoid::Timestamps
 
+  mount_uploader :image, ImageUploader
+
   field :headline, type: String
   field :subtitle, type: String
   field :introduction, type: String
@@ -12,11 +14,8 @@ class Document
   field :attached_photo_ids, type: String
   field :attached_video_ids, type: String
   field :attached_pdf_ids, type: String
-  field :petition_ids, type: String
-  field :created_date, type: DateTime
-  field :created_ip, type: String
-  field :created_user_id, type: Integer
-  field :updated_ip, type: String
+  #field :petition_ids, type: String
+
   field :language, type: String
   field :helpfulness_rating, type: Integer
   field :applicability_rating, type: Integer
@@ -36,7 +35,13 @@ class Document
   field :is_draft, type: Boolean
   field :riding_id, type: Integer
   field :web_site, type: String
+
+  #audit fields
   field :user_id, type: Integer
+  field :created_date, type: DateTime
+  field :created_ip, type: String
+  field :created_user_id, type: Integer
+  field :updated_ip, type: String
   field :updated_time, type: DateTime
   field :updated_at, type:DateTime
 

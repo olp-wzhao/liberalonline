@@ -85,5 +85,6 @@ gem 'mandrill-api'
 gem 'rails_admin', :git => 'git://github.com/sferik/rails_admin.git'
 
 #gem "best_in_place"
-gem 'bootstrap-wysihtml5-rails'
+#gem 'bootstrap-wysihtml5-rails'
 gem "mongoid_slug"
+gem "tinymce-rails"

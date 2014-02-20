@@ -60,10 +60,12 @@ class DocumentsController < ApplicationController
   # GET /documents/new
   def new
     @document = Document.new
+    render :layout => "toolkit_layout"
   end
 
   # GET /documents/1/edit
   def edit
+    render :layout => "toolkit_layout"
   end
 
   # POST /documents

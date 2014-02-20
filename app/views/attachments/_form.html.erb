@@ -1,4 +1,4 @@
-<%= simple_form_for(@attachment) do |f| %>
+<%= simple_form_for(@attachment), :html => {:multipart => true} do |f| %>
   <%= f.error_notification %>
     <%= f.input :icon_uri %>
     <%= f.input :language %>
@@ -12,7 +12,9 @@
     <%= f.input :published %>
     <%= f.input :web_site %>
     <%= f.input :updated_time %>
-
+    <%= f.file_field :pdf %>
+    <%= f.hidden_field :pdf_cache %>
+    </br>
     <%= f.button :submit %>
 
 <% end %>

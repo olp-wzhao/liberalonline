@@ -119,8 +119,6 @@ GEM
       railties (>= 3.0)
     bootstrap-sass (3.0.3.0)
       sass (~> 3.2)
-    bootstrap-wysihtml5-rails (0.3.1.23)
-      railties (>= 3.0)
     bson (2.2.0)
     builder (3.1.4)
     callsite (0.0.11)
@@ -358,6 +356,8 @@ GEM
       atomic
     tilt (1.4.1)
     timers (1.1.0)
+    tinymce-rails (4.0.16)
+      railties (>= 3.1.1)
     treetop (1.4.15)
       polyglot
       polyglot (>= 0.3.1)
@@ -380,7 +380,6 @@ DEPENDENCIES
   binding_of_caller
   bootstrap-datepicker-rails
   bootstrap-sass
-  bootstrap-wysihtml5-rails
   cancan
   capybara
   carrierwave
@@ -427,5 +426,6 @@ DEPENDENCIES
   terminal-notifier-guard
   therubyracer
   thin
+  tinymce-rails
   turbolinks
   uglifier

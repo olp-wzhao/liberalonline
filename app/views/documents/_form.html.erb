@@ -1,11 +1,41 @@
+
+
 <%= simple_form_for(@document) do |f| %>
   <%= f.error_notification %>
 
-  <div class="form-inputs">
-    <%= f.input :name %>
-  </div>
+    <%= f.input :headline %>
+    <%= f.input :subtitle %>
+    <%= f.input :introduction, as: :text, :input_html => { :class => "tinymce", :rows => 40, :cols => 80 } %>
+    <%= f.input :body %>
+    <%= f.input :author %>
+    <%= f.input :reference_url %>
+    <%= f.input :reference_name %>
+    <%= f.input :attached_photo_ids %>
+    <%= f.input :attached_video_ids %>
+    <%= f.input :language %>
+    <%= f.input :helpfulness_rating %>
+    <%= f.input :applicability_rating %>
+    <%= f.input :allow_comment %>
+    <%= f.input :published %>
+    <%= f.input :copy_protect %>
+    <%= f.input :display_date %>
+    <%= f.input :expiry_date %>
+    <%= f.input :image_name %>
+    <%= f.input :publish_on_olp %>
+    <%= f.input :publish_on_mpp %>
+    <%= f.input :publish_on_pla %>
+    <%= f.input :partisan %>
+    <%= f.input :author_photo %>
+    <%= f.input :is_draft %>
+    <%= f.input :riding_id %>
+    <%= f.input :web_site %>
+    <%= f.input :doc_type %>
+    <%= f.input :category_id %>
+    <%= f.input :customized_category_id %>
+    <%= f.input :issue_id %>
+    <%= f.file_field :image %>
+    <%= f.hidden_field :image_cache %>
 
-  <div class="form-actions">
     <%= f.button :submit %>
-  </div>
 <% end %>
+<%= tinymce %>

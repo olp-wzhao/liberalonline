@@ -10,9 +10,7 @@ V44::Application.routes.draw do
     omniauth_callbacks: "users/omniauth_callbacks",
     invitations: 'invitations'
   }
-
-
-
+  
    #resources :users
   resources :documents
   resources :attachments
@@ -88,6 +86,9 @@ V44::Application.routes.draw do
   get 'olpadmin/transactions' => 'transactions#admin_index'
   get 'olpadmin/transaction_scopes/:id' => 'transactions#scopes'
   get 'olpadmin/petitions/:id' => 'petitions#index'
+  get 'olpadmin/contact' => 'admin#contact'
+  get 'olpadmin/web' => 'admin#web'
+  get 'olpadmin/lit_samples' => 'admin#lit_samples'
 
   get "platform/index"
   get "team/index"
