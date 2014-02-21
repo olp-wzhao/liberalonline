@@ -1,4 +1,5 @@
 class DocumentsController < ApplicationController
+
   before_filter :authenticate_user!, :except => [:show, :index, :toolkit, :toolkit_show]
   before_filter :authenticate_admin!, :only => [:toolkit, :toolkit_show]
   before_action :set_document, only: [:show, :edit, :update, :destroy]
@@ -8,7 +9,7 @@ class DocumentsController < ApplicationController
   # GET /documents
   # GET /documents.json
   def index
-    @documents = Document.news_documents.all.limit(100)
+    @documents = Document.all.limit(10)
   end
 
   # GET /documents/1
@@ -60,25 +61,28 @@ class DocumentsController < ApplicationController
   # GET /documents/new
   def new
     @document = Document.new
-    render :layout => "toolkit_layout"
+    render :layout => "admin"
   end
 
   # GET /documents/1/edit
   def edit
-    render :layout => "toolkit_layout"
+    if @document.nil?
+      @document = Document.find_by(id: params["id"])
+    end
+    render :layout => "admin"
   end
 
   # POST /documents
   # POST /documents.json
   def create
     success = false
-    @document = Document.find_or_create_by(temp_id: document_params["temp_id"])
+    @document = Document.find_by(temp_id: document_params["temp_id"])
     
     logger.info "New or Updated Document: #{@document.attributes.inspect}"
     logger.info "document parameters: #{document_params}"
     
     if !@document.nil?
-      @document = @document
+      binding.pry
       success = @document.update(document_params)
     else
       @document = Document.new(document_params)
@@ -88,7 +92,7 @@ class DocumentsController < ApplicationController
     respond_to do |format|
       if success
         logger.info "Updated @document"
-        format.html { redirect_to @document, notice: 'Document was successfully created.' }
+        format.html { redirect_to documents_path, notice: 'Document was successfully created.' }
         format.json { render json: 'document saved to mongodb', status: :created }
       else
         format.html { render action: 'new' }
@@ -140,6 +144,8 @@ class DocumentsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def document_params
+      fix_scrambled_date_parameters_on_create("display_date")
+      fix_scrambled_date_parameters_on_create("expiry_date")
       params.require(:document).permit(:name,
         :headline, 
         :subtitle, 
@@ -184,6 +190,16 @@ class DocumentsController < ApplicationController
         :temp_id, 
         :category_id, 
         :customized_category_id,  
-        :issue_id)
+        :issue_id,
+        :image,
+        :image_cache)
+    end
+
+    def fix_scrambled_date_parameters_on_create(field_name)
+      x,y,z = params[:document][:"#{field_name}(1i)"], params[:document][:"#{field_name}(2i)"], params[:document][:"#{field_name}(3i)"]
+      params[:document][field_name] = "#{z}/#{y}/#{x}"
+      params[:document].delete :"#{field_name}(1i)"
+      params[:document].delete :"#{field_name}(2i)"
+      params[:document].delete :"#{field_name}(3i)"
     end
 end

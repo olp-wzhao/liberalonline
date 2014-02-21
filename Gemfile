@@ -23,7 +23,6 @@ group :assets do
   gem "sprockets-rails", github: "rails/sprockets-rails"
   gem "sass-rails", github: "rails/sass-rails"
   gem "coffee-rails", github: "rails/coffee-rails"
-  gem "therubyracer", platforms: :ruby
   gem "uglifier"
 end
 
@@ -62,7 +61,6 @@ group :test do
   gem "ffaker"
   gem "simplecov", require: false
   gem "database_cleaner"
-  gem 'rb-inotify', require: false
   gem 'libnotify', :require => false
 end
 

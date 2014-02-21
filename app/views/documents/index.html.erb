@@ -1,20 +1,91 @@
-<div id="inside_column_main">
-        <% if @news_documents != nil && @news_documents.length > 0 %>
-                <div class="sectionheaderbig">
-                        <h1>Provincial News</h1>
-                </div>
-                <br />
-                <% @news_documents.each do |document| %>
-                                <div class="listh1"><%= link_to raw(document.headline), '/news/' + document.id.to_s + '?l=' + @language %></div>
-                                <div class="listh2"><%= link_to raw(document.subtitle), '/news/' + document.id.to_s + '?l=' + @language %></div>
-                                <div class="detail small last" style="display:block;"><span class="posted"><%= if @language == 'FR' then 'Publié' else 'Posted' end %>:&nbsp;</span><%= raw(localized_date_str(document.document_date, @language)) %></div>
-                                <div style="display:block; clear:left; padding-bottom:3px; height:6px;">&nbsp;</div>
-                <% end %>
-                <%= paginate @news_documents %>
-        <% else %>
-                &nbsp;
-        <% end %>
+<div class="content">
+  <div class="toolkitheader">
+    <div class="container">
+      <!--  this will set the content margins left and right -->
+      <div class="logoholder">
+        <img src="https://secureolp.liberalonline.ca/images/logo_sm_white_vert.png">
+      </div>
+      <div class="menuholder">
+        <span class="red" style="position : relative; top:.15em;"><a href="#">Fundraising</a> | <a href="#">Nominations</a> | <a href="#">Websites</a> &nbsp;&nbsp;</span> <span class="tiny grey">Logged in as: Webadmin@ontarioliberal.ca | <a href="#">Logout</a></span>
+      </div>
+    </div>
+    <!-- close container -->
+  </div>
+  <!-- close toolkitheader -->
+  <div class="opening">
+    <div class="container">
+      <br>
+      <h2 class="toolkittitle">
+      Toolkit</h1> 
+      <p class="toolkittag">Looking for<br>Stuff? We've<br>got stuff.</p>
+    </div>
+  </div>
+  <!-- close opening -->
+  <div class="containerbg">
+    <div class="container">
+      <!--  this will set the content margins left and right -->
+      <p class="grey">Recently Added</p>
+      <div class="hrbreake7e6e7">&nbsp;</div>
+      <% @documents.each do |document| %>
+                <%= link_to "Edit this document", edit_document_path(document) %>
+              <!-- <p>ID: <%= document.temp_id %></p> -->
+              <div class="listh1 grey"><%= raw document.headline %></div>
+              <div class="listh2 red"><%= raw document.subtitle %></div>
+              <p><%= raw document.introduction %></p>
+              <!-- <p>body</h2><%= raw document.body %></p> -->
+              <!-- <p class="tiny"><%= document.reference_name %></p>
+                <p class="tiny"><%= document.attached_photo_ids %></p>
+                
+                <p class="tiny"><%= document.attached_video_ids %></p>
+                
+                <p class="tiny"><%= document.attached_pdf_ids %></p> -->
+              <!-- <div style="float:left; width:50px;"> -->          
+              <!-- <a href="http://pantone201.ca/webskins/mpp/pdf/#{<%= document.attached_pdf_ids %>}.pdf" target="_blank"><img alt="Pdf_icon" src="http://pantone201.ca/webskins/css/img/pdf_icon.png"></a>  -->
+              <!-- </div>  -->
+              <!-- <div style="float:left; clear:right;"><p><a href="http://pantone201.ca/webskins/mpp/pdf/#{<%= document.attached_pdf_ids %>}.pdf" target="_blank">This is the pdf title</a></p><p class="tiny">And this is the description</p></div> -->
+              <!-- </div> -->
+              <!-- <p class="tiny">Created:<%= document.created_date %></p>  -->
+              <!-- <p class="tiny"><%= document.document_date %></p>       -->                                     
+              <!-- <p class="tiny">IP:<%= document.created_ip %></p>  -->
+              <!-- <p class="tiny"><%= document.updated_ip %></p>  -->
+              <!-- <p class="tiny"><%= document.language %></p>  -->
+              <!-- <p class="tiny"><%= document.helpfulness_rating %></p>  -->
+              <!-- <p class="tiny"><%= document.applicability_rating %></p>  -->
+              <!-- <p class="tiny"><%= document.allow_comment %></p>  -->
+              <!-- <p class="tiny"><%= document.published %></p>  -->
+              <!-- <p class="tiny"><%= document.image_name %></p>  -->
+              <!--  <p class="tiny"><%= document.is_draft %></p>  -->
+              <!--  <p class="tiny"><%= document.user_id %></p>    -->
+              <!-- <p class="tiny"><%= document.updated_time %></p> -->
+              <div class="hrbreake7e6e7">&nbsp;</div>
+              <p class="red"><%= link_to "Edit this document", edit_document_path(document) %></p>
+              <div class="hrbreake7e6e7">&nbsp;</div>
+              <br><br>
+      <% end %>
+      <br/><br/>
+    </div>
+    <!-- close container -->
+  </div>
+  <!-- close containerbg -->
 </div>
-
-<div id="inside_column_three">
+<!-- close content -->
+<img class="float" id="float-1" data-friction="0.5" src="https://secureolp.liberalonline.ca/images/toolkitusers4.jpg" /> 
+<img class="float" id="float-2" data-friction="0.5" src="https://secureolp.liberalonline.ca/images/toolkitusers4.jpg" /> 
+<img class="float" id="float-3" data-friction="0.5" src="https://secureolp.liberalonline.ca/images/toolkitusers4.jpg" />
+<!-- <div class="float" id="float-1" data-friction="0.5" style="background-image: url('https://secureolp.liberalonline.ca/images/toolkitusers3.jpg'); background:cover; width:100%;" />-->
+<div class="footer">
+  <div class="container">
+    <!--  this will set the content margins left and right -->
+    <div class="centerclass" style="padding-top:30px; min-height:50px;">
+      <p class="tiny grey">Ontario Liberal Party:
+      <p class="tiny grey">Address: 10 St. Mary Street, Suite 210, Toronto, Ontario, M4Y 1P9</p>
+      <p class="tiny grey">Phone: 416-961-3800</p>
+      <p class="tiny grey">Toll Free Phone: 1-800-268-7250</p>
+      <p class="tiny grey">Fax: 416-323-9425</p>
+      <p class="tiny grey">President: Derek Teevan, Ext. 340</p>
+      <p class="tiny grey">Copyright &copy; 2014 Ontario Liberal Party</p>
+    </div>
+  </div>
+  <!-- close container -->
 </div>
+<!-- close footer -->

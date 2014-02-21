@@ -176,140 +176,140 @@ class ApplicationController < ActionController::Base
         end
     end
 
-    def load_sidecolumn_documents
-        # Get all the central issue documents
-        @sidecolumn_issue_documents = nil
-        @sidecolumn_accomplishment_documents = nil
-    if @web_site_type == 'mpp'
-      @sidecolumn_accomplishment_documents = Document.mpp.where(doc_type: 7, language: @language)
-    elsif @web_site_type == 'pla'
-      @sidecolumn_accomplishment_documents = Document.pla.where(doc_type: 7, language: @language)
-    else
-      @sidecolumn_accomplishment_documents = Document.elect.where(doc_type: 7, language: @language)
-    end
-        # Get photo for the central accomplishment document
-        if @sidecolumn_accomplishment_documents != nil && @sidecolumn_accomplishment_documents.length > 0
-            @sidecolumn_accomplishment_documents.each do |document|
-                document = prepare_document_photo(document, false)
-            end
-        end
-        # Get all the local accomplishment documents include photo url if riding is not central
-        if @web_site_manager.r_id - 9000 != 0
-      sidecolumn_local_accomplishment_documents = nil
-      if @web_site_type == 'mpp'
-        sidecolumn_local_accomplishment_documents = MppDocument.where(:riding_id => @web_site_manager.r_id - 9000, :doc_type => 7, :published => true, :language => @language)
-                                                              .order_by(:document_date.desc)
-      elsif @web_site_type == 'pla'
-        sidecolumn_local_accomplishment_documents = PlaDocument.where(:riding_id => @web_site_manager.r_id - 9000, :doc_type => 7, :published => true, :language => @language)
-                                                              .order_by(:document_date.desc)
-      else
-        sidecolumn_local_accomplishment_documents = ElectDocument.where(:riding_id => @web_site_manager.r_id - 9000, :doc_type => 7, :published => true, :language => @language)
-                                                              .order_by(:document_date.desc)
-      end
-            if sidecolumn_local_accomplishment_documents != nil && sidecolumn_local_accomplishment_documents.length > 0
-                if @sidecolumn_accomplishment_documents == nil
-                    @sidecolumn_accomplishment_documents = Array.new
-                end
-                sidecolumn_local_accomplishment_documents.each do |document|
-                    document = prepare_document_photo(document, true)
-                    @sidecolumn_accomplishment_documents << document
-                end
-            end
-        end
-        # Sort accomplishment documents by date
-        @sidecolumn_accomplishment_documents.sort! {|x ,y| y.document_date <=> x.document_date}
-        # Keep first 6 accomplishment documents and delete all the rest
-        while @sidecolumn_accomplishment_documents.length > 5
-            @sidecolumn_accomplishment_documents.delete_at(5)
-        end
+    # def load_sidecolumn_documents
+    #     # Get all the central issue documents
+    #     @sidecolumn_issue_documents = nil
+    #     @sidecolumn_accomplishment_documents = nil
+    # if @web_site_type == 'mpp'
+    #   @sidecolumn_accomplishment_documents = Document.mpp.where(doc_type: 7, language: @language)
+    # elsif @web_site_type == 'pla'
+    #   @sidecolumn_accomplishment_documents = Document.pla.where(doc_type: 7, language: @language)
+    # else
+    #   @sidecolumn_accomplishment_documents = Document.elect.where(doc_type: 7, language: @language)
+    # end
+    #     # Get photo for the central accomplishment document
+    #     if @sidecolumn_accomplishment_documents != nil && @sidecolumn_accomplishment_documents.length > 0
+    #         @sidecolumn_accomplishment_documents.each do |document|
+    #             document = prepare_document_photo(document, false)
+    #         end
+    #     end
+    #     # Get all the local accomplishment documents include photo url if riding is not central
+    #     if @web_site_manager.r_id - 9000 != 0
+    #   sidecolumn_local_accomplishment_documents = nil
+    #   if @web_site_type == 'mpp'
+    #     sidecolumn_local_accomplishment_documents = MppDocument.where(:riding_id => @web_site_manager.r_id - 9000, :doc_type => 7, :published => true, :language => @language)
+    #                                                           .order_by(:document_date.desc)
+    #   elsif @web_site_type == 'pla'
+    #     sidecolumn_local_accomplishment_documents = PlaDocument.where(:riding_id => @web_site_manager.r_id - 9000, :doc_type => 7, :published => true, :language => @language)
+    #                                                           .order_by(:document_date.desc)
+    #   else
+    #     sidecolumn_local_accomplishment_documents = ElectDocument.where(:riding_id => @web_site_manager.r_id - 9000, :doc_type => 7, :published => true, :language => @language)
+    #                                                           .order_by(:document_date.desc)
+    #   end
+    #         if sidecolumn_local_accomplishment_documents != nil && sidecolumn_local_accomplishment_documents.length > 0
+    #             if @sidecolumn_accomplishment_documents == nil
+    #                 @sidecolumn_accomplishment_documents = Array.new
+    #             end
+    #             sidecolumn_local_accomplishment_documents.each do |document|
+    #                 document = prepare_document_photo(document, true)
+    #                 @sidecolumn_accomplishment_documents << document
+    #             end
+    #         end
+    #     end
+    #     # Sort accomplishment documents by date
+    #     @sidecolumn_accomplishment_documents.sort! {|x ,y| y.document_date <=> x.document_date}
+    #     # Keep first 6 accomplishment documents and delete all the rest
+    #     while @sidecolumn_accomplishment_documents.length > 5
+    #         @sidecolumn_accomplishment_documents.delete_at(5)
+    #     end
 
-        # Get all the central news documents
-        @sidecolumn_news_documents = nil
-    if @web_site_type == 'mpp'
-      @sidecolumn_news_documents = Document.mpp #find(:all, :order => "document_date DESC", :conditions => {:riding_id => 0, :doc_type => 0..1, :published => true, :publish_on_mpp => true, :language => @language})
-    elsif @web_site_type == 'pla'
-      @sidecolumn_news_documents = Document.pla #find(:all, :order => "document_date DESC", :conditions => {:riding_id => 0, :doc_type => 0..1, :published => true, :publish_on_pla => true, :language => @language})
-    else
-      @sidecolumn_news_documents = Document.find(:all, :order => "document_date DESC", :conditions => {:riding_id => 0, :doc_type => 0..1, :published => true, :publish_on_elect => true, :language => @language})
-    end
-        # Get photo for the central news document
-        if @sidecolumn_news_documents != nil && @sidecolumn_news_documents.length > 0
-            @sidecolumn_news_documents.each do |document|
-                document = prepare_document_photo(document, false)
-            end
-        end
-        # Get all the local news documents include photo url if riding is not central
-        if @web_site_manager.r_id - 9000 != 0
-      sidecolumn_local_news_documents = nil
-      if @web_site_type == 'mpp'
-        sidecolumn_local_news_documents = MppDocument.find(:all, :order => "document_date DESC", :conditions => {:riding_id => @web_site_manager.r_id - 9000, :doc_type => 0..1, :published => true, :language => @language})
-      elsif @web_site_type == 'pla'
-        sidecolumn_local_news_documents = PlaDocument.find(:all, :order => "document_date DESC", :conditions => {:riding_id => @web_site_manager.r_id - 9000, :doc_type => 0..1, :published => true, :language => @language})
-      else
-        sidecolumn_local_news_documents = ElectDocument.find(:all, :order => "document_date DESC", :conditions => {:riding_id => @web_site_manager.r_id - 9000, :doc_type => 0..1, :published => true, :language => @language})
-      end
-            if sidecolumn_local_news_documents != nil && sidecolumn_local_news_documents.length > 0
-                if @sidecolumn_news_documents == nil
-                    @sidecolumn_news_documents = Array.new
-                end
-                sidecolumn_local_news_documents.each do |document|
-                    document = prepare_document_photo(document, true)
-                    @sidecolumn_news_documents << document
-                end
-            end
-        end
-        # Sort news documents by date
-        @sidecolumn_news_documents.sort! {|x ,y| y.document_date <=> x.document_date}
-        # Keep first 6 news documents and delete all the rest
-        while @sidecolumn_news_documents.length > 5
-            @sidecolumn_news_documents.delete_at(5)
-        end
+    #     # Get all the central news documents
+    #     @sidecolumn_news_documents = nil
+    # if @web_site_type == 'mpp'
+    #   @sidecolumn_news_documents = Document.mpp #find(:all, :order => "document_date DESC", :conditions => {:riding_id => 0, :doc_type => 0..1, :published => true, :publish_on_mpp => true, :language => @language})
+    # elsif @web_site_type == 'pla'
+    #   @sidecolumn_news_documents = Document.pla #find(:all, :order => "document_date DESC", :conditions => {:riding_id => 0, :doc_type => 0..1, :published => true, :publish_on_pla => true, :language => @language})
+    # else
+    #   @sidecolumn_news_documents = Document.find(:all, :order => "document_date DESC", :conditions => {:riding_id => 0, :doc_type => 0..1, :published => true, :publish_on_elect => true, :language => @language})
+    # end
+    #     # Get photo for the central news document
+    #     if @sidecolumn_news_documents != nil && @sidecolumn_news_documents.length > 0
+    #         @sidecolumn_news_documents.each do |document|
+    #             document = prepare_document_photo(document, false)
+    #         end
+    #     end
+    #     # Get all the local news documents include photo url if riding is not central
+    #     if @web_site_manager.r_id - 9000 != 0
+    #   sidecolumn_local_news_documents = nil
+    #   if @web_site_type == 'mpp'
+    #     sidecolumn_local_news_documents = MppDocument.find(:all, :order => "document_date DESC", :conditions => {:riding_id => @web_site_manager.r_id - 9000, :doc_type => 0..1, :published => true, :language => @language})
+    #   elsif @web_site_type == 'pla'
+    #     sidecolumn_local_news_documents = PlaDocument.find(:all, :order => "document_date DESC", :conditions => {:riding_id => @web_site_manager.r_id - 9000, :doc_type => 0..1, :published => true, :language => @language})
+    #   else
+    #     sidecolumn_local_news_documents = ElectDocument.find(:all, :order => "document_date DESC", :conditions => {:riding_id => @web_site_manager.r_id - 9000, :doc_type => 0..1, :published => true, :language => @language})
+    #   end
+    #         if sidecolumn_local_news_documents != nil && sidecolumn_local_news_documents.length > 0
+    #             if @sidecolumn_news_documents == nil
+    #                 @sidecolumn_news_documents = Array.new
+    #             end
+    #             sidecolumn_local_news_documents.each do |document|
+    #                 document = prepare_document_photo(document, true)
+    #                 @sidecolumn_news_documents << document
+    #             end
+    #         end
+    #     end
+    #     # Sort news documents by date
+    #     @sidecolumn_news_documents.sort! {|x ,y| y.document_date <=> x.document_date}
+    #     # Keep first 6 news documents and delete all the rest
+    #     while @sidecolumn_news_documents.length > 5
+    #         @sidecolumn_news_documents.delete_at(5)
+    #     end
 
 
-        # Get all the central blog documents
-        @sidecolumn_blog_documents = nil
-    if @web_site_type == 'mpp'
-      @sidecolumn_blog_documents = Document.find(:all, :order => "document_date DESC", :conditions => {:riding_id => 0, :doc_type => 3, :published => true, :publish_on_mpp => true, :language => @language})
-    elsif @web_site_type == 'pla'
-      @sidecolumn_blog_documents = Document.find(:all, :order => "document_date DESC", :conditions => {:riding_id => 0, :doc_type => 3, :published => true, :publish_on_pla => true, :language => @language})
-    else
-      @sidecolumn_blog_documents = Document.find(:all, :order => "document_date DESC", :conditions => {:riding_id => 0, :doc_type => 3, :published => true, :publish_on_elect => true, :language => @language})
-    end
-        # Get photo for the central blog document
-        if @sidecolumn_blog_documents != nil && @sidecolumn_blog_documents.length > 0
-            @sidecolumn_blog_documents.each do |document|
-                document = prepare_document_photo(document, false)
-                document = prepare_document_author(document, false)
-            end
-        end
-        # Get all the local blog documents include photo url if riding is not central
-        if @web_site_manager.r_id - 9000 != 0
-      sidecolumn_local_blog_documents = nil
-      if @web_site_type == 'mpp'
-        sidecolumn_local_blog_documents = MppDocument.find(:all, :order => "document_date DESC", :conditions => {:riding_id => @web_site_manager.r_id - 9000, :doc_type => 3, :published => true, :language => @language})
-      elsif @web_site_type == 'pla'
-        sidecolumn_local_blog_documents = PlaDocument.find(:all, :order => "document_date DESC", :conditions => {:riding_id => @web_site_manager.r_id - 9000, :doc_type => 3, :published => true, :language => @language})
-      else
-        sidecolumn_local_blog_documents = ElectDocument.find(:all, :order => "document_date DESC", :conditions => {:riding_id => @web_site_manager.r_id - 9000, :doc_type => 3, :published => true, :language => @language})
-      end
-            if sidecolumn_local_blog_documents != nil && sidecolumn_local_blog_documents.length > 0
-                if @sidecolumn_blog_documents == nil
-                    @sidecolumn_blog_documents = Array.new
-                end
-                sidecolumn_local_blog_documents.each do |document|
-                    document = prepare_document_photo(document, true)
-                    document = prepare_document_author(document, false)
-                    @sidecolumn_blog_documents << document
-                end
-            end
-        end
-        # Sort blog documents by date
-        @sidecolumn_blog_documents.sort! {|x ,y| y.document_date <=> x.document_date}
-        # Keep first 6 blog documents and delete all the rest
-        while @sidecolumn_blog_documents.length > 5
-            @sidecolumn_blog_documents.delete_at(5)
-        end
-    end
+    #     # Get all the central blog documents
+    #     @sidecolumn_blog_documents = nil
+    # if @web_site_type == 'mpp'
+    #   @sidecolumn_blog_documents = Document.find(:all, :order => "document_date DESC", :conditions => {:riding_id => 0, :doc_type => 3, :published => true, :publish_on_mpp => true, :language => @language})
+    # elsif @web_site_type == 'pla'
+    #   @sidecolumn_blog_documents = Document.find(:all, :order => "document_date DESC", :conditions => {:riding_id => 0, :doc_type => 3, :published => true, :publish_on_pla => true, :language => @language})
+    # else
+    #   @sidecolumn_blog_documents = Document.find(:all, :order => "document_date DESC", :conditions => {:riding_id => 0, :doc_type => 3, :published => true, :publish_on_elect => true, :language => @language})
+    # end
+    #     # Get photo for the central blog document
+    #     if @sidecolumn_blog_documents != nil && @sidecolumn_blog_documents.length > 0
+    #         @sidecolumn_blog_documents.each do |document|
+    #             document = prepare_document_photo(document, false)
+    #             document = prepare_document_author(document, false)
+    #         end
+    #     end
+    #     # Get all the local blog documents include photo url if riding is not central
+    #     if @web_site_manager.r_id - 9000 != 0
+    #   sidecolumn_local_blog_documents = nil
+    #   if @web_site_type == 'mpp'
+    #     sidecolumn_local_blog_documents = MppDocument.find(:all, :order => "document_date DESC", :conditions => {:riding_id => @web_site_manager.r_id - 9000, :doc_type => 3, :published => true, :language => @language})
+    #   elsif @web_site_type == 'pla'
+    #     sidecolumn_local_blog_documents = PlaDocument.find(:all, :order => "document_date DESC", :conditions => {:riding_id => @web_site_manager.r_id - 9000, :doc_type => 3, :published => true, :language => @language})
+    #   else
+    #     sidecolumn_local_blog_documents = ElectDocument.find(:all, :order => "document_date DESC", :conditions => {:riding_id => @web_site_manager.r_id - 9000, :doc_type => 3, :published => true, :language => @language})
+    #   end
+    #         if sidecolumn_local_blog_documents != nil && sidecolumn_local_blog_documents.length > 0
+    #             if @sidecolumn_blog_documents == nil
+    #                 @sidecolumn_blog_documents = Array.new
+    #             end
+    #             sidecolumn_local_blog_documents.each do |document|
+    #                 document = prepare_document_photo(document, true)
+    #                 document = prepare_document_author(document, false)
+    #                 @sidecolumn_blog_documents << document
+    #             end
+    #         end
+    #     end
+    #     # Sort blog documents by date
+    #     @sidecolumn_blog_documents.sort! {|x ,y| y.document_date <=> x.document_date}
+    #     # Keep first 6 blog documents and delete all the rest
+    #     while @sidecolumn_blog_documents.length > 5
+    #         @sidecolumn_blog_documents.delete_at(5)
+    #     end
+    # end
     
     def prepare_document_photo(document, is_local, is_thumbnail=true)
         document.image_name = ''

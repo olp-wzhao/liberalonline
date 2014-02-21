@@ -3,15 +3,15 @@ class NewsController < ApplicationController
     
 
     def index
-        @paginate_size = 10
-        #@news_documents = Document.find(:all, :limit => 99, :order => "document_date DESC", :conditions => {:riding_id => (-6..0), :doc_type => (0..1), :published => true, :language => @language, :expiry_date => DateTime.now..(DateTime.now+3650)})
-		@news_documents = Document
-							.page(params[:page])
-							.per(@paginate_size)
-							.order_by(:document_date.desc)
-							.between(riding_id: -6..0, doc_type: 0..1)
-							.gt(expiry_date: DateTime.now)
-							.where(:published => true, :language => @language)
+      @paginate_size = 10
+      #@news_documents = Document.find(:all, :limit => 99, :order => "document_date DESC", :conditions => {:riding_id => (-6..0), :doc_type => (0..1), :published => true, :language => @language, :expiry_date => DateTime.now..(DateTime.now+3650)})
+			@news_documents = Document
+								.page(params[:page])
+								.per(@paginate_size)
+								.order_by(:document_date.desc)
+								.between(riding_id: -6..0, doc_type: 0..1)
+								.gt(expiry_date: DateTime.now)
+								.where(:published => true, :language => @language)
     end
 
     def show

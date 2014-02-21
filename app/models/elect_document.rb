@@ -1,6 +1,7 @@
 class ElectDocument
   include Mongoid::Document
   include Mongoid::Timestamps
+
   field :headline, type: String
   field :subtitle, type: String
   field :introduction, type: String

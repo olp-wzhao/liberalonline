@@ -1,6 +1,8 @@
 class Document
   include Mongoid::Document
   include Mongoid::Timestamps
+  include Mongoid::MultiParameterAttributes
+  include Mongoid::Slug
 
   mount_uploader :image, ImageUploader
 
@@ -43,7 +45,6 @@ class Document
   field :created_user_id, type: Integer
   field :updated_ip, type: String
   field :updated_time, type: DateTime
-  field :updated_at, type:DateTime
 
   validates_presence_of :display_date
 
@@ -53,6 +54,8 @@ class Document
   field :category_id, type: Integer
   field :customized_category_id, type: Integer 
   field :issue_id, type: Integer
+
+  field :safe_url, type: String
   
   belongs_to :petition
   belongs_to :user
@@ -82,5 +85,5 @@ class Document
   #   self.headline = options[:headline]
   # end
 
-
+  slug :safe_url, history: true
 end
