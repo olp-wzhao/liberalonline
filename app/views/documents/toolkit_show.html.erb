@@ -41,14 +41,15 @@
                         <p class="tiny"><%= @document.partisan %></p>
                         <p class="tiny"><%= @document.user_id %></p>
                         <p class="tiny"><%= @document.updated_time %></p>
-            <% @document.attached_pdf_ids.split("|").each do |pdf_id| %>
-              <% pdf = Attachment.find_by(temp_id: pdf_id) %>
-              <% unless pdf.nil? %>
-                <a href="http://pantone201.ca/webskins/olp/pdf/<%= pdf %>.pdf" target="_blank"><img alt="Pdf_icon" src="http://pantone201.ca/webskins/css/img/pdf_icon.png"></a>
-                               </div>
-                <div style="float:left; clear:right;"><p><a href="http://pantone201.ca/webskins/olp/pdf/<%= pdf %>.pdf" target="_blank">This is the pdf title</a></p><p class="tiny">And this is the description</p></div>
+            <% unless @document.attached_pdf_ids.nil? %>
+              <% @document.attached_pdf_ids.split("|").each do |pdf_id| %>
+                <% pdf = Attachment.find_by(temp_id: pdf_id) %>
+                <% unless pdf.nil? %>
+                  <a href="http://pantone201.ca/webskins/olp/pdf/<%= pdf %>.pdf" target="_blank"><img alt="Pdf_icon" src="http://pantone201.ca/webskins/css/img/pdf_icon.png"></a>
+                                 </div>
+                  <div style="float:left; clear:right;"><p><a href="http://pantone201.ca/webskins/olp/pdf/<%= pdf %>.pdf" target="_blank">This is the pdf title</a></p><p class="tiny">And this is the description</p></div>
+                <% end %>
               <% end %>
             <% end %>
-
   </div>          
 </div>

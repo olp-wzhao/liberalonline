@@ -8,9 +8,14 @@ class AttachmentsController < ApplicationController
   end
 
   def index
-    binding.pry
     @attachments = Attachment.all
     @attachment = Attachment.new
+  end
+
+  def show
+    respond_to do |format|
+      format.js {}
+    end
   end
 
   def create
@@ -70,6 +75,7 @@ class AttachmentsController < ApplicationController
         :published,
         :web_site,
         :updated_time,
-        :temp_id)
+        :temp_id,
+        :pdf)
     end
 end

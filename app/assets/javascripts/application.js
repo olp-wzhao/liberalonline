@@ -16,6 +16,7 @@
 
 // require rails.validations
 //= require select2
+//= require jquery.remotipart
 
 //= require main
 //= require_tree .
