@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <meta charset="utf-8" />
+        <title>Inside Page setup</title>
+		
+        <link href="/stylesheets/mgmenulib.css" rel="stylesheet" type="text/css" media="screen" />	
+		
+
+	
+<script src="javascripts/jquery-1.9.1.min.js"></script>
+<script src="javascripts/jquery-scrolltofixed-min.js"></script>
+
+<!-- Mini menu - http://www.jqueryrain.com/?M89s3TG4 -->
+<link type="text/css" rel="stylesheet" href="stylesheets/jquery.dropdown.css" />
+<script type="text/javascript" src="javascripts/jquery.dropdown.js"></script>
+
+        <script src="javascripts/mgmenu_plugins.js"></script><!-- Mega Menu Plugins -->
+        <script src="javascripts/mgmenu.js"></script><!-- Mega Menu Script -->
+
+
+
+
+
+    <script>
+
+      $(function (){ $(".float").each(function () { 
+           var $this = $(this); $this.data("startTop", $this.offset().top);});
+             $(window).scroll(function () { var documentScrollTop = $(document).scrollTop();
+             $(".float").each(function () { var $this = $(this); 
+             $this.offset({ top: $this.data("startTop") + documentScrollTop * $this.data("friction"), left: $this.offset().left });
+      });
+      document.oldScrollTop = documentScrollTop; });
+      });
+  	
+      // Get rid of empty paragraphs
+      $(window).load(function(){
+          $('p').filter(function () { return this.innerHTML == "" }).remove();
+      });//]]> 
+	
+    </script>	
+
+ 
+
+<style type="text/css">
+
+@font-face {
+  font-family: 'Oswald';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Oswald Regular'), local('Oswald-Regular'), url(fonts/Oswald400.woff) format('woff');
+}
+@font-face {
+  font-family: 'Oswald';
+  font-style: normal;
+  font-weight: 700;
+  src: local('Oswald Bold'), local('Oswald-Bold'), url(fonts/Oswald700.woff) format('woff');
+}
+@font-face {
+  font-family: 'Droid Sans';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Droid Sans'), local('DroidSans'), url(fonts/DroidSans400.woff) format('woff');
+}
+@font-face {
+  font-family: 'Droid Sans';
+  font-style: normal;
+  font-weight: 700;
+  src: local('Droid Sans Bold'), local('DroidSans-Bold'), url(fonts/DroidSans700.woff) format('woff');
+}
+@font-face {
+  font-family: 'League Gothic';
+  font-style: normal;
+  font-weight: 400;
+  src: local('League Gothic'), local('LeagueGothic400'), url(fonts/LeagueGothic400.woff) format('woff');
+}
+
+
+@font-face {
+  font-family: 'Roboto Condensed';
+  font-style: normal;
+  font-weight: 300;
+  src: local('Roboto Condensed Light'), local('RobotoCondensed-Light'), url(fonts/RobotoCondensed300.woff) format('woff');
+}
+@font-face {
+  font-family: 'Roboto Condensed';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Roboto Condensed Regular'), local('RobotoCondensed-Regular'), url(fonts/RobotoCondensed400.woff) format('woff');
+}
+@font-face {
+  font-family: 'Roboto Condensed';
+  font-style: normal;
+  font-weight: 700;
+  src: local('Roboto Condensed Bold'), local('RobotoCondensed-Bold'), url(fonts/RobotoCondensed700.woff) format('woff');
+}
+@font-face {
+  font-family: 'Roboto Condensed';
+  font-style: italic;
+  font-weight: 300;
+  src: local('Roboto Condensed Light Italic'), local('RobotoCondensed-LightItalic'), url(fonts/RobotoCondensedItalic300.woff) format('woff');
+}
+
+		
+		
+body {
+    font-family: arial, sans-serif;
+    margin: 0 auto 0;
+    width: 100%;
+	background-color:#f0ecec;  /* warm white */
+}
+h1,h2,h3,h4,h5,h6,button-white {	
+    font-weight:400;
+	font-family: 'Oswald', sans-serif;
+	margin:0px;
+	padding:0px;
+	}
+
+.container { 
+
+/* Holds the two columns and centres them  */
+	max-width:1080px;
+	margin-left:auto;
+	margin-right:auto;
+	padding-left:20px;
+	padding-right:20px;
+	outline:solid 1px red;
+	}
+#pageimageholder { 
+
+/* Wraps container, and holds the image    */
+/* at the bottom right of a slightly wider */
+/* container. 'Wynne' is one of the background
+/* classes that get added */ 
+
+	margin-left:auto;
+	margin-right:auto;
+	max-width:1100px;
+    background-repeat: no-repeat;
+    background-position: right bottom;	
+}
+.wynne {    
+    background-image: url("aboutus.jpg");
+    background-repeat: no-repeat;
+    background-position: right bottom;
+	}
+
+#footer {
+    background-color: #d01419;
+    min-height: 500px;
+    padding: 2px;
+    width: 100%;
+	outline:solid 1px green;	
+	z-index:99;
+}
+#trigger {width:50px; height:50px; background-color:red; outline:solid 1px black;}
+#footertrigger {
+    background-color:red;
+    padding: 1px;
+    width: 100%;
+	z-index:2000;
+	height:3px;		
+}
+.col-8 {
+    width: 64%;
+	float:left;
+	min-height:700px;
+	outline:solid 1px black;
+
+}
+#col8picblocker {
+	min-height:395px;
+	width:30%;
+	float:right;
+	outline:solid 1px black;
+}
+
+.col-4 {
+    width: 34%;
+	min-width:100px;
+    margin-left: 10px;
+	float:right;
+	min-height:600px;
+	overflow:hidden;
+	outline:solid 1px yellow;
+	z-index:1;
+	position:static;
+	top:400px;
+}
+
+.clear {display:block; clear:both;}
+
+.col5 {
+width:18%;
+float:left;
+min-height:100px;
+	outline:solid 1px #fff;
+}
+.col5 + .col5 {margin-left:2%; outline:solid 1px red;}
+
+.activated {background-color: #2b4170;}
+.fixed {position: static; top: 85px;}
+.static {position: static; top: 85px;}
+
+
+
+#logo{float:left; width:254px; text-align:left; height:60px; position:relative; top:28px;}
+
+
+#socialmediaicons {
+   float:right;
+   width:200px;
+   padding:0px;
+   margin:0px;
+   margin-top:12px;
+   background: url(../images/social.jpg);
+   background-repeat: no-repeat;
+   background-position: left top;
+}
+#socialmediaicons ul {padding:0px; margin:0px; font-size:0; word-spacing: 0; line-height: 0;}
+#socialmediaicons li {
+   cursor: pointer;
+   display:inline-block;
+   zoom: 1;
+   *display: inline;
+   list-style:none;
+   padding:0px;
+   margin:0px;
+   height:33px;
+        }
+#socialmediaicons li.facebook {width:37px;}
+#socialmediaicons li.twitter {width:30px;}
+#socialmediaicons li.flickr {width:30px;}
+#socialmediaicons li.youtube {width:30px;}
+#socialmediaicons li.fred {width:30px;}
+#socialmediaicons li.linkedin {width:37px;}
+
+#socialmediaicons li.facebook,
+#socialmediaicons li.twitter,
+#socialmediaicons li.flickr,
+#socialmediaicons li.youtube,
+#socialmediaicons li.fred,
+#socialmediaicons li.linkedin
+ {
+   padding: 0;
+   margin: 0;
+
+}
+#socialmediaicons li:hover {
+   background-repeat: no-repeat;
+}
+#socialmediaicons li.facebook:hover {background: url(../images/socialovr.jpg);background-position: 0px 0px;}
+#socialmediaicons li.twitter:hover {background: url(../images/socialovr.jpg);background-position: -37px 0px;}
+#socialmediaicons li.flickr:hover {background: url(../images/socialovr.jpg);background-position: -67px 0px;}
+#socialmediaicons li.youtube:hover {background: url(../images/socialovr.jpg);background-position: -97px 0px;}
+#socialmediaicons li.fred:hover {background: url(../images/socialovr.jpg);background-position: -127px 0px;}
+#socialmediaicons li.linkedin:hover {background: url(../images/socialovr.jpg);background-position: -157px 0px;}
+
+.micromenu {float:right;width:220px;margin-top:14px;margin-right:3px;}
+.micromenu a:link,
+.micromenu a:visited {
+    font-family: 'Roboto Condensed', sans-serif;
+    color:#8b8082;
+    margin-bottom:25px;
+    font-size:.80em;
+    text-transform:uppercase;
+    text-decoration:none;
+    }
+.micromenu a:hover {
+         text-decoration:underline;
+}
+
+.micromenu {
+         text-align:right;
+         float:right;
+         display:inline;
+         }
+
+.float { display: block; position: fixed; }    
+#float-1 { top: 23px; right:50%; margin-right:-1000px;} 
+#float-2 { top: 700px; width:100%; } 
+#float-3 { top: 2250px; width:100%; } 
+.content { position: relative; z-index: 2; }
+.opening { 
+          min-height:390px; 
+          height:390px; 
+          background:none; 
+          margin-bottom:20px;
+          }
+
+
+</style>
+
+
+</head>
+
+<body>
+
+
+
+
+
+
+
+
+<div class="container">
+
+
+<div class="micromenu">
+<a href="/Login">Logout</a> |
+<a href="#">Subscribe</a> |
+<a href="#" data-dropdown="#accountoptions">Account</a>
+</div>
+
+<div id="accountoptions" class="dropdown dropdown-tip">
+    <ul class="dropdown-menu">
+        <li><a href="#1">Edit Profile</a></li>
+        <li><a href="#2">History</a></li>
+        <li><a href="#3">Toolit</a></li>
+        <li class="dropdown-divider"></li>
+        <li><a href="#4">Logout</a></li>
+    </ul>
+</div>
+
+
+
+<div id="socialmediaicons" class="nomobile">
+<ul>
+<li class="facebook"><a href="#" title="facebook" target="_blank"></a></li>
+<li class="twitter"><a href="#" title="twitter" target="_blank"></a></li>
+<li class="flickr"><a href="#" title="flickr" target="_blank"></a></li>
+<li class="youtube"><a href="#" title="youtube" target="_blank"></a></li>
+<li class="fred"><a href="http://www.fred.ca" title="fred" target="_blank"></a></li>
+<li class="linkedin"><a href="#" class="linkedin" target="_blank"></a></li>
+</ul>
+</div>
+
+<div style="clear:both; width:100%; display:block;">&nbsp;</div>
+
+<!-- THE MENU STARTS HERE -->
+
+
+
+<div style="float:left; width:400px; margin-top:5px;"><img src="http://dev.olp.myliberal.org/images/logo-sm.png"></div>
+
+<div id="mgmenu1" class="mgmenu_container" style="margin-top:10px;"><!-- Begin Mega Menu Container -->
+        <ul class="mgmenu"><!-- Begin Mega Menu -->
+                <li class="mgmenu_button">Menu</li><!-- Button (Mobile Devices) -->
+                <li><span><a href="/Home">Home</a><br /><span class="subzy">Start Here</span></span></li><!-- Begin and end Home -->
+                <li>
+                        <span class="top"><a href="#">About</a><br /><span class="subzy">About Us</span></span><!-- Begin About Us -->
+                        <div class="dropdown_container dropdown_fullwidth">
+                                <div class="col_5">
+                                                                                <a href="#"><img src="images/kathleen.jpg" width="220" height="140" alt="" class="inline_img frame" /></a></a>
+                                        <h3><a href="/Leader">Kathleen Wynne</a></h3>
+                                        <p>Kathleen Wynne was elected Leader of the Ontario Liberal Party
+                                        on January 26, 2013. She was sworn in as the 25th Premier on February 11, 2013, becoming the first woman to hold the position in Ontario's history. <a href="/Leader">[Read]</a></p>
+                                        <hr/>
+                                </div>
+                                <div class="col_3">
+                                        <h4><a href="/History">Party History</a></h4>
+                                        <p>From George Brown to Kathleen Wynn, learn about the history of the Ontario Liberal Party.<a href="/History">[Read]</a></p>
+                                        <h4><a href="/Mpps">MPPs</a></h4>
+                                        <p>Meet the Liberal Members of the Legislative Assembly.<a href="/Mpps">[Read]</a></p>
+                                        <h4><a href="/Cabinet">Cabinet</a></h4>
+                                        <p>Meet the Liberal Members of the Legislative Assembly.<a href="/Cabinet">[Read]</a></p>
+                                </div>
+                                <div class="col_3">
+                                        <h4><a href="/PlaPresidents">PLA Presidents</a></h4>
+                                        <p>Looking for your local provincial Liberal association <a href="/PlaPresidents">PLA president</a>?</a></p>
+                                        <h4><a href="/ExecutiveCouncil">Executive Council</a></h4>
+                                        <h4>Ontario Liberal Fund</h4>
+                                        <h4><a href="/Contact">Contact Us</a></h4>
+
+                                                <p class="mobile"><a href="tel:1.800.268.7250">1.800.268.7250</a><br /></p>
+                                                <p class="nomobile">1.800.268.7250<br></p>
+                                                <p>Fax: 416.323.9425<br />
+                                                info@ontarioliberal.ca<br />
+                                                10 St. Mary Street Suite 210<br />
+                                                Toronto, ON<br />
+                                                M4Y 1P9<br /></p>
+
+                                </div>
+                        </div>
+                </li><!-- End About Us -->
+                <li>
+                        <span><a href="#">Get Involved</a><br /><span class="subzy">Take the Next Step</span></span><!-- Begin Item -->
+                        <div class="dropdown_container dropdown_fullwidth"><!-- Begin Item Container -->
+                                <div class="col_4">
+                                        <h4>Join the Party</h4>
+                                        <a href="#">
+                                                <img alt="" class="inline_img" height="140" src="/images/join.jpg?1383855019" width="220" />
+                                        </a>
+                                        <p>Sign up online. Price is $5 for youth, $10 for adults and $5 for Seniors. Join Today.</p>
+                                </div>
+                                <div class="col_4">
+                                        <h4>Lawn Sign</h4>
+                                        <a href="#">
+                                                <img alt="" class="inline_img" height="140" src="/images/lawnsign.jpg?1383855020" width="220" />
+                                        </a>
+                                        <p>Support your local candidate, order a lawn sign.</p>
+                                </div>
+                                <div class="col_4">
+                                        <h4>Volunteer</h4>
+                                        <a href="#">
+                                                <img alt="" class="inline_img" height="140" src="/images/volunteer.jpg?1383855022" width="220" />
+                                        </a>
+                                        <p>Campaigns are successful because of volunteers like you.</p>
+                                </div>
+                                <div class="col_4">
+                                        <h4>Subscribe</h4>
+                                        <a href="#">
+                                                <img alt="" class="inline_img" height="140" src="/images/enewsletter.jpg?1383855018" width="220" />
+                                        </a>
+                                        <p>Subscribe to the Wire, the OntarioLiberal enewsletter.</p>
+                                </div>
+                        </div><!-- End Item Container -->
+                </li><!-- End Item -->
+                <li>
+                        <span><a href="#">Donate</a><br /><span class="subzy">See the Benefits</span></span><!-- Begin Item -->
+                        <div class="dropdown_container dropdown_fullwidth"><!-- Begin Item Container -->
+                                <div class="col_4">
+                                        <h4>Donate Now</h4>
+                                        <a href="#"><img src="img/products/product01@2x.jpg" style="clip:rect(0px,60px,200px,0px)" width="220" height="140" alt="" class="inline_img" /></a>
+                                        <p>Your donations allow us to get our message out. Even a small donation can make a big difference.</p>
+                                </div>
+                                <div class="col_4">
+                                        <h4>Make a Monthly Contribution (ABC)</h4>
+                                        <a href="#"><img src="img/products/product02@2x.jpg" width="220" height="140" alt="" class="inline_img" /></a>
+                                        <p>Automatic membership renewal and special prices for Ontario Liberal events are just some of the perks of signing up for monthly contributions.</p>
+                                </div>
+                                <div class="col_4">
+                                        <h4>Taxable Benefits</h4>
+                                        <a href="#"><img src="img/products/product03@2x.jpg" width="220" height="140" alt="" class="inline_img" /></a>
+                                        <p>If you gave $300.00, you'd get back $225 at tax time. Read more about the benefits of donating.</p>
+                                </div>
+                                <div class="col_4">
+                                        <h4>About Donations</h4>
+                                        <a href="#"><img src="img/products/product03@2x.jpg" width="220" height="140" alt="" class="inline_img" /></a>
+                                        <p>They're our schools, our hospitals, our environment, our economy, and our future. Your donation makes a big difference in the fight.</p>
+                                </div>
+                        </div><!-- End Item Container -->
+                </li><!-- End Item -->
+                <li><span><a href="#">News</a><br /><span class="subzy">Pics and Videos</span></span><!-- Begin Item -->
+                        <div class="dropdown_container dropdown_fullwidth"><!-- Begin Item Container -->
+                                <div class="col_3">
+                                        <h4><a href="/News">Provincial News</a></h4>
+                                                <p><a href="/News/1254?l=EN">Ontario Releases Long-Term Energy Plan</a></p>
+                                                <p><a href="/News/1247?l=EN">Strengthening Long-term Infrastructure Planning</a></p>
+                                                <p><a href="/News/1245?l=EN">Ontario - First Place in North America to End Coal-Fired Power</a></p>
+                                                <p><a href="/News/1243?l=EN">Government Introduces Legislation to Protect Youth From Harmful Effects of Tobacco</a></p>
+                                </div>
+                                <div class="col_3">
+                                        <a href="/Photo"><img alt="Click to view..." border="0" class="inline_img frame" src="http://pantone201.ca/webskins/olp/photos/Thumbnails/1282_0__TFMF_ddagq0qdqfjt31qav3nh44vf_208b93ce-8a58-4e2a-9a94-705360a6e8aa_0_Thumbnail.jpg" /></a>
+                                        <h4>Photo of the Day</h4>
+                                        <p>Premier Kathleen Wynne joins children at Queen's Park Daycare to decorate a gingerbread house </p>
+                                </div>
+                                <div class="col_3">
+                                        <a href="/Video">
+                                                <div class="inline_img frame" style="background-size:100% 100%; background-image:url(http://i4.ytimg.com/vi/x2PXySGHbnk/default.jpg)">
+                                                        <img src="http://pantone201.ca/webskins/pla/css/img/play.png" border="0" alt="" />
+                                                </div>
+                                        </a>
+                                        <h4><a href="/Video">In Video</a></h4>
+                                        <p>Never Stop </p>
+                                </div>
+                                <div class="col_3">
+                                        <h4><a href="/Event">Events</a></h4>
+                                        <a href="#"><img src="img/products/product03@2x.jpg" width="220" height="140" alt="" class="inline_img" /></a>
+                                        <p>If live event count is <1 Create an account to get notifications of upcoming events. If Featured event count is >0 show Featured Event else next most recent event</p>
+                                </div>
+                        </div><!-- End Item Container -->
+                </li><!-- End Item -->
+        </ul><!-- End Mega Menu -->
+</div><!-- End Mega Menu Container -->
+<!-- THE MENU ENDS HERE -->
+
+
+
+
+</div><!-- Close top container -->
+
+
+
+
+
+
+
+
+		<div id="pageimageholder">
+			  <div class="container">
+
+                <div class="col-8">
+                    <h1>Ontario Increasing Minimum Wage Ontario Increasing Minimum Wage</h1> 
+					<h2>Ontario is increasing the minimum wage from $10.25 to $11 per hour on June 1, 2014.</h2>
+                    <hr class="style-six">
+                    <p>The government will also introduce legislation that would tie future minimum wage increases to the CPI. This will ensure the minimum wage keeps up with the cost of living, and that increases are predictable for businesses and families. Under the proposed legislation, increases would be announced by April 1 and come into effect on Oct. 1.</p>
+                    <p>The proposed legislation would act on the&nbsp;<a href="http://www.labour.gov.on.ca/english/es/pubs/mwap/index.php">recommendations</a>&nbsp;of Ontario's Minimum Wage Advisory Panel, which included business, labour, youth and anti-poverty representatives.</p>
+                    <p>Ensuring the minimum wage is fair and predictable for both workers and business is part of the Ontario government's economic plan to invest in people, build modern infrastructure and support a dynamic and innovative business climate.</p>
+                    <ul>
+                    <li><a title="Learn More" href="http://www.labour.gov.on.ca/english/es/pubs/mwap/index.php">Read the Minimum Wage Advisory Panel’s Report</a></li>
+                    <li><a title="Learn More" href="http://www.labour.gov.on.ca/english/es/pubs/poster_text.php">Know your rights and responsibilities under Ontario’s Employment Standards Act, 2000</a></li>
+                    </ul>
+					
+					<a href="#" class="button-white">Test Button</a>
+					<div id="bottomtrigger">#bottomtrigger</div>
+					<div id="col8picblocker">&nbsp;</div>
+					
+                </div>
+				
+                <div class="col-4 fixed">
+                 <p>Kathleen Wynne</p>
+				 <p>Party History</p>
+				 <p>MPPs</p>
+				 <p>Candidates</p>
+                </div>
+				
+
+				<div class="clear">&nbsp;</div>
+								
+			</div>
+	</div>
+	
+
+        <div id="footertrigger">
+            &nbsp;
+        </div>
+		
+        <div id="footer">
+		 <div class="container">
+            <div class="col5"><h2>Sit amet justo</h2><p>Leo sed sed pulvinar et magna id eget condimentum laborum vel suspendisse.</p></div>
+			<div class="col5"><h2>Sit amet justo</h2><p>Leo sed sed pulvinar et magna id eget condimentum laborum vel suspendisse.</p></div>
+			<div class="col5"><h2>Sit amet justo</h2><p>Leo sed sed pulvinar et magna id eget condimentum laborum vel suspendisse.</p></div>
+			<div class="col5"><h2>Sit amet justo</h2><p>Leo sed sed pulvinar et magna id eget condimentum laborum vel suspendisse.</p></div>
+			<div class="col5"><h2>Sit amet justo</h2><p>Leo sed sed pulvinar et magna id eget condimentum laborum vel suspendisse.</p></div>
+		 </div>
+        </div>	
+
+		
+<script> 
+ 
+ 
+$(document).ready(function() {
+// this works -->   $('.col-4').scrollToFixed({ marginTop: 10, limit: $($('h2')[4]).offset().top });
+//  this works too -->  $('.col-4').scrollToFixed({ marginTop: 10, limit: $('#toptrigger').offset().top });
+//    var stickingpoint = $('.col-8').height()-700; // 700 is the height of col-4, the difference is the heightofdiv variable
+
+var stickingpoint = $('.col-8').height()-$('.col-4').height();
+$('.col-4').scrollToFixed({ marginTop: 10, limit: stickingpoint });
+	
+        $('#footertrigger').scrollToFixed( {
+            bottom: 0,
+            limit: $('#footertrigger').offset().top
+        });
+		
+	
+		
+		
+});	
+
+
+
+
+
+
+	
+ 
+</script>
+
+
+  
+  
+<script src="http://pantone201.ca/webskins/newolp/javascript/mgmenu_plugins.js"></script><!-- Mega Menu Plugins -->
+<script src="http://pantone201.ca/webskins/newolp/javascript/mgmenu.js"></script><!-- Mega Menu Script -->
+<script>
+$(document).ready(function($){
+    $('#mgmenu1').universalMegaMenu({
+        menu_effect: 'hover_slide',
+        menu_speed_show: 300,
+        menu_speed_hide: 200,
+        menu_speed_delay: 200,
+        menu_click_outside: true,
+        menubar_trigger : false,
+        menubar_hide : false,
+        menu_responsive: true
+    });
+});
+</script>
+
+<script>
+window.onload = choosePic;
+
+var myPix = new Array("wynne_1.png", "wynne_2.png", "wynne_3.png");
+
+function choosePic() {
+    var randomNum = Math.floor((Math.random() * myPix.length));
+    document.getElementById("pageimageholder").style.backgroundImage =
+        "url(" + myPix[randomNum] + ")";
+}
+</script>
+  
+</body>
+</html>

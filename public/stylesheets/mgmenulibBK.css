@@ -126,7 +126,6 @@ TABLE OF CONTENTS
         margin:0;
         position:relative; /* For IE7 */
         line-height:1;
-		right:-50%; /*experiment */
 }
         .mgmenu > li {
             float: left;
@@ -287,13 +286,11 @@ background-color:#f35149; /* menu colour on mouseover peachy red */
         color: #212121;
 }
 .mgmenu li .dropdown_container {
-        right:auto;
+        left:auto;
 }
-/* Moved to main stylesheet inside.htm for now
 .mgmenu li .dropdown_fullwidth {
-        right:500px;  experiment  
+        left:0px;
 }
-*/
 .mgmenu li.right_item .dropdown_container {
         left:auto;
         right:-1px;
@@ -504,15 +501,15 @@ background-color:#f35149; /* menu colour on mouseover peachy red */
         position: absolute;
         margin:15px 0 0 4px;
         padding:6px;
-        right:98%;
+        left:98%;
         top:-21px;
         display: none;
         zoom:1;
         float: left;
 }
 .mgmenu .dropdown_flyout .dropdown_flyout_level_left {
+        left:-102%;
         right:100%;
-        left:100%;
 }
 .mgmenu .dropdown_flyout .dropdown_parent {
         background:url("../img/rightArrow.png") no-repeat 90% 9px;
@@ -730,7 +727,7 @@ background-color:#f35149; /* menu colour on mouseover peachy red */
         .mgmenu .video_container embed {
                 position: absolute;
                 top: 0;
-                right: 0;
+                left: 0;
                 width: 100%;
                 height: 100%;
                 border:none;
@@ -1216,7 +1213,7 @@ background-color:#f35149; /* menu colour on mouseover peachy red */
                 height:auto;
                 margin:0;
                 position:relative;
-                right:auto;
+                left:auto;
                 top:auto;
                 bottom:auto;
         }

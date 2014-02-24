@@ -18,13 +18,47 @@
     <%= stylesheet_link_tag "admin_application", :media => "all" %>
     <%= javascript_include_tag "admin_application" %>
     <%= csrf_meta_tags %>
+	
+	
+	
+	
+	<link href="stylesheets/bootstrap.min.css" rel="stylesheet">
+	<script src="javascripts/stickUp.min.js"></script>
+    <script src="javascripts/bootstrap.min.js"></script>	
+	<script type="text/javascript"> 
+	
+	//initiating jQuery 
+	jQuery(function($) { 
+	   $(document).ready( function() { 
+	       //enabling stickUp on the '.navbar-wrapper' class 
+		   $('.navbar-wrapper').stickUp({ 
+		            parts: { 
+					0: 'home', 
+					1: 'features', 
+					2: 'organizing', 
+					3: 'fundraising', 
+					4: 'receipting', 
+					5: 'web', 
+					6: 'lit examples', 
+					7: 'contact' 
+				}, 
+				itemClass: 'menuItem', 
+				itemHover: 'active' });; 
+		}); 
+	}); 
+	
+	</script>
+	
+	
+	
+	
     <script>
 
       $(function (){ $(".float").each(function () { 
-      var $this = $(this); $this.data("startTop", $this.offset().top);});
-      $(window).scroll(function () { var documentScrollTop = $(document).scrollTop();
-      $(".float").each(function () { var $this = $(this); 
-      $this.offset({ top: $this.data("startTop") + documentScrollTop * $this.data("friction"), left: $this.offset().left });
+           var $this = $(this); $this.data("startTop", $this.offset().top);});
+             $(window).scroll(function () { var documentScrollTop = $(document).scrollTop();
+             $(".float").each(function () { var $this = $(this); 
+             $this.offset({ top: $this.data("startTop") + documentScrollTop * $this.data("friction"), left: $this.offset().left });
       });
       document.oldScrollTop = documentScrollTop; });
       });
@@ -242,6 +276,9 @@
     </style>
   </head>
   <body>
+  
+  
+  
       <%= yield :toolkit_menu %>
       <%= yield %>
       <%= yield :scripts_for_body %>

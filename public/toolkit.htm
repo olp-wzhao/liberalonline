@@ -16,6 +16,38 @@ document.oldScrollTop = documentScrollTop; });
     $('p').filter(function () { return this.innerHTML == "" }).remove();
 
 </script>
+<script>
+
+	$( document ).ready(function() {
+		
+		/*function getFacebookShares(divName, url){
+			$.getJSON("https://graph.facebook.com/"+ url),
+				function(data){     
+					$("#" + divName).append(data.shares);  
+			});
+		}
+		
+		getFacebookShares("jsonmodel", "www.ontarioliberal.ca"); */
+	
+		$.getJSON("https://graph.facebook.com/http://www.ontarioliberal.ca",
+				function(data){     
+					$("#jsonmodel").append(data.shares);  
+		});
+		
+		$.getJSON("https://graph.facebook.com/http://www.ontariopc.com",
+			function(data){
+				$("#pc").append(data.shares);
+		});
+			
+	});
+
+// {
+//   "id": "http://www.ontarioliberal.ca",
+//   "shares": 505
+// }
+
+
+</script>
 
 <style type="text/css">
 
@@ -139,6 +171,7 @@ body { background-color:#e5e5e5; margin:0px; padding:0px; }
 </head>
 
 <body>
+
 
 <div class="content">
 
