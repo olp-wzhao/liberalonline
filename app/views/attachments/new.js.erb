@@ -1,2 +1,2 @@
-alert('showing new attachment form');
-$("<%= escape_javascript(render partial: 'form', attachment: @attachment) %>").appendTo("#attachments");
+//$("<%= escape_javascript(render partial: 'form', attachment: @attachment) %>").appendTo("#form_placeholder");
+$('#new_link').hide().after('<%= j render("form") %>');

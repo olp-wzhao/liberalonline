@@ -11,6 +11,7 @@ gem 'mini_magick', :git => 'git://github.com/probablycorey/mini_magick.git'
 
 gem "therubyracer", platforms: :ruby
 gem "jquery-rails"
+gem "jquery-turbolinks"
 gem "turbolinks"
 gem "jbuilder", "~> 1.2"
 gem "bootstrap-sass"

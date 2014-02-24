@@ -19,25 +19,22 @@ class AttachmentsController < ApplicationController
   end
 
   def create
-    success = false
-    @attachment = Attachment.find_or_create_by(temp_id: attachment_params["temp_id"])
     
-    logger.info "New or Updated Document: #{@attachment.attributes.inspect}"
-    logger.info "attachment parameters: #{attachment_params}"
-    
-    if !@attachment.nil?
-      @attachment = @attachment
-      success = @attachment.update(attachment_params)
+    if !attachment_params["temp_id"].nil?
+      @attachment = Attachment.find_or_create_by(temp_id: attachment_params["temp_id"])
     else
-      @attachment = Document.new(attachment_params)
-      success = @attachment.save
+      @attachment = Attachment.where(id: attachment_params["id"]).first
+      if @attachment.nil?
+        @attachment = Attachment.new(attachment_params)
+      end
     end
-
+    
+    @attachment.update(attachment_params)
     respond_to do |format|
-      if success
-        logger.info "Updated @attachment"
+      if @attachment.save
+        flash[:notice] = "Attachment Saved Successfully"
+        #binding.pry
         format.js {}
-        format.html { redirect_to @attachment, notice: 'Document was successfully created.' }
         format.json { render json: 'attachment saved to mongodb', status: :created }
       else
         format.html { render action: 'new' }
@@ -60,6 +57,16 @@ class AttachmentsController < ApplicationController
     end
   end
 
+  def destroy
+    @attachment = Attachment.where(id: params["id"])
+    @deleted_attachment_id = @attachment.first.id
+    @attachment.destroy
+    respond_to do |format|
+      format.html { redirect_to attachments_url }
+      format.js
+    end
+  end
+
   private
    def attachment_params
       params.require(:attachment).permit(
@@ -76,6 +83,7 @@ class AttachmentsController < ApplicationController
         :web_site,
         :updated_time,
         :temp_id,
-        :pdf)
+        :pdf,
+        :pdf_cache)
     end
 end
