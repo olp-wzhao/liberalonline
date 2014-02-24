@@ -84,7 +84,7 @@ class DocumentsController < ApplicationController
     logger.info "document parameters: #{document_params}"
     
     if !@document.nil?
-      binding.pry
+      #binding.pry
       success = @document.update(document_params)
     else
       @document = Document.new(document_params)
