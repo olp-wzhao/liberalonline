@@ -32,11 +32,16 @@
     <%= f.input :customized_category_id %>
     <%= f.input :issue_id %>
 
+
     <p>Document Image</p>
     <%= f.input :image_name %>
-    <%= f.input :image, as: :file, label: 'Upload Attachment' %>
+    <%= f.input :image, as: :file, label: 'Upload Image' %>
     <%= f.hidden_field :image_cache %>
     </br>
     <%= f.button :submit %>
 <% end %>
+
+<%= render partial: "attachments/index", attachments: @document.attachments %>
+
 <%= tinymce %>
+

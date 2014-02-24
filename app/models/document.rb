@@ -60,7 +60,7 @@ class Document
   belongs_to :petition
   belongs_to :user
   belongs_to :customized_category
-  belongs_to :riding
+  #belongs_to :riding
   has_many :elect_rotators
   has_many :comments
   has_many :mpp_rotators

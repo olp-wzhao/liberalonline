@@ -1,5 +1,18 @@
 class AttachmentsController < ApplicationController
 
+  def new
+    @attachment = Attachment.new
+    respond_to do |format|
+      format.js
+    end
+  end
+
+  def index
+    binding.pry
+    @attachments = Attachment.all
+    @attachment = Attachment.new
+  end
+
   def create
     success = false
     @attachment = Attachment.find_or_create_by(temp_id: attachment_params["temp_id"])
@@ -18,6 +31,7 @@ class AttachmentsController < ApplicationController
     respond_to do |format|
       if success
         logger.info "Updated @attachment"
+        format.js {}
         format.html { redirect_to @attachment, notice: 'Document was successfully created.' }
         format.json { render json: 'attachment saved to mongodb', status: :created }
       else

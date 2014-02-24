@@ -15,6 +15,7 @@
 //= require turbolinks
 
 // require rails.validations
+//= require select2
 
 //= require main
 //= require_tree .

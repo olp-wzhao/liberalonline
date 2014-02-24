@@ -86,3 +86,5 @@ gem 'rails_admin', :git => 'git://github.com/sferik/rails_admin.git'
 #gem 'bootstrap-wysihtml5-rails'
 gem "mongoid_slug"
 gem "tinymce-rails"
+gem "select2-rails"
+gem 'remotipart', '~> 1.2'

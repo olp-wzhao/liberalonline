@@ -1,20 +1,17 @@
-<%= simple_form_for(@attachment), :html => {:multipart => true} do |f| %>
+<%= simple_form_for @attachment, :html => {:multipart => true} do |f| %>
   <%= f.error_notification %>
     <%= f.input :icon_uri %>
     <%= f.input :language %>
-    <%= f.input :upload_date %>
     <%= f.input :title %>
     <%= f.input :description %>
     <%= f.input :place %>
     <%= f.input :database_name %>
     <%= f.input :file_location %>
     <%= f.input :attachment_type %>
-    <%= f.input :published %>
+    <%= f.input :published, as: :boolean %>
     <%= f.input :web_site %>
-    <%= f.input :updated_time %>
-    <%= f.file_field :pdf %>
+    <%= f.input :pdf, as: :file, label: 'Upload Attachment'  %>
     <%= f.hidden_field :pdf_cache %>
     </br>
     <%= f.button :submit %>
-
 <% end %>

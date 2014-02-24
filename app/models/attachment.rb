@@ -18,7 +18,7 @@ class Attachment
   field :file_size, type: Integer
   field :temp_id, type: Integer
   
-  belongs_to :riding
-  belongs_to :user
+  #belongs_to :riding
+  belongs_to :document
 
 end

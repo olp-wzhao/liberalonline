@@ -61,6 +61,7 @@ class DocumentsController < ApplicationController
   # GET /documents/new
   def new
     @document = Document.new
+    @attachment = Attachment.new
     render :layout => "admin"
   end
 
@@ -69,6 +70,7 @@ class DocumentsController < ApplicationController
     if @document.nil?
       @document = Document.find_by(id: params["id"])
     end
+    @attachment = Attachment.new
     render :layout => "admin"
   end
 
