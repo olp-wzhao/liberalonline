@@ -4,7 +4,7 @@
         <meta charset="utf-8" />
         <title>Inside Page setup</title>
 		
-        <link href="/stylesheets/mgmenulib.css" rel="stylesheet" type="text/css" media="screen" />	
+        <link href="/stylesheets/freshmgmenu.css" rel="stylesheet" type="text/css" media="screen" />	
 		
 
 	
@@ -22,23 +22,7 @@
 
 
 
-    <script>
 
-      $(function (){ $(".float").each(function () { 
-           var $this = $(this); $this.data("startTop", $this.offset().top);});
-             $(window).scroll(function () { var documentScrollTop = $(document).scrollTop();
-             $(".float").each(function () { var $this = $(this); 
-             $this.offset({ top: $this.data("startTop") + documentScrollTop * $this.data("friction"), left: $this.offset().left });
-      });
-      document.oldScrollTop = documentScrollTop; });
-      });
-  	
-      // Get rid of empty paragraphs
-      $(window).load(function(){
-          $('p').filter(function () { return this.innerHTML == "" }).remove();
-      });//]]> 
-	
-    </script>	
 
  
 

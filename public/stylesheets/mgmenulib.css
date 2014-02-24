@@ -511,7 +511,7 @@ background-color:#f35149; /* menu colour on mouseover peachy red */
         float: left;
 }
 .mgmenu .dropdown_flyout .dropdown_flyout_level_left {
-        right:100%;
+        right:-102%;
         left:100%;
 }
 .mgmenu .dropdown_flyout .dropdown_parent {

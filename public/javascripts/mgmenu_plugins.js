@@ -15,7 +15,7 @@ function megaMenuContactForm() {
 	
 	$('#mgmenu_form #submit').click(function(){
 
-		
+		$('.error').hide(0);
 		var name = $('input#name').val();
 		if (name == "" || name == " " || name == "Name") {
 		    $('input#name').focus().before('<div class="error">Hey, what is you name!?</div>');
@@ -38,7 +38,7 @@ function megaMenuContactForm() {
 		    return false;
 		}
 		
-		var data_string = $('#megamenu_form').serialize();
+		var data_string = $('#mgmenu_form').serialize();
 
 		$.ajax({
 		    type: "POST",

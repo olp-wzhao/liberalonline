@@ -1,7 +1,8 @@
 /*
 Item Name : Universal Mega Menu
+Item URI : http://codecanyon.net/item/universal-responsive-mega-menu/4984236
 Author URI : http://codecanyon.net/user/Pixelworkshop/
-Version : 1.0
+Version : 1.1
 */
 
 
@@ -11,7 +12,7 @@ Version : 1.0
     $.universalMegaMenu = function(element, options) {
 
 
-        var defaults = {
+        var settings = {
             menu_effect: 'hover_fade',
             menu_speed_show: 300,
             menu_speed_hide: 200,
@@ -29,39 +30,40 @@ Version : 1.0
         var $element = $(element);
         var element = element;
 
-            var megaMenu = $element.children('.mgmenu'),
-                menuItem = $(megaMenu).children('li'),
-                menuItemSpan = $(menuItem).children('span'),
-                menuDropDown = $(menuItem).find('.dropdown_container, .dropdown_fullwidth'),
-                menuItemFlyOut = $(menuItem).find('.dropdown_parent'),
-                menuItemFlyOutLink = $(menuItemFlyOut).children('a'),
-                menuItemFlyOutDropDown = $(menuItemFlyOut).find('.dropdown_flyout_level'),
-                menuButton = $element.find('.mgmenu_button'),
-                menuItemElement = $(menuItem).add(menuItemFlyOut),
-                menuItemLink = $(menuItemSpan).add(menuItemFlyOutLink),
-                menuDropDownElement = $(menuDropDown).add(menuItemFlyOutDropDown);
+        var megaMenu = $element.children('.mgmenu'),
+            menuItem = $(megaMenu).children('li'),
+            menuItemSpan = $(menuItem).children('span'),
+            menuDropDown = $(menuItem).find('.dropdown_container, .dropdown_fullwidth'),
+            menuItemFlyOut = $(menuItem).find('.dropdown_parent'),
+            menuItemFlyOutLink = $(menuItemFlyOut).children('a'),
+            menuItemFlyOutDropDown = $(menuItemFlyOut).find('.dropdown_flyout_level'),
+            menuButton = $element.find('.mgmenu_button'),
+            menuItemElement = $(menuItem).add(menuItemFlyOut),
+            menuItemLink = $(menuItemSpan).add(menuItemFlyOutLink),
+            menuDropDownElement = $(menuDropDown).add(menuItemFlyOutDropDown);
 
-            var hoverIntentConfig = {
+
+        plugin.init = function() {
+
+            settings = $.extend(1, settings, options);
+
+            hoverIntentConfig = {
                 sensitivity: 2, // number = sensitivity threshold (must be 1 or higher)
-                interval: 100, // number = milliseconds for onMouseOver polling interval
+                interval: settings.menu_speed_delay, // number = milliseconds for onMouseOver polling interval
                 over: megaMenuOver, // function = onMouseOver callback (REQUIRED)
                 timeout: 200, // number = milliseconds delay before onMouseOut
                 out: megaMenuOut // function = onMouseOut callback (REQUIRED)
             };
 
-
-        plugin.init = function() {
-
-            plugin.options = $.extend({}, options, options);
-
             megaMenuPosition();
             megaMenuEvents();
             megaMenuTabs();
-            if (options.menu_click_outside === true) {
+
+            if (settings.menu_click_outside === true) {
                 megaMenuClickOut();
             }
-            if (options.menubar_trigger === true) {
-                megamenuBarHide = options.menubar_hide;
+            if (settings.menubar_trigger === true) {
+                megamenuBarHide = settings.menubar_hide;
                 megaMenuTrigger($element);
             }
 
@@ -70,18 +72,19 @@ Version : 1.0
 
         var megaMenuPosition = function(){
 
-            if (("ontouchstart" in document.documentElement) && (options.menu_responsive === true)) {
+            if (("ontouchstart" in document.documentElement) && (settings.menu_responsive === true)) {
 
                 if ($(window).width() < 768) {
                     $(menuDropDownElement).hide();
-                    $(menuItem).hide(0);
-                    $(menuButton).show(0);
-
                 } else {
                     megaMenuToggleElements();
                 }
 
                 $(menuItemElement).toggleClass('noactive');
+
+                $(window).bind('orientationchange', function () {
+                    megaMenuToggleElements();
+                });
 
             } else {
 
@@ -89,7 +92,6 @@ Version : 1.0
 
                 $(window).resize(function() {
                     megaMenuToggleElements();
-                    $(menuButton).removeClass('mgmenu_button_active');
                     if(!$element.is(':visible') && $(window).width() < 768) {
                         $element.show(0);
                     }
@@ -107,28 +109,23 @@ Version : 1.0
 
         var megaMenuToggleElements = function(){
 
-            if (($(window).width() < 768) && (options.menu_responsive === true)) {
-                $(menuDropDownElement).css({'display': 'block'}).hide(0);
-                $(menuItem).hide(0);
-                $(menuButton).show(0);
-            } else {
-                $(menuDropDownElement).css({'display': 'block'}).hide(0);
-                $(menuItem).show(0).removeClass('active');
-                $(menuButton).hide(0);
-            }
+            $(menuDropDownElement).css({'display': 'block'}).hide(0);
 
         }
 
 
         var megaMenuClickOut = function(){
 
-            $(element).click(function(event) {
-                $('body').click(function() {
-                    $(menuItemElement).removeClass('active');
-                    $(menuDropDownElement).hide(0);
-                });
-                event.stopPropagation();
+            var ua = navigator.userAgent,
+                event = (ua.match(/iPad/i)) ? "touchstart" : "click";
+
+            $(document).on(event, function(e) {
+                $(menuItemElement).removeClass('active');
+                $(menuDropDownElement).hide(0);
             });
+            $(element).on(event, function(e){
+                e.stopPropagation();
+            });  
 
         }
 
@@ -139,7 +136,7 @@ Version : 1.0
 
             var $this = $bar.next('a');
             
-            if( megamenuBarHide === true && $(window).width() >= 768) {
+            if (megamenuBarHide === true && $(window).width() >= 768) {
                 $bar.hide(0);
                 $('.mgmenu_trigger').toggleClass("active");
             }
@@ -155,7 +152,7 @@ Version : 1.0
 
         var megaMenuEvents = function(){
  
-            if (("ontouchstart" in document.documentElement) && (options.menu_responsive === true)) {
+            if (("ontouchstart" in document.documentElement) && (settings.menu_responsive === true)) {
 
                 $(menuItemElement).unbind('mouseenter mouseleave').click(function () {
 
@@ -185,7 +182,7 @@ Version : 1.0
 
             } else {
 
-                switch (options.menu_effect) {
+                switch (settings.menu_effect) {
 
                     case 'open_close_fade':
                     var menuEffectShow = 'fadeToggle',
@@ -198,7 +195,7 @@ Version : 1.0
 
                 }
                 
-                switch (options.menu_effect) {
+                switch (settings.menu_effect) {
 
                     case 'hover_fade':
                     case 'hover_slide':
@@ -215,10 +212,10 @@ Version : 1.0
 
                             var $this = $(this);
                             $this.siblings().removeClass('active')
-                                .find(menuDropDownElement)[menuEffectHide](options.menu_speed_hide);   
+                                .find(menuDropDownElement)[menuEffectHide](settings.menu_speed_hide);   
                             $this.toggleClass('active')
                                 .find(menuDropDownElement).first()
-                                .delay(options.menu_speed_delay)[menuEffectShow](options.menu_speed_show)
+                                .delay(settings.menu_speed_delay)[menuEffectShow](settings.menu_speed_show)
                                 .click(function (event) {
                                     event.stopPropagation();
                                 });
@@ -274,22 +271,22 @@ Version : 1.0
 
             var $this = $(this);
 
-            switch (options.menu_effect) {
+            switch (settings.menu_effect) {
 
                 case 'hover_fade':
-                    $this.children(menuDropDownElement).fadeIn(options.menu_speed_show);
+                    $this.children(menuDropDownElement).fadeIn(settings.menu_speed_show);
                     break;
                 case 'hover_slide':
-                    $this.children(menuDropDownElement).slideDown(options.menu_speed_show);
+                    $this.children(menuDropDownElement).slideDown(settings.menu_speed_show);
                     break;
                 case 'click_fade':
                     $this.click(function () {
-                        $this.children(menuDropDownElement).fadeIn(options.menu_speed_show);
+                        $this.children(menuDropDownElement).fadeIn(settings.menu_speed_show);
                     });
                     break;
                 case 'click_slide':
                     $this.click(function () {
-                        $this.children(menuDropDownElement).slideDown(options.menu_speed_show);
+                        $this.children(menuDropDownElement).slideDown(settings.menu_speed_show);
                     });
                     break;
 
@@ -302,14 +299,14 @@ Version : 1.0
 
             var $this = $(this);
         
-            switch (options.menu_effect) {
+            switch (settings.menu_effect) {
                 case 'hover_fade':
                 case 'click_fade':
-                    $this.find(menuDropDownElement).fadeOut(options.menu_speed_hide);
+                    $this.find(menuDropDownElement).fadeOut(settings.menu_speed_hide);
                     break;
                 case 'hover_slide':
                 case 'click_slide':
-                    $this.find(menuDropDownElement).slideUp(options.menu_speed_hide);
+                    $this.find(menuDropDownElement).slideUp(settings.menu_speed_hide);
                     break;
 
             }
