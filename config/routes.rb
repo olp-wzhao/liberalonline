@@ -12,8 +12,10 @@ V44::Application.routes.draw do
   }
   
    #resources :users
-  resources :documents
-  resources :attachments
+  resources :documents do
+    resources :attachments
+  end
+
   resources :transactions
   resources :volunteers
   resources :photos

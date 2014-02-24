@@ -1,6 +1,7 @@
 <% unless attachment.pdf.file.nil? %>
   <li id='<%= attachment.id %>'>
+    <input type="hidden" id="attachment-<% attachment.id %>" />
     <%= link_to attachment.title, attachment.pdf.file.path %>
-    <%= link_to "(remove)", attachment, :method => :delete, :data => { :confirm => 'Are you sure?' }, remote: true  %>
+    <%= link_to "(remove)", document_attachment_path(attachment.document_id, attachment), :method => :delete, :data => { :confirm => 'Are you sure?' }, remote: true  %>
   </li>
 <% end %>

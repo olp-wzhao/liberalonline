@@ -46,7 +46,7 @@ class Document
   field :updated_ip, type: String
   field :updated_time, type: DateTime
 
-  validates_presence_of :display_date
+  #validates_presence_of :display_date
 
   #lets make this a table
   field :doc_type, type: Integer

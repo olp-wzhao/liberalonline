@@ -1,6 +1,8 @@
 class AttachmentsController < ApplicationController
 
   def new
+    @document = Document.find_or_create_by(id: params[:document_id])
+    binding.pry
     @attachment = Attachment.new
     respond_to do |format|
       format.js
@@ -19,19 +21,20 @@ class AttachmentsController < ApplicationController
   end
 
   def create
+    # if !attachment_params["temp_id"].nil?
+    #   @attachment = Attachment.find_or_create_by(temp_id: attachment_params["temp_id"])
+    # else
+    #   @attachment = Attachment.where(id: attachment_params["id"]).first
+    #   if @attachment.nil?
+    @document = Document.find_by(id: params[:document_id])
+    @attachment = Attachment.new(attachment_params)
+    @document.attachments << @attachment
+    #   end
+    # end
     
-    if !attachment_params["temp_id"].nil?
-      @attachment = Attachment.find_or_create_by(temp_id: attachment_params["temp_id"])
-    else
-      @attachment = Attachment.where(id: attachment_params["id"]).first
-      if @attachment.nil?
-        @attachment = Attachment.new(attachment_params)
-      end
-    end
-    
-    @attachment.update(attachment_params)
+    #@attachment.update(attachment_params)
     respond_to do |format|
-      if @attachment.save
+      if @document.save
         flash[:notice] = "Attachment Saved Successfully"
         #binding.pry
         format.js {}
