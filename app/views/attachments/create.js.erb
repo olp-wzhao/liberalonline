@@ -1,4 +1,4 @@
-alert('created attachment');
-$("#form_placeholder").html("");
-$("#attachments").append("<li><%= link_to @attachment.title @attachment.pdf %>")
-$("<%= escape_javascript(render @attachment) %>").appendTo("#form_placeholder");
+// Display a Javascript alert
+$("#new_link").show();
+$("#new_attachment").remove();
+$("#attachments").append('<%= j render(@attachment) %>');

@@ -1,7 +1,6 @@
 <%= simple_form_for @attachment, :html => {:multipart => true}, remote: true do |f| %>
   <%= f.error_notification %>
     <%= f.input :title %>
-    <%= f.input :icon_uri %>
     <%= f.input :language, collection: ["English", "French"], priority: [ "English" ] %>
     <%= f.input :description %>
     <%= f.input :place %>
