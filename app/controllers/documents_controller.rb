@@ -68,7 +68,7 @@ class DocumentsController < ApplicationController
   # GET /documents/1/edit
   def edit
     if @document.nil?
-      @document = Document.find_by(id: params["id"])
+      @document = Document.find(id: params["id"])
     end
     @attachment = Attachment.new
     render :layout => "admin"
@@ -78,7 +78,7 @@ class DocumentsController < ApplicationController
   # POST /documents.json
   def create
     success = false
-    @document = Document.find_by(temp_id: document_params["temp_id"])
+    @document = Document.where(temp_id: document_params["temp_id"]).first
     
     logger.info "New or Updated Document: #{@document.attributes.inspect}"
     logger.info "document parameters: #{document_params}"
@@ -134,14 +134,14 @@ class DocumentsController < ApplicationController
   end
 
   def toolkit_show
-      @document = Document.find_by(temp_id: params[:id])
+      @document = Document.find_by(id: params[:id])
       render :layout => "toolkit_layout"
   end
 
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_document
-      @document = Document.where(temp_id: params[:id]).first
+      @document = Document.where(id: params[:id]).first
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

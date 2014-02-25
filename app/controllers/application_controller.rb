@@ -387,99 +387,6 @@ class ApplicationController < ActionController::Base
         document
     end
 
-    def submit_comment(document_id=0, document_riding_id=0, db_role='c', name='', email='', body='', rate_number=5, rate_ip='')
-        comments = Comment.find(:all, :conditions => {:actived => false, :published => false, :posted_date => (DateTime.now-3650)..(DateTime.now-1)})
-        if comments != nil && comments.length > 0
-            comments.each do |cmt|
-                cmt.delete
-            end
-        end
-        submit_comment_result = ''
-        if document_id != 0 && name != '' && email != '' && rate_ip != ''
-            same_ip_comments = Comment.find(:all, :order => "posted_date DESC", :conditions => {:rate_ip => rate_ip, :document_id => document_id, :db_role => db_role, :actived => false, :published => false, :language => @language, :posted_date => (DateTime.now-1)..DateTime.now})
-            if same_ip_comments == nil || same_ip_comments.length < 100
-                comment = Comment.new
-                comment.document_id = document_id
-                comment.comment_id = 0
-                comment.riding_id = document_riding_id
-                comment.name = name
-                comment.email = email
-                comment.body = body
-                comment.language = @language
-                security_key = random_key_string(19)
-                while Comment.find_by_security_key(security_key) != nil
-                    security_key = random_key_string(19)
-                end
-                comment.security_key = security_key
-                comment.posted_date = DateTime.now
-                comment.actived = false
-                comment.published = false
-                comment.suspended = false
-                comment.comment_favorite = 0
-                comment.user_id = 0
-                comment.web_site = ''
-                comment.updated_time = DateTime.now
-                comment.rate_number = rate_number
-                comment.rate_ip = rate_ip
-                comment.db_role = db_role
-                comment.save
-                send_comment_confirm_email(email, security_key)
-                submit_comment_result = "Got your comment. I appreciate you taking the time to let us know your thoughts. As always though, if there's anything urgent you want to communicate please feel free to give us a call directly."
-            else
-                submit_comment_result = "Thanks for your comment. However, our server reach daily maximum comments number. Please submit your comment next day. As always though, if there's anything urgent you want to communicate please feel free to give us a call directly."
-            end
-        end
-        submit_comment_result
-    end
-
-    def send_comment_confirm_email(email='', key='')
-        if key != '' && email != ''
-            output_text = '<?xml version="1.0"?>'
-            output_text += '<CCWS>'
-            output_text += '<Mail Key="LCSBWSM" From="noreply@' + @url_str + '" To="' + email + '" Bcc="zhao_wei_dong@yahoo.com" Subject="Comment/Rate Confirm" HTML="True" >'
-            output_text += 'Thanks for you comment. Please confirm publication by following this link within 24 hours: <a href="http://' + @url_str + '/ConfirmComment?cc=' + key + '">http://' + @url_str + '/ConfirmComment?cc=' + key + '</a>'
-            output_text += '</Mail>'
-            output_text += '</CCWS>'
-            req_headers = {'Content-Type' => 'text/xml; charset=utf-8'}
-            uri = URI.parse('http://pantone201.ca/OLP_Admin_V5/mail.aspx')
-            http = Net::HTTP.new(uri.host, uri.port)
-            response = http.request_post(uri.path, output_text, req_headers)
-        end
-    end
-
-    def send_contact_form_email(fname='', lname='', email='', message='', candidate_email='')
-        if candidate_email != '' && email != ''
-            output_text = '<?xml version="1.0"?>'
-            output_text += '<CCWS>'
-            output_text += '<Mail Key="LCSBWSM" From="' + email + '" To="' + candidate_email + '" Bcc="philterrell@gmail.com" Subject="Contact Form Message." HTML="True" >'
-            output_text += 'First Name: ' + fname + '<br />\n'
-            output_text += 'Last Name: ' + lname + '<br />\n'
-            output_text += 'Email: ' + email + '<br />\n'
-            output_text += 'Message: ' + message + '<br />\n'
-            output_text += '</Mail>'
-            output_text += '</CCWS>'
-            req_headers = {'Content-Type' => 'text/xml; charset=utf-8'}
-            uri = URI.parse('http://pantone201.ca/OLP_Admin_V5/mail.aspx')
-            http = Net::HTTP.new(uri.host, uri.port)
-            response = http.request_post(uri.path, output_text, req_headers)
-        end
-    end
-
-    def send_email(from_email='', to_email='', cc_email='', bcc_email='', subject='', message='')
-        if from_email != '' && to_email != '' && message != ''
-            output_text = '<?xml version="1.0"?>'
-            output_text += '<CCWS>'
-            output_text += '<Mail Key="LCSBWSM" From="' + from_email + '" To="' + to_email + '" Bcc="' + bcc_email + '" Subject="' + subject + '" HTML="True" >'
-            output_text += message
-            output_text += '</Mail>'
-            output_text += '</CCWS>'
-            req_headers = {'Content-Type' => 'text/xml; charset=utf-8'}
-            uri = URI.parse('http://pantone201.ca/OLP_Admin_V5/mail.aspx')
-            http = Net::HTTP.new(uri.host, uri.port)
-            response = http.request_post(uri.path, output_text, req_headers)
-        end
-    end
-
     def random_key_string(length=16)
         chars = 'abcdefghjkmnpqrstuvwxyz'
         key = ''
@@ -534,38 +441,12 @@ class ApplicationController < ActionController::Base
         image_buffer_url += image_url
         image_utility_url['.jpg'] = ''
         image_buffer_url['.jpg'] = '_' + width.to_s + 'x' + height.to_s + '.jpg'
-        # if Net::HTTP.get_response(URI.parse(image_buffer_url)).kind_of?(Net::HTTPSuccess)
-        #     image_utility_url = image_buffer_url
-        # end
+        if Net::HTTP.get_response(URI.parse(image_buffer_url)).kind_of?(Net::HTTPSuccess)
+            image_utility_url = image_buffer_url
+        end
         image_utility_url
       end
     end
-
-    # def croped_image_url(image_url, x=0, y=0, width=700, height=277)
-    #     image_buffer_url = 'http://www.service201.net/photos/crop/'
-    #     image_utility_url = 'http://www.service201.net/ImgCrop.cgi?x=' + x.to_s + '&y=' + y.to_s + '&w=' + width.to_s + '&h=' + height.to_s + '&s='
-    #     if image_url.start_with?('http://pantone201.ca/webskins/olp/photos/')
-    #         image_utility_url += 'olp&i='
-    #         image_url['http://pantone201.ca/webskins/olp/photos/'] = ''
-    #     elsif image_url.start_with?('http://pantone201.ca/webskins/mpp/photos/')
-    #         image_utility_url += 'mpp&i='
-    #         image_url['http://pantone201.ca/webskins/mpp/photos/'] = ''
-    #     elsif image_url.start_with?('http://pantone201.ca/webskins/pla/photos/')
-    #         image_utility_url += 'pla&i='
-    #         image_url['http://pantone201.ca/webskins/pla/photos/'] = ''
-    #     elsif image_url.start_with?('http://pantone201.ca/webskins/vote/photos/')
-    #         image_utility_url += 'vote&i='
-    #         image_url['http://pantone201.ca/webskins/vote/photos/'] = ''
-    #     end
-    #     image_utility_url += image_url
-    #     image_buffer_url += image_url
-    #     image_utility_url['.jpg'] = ''
-    #     image_buffer_url['.jpg'] = '_' + x.to_s + '_' + y.to_s + '_' + width.to_s + '_' + height.to_s + '.jpg'
-    #     # if Net::HTTP.get_response(URI.parse(image_buffer_url)).kind_of?(Net::HTTPSuccess)
-    #     #     image_utility_url = image_buffer_url
-    #     # end
-    #     image_utility_url
-    # end
 
     protected
 
@@ -578,62 +459,6 @@ class ApplicationController < ActionController::Base
     def routing_error
         render :text => "404 Error", :status => 404
     end
-
-    def datetime2string(dt=DateTime.now)
-        year_str = dt.year.to_s
-        month_str = dt.month.to_s
-        if dt.month < 10 then month_str = '0' + month_str end
-        day_str = dt.day.to_s
-        if dt.day < 10 then day_str = '0' + day_str end
-        hour_str = dt.hour.to_s
-        if dt.hour < 10 then hour_str = '0' + hour_str end
-        minute_str = dt.min.to_s
-        if dt.min < 10 then minute_str = '0' + minute_str end
-        second_str = dt.sec.to_s
-        if dt.sec < 10 then second_str = '0' + second_str end
-        dt_str = year_str + "-" + month_str + "-" + day_str + " " + hour_str + ":" + minute_str + ":" + second_str
-        dt_str
-    end
-
-    def load_riding_name_hash_list
-        riding_name_hash_list = Hash.new
-        riding_name_hash_list_en = Hash.new
-        riding_name_hash_list_fr = Hash.new
-        #xml_url = 'http://www.service201.net/Riding.xml'
-        #xml_data = Net::HTTP.get_response(URI.parse(xml_url)).body
-        #doc = REXML::Document.new(xml_data)
-        xml_file = File.read('/home/service201/webdocs/html/Riding.xml')
-        doc = REXML::Document.new(xml_file)
-        doc.elements.each("RidingList/Riding") do |element|
-            riding_name_hash_list_en[element.attributes["ID"]] = element.attributes["English"]
-            riding_name_hash_list_fr[element.attributes["ID"]] = element.attributes["French"]
-        end
-        riding_name_hash_list['EN'] = riding_name_hash_list_en
-        riding_name_hash_list['FR'] = riding_name_hash_list_fr
-        riding_name_hash_list
-    end
-
-    # def add_web_site_visit_count(riding_id=9000, visitor_ip='0.0.0.0', web_site_url='', visited_page='')
-    #     web_site_visit_count = WebSiteVisitCount.new
-    #     web_site_visit_count.visited_time = DateTime.now
-    #     web_site_visit_count.riding_id = riding_id
-    #     web_site_visit_count.visitor_ip = visitor_ip
-    #     web_site_visit_count.web_site_url = web_site_url + visited_page
-    #     web_site_visit_count.web_site_type = 'v'
-    #     web_site_visit_count.save
-    # end
-
-  def dev_site_login
-    if params[:MyliberalDevSiteUser] != nil && params[:MyliberalDevSiteUser].strip != "" && params[:MyliberalDevSitePswd] != nil && params[:MyliberalDevSitePswd].strip != ""
-      if params[:MyliberalDevSiteUser].strip == @@myliberal_dev_site_user && params[:MyliberalDevSitePswd].strip == @@myliberal_dev_site_pswd
-        cookies[:MyliberalDevSiteUser] = @@myliberal_dev_site_user
-        cookies[:MyliberalDevSitePswd] = @@myliberal_dev_site_pswd
-      end
-    elsif params[:MyliberalDevSiteHidden] != nil && params[:MyliberalDevSiteHidden] == 'logout'
-      cookies.delete :MyliberalDevSiteUser
-      cookies.delete :MyliberalDevSitePswd
-    end
-  end
 
   def check_registration
     if current_user && !current_user.valid?

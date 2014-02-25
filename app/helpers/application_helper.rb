@@ -798,7 +798,7 @@ MEGAMENU_JAVASCRIPT
 			photo_url['_Thumbnail.jpg'] = ''
 		end
         
-        if Net::HTTP.get_response(URI.parse('http://' + request.host + '/photos/' + photo_site + photo_dir + photo_url + photo_file)).kind_of?(Net::HTTPSuccess) == false
+        if Net::HTTP.get_response(URI.parse('http://' + request.host + ':3000/photos/' + photo_site + photo_dir + photo_url + photo_file)).kind_of?(Net::HTTPSuccess) == false
             
             save_path = 'public/photos/' + photo_site + photo_dir + photo_url
             save_path_with_filename = Rails.root.join(save_path).to_s + photo_file

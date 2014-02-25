@@ -10,6 +10,8 @@
   <%= f.input :city, placeholder: "City" %>
   <%= f.input :phone_number, :size => 30, placeholder: "Phone Number" %>
   <%= f.input :birthday, as: :date, start_year: 1920, end_year: Date.today.year, placeholder: "Birthday", wrapper: :standard %>
+  <%= f.input :image, as: :file, label: 'Upload Image' %>
+  <%= f.hidden_field :image_cache %>
   <%= f.button :submit, 'Sign up', :class => 'btn-primary' %>
   <%= devise_error_messages!%>
 <% end %>

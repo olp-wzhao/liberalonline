@@ -59,9 +59,15 @@
                    <!--  <p class="tiny"><%= document.user_id %></p>    -->
                    <!-- <p class="tiny"><%= document.updated_time %></p> -->
 						<div class="hrbreake7e6e7">&nbsp;</div>
-                        <p class="red"><%= link_to "View a list of these PDFs", olpadmin_toolkit_url + "/" + document.temp_id.to_s %></p>
-						<div class="hrbreake7e6e7">&nbsp;</div> <br><br>
-
+              <% unless document.attachments.nil? %>
+                <% document.attachments.each do |a| %>
+                  <%= link_to a.title, a.pdf.url %>
+                <% end %>
+              <% end %>
+              <p class="red"><%= link_to "Edit this document", edit_document_url(document) %></p>
+              <div class="hrbreake7e6e7">&nbsp;</div> 
+              <br><br>
+              <p class="red"><%= link_to "View a list of these PDFs", olpadmin_toolkit_url(document) %></p>
 
         <% end %>
 		

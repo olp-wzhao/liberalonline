@@ -1,6 +1,7 @@
 class Video
   include Mongoid::Document
   include Mongoid::Timestamps
+  mount_uploader :video, VideoUploader
 
   field :video_uri, type: String
   field :language, type: String
