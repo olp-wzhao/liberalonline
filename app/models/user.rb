@@ -43,7 +43,6 @@ class User
   has_many :identities
   has_many :invitees, :class_name => self.name, :as => :invited_by
   has_one :volunteer
-  has_one :profile
   has_many :lawnsign_requests
 
   has_many :about_ridings

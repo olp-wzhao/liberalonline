@@ -16,9 +16,7 @@
   = f.input :city
   = f.input :phone_number, :size => 30
   = f.input :birthday, as: :date, start_year: 1920, end_year: Date.today.year
-  /= #image_tag(@user.image_url) unless @user.image_url.nil?
-  / = f.label :image, "or image URL"
-  / = f.file_field :image
+  
   %br
   /= render 'shared/volunteer_extended', :locals => {:user => @user}
   = f.button :submit, 'Update', :class => 'btn-primary'
