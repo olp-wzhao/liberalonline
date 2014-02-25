@@ -54,7 +54,7 @@
 		border:1px solid blue;
 		width:300px;
 		float:left;
-		top:57px;
+		top:55px;
 	}
 
 /* -------------------- */
@@ -144,9 +144,13 @@
 
   /* Sample pallete  */
 
-  /* bb1115   Red  */
-  /* d72f30   LightRed  */
+  /* bb1115   Red           */
+  /* d72f30   LightRed      */
   /* f84241   HighlightRed  */
+  /* 635857   DarkSwatch    */
+  /* 8e7d7e   Subtitlebig   */
+  /* 5c4a4a   Headlinebig   */
+  
 
   /* 494949  textgrey  */
   /* warm white #f0ecec            */
@@ -163,6 +167,7 @@
     background-position: left center;
 	width:100%;
 	min-height:10px;
+	clear:both;
 }	
 
 /* ----------------------------------------------------------------*/	 
@@ -284,6 +289,9 @@ h2 {color:#8e7d7e; line-height:102%px;}
     padding: 2px;
     width: 100%;
 	z-index:99;
+	background-image: url("images/redbottomborder.jpg");
+	background-repeat:y;
+	background-position:bottom center;
 }
 #trigger {width:50px; height:50px; background-color:red;}
 #footertrigger {
@@ -477,11 +485,24 @@ min-height:100px;
     vertical-align: middle;
 }
 
+.shareemail,.sharefacebook,.sharetwitter {
+      max-width:45px;
+	  width:45px;
+	  max-height:46px;
+	  height:46px;
+	  background-position:top center;
+	  background-repeat:no;	
+	  float:left;
+	  }
+	  
+.shareemail {background-image:url("images/b_shareemail.png");}
+.sharefacebook {background-image:url("images/b_sharefacebook.png");}
+.sharetwitter {background-image:url("images/b_sharetwitter.png");}
+.shareemail:hover {background-image:url("images/b_shareemailhover.png");}
+.sharefacebook:hover {background-image:url("images/b_sharefacebookhover.png");}
+.sharetwitter:hover {background-image:url("images/b_sharetwitterhover.png");}
 
 
-.mgmenu li .dropdown_fullwidth {
-        right:540px; /* experiment  */
-}
 
 @media all and (max-width: 1000px) {
 	  .logoholder {width:350px; */ border:solid 1px black; */}
@@ -668,7 +689,7 @@ min-height:100px;
                                 </div>
                                 <div class="col_3">
                                         <a href="/Video">
-                                                <div class="inline_img frame" style="background-size:100% 100%; background-image:url(http://i4.ytimg.com/vi/x2PXySGHbnk/default.jpg)">
+                                                <div class="inline_img frame" style="background-size:100% 100%; background-image:url('')">
                                                         <img src="images/play.png" border="0" alt="" />
                                                 </div>
                                         </a>
@@ -750,6 +771,11 @@ min-height:100px;
                     <li><a title="Learn More" href="http://www.labour.gov.on.ca/english/es/pubs/poster_text.php">Know your rights and responsibilities under Ontario's Employment Standards Act, 2000</a></li>
                     </ul>
 					<div class="hrbreake7e6e7">&nbsp;</div>
+					
+					<div class="sharefacebook">&nbsp;</div><div class="sharetwitter">&nbsp;</div><div class="shareemail">&nbsp;</div>
+					
+					<div class="hrbreake7e6e7">&nbsp;</div>
+					
 					<a href="#" class="button-white">Test Button</a>
 					<div id="bottomtrigger">#bottomtrigger</div>
 					<div id="col8picblocker">&nbsp;</div>
@@ -869,7 +895,12 @@ $(document).ready(function($){
 });
 </script>
 
+
+
+
 <script type="text/javascript">
+
+
 	
 	$('#browserInfo').text('Browser (Width : ' + $(window).width() + ' , Height :' + $(window).height() + ' )');
 	
