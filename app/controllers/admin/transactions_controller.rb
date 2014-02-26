@@ -1,4 +1,4 @@
-class Admin::TransactionsController < ApplicationController
+class Admin::TransactionsController < Admin::AdminController
   before_filter :authenticate_admin!
   before_action :set_transaction, only: [:show, :destroy]
   respond_to :json, :html, :js

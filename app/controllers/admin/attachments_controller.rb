@@ -1,4 +1,4 @@
-class AttachmentsController < ApplicationController
+class AttachmentsController < Admin::AdminController
 
   def new
     @document = Document.find_or_create_by(id: params[:document_id])

@@ -297,14 +297,14 @@ a.button-red:hover {
 
 </head>
 <body>
-
   <div class="container">
  
     <h1>Webservice Version 7.0 BETA</h1>
-      <%= yield %>
+    <%= render '/shared/admin_menu' %>
+    <%= yield %>
 
   </div>
 
-<%= yield :scripts_for_body %>
+  <%= yield :scripts_for_body %>
 </body>
 </html>

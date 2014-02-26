@@ -130,7 +130,7 @@ V44::Application.routes.draw do
   #get 'fbtest' => 'fbtest#index'
   #get 'fbtest/:id' => 'fbtest#show'
 
-  #get '*a', :to => redirect('/404.html')
+
 
   
   # The priority is based upon order of creation: first created -> highest priority.
@@ -203,6 +203,8 @@ V44::Application.routes.draw do
     get 'web' => 'home#web'
     get 'lit_samples' => 'home#lit_samples'
   end
+
+  get '*a', :to => redirect('/404.html')
 
   namespace :api do
     namespace :v1  do
