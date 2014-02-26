@@ -2,7 +2,7 @@ class Document
   include Mongoid::Document
   include Mongoid::Timestamps
   include Mongoid::MultiParameterAttributes
-  include Mongoid::Slug
+  #include Mongoid::Slug
 
   mount_uploader :image, ImageUploader
 
@@ -83,5 +83,5 @@ class Document
   #   self.headline = options[:headline]
   # end
 
-  slug :headline, history: true
+  #slug :headline, history: true
 end
