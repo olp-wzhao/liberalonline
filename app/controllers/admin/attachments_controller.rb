@@ -1,4 +1,4 @@
-class Admin::AttachmentsController < ApplicationController
+class Admin::AttachmentsController < Admin::AdminController
   before_filter :authenticate_admin!
 
   def new
