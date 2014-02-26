@@ -12,52 +12,6 @@ class Admin::DocumentsController < Admin::AdminController
     @documents = Document.all.limit(10)
   end
 
-  # GET /documents/1
-  # GET /documents/1.json
-  def show
-    @current_document = nil
-    
-    begin
-      @current_documents = Document.where(published: true, language: @language)
-                      .between(temp_id: 0..params[:id].to_i, riding_id: -6..0)
-                      .gt(expiry_date: DateTime.now)
-                      .order_by(:temp_id.desc)
-      @current_document = @current_documents[0]
-    rescue ActiveRecord::RecordNotFound
-      redirect_to '/news?l=' + @language
-    end
-
-    if @current_document == nil
-      redirect_to '/error'
-    else
-      @current_document_photo = nil
-      if @current_document.attached_photo_ids != nil && @current_document.attached_photo_ids != "" && @current_document.attached_photo_ids != "0"
-        @current_document_photo = Photo.where(temp_id: @current_document.attached_photo_ids.sub(/[S]/, ' ').to_i).first
-      end
-      @current_document_attachments = nil
-      if @current_document.attached_pdf_ids != nil && @current_document.attached_pdf_ids != ""
-        attachment_ids_str = @current_document.attached_pdf_ids.split('|')
-        if attachment_ids_str != nil && attachment_ids_str.length > 0
-          @current_document_attachments = Array.new
-          attachment_ids_str.each do |attachment_id_str|
-            document_attachment = Attachment.where(temp_id: attachment_id_str.to_i).first
-            if document_attachment != nil
-              @current_document_attachments << document_attachment
-            end
-          end
-        end
-      end
-    end 
-
-    #@web_site_og_description = @current_document.subtitle
-    #@web_site_og_title = @current_document.headline
-    if @current_document_photo
-        @web_site_og_image = 'http://pantone201.ca/webskins/olp/photos/' + @current_document_photo.id.to_s + "_" + @current_document_photo.riding_id.to_s + @current_document_photo.filename + '_PhotoUp.jpg'
-    else
-      @web_site_og_image = 'http://www.ontarioliberal.ca/NewsBlog/media/Wynne_Headshot_Link.jpg'
-    end
-  end
-
   # GET /documents/new
   def new
     @document = Document.new
@@ -91,7 +45,7 @@ class Admin::DocumentsController < Admin::AdminController
     respond_to do |format|
       if success
         logger.info "Updated @document"
-        format.html { redirect_to documents_path, notice: 'Document was successfully created.' }
+        format.html { redirect_to admin_documents_path, notice: 'Document was successfully created.' }
         format.json { render json: 'document saved to mongodb', status: :created }
       else
         format.html { render action: 'new' }
@@ -105,7 +59,7 @@ class Admin::DocumentsController < Admin::AdminController
   def update
     respond_to do |format|
       if @document.update(document_params)
-        format.html { redirect_to @document, notice: 'Document was successfully updated.' }
+        format.html { redirect_to admin_document_url(@document), notice: 'Document was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }
@@ -119,7 +73,7 @@ class Admin::DocumentsController < Admin::AdminController
   def destroy
     @document.destroy
     respond_to do |format|
-      format.html { redirect_to documents_url }
+      format.html { redirect_to admin_documents_url }
       format.json { head :no_content }
     end
   end
@@ -127,12 +81,12 @@ class Admin::DocumentsController < Admin::AdminController
   #Admin routes
   def toolkit
     @documents = Document.toolkit.limit(10)
-    render :layout => "toolkit_layout"
+    #render :layout => "toolkit_layout"
   end
 
-  def toolkit_show
+  def show
       @document = Document.find_by(id: params[:id])
-      render :layout => "toolkit_layout"
+      #render :layout => "toolkit_layout"
   end
 
   private
