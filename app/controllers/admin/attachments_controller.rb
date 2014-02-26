@@ -1,4 +1,5 @@
-class AttachmentsController < Admin::AdminController
+class Admin::AttachmentsController < ApplicationController
+  before_filter :authenticate_admin!
 
   def new
     @document = Document.find_or_create_by(id: params[:document_id])
@@ -34,10 +35,9 @@ class AttachmentsController < Admin::AdminController
     #@attachment.update(attachment_params)
     respond_to do |format|
       if @document.save
-        flash[:notice] = "Attachment Saved Successfully"
-        #binding.pry
-        format.js {}
-        format.json { render json: 'attachment saved to mongodb', status: :created }
+        format.js
+        format.html { redirect_to edit_admin_document_path(@document) }
+        #format.json { render json: 'attachment saved to mongodb', status: :created }
       else
         format.html { render action: 'new' }
         format.json { render json: @attachment.errors, status: :unprocessable_entity }

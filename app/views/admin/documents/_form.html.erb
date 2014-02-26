@@ -7,7 +7,7 @@
     <%= f.input :author %>
     <%= f.input :reference_url %>
     <%= f.input :reference_name %>
-    <%= f.input :attached_photo_ids %>
+
     <%= f.input :attached_video_ids %>
     <%= f.input :language, collection: %w(English French), priority: ['English'] %>
     <%= f.input :helpfulness_rating, collection: 1..10 %>
@@ -33,6 +33,7 @@
 
 
     <p>Document Image</p>
+    <%= image_tag(@document.image_url) if @document.image? %>
     <%= f.input :image_name %>
     <%= f.input :image, as: :file, label: 'Upload Image' %>
     <%= f.hidden_field :image_cache %>

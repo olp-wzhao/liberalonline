@@ -1,7 +1,7 @@
-source "https://rubygems.org"
+source 'https://rubygems.org'
 ruby '2.1.1'
 
-gem "rails", "4.0.0"
+gem 'rails', '4.0.0'
 #gem "haml-rails"
 gem "mongoid", github: "mongoid/mongoid"
 
@@ -76,7 +76,7 @@ gem "hashugar", github: "alex-klepa/hashugar"
 
 gem "money"
 gem "mongoid_search"
-gem 'geocoder',         github: 'alexreisner/geocoder'
+gem 'geocoder', github: 'alexreisner/geocoder'
 
 gem 'mandrill-api'
 

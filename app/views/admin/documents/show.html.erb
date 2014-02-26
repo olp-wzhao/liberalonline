@@ -8,7 +8,7 @@
                <%= raw @document.body %>
 
             <div class="hrbreake7e6e7">&nbsp;</div>
-               <div style="display:block; border=solid 1px blue;">
+               <div style="display:block; border:solid 1px blue;">
                <div style="float:left; width:50px;">           
                
                </div>
@@ -41,6 +41,11 @@
                         <p class="tiny"><%= @document.partisan %></p>
                         <p class="tiny"><%= @document.user_id %></p>
                         <p class="tiny"><%= @document.updated_time %></p>
+            <% unless @document.attachments.nil? %>
+                 <% @document.attachments.each do |a| %>
+                     <%= render a %>
+                 <% end %>
+            <% end %>
             <% unless @document.attached_pdf_ids.nil? %>
               <% @document.attached_pdf_ids.split("|").each do |pdf_id| %>
                 <% pdf = Attachment.where(temp_id: pdf_id) %>

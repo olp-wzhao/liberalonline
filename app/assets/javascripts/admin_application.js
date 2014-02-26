@@ -12,10 +12,13 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require turbolinks
+//= require select2
+//= require jquery.remotipart
+//= require jquery.iframe-transport
+
 
 // require rails.validations
 //= require tinymce-jquery
 
-//= require main
+//= require turbolinks
 // require_tree .

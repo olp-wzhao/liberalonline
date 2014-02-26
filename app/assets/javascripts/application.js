@@ -14,9 +14,6 @@
 //= require jquery_ujs
 
 // require rails.validations
-//= require select2
-//= require jquery.remotipart
-//= require jquery.iframe-transport
 
 //= require main
 

@@ -1,0 +1,271 @@
+/* Sample pallete  */
+
+/* e5e5e5   warmwhite  */
+/* f84241   lightred  */
+/* d43839   dark red  */
+/* 494949  textgrey  */
+/* 6b6b6b  darkergrey */
+/* warm white #f0ecec            */
+/* portrait bg clr #d7e6f4  */
+/* new portrait bg #e8eae5 */
+@font-face {
+  font-family: 'Oswald';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Oswald Regular'), local('Oswald-Regular'), url('https://secureolp.liberalonline.ca/fonts/fonts/Oswald400.woff') format('woff');
+}
+@font-face {
+  font-family: 'Oswald';
+  font-style: normal;
+  font-weight: 700;
+  src: local('Oswald Bold'), local('Oswald-Bold'), url('https://secureolp.liberalonline.ca/fonts/fonts/Oswald700.woff') format('woff');
+}
+@font-face {
+  font-family: 'Droid Sans';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Droid Sans'), local('DroidSans'), url('https://secureolp.liberalonline.ca/fonts/DroidSans400.woff') format('woff');
+}
+@font-face {
+  font-family: 'Droid Sans';
+  font-style: normal;
+  font-weight: 700;
+  src: local('Droid Sans Bold'), local('DroidSans-Bold'), url('https://secureolp.liberalonline.ca/fonts/DroidSans700.woff') format('woff');
+}
+@font-face {
+  font-family: 'League Gothic';
+  font-style: normal;
+  font-weight: 400;
+  src: local('League Gothic'), local('LeagueGothic400'), url('https://secureolp.liberalonline.ca/fonts/LeagueGothic400.woff') format('woff');
+}
+
+
+@font-face {
+  font-family: 'Roboto Condensed';
+  font-style: normal;
+  font-weight: 300;
+  src: local('Roboto Condensed Light'), local('RobotoCondensed-Light'), url('https://secureolp.liberalonline.ca/fonts/RobotoCondensed300.woff') format('woff');
+}
+@font-face {
+  font-family: 'Roboto Condensed';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Roboto Condensed Regular'), local('RobotoCondensed-Regular'), url('https://secureolp.liberalonline.ca/fonts/RobotoCondensed400.woff') format('woff');
+}
+@font-face {
+  font-family: 'Roboto Condensed';
+  font-style: normal;
+  font-weight: 700;
+  src: local('Roboto Condensed Bold'), local('RobotoCondensed-Bold'), url('https://secureolp.liberalonline.ca/fonts/RobotoCondensed700.woff') format('woff');
+}
+@font-face {
+  font-family: 'Roboto Condensed';
+  font-style: italic;
+  font-weight: 300;
+  src: local('Roboto Condensed Light Italic'), local('RobotoCondensed-LightItalic'), url('https://secureolp.liberalonline.ca/fonts/RobotoCondensedItalic300.woff') format('woff');
+}
+*,html {padding:0px; margin:0px;}
+ul,ol {margin-left:30px;}
+a:link,
+a:visited {text-decoration:none;}
+a:hover {text-decoration:underline;}
+body { background-color:#ebede8}
+h1 {
+  font-weight: 400;
+  font-family: 'Oswald',sans-serif;
+  margin-bottom: 0px;
+  margin-left: -8px;
+  padding-bottom: 0px;
+  font-size: 29px;
+  color: #C1BFBF;
+  text-shadow: 0px 1px 3px #d9d9d9;
+}
+.container {max-width:960px; margin-left:auto; margin-right:auto; width:85%}
+
+.error {font-size:10px; margin-top:3px; margin-bottom:12px; line-height:22px; color:red;}
+.tiny  {font-size:10px; margin-top:3px; margin-bottom:12px; line-height:22px;}
+.legal {
+  line-height: 13px;
+  text-shadow: none;
+  margin: 10px 0px 0px;
+  padding: 0px;
+  border: 0px none;
+  outline: 0px none;
+  font-size: 10px;
+  vertical-align: baseline;
+  font-family: "HelveticaNeue","Helvetica Neue","HelveticaNeueRoman","HelveticaNeue-Roman","Helvetica Neue Roman",'TeXGyreHerosRegular',"Helvetica","Tahoma","Geneva","Arial",sans-serif;
+  font-weight: 400;
+}
+
+input[type="submit"] {
+  background: -moz-linear-gradient(center top , rgb(203, 32, 39), rgb(160, 23, 28)) repeat scroll 0% 0% transparent;
+  border: 1px solid rgb(160, 23, 28);
+  margin-top: 5px;
+  margin-bottom:20px;
+  width:160px;
+}
+input[type="submit"] {
+  border-radius: 3px;
+  box-shadow: 0px 1px 1px rgb(50, 50, 50);
+  color: rgb(255, 255, 255);
+  display: inline-block;
+  font-size: 16px;
+  margin: 0px 0.8rem 2rem 0px;
+  padding: 0.8rem 1.1rem;
+  text-align: center;
+  text-decoration: none;
+
+}
+input[type="submit"]:hover {
+  background-color: #cb2027;
+  /* fallback color */
+  background: -moz-linear-gradient(top, #a0171c, #cb2027);
+  background: -ms-linear-gradient(top, #a0171c, #cb2027);
+  background: -webkit-linear-gradient(top, #a0171c, #cb2027);
+}
+
+
+
+
+#document_headline,
+#document_subtitle,
+#document_introduction,
+#document_author {
+  width:100%;
+  height: 38px;
+  margin-right:19px;
+  margin-bottom:10px;
+  border: 1px solid rgb(204, 204, 204);
+  border-radius: 3px;
+  box-shadow: 2px 3px 2px #7e8a9a;
+  font-size: 16px;
+  padding: 6px 7px;
+  /*    outline: 0px none;  */
+
+}
+#document_headline:focus,
+#document_subtitle:focus,
+#document_introduction:focus,
+#document_author:focus {
+  border-color: rgb(243, 81, 73);
+}
+#birthMonth {width:47%; display:inline; box-shadow: 2px 3px 2px #8e7575;}
+#birthDay {width:22%; display:inline; box-shadow: 2px 3px 2px #8e7575;}
+#birthYear {width:25%; display:inline; box-shadow: 2px 3px 2px #7e8a9a;}
+#birthDay a {color:red;}
+.signup select {
+  height: 38px;
+  margin-right: 5px;
+  padding: 4px;
+  line-height: 30px;
+  display: inline-block;
+  background-color: #FFF;
+  border: 1px solid #CCC;
+  border-radius: 3px;
+  font-stretch: normal;
+  font-family: Arial,sans-serif;
+  display:inline;
+}
+
+
+
+
+
+/* BUTTON GRADIENTS  */
+a.button-red,
+a.button-facebook,
+a.button-twitter,
+input[type=submit] {
+  border-radius: 3px;
+  box-shadow: 0 1px 1px #7e8a9a;
+  color: #fff;
+  display: inline-block;
+  font-size: 16px;
+  margin: 0 20px 10px 0;
+  padding: 7px 3px;
+  padding: .8rem 1.1rem;
+  text-align: center;
+  text-decoration:none;
+
+}
+
+a.button-facebook {
+  background-color: #2b4170; /* fallback color */
+  background: -moz-linear-gradient(top, #3b5998, #2b4170);
+  background: -ms-linear-gradient(top, #3b5998, #2b4170);
+  background: -webkit-linear-gradient(top, #3b5998, #2b4170);
+  border: 1px solid #2b4170;
+  text-shadow: 0 -1px -1px #1f2f52;
+  filter: progid:DXImageTransform.Microsoft.gradient(enabled='true', startColorstr=#3b5998, endColorstr=#2b4170)
+}
+
+a.button-facebook:hover {
+  background-color: #3b5998; /* fallback color */
+  background: -moz-linear-gradient(top, #2b4170, #3b5998);
+  background: -ms-linear-gradient(top, #2b4170, #3b5998);
+  background: -webkit-linear-gradient(top, #2b4170, #3b5998);
+
+}
+a.button-twitter {
+  background-color: #0081ce; /* fallback color */
+  background: -moz-linear-gradient(top, #00aced, #0081ce);
+  background: -ms-linear-gradient(top, #00aced, #0081ce);
+  background: -webkit-linear-gradient(top, #00aced, #0081ce);
+  border: 1px solid #0081ce;
+  text-shadow: 0 -1px -1px #005ea3;
+}
+
+a.button-twitter:hover {
+  background-color: #00aced; /* fallback color */
+  background: -moz-linear-gradient(top, #0081ce, #00aced);
+  background: -ms-linear-gradient(top, #0081ce, #00aced);
+  background: -webkit-linear-gradient(top, #0081ce, #00aced);
+}
+
+a.button-red, input[type=submit] {
+  background-color: #a0171c; /* fallback color */
+  background: -moz-linear-gradient(top, #cb2027, #a0171c);
+  background: -ms-linear-gradient(top, #cb2027, #a0171c);
+  background: -webkit-linear-gradient(top, #cb2027, #a0171c);
+  border: 1px solid #a0171c;
+  text-shadow: 0 -1px -1px #761114;
+  margin-top:5px;
+  filter: progid:DXImageTransform.Microsoft.gradient(enabled='true', startColorstr=#cb2027, endColorstr=#a0171c)
+}
+
+a.button-red:hover {
+  background-color: #cb2027; /* fallback color */
+  background: -moz-linear-gradient(top, #a0171c, #cb2027);
+  background: -ms-linear-gradient(top, #a0171c, #cb2027);
+  background: -webkit-linear-gradient(top, #a0171c, #cb2027);
+  filter: progid:DXImageTransform.Microsoft.gradient(enabled='true', startColorstr=#cb2027, endColorstr=#a0171c)
+}
+
+.btn {width:300px;}
+
+
+
+#prefooter {
+  padding-top:50px;
+  text-align:center;
+  background-color: #f0ecec;
+  min-height: 280px;
+  padding: 2px;
+  width: 100%;
+  z-index: 99;
+  -webkit-box-shadow: inset 0px 9px 10px -9px #2e0101;
+  -moz-box-shadow: inset 0px 9px 10px -9px #2e0101;
+  box-shadow: inset 0px 9px 10px -9px #2e0101;
+}
+#footer {
+  font-family: 'Oswald', sans-serif;
+  text-align:center;
+  color: #f0ecec;
+  margin: 0 auto 0;
+  width: 100%;
+  padding-top:40px;
+  background-color: #8c9097;
+  -webkit-box-shadow: inset 0px 9px 10px -9px #2e0101;
+  -moz-box-shadow: inset 0px 9px 10px -9px #2e0101;
+  box-shadow: inset 0px 9px 10px -9px #2e0101;
+}

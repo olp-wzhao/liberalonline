@@ -1,4 +1,4 @@
-class Admin::DocumentsController < Admin::AdminController
+class Admin::DocumentsController < ApplicationController
 
   #before_filter :authenticate_user!, :except => [:show, :index, :toolkit, :toolkit_show]
   before_filter :authenticate_admin! #, :only => [:toolkit, :toolkit_show]
