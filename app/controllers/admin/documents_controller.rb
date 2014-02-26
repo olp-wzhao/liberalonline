@@ -67,7 +67,6 @@ class Admin::DocumentsController < ApplicationController
 
   # GET /documents/1/edit
   def edit
-
     @attachment = Attachment.new
     render :layout => "admin"
   end
@@ -76,7 +75,7 @@ class Admin::DocumentsController < ApplicationController
   # POST /documents.json
   def create
     success = false
-    @document = Document.find_by(temp_id: document_params["temp_id"])
+    @document = Document.where(temp_id: document_params["temp_id"]).first
     
     logger.info "New or Updated Document: #{@document.attributes.inspect}"
     logger.info "document parameters: #{document_params}"

@@ -2,7 +2,6 @@ class AttachmentsController < ApplicationController
 
   def new
     @document = Document.find_or_create_by(id: params[:document_id])
-    binding.pry
     @attachment = Attachment.new
     respond_to do |format|
       format.js

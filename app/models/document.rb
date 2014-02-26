@@ -55,8 +55,6 @@ class Document
   field :customized_category_id, type: Integer 
   field :issue_id, type: Integer
 
-  field :safe_url, type: String
-  
   belongs_to :petition
   belongs_to :user
   belongs_to :customized_category
@@ -85,5 +83,5 @@ class Document
   #   self.headline = options[:headline]
   # end
 
-  slug :safe_url, history: true
+  slug :headline, history: true
 end
