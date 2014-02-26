@@ -112,7 +112,7 @@
 				<div class="col_3">
 					<h4><%= link_to "Photo of the Day", photos_path %></h4>
 					<% if @menu_photo != nil %>
-						<%= link_to image_tag(photo_to_local("http://pantone201.ca/webskins/olp/photos/thumbnails/" + @menu_photo.temp_id.to_s + "_" + @menu_photo.riding_id.to_s + @menu_photo.filename.to_s + "_Thumbnail.jpg"), :class => "inline_img frame",:border => "0", :alt => if @language == 'FR' then 'Cliquez pour voir la photo...' else 'Click to view...' end), photos_path %>
+						<%#= link_to image_tag(photo_to_local("http://pantone201.ca/webskins/olp/photos/thumbnails/" + @menu_photo.temp_id.to_s + "_" + @menu_photo.riding_id.to_s + @menu_photo.filename.to_s + "_Thumbnail.jpg"), :class => "inline_img frame",:border => "0", :alt => if @language == 'FR' then 'Cliquez pour voir la photo...' else 'Click to view...' end), photos_path %>
 						<p><%= raw(if @language == "FR" then @menu_photo.caption_fr else @menu_photo.caption_en end) %></p>
 					<% end %>
 				</div>
