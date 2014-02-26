@@ -1,4 +1,4 @@
-class AdminController < ActionController::Base
+class Admin::AdminController < ActionController::Base
   before_filter :authenticate_admin!
 
   def contact
@@ -8,5 +8,8 @@ class AdminController < ActionController::Base
   end
 
   def web
+  end
+
+  def home
   end
 end

@@ -16,7 +16,7 @@
     <div class="container">
       <br>
       <h2 class="toolkittitle">
-      Toolkit</h1> 
+      Toolkit</h2>
       <p class="toolkittag">Looking for<br>Stuff? We've<br>got stuff.</p>
     </div>
   </div>
@@ -27,7 +27,7 @@
       <p class="grey">Recently Added</p>
       <div class="hrbreake7e6e7">&nbsp;</div>
       <% @documents.each do |document| %>
-                <%= link_to "Edit this document", edit_document_path(document) %>
+                <%= link_to "Edit this document", edit_admin_document_path(document) %>
               <!-- <p>ID: <%= document.temp_id %></p> -->
               <div class="listh1 grey"><%= raw document.headline %></div>
               <div class="listh2 red"><%= raw document.subtitle %></div>
@@ -58,7 +58,7 @@
               <!--  <p class="tiny"><%= document.user_id %></p>    -->
               <!-- <p class="tiny"><%= document.updated_time %></p> -->
               <div class="hrbreake7e6e7">&nbsp;</div>
-              <p class="red"><%= link_to "Edit this document", edit_document_path(document) %></p>
+              <p class="red"><%= link_to "Edit this document", edit_admin_document_path(document) %></p>
               <div class="hrbreake7e6e7">&nbsp;</div>
               <br><br>
       <% end %>

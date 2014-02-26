@@ -1,16 +1,15 @@
-<%= simple_form_for @document, :html => {multipart: true} do |f| %>
+<%= simple_form_for [:admin, @document], :html => {multipart: true} do |f| %>
   <%= f.error_notification %>
-
     <%= f.input :headline %>
     <%= f.input :subtitle %>
     <%= f.input :introduction %>
-    <%= f.input :body, as: :text, :input_html => { :class => "tinymce", :rows => 40, :cols => 80 } %>
+    <%= f.input :body, as: :text, :input_html => { :class => 'tinymce', :rows => 40, :cols => 80 } %>
     <%= f.input :author %>
     <%= f.input :reference_url %>
     <%= f.input :reference_name %>
     <%= f.input :attached_photo_ids %>
     <%= f.input :attached_video_ids %>
-    <%= f.input :language, collection: ["English", "French"], priority: [ "English" ] %>
+    <%= f.input :language, collection: %w(English French), priority: ['English'] %>
     <%= f.input :helpfulness_rating, collection: 1..10 %>
     <%= f.input :applicability_rating, collection: 1..10 %>
     <%= f.input :allow_comment, as: :boolean %>
@@ -41,7 +40,7 @@
     <%= f.button :submit %>
 <% end %>
 
-<%= render partial: "attachments/partial_index"  %>
+<%= render partial: 'admin/attachments/partial_index' %>
 
 <%= tinymce %>
 

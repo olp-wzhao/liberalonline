@@ -16,6 +16,8 @@
 /tmp
 /public/assets
 
+config/initializers/better_errors.rb
+
 /dump/olpxmpp930.sql
 /dump/olpxpla930.sql
 /dump/olpxpublicx930.sql

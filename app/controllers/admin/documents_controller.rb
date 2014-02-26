@@ -1,7 +1,7 @@
-class DocumentsController < ApplicationController
+class Admin::DocumentsController < ApplicationController
 
-  before_filter :authenticate_user!, :except => [:show, :index, :toolkit, :toolkit_show]
-  before_filter :authenticate_admin!, :only => [:toolkit, :toolkit_show]
+  #before_filter :authenticate_user!, :except => [:show, :index, :toolkit, :toolkit_show]
+  before_filter :authenticate_admin! #, :only => [:toolkit, :toolkit_show]
   before_action :set_document, only: [:show, :edit, :update, :destroy]
 
   #respond_to :html, :json
@@ -51,11 +51,11 @@ class DocumentsController < ApplicationController
 
     #@web_site_og_description = @current_document.subtitle
     #@web_site_og_title = @current_document.headline
-    if @current_document_photo 
+    if @current_document_photo
         @web_site_og_image = 'http://pantone201.ca/webskins/olp/photos/' + @current_document_photo.id.to_s + "_" + @current_document_photo.riding_id.to_s + @current_document_photo.filename + '_PhotoUp.jpg'
     else
       @web_site_og_image = 'http://www.ontarioliberal.ca/NewsBlog/media/Wynne_Headshot_Link.jpg'
-    end 
+    end
   end
 
   # GET /documents/new
@@ -67,9 +67,7 @@ class DocumentsController < ApplicationController
 
   # GET /documents/1/edit
   def edit
-    if @document.nil?
-      @document = Document.find_by(id: params["id"])
-    end
+
     @attachment = Attachment.new
     render :layout => "admin"
   end
@@ -129,12 +127,12 @@ class DocumentsController < ApplicationController
 
   #Admin routes
   def toolkit
-    @documents = Document.toolkit .limit(10)
+    @documents = Document.toolkit.limit(10)
     render :layout => "toolkit_layout"
   end
 
   def toolkit_show
-      @document = Document.find_by(temp_id: params[:id])
+      @document = Document.find_by(id: params[:id])
       render :layout => "toolkit_layout"
   end
 
@@ -142,6 +140,9 @@ class DocumentsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_document
       @document = Document.where(temp_id: params[:id]).first
+      if @document.nil?
+        @document = Document.find_by(id: params["id"])
+      end
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

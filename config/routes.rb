@@ -4,19 +4,13 @@ V44::Application.routes.draw do
   get "party_history/index"
   resources :lawnsign_requests
 
-  mount RailsAdmin::Engine => '/admin', :as => 'rails_admin'
+  mount RailsAdmin::Engine => '/rails_admin', :as => 'rails_admin'
   devise_for :users, controllers: {
     registrations: "users/registrations", 
     omniauth_callbacks: "users/omniauth_callbacks",
     invitations: 'invitations'
   }
-  
-   #resources :users
-  resources :documents do
-    resources :attachments
-  end
 
-  resources :transactions
   resources :volunteers
   resources :photos
   resources :videos
@@ -83,15 +77,6 @@ V44::Application.routes.draw do
   get "news/show" => 'documents#show'
   get 'news/:id' => 'documents#show'
 
-  get 'olpadmin/toolkit' => "documents#toolkit"
-  get 'olpadmin/toolkit/:id' => "documents#toolkit_show"
-  get 'olpadmin/transactions' => 'transactions#admin_index'
-  get 'olpadmin/transaction_scopes/:id' => 'transactions#scopes'
-  get 'olpadmin/petitions/:id' => 'petitions#index'
-  get 'olpadmin/contact' => 'admin#contact'
-  get 'olpadmin/web' => 'admin#web'
-  get 'olpadmin/lit_samples' => 'admin#lit_samples'
-
   get "platform/index"
   get "team/index"
   get "team/show"
@@ -121,12 +106,6 @@ V44::Application.routes.draw do
   get 'home' => 'home#index'
   get 'leader' => 'leader#index'
 
-  # get 'login' => 'login#index'
-  # get 'login/:id' => 'login#show'
-  # get 'loginhelp' => 'loginhelp#index'
-  # get '/logout', :to => 'sessions#destroy'
-  # get '/auth/:provider/callback' => 'sessions#create'
-
   get 'logo' => 'logo#index'
   get 'membership' => 'membership#index'
   
@@ -151,7 +130,7 @@ V44::Application.routes.draw do
   #get 'fbtest' => 'fbtest#index'
   #get 'fbtest/:id' => 'fbtest#show'
 
-  get '*a', :to => redirect('/404.html')
+  #get '*a', :to => redirect('/404.html')
 
   
   # The priority is based upon order of creation: first created -> highest priority.
@@ -208,6 +187,23 @@ V44::Application.routes.draw do
   #     # (app/controllers/admin/products_controller.rb)
   #     resources :products
   #   end
+
+  namespace :admin do
+    resources :documents do
+      resources :attachments
+    end
+    resources :transactions
+    get 'home' => 'home#home'
+    get 'toolkit' => "documents#toolkit"
+    get 'toolkit/:id' => "documents#toolkit_show"
+    get 'transactions' => 'transactions#admin_index'
+    get 'transaction_scopes/:id' => 'transactions#scopes'
+    get 'petitions/:id' => 'petitions#index'
+    get 'contact' => 'home#contact'
+    get 'web' => 'home#web'
+    get 'lit_samples' => 'home#lit_samples'
+  end
+
   namespace :api do
     namespace :v1  do
       resources :tokens,:only => [:create, :destroy]

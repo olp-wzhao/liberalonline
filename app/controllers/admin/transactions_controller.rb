@@ -1,5 +1,5 @@
-class TransactionsController < ApplicationController
-  before_filter :authenticate_user!
+class Admin::TransactionsController < ApplicationController
+  before_filter :authenticate_admin!
   before_action :set_transaction, only: [:show, :destroy]
   respond_to :json, :html, :js
 
@@ -105,9 +105,12 @@ class TransactionsController < ApplicationController
   end
 
   def scopes
+    @scope = ""
     if params[:id] == 'donations'
-      @transactions = Transaction.donations    
+      @transactions = Transaction.donations
+      @scope = params[:id]
     end
+
     respond_to do |format|
       format.js
     end
@@ -160,10 +163,12 @@ class TransactionsController < ApplicationController
         when 'volunteers'
           @transactions = Transaction.volunteers
         when 'under_twenty_dollars'
-          @transaction = Transaction.under_twenty_dollars
+          @transactions = Transaction.under_twenty_dollars
         else
-          puts 'what the heck is this scope'
+          @transactions = Transaction.all
         end
+      else
+        @transactions = Transaction.all
       end
       params.each do |key, value|
         # target groups using regular expressions
