@@ -1,23 +1,18 @@
 <div id="index_data">
-  <table>
-    <thead>
-      <tr>
-        <th></th>
-        <th></th>
-        <th></th>
-        <th></th>
-      </tr>
-    </thead>
-
-    <tbody>
+<h2>Recent Transactions</h2>
       <% @transactions.each do |transaction| %>
-        <tr>
-          <td><%= transaction.first_name %></td>
-          <td><%= transaction.last_name %></td>
-          <td><%= transaction.email %></td>
-          <td><%= transaction.get_total %></td>
-        </tr>
+        <div class="listperson">
+		  <span class="avatar"><img src="../images/defaultavatar.png"></span>
+            <p class="name"><%= transaction.first_name %> <%= transaction.last_name %></p>
+            <p class="email"><%= transaction.email %></p>
+			<div class="hrbreake7e6e7">&nbsp;</div>
+			<p>Status: Member? | Cumulative: $xx | Count: xx</p>
+			<div class="hrbreake7e6e7">&nbsp;</div>
+			<div class="transdeets">
+			Amt:<br><span class="bigdata">$<%= transaction.get_total %></span>
+			</div>
+			
+		</div>	
       <% end %>
-    </tbody>
-  </table>
-</div>
+</div>	
+

@@ -1,3 +1,4 @@
+/* Top level menu choices Line 122*/ /* mouseover color for top level menu items line 154 */
 /*
 TABLE OF CONTENTS
 
@@ -68,12 +69,10 @@ p{font-size:12px; line-height:21px; margin-bottom:18px}
 	width:100%;
 	height: 41px;
 	z-index:10;
-    /* background: #282828;  Expereimental */
-    background: -webkit-linear-gradient(top, #282828 0%, #1f1f1f 100%);
-    background: -moz-linear-gradient(top, #282828 0%, #1f1f1f 100%);
-    background: -o-linear-gradient(top, #282828 0%, #1f1f1f 100%);
-    background: -ms-linear-gradient(top, #282828 0%, #1f1f1f 100%);
-    background: linear-gradient(top, #282828 0%, #1f1f1f 100%);
+	background-color: #fff;  
+	/* Changing this changes both states of the bg clor for the 
+	mgmenu container. mgmenu_button_active controls the background
+	color of the responsive sized menu onClick*/
 }
 .mgmenu_container {
 	position:relative;
@@ -112,16 +111,16 @@ p{font-size:12px; line-height:21px; margin-bottom:18px}
 	}
 		.mgmenu > li:hover,
 		.mgmenu > li.active {
-                        background-color:#bb1115; /* Red */
+                        background-color:#e5e5e6; /* New portrait background color  - gradients in the screen call under the exact same class */
+						
 		}
 		.mgmenu li.noactive {
 			background:none;
 		}
-		/* Top level menu choices are affected by these parameters */
+		/* Top level menu choices are affected by these parameters Line 122*/
 		.mgmenu > li > a,
 		.mgmenu > li > span {
 			display: block;
-			color:#ffffff;
 			text-shadow:1px 1px 1px #d9d9d7;
 			font-size:21px;
 			outline:0;
@@ -152,17 +151,17 @@ p{font-size:12px; line-height:21px; margin-bottom:18px}
 		.mgmenu > li > a:hover,
 		.mgmenu > li > a:focus {
 			cursor:pointer;
-			color:#ffffff;
+			color:#bb1115; /* mouseover color for top level menu items line 154 */
 			outline:none;
 		}
 		.mgmenu > li .mgmenu_drop {
-			background-image:url("../img/downArrow.png");
+			background-image:url("images/downArrow.png");
 			background-repeat: no-repeat;
 			background-position:right 19px;
 			padding-right:20px;
 		}
 		.mgmenu_footer .mgmenu > li .mgmenu_drop {
-			background-image:url("../img/upArrow.png");
+			background-image:url("images/upArrow.png");
 		}
 		.mgmenu > li.right_item {
 			float:right;
@@ -179,8 +178,8 @@ p{font-size:12px; line-height:21px; margin-bottom:18px}
 			-ms-transition: none;
 			transition: none;
 			font-weight: bold;
-			background-color:transparent;
-			background-image:url("../img/toggle.png");
+			background-color:#635857; /* dark swatch background color of megamenu in responsive mode pre-click */
+			background-image:url("images/toggle.png");
 			background-repeat: no-repeat;
 			background-position:96% 10px;
 			line-height:12px;
@@ -191,8 +190,9 @@ p{font-size:12px; line-height:21px; margin-bottom:18px}
 		.mgmenu_container > .mgmenu > li.mgmenu_button_active,
 		.mgmenu_fixed > .mgmenu > li.mgmenu_button_active,
 		.mgmenu_footer > .mgmenu > li.mgmenu_button_active {
-			background-color:#000000;
+			background-color:#8e7d7e;
 		}
+
 
 /* 2. Mega Menu Trigger Button */
 
@@ -205,24 +205,25 @@ p{font-size:12px; line-height:21px; margin-bottom:18px}
 	width:35px;
 	height:41px;
 	display: block;
+
 }
 .mgmenu_trigger {
 	top: 0; 
-	background-image:url("../img/button_up.png");
+	background-image:url("../images/button_up.png");
 	background-position:center center;
 	background-repeat:no-repeat;
 	background-color: #121212;
 }
 .mgmenu_trigger.active {
-	background-image:url("../img/button_down.png");
+	background-image:url("../images/button_down.png");
 }
 .mgmenu_footer ~ .mgmenu_trigger {
 	top:auto;
 	bottom: 0; 
-	background-image:url("../img/button_down.png");
+	background-image:url("../images/button_down.png");
 }
 .mgmenu_footer ~ .mgmenu_trigger.active {
-	background-image:url("../img/button_up.png");
+	background-image:url("../images/button_up.png");
 }
 
 
@@ -489,10 +490,10 @@ p{font-size:12px; line-height:21px; margin-bottom:18px}
 	right:100%;
 }
 .mgmenu .dropdown_flyout .dropdown_parent {
-	background:url("../img/rightArrow.png") no-repeat 90% 9px;
+	background:url("images/rightArrow.png") no-repeat 90% 9px;
 }
 .mgmenu .dropdown_flyout .dropdown_parent_left {
-	background:url("../img/leftArrow.png") no-repeat 90% 9px;
+	background:url("images/img/leftArrow.png") no-repeat 90% 9px;
 }
 .mgmenu .dropdown_flyout li:hover > .dropdown_flyout_level,
 .mgmenu .dropdown_flyout li:hover > .dropdown_flyout_level_left {
@@ -757,7 +758,7 @@ p{font-size:12px; line-height:21px; margin-bottom:18px}
 
 
 .mgmenu .mini_icon {
-    background-image: url("../img/icons/mini-icons-white.png");
+    background-image: url("images/icons/mini-icons-white.png");
 	background-repeat: no-repeat;
 	margin-top: -2px;
 	padding-left: 6px;
@@ -861,19 +862,19 @@ p{font-size:12px; line-height:21px; margin-bottom:18px}
 	height: 24px;
 }
 .mgmenu .icon_vimeo {
-    background-image: url("../img/icons/icon_vimeo.png");
+    background-image: url("images/icon_vimeo.png");
 }
 .mgmenu .icon_dribbble {
-    background-image: url("../img/icons/icon_dribbble.png");
+    background-image: url("images/icon_dribbble.png");
 }
 .mgmenu .icon_twitter {
-    background-image: url("../img/icons/icon_twitter.png");
+    background-image: url("images/icon_twitter.png");
 }
 .mgmenu .icon_facebook {
-    background-image: url("../img/icons/icon_facebook.png");
+    background-image: url("images/icons/icon_facebook.png");
 }
 .mgmenu .icon_flickr {
-    background-image: url("../img/icons/icon_flickr.png");
+    background-image: url("images/icons/icon_flickr.png");
 }
 
 
@@ -1163,7 +1164,6 @@ p{font-size:12px; line-height:21px; margin-bottom:18px}
 
 @media only screen and (min-width: 768px) and (max-width: 984px) {
 
-
 	.mgmenu > li {
 	    padding-right: 10px;
 	}
@@ -1376,41 +1376,41 @@ p{font-size:12px; line-height:21px; margin-bottom:18px}
 
 	.mgmenu > li .mgmenu_drop {
 		background-size: 9px 5px;
-		background-image:url("../img/downArrow@2x.png");
+		background-image:url("images/downArrow@2x.png");
 	}
 	.mgmenu_footer .mgmenu > li .mgmenu_drop {
 		background-size: 9px 5px;
-		background-image:url("../img/upArrow@2x.png");
+		background-image:url("images/upArrow@2x.png");
 	}
 	.mgmenu_container > .mgmenu > li.mgmenu_button,
 	.mgmenu_fixed > .mgmenu > li.mgmenu_button,
 	.mgmenu_footer > .mgmenu > li.mgmenu_button {
 		background-size: 24px 24px;
-		background-image:url("../img/toggle@2x.png");
+		background-image:url("images/toggle@2x.png");
 	}
 	.mgmenu_trigger {
 		background-size: 35px 35px;
-		background-image:url("../img/button_up@2x.png");
+		background-image:url("images/button_up@2x.png");
 	}
 	.mgmenu_trigger.active {
 		background-size: 35px 35px;
-		background-image:url("../img/button_down@2x.png");
+		background-image:url("images/button_down@2x.png");
 	}
 	.mgmenu_footer ~ .mgmenu_trigger {
 		background-size: 35px 35px;
-		background-image:url("../img/button_down@2x.png");
+		background-image:url("images/button_down@2x.png");
 	}
 	.mgmenu_footer ~ .mgmenu_trigger.active {
 		background-size: 35px 35px;
-		background-image:url("../img/button_up@2x.png");
+		background-image:url("images/button_up@2x.png");
 	}
 	.mgmenu .dropdown_flyout .dropdown_parent {
 		background-size: 5px 9px;
-		background-image:url("../img/rightArrow@2x.png");
+		background-image:url("images/rightArrow@2x.png");
 	}
 	.mgmenu .dropdown_flyout .dropdown_parent_left {
 		background-size: 5px 9px;
-		background-image:url("../img/leftArrow@2x.png");
+		background-image:url("images/leftArrow@2x.png");
 	}
 	.mgmenu .mini_icon {
 	    background-image: url("../img/icons/mini-icons-white@2x.png");
@@ -1422,19 +1422,19 @@ p{font-size:12px; line-height:21px; margin-bottom:18px}
 		background-size: 24px 24px;
 	}
 	.mgmenu .icon_vimeo {
-	    background-image: url("../img/icons/icon_vimeo@2x.png");
+	    background-image: url("images/icon_vimeo@2x.png");
 	}
 	.mgmenu .icon_dribbble {
-	    background-image: url("../img/icons/icon_dribbble@2x.png");
+	    background-image: url("images/icons/icon_dribbble@2x.png");
 	}
 	.mgmenu .icon_twitter {
-	    background-image: url("../img/icons/icon_twitter@2x.png");
+	    background-image: url("images/icons/icon_twitter@2x.png");
 	}
 	.mgmenu .icon_facebook {
-	    background-image: url("../img/icons/icon_facebook@2x.png");
+	    background-image: url("images/icons/icon_facebook@2x.png");
 	}
 	.mgmenu .icon_flickr {
-	    background-image: url("../img/icons/icon_flickr@2x.png");
+	    background-image: url("images/icons/icon_flickr@2x.png");
 	}
 
 
@@ -1445,7 +1445,8 @@ p{font-size:12px; line-height:21px; margin-bottom:18px}
 
 	.mgmenu li .dropdown_flyout .dropdown_parent {
 		background-size: 9px 5px;
-		background-image:url("../img/downArrow-b@2x.png");
+		background-image:url("images/downArrow-b@2x.png");
 	}
+
 
 }

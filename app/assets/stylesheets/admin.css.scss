@@ -1,13 +1,4 @@
-/* Sample pallete  */
 
-/* e5e5e5   warmwhite  */
-/* f84241   lightred  */
-/* d43839   dark red  */
-/* 494949  textgrey  */
-/* 6b6b6b  darkergrey */
-/* warm white #f0ecec            */
-/* portrait bg clr #d7e6f4  */
-/* new portrait bg #e8eae5 */
 @font-face {
   font-family: 'Oswald';
   font-style: normal;
@@ -65,21 +56,35 @@
   src: local('Roboto Condensed Light Italic'), local('RobotoCondensed-LightItalic'), url('https://secureolp.liberalonline.ca/fonts/RobotoCondensedItalic300.woff') format('woff');
 }
 *,html {padding:0px; margin:0px;}
+
+.hrbreake7e6e7 {
+	background-image: url("../images/hr_e7e6e7.gif");
+	background-repeat: repeat-x;
+    background-position: left center;
+	width:100%;
+	display:block;
+	min-height:10px;
+	clear:both;
+}	
+
 ul,ol {margin-left:30px;}
 a:link,
 a:visited {text-decoration:none;}
 a:hover {text-decoration:underline;}
-body { background-color:#ebede8}
-h1 {
+body { background-color:#e6e5e5}
+h1,h2,h3,h4 {
   font-weight: 400;
   font-family: 'Oswald',sans-serif;
   margin-bottom: 0px;
-  margin-left: -8px;
   padding-bottom: 0px;
-  font-size: 29px;
-  color: #C1BFBF;
+  color: #635857;
   text-shadow: 0px 1px 3px #d9d9d9;
 }
+h1 {font-size: 32px;}
+h2 {font-size: 24px; color: #8e7d7e;}
+h3 {font-size: 20px; color: #8e7d7e;}
+h4 {font-size: 20px; color: #8e7d7e;}
+
 .container {max-width:960px; margin-left:auto; margin-right:auto; width:85%}
 
 .error {font-size:10px; margin-top:3px; margin-bottom:12px; line-height:22px; color:red;}
@@ -123,8 +128,87 @@ input[type="submit"]:hover {
   background: -ms-linear-gradient(top, #a0171c, #cb2027);
   background: -webkit-linear-gradient(top, #a0171c, #cb2027);
 }
+.listperson {
+     font-family: 'Droid sans',sans-serif;
+     min-height:100px; 
+	 min-width:270px;
+	 width:300px;
+	 float:left; 
+	 padding:20px;
+	 }
+.listperson > .name {
+     font-family: 'Oswald',sans-serif;
+	 font-size:15px;
+	 width:263px;
+	 }
+.listperson > .email {
+     font-size:12px;
+	 }	 
+.avatar > img {
+     width:45px; 
+	 float:left;
+	 margin-right:4px;
+	 }
+.listperson {
+     font-size:12px;
+     float:left; 
+	 margin-left:10px;
+	 
+	 }
+.listperson > .transdeets > .bigdata	{
+     font-family: 'Oswald',sans-serif;
+     font-weight:700;
+	 font-size:18px;
+}
 
+.listperson {
+  position: relative;
+  width: 29%;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+  padding: 2em 1.5em;
+  color: rgba(0,0,0, .8);
+  text-shadow: 0 1px 0 #fff;
+  line-height: 1.5;
+  min-height:170px;
+  margin: 20px auto;
+  float:left;
+  background-color:#fff; 
+  margin-left:4px;
+  cursor: pointer;
+}
 
+.listperson:before, .listperson:after 
+{
+  z-index: -1; 
+  position: absolute; 
+  content: "";
+  bottom: 15px;
+  left: 10px;
+  width: 50%; 
+  top: 80%;
+  max-width:300px;
+  background: rgba(0, 0, 0, 0.7); 
+  -webkit-box-shadow: 0 15px 10px rgba(0,0,0, 0.7);   
+  -moz-box-shadow: 0 15px 10px rgba(0, 0, 0, 0.7);
+  box-shadow: 0 15px 10px rgba(0, 0, 0, 0.7);
+  -webkit-transform: rotate(-3deg);    
+  -moz-transform: rotate(-3deg);   
+  -o-transform: rotate(-3deg);
+  -ms-transform: rotate(-3deg);
+  transform: rotate(-3deg);
+}
+
+.listperson:after 
+{
+  -webkit-transform: rotate(3deg);
+  -moz-transform: rotate(3deg);
+  -o-transform: rotate(3deg);
+  -ms-transform: rotate(3deg);
+  transform: rotate(3deg);
+  right: 10px;
+  left: auto;
+}
 
 
 #document_headline,
@@ -140,8 +224,22 @@ input[type="submit"]:hover {
   box-shadow: 2px 3px 2px #7e8a9a;
   font-size: 16px;
   padding: 6px 7px;
+  clear:left;
   /*    outline: 0px none;  */
-
+}
+#document_doc_type,
+#document_language {
+  width:45%;
+  height: 38px;
+  float:left;
+  margin-right:19px;
+  margin-bottom:10px;
+  border: 1px solid rgb(204, 204, 204);
+  border-radius: 3px;
+  box-shadow: 2px 3px 2px #7e8a9a;
+  font-size: 16px;
+  padding: 6px 7px;
+  /*    outline: 0px none;  */
 }
 #document_headline:focus,
 #document_subtitle:focus,
