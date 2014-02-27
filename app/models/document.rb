@@ -37,6 +37,8 @@ class Document
   field :is_draft, type: Boolean
   field :riding_id, type: Integer
   field :web_site, type: String
+  field :publish_on_toolkit, type: Boolean
+  field :require_authentication, type: Boolean
 
   #audit fields
   field :user_id, type: Integer

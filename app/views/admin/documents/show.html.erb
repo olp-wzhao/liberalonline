@@ -41,6 +41,7 @@
                         <p class="tiny"><%= @document.partisan %></p>
                         <p class="tiny"><%= @document.user_id %></p>
                         <p class="tiny"><%= @document.updated_time %></p>
+                 <%= image_tag @document.image_url %>
             <% unless @document.attachments.nil? %>
                  <% @document.attachments.each do |a| %>
                      <%= render a %>

@@ -20,7 +20,9 @@
   <div class="container">
  
     <h1>Webservice Version 7.0 BETA</h1>
-    <%= render '/shared/admin_menu' %>
+    <% if admin_signed_in? %>
+        <%= render '/shared/admin_menu' %>
+    <% end %>
     <%= yield %>
 
   </div>

@@ -21,24 +21,20 @@ class Admin::AttachmentsController < Admin::AdminController
   end
 
   def create
-    # if !attachment_params["temp_id"].nil?
-    #   @attachment = Attachment.find_or_create_by(temp_id: attachment_params["temp_id"])
-    # else
-    #   @attachment = Attachment.where(id: attachment_params["id"]).first
-    #   if @attachment.nil?
+    #if the document doesn't exist how do I pass the parameters
     @document = Document.find_by(id: params[:document_id])
     @attachment = Attachment.new(attachment_params)
     @document.attachments << @attachment
-    #   end
-    # end
-    
-    #@attachment.update(attachment_params)
-    respond_to do |format|
-      if @document.save
-        format.js
-        format.html { redirect_to edit_admin_document_path(@document) }
-        #format.json { render json: 'attachment saved to mongodb', status: :created }
-      else
+
+
+    if @document.save
+      if request.xhr? || remotipart_submitted?
+        render :layout => false, :template => '/admin/attachments/create.js', :status => :ok, :format => :js
+      end
+      #format.js { }#redirect_to edit_admin_document_path(@document) }
+      #format.json { render json: 'attachment saved to mongodb', status: :created }
+    else
+      respond_to do |format|
         format.html { render action: 'new' }
         format.json { render json: @attachment.errors, status: :unprocessable_entity }
       end
