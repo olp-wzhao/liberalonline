@@ -80,7 +80,7 @@ class Admin::DocumentsController < Admin::AdminController
 
   #Admin routes
   def toolkit
-    @documents = Document.toolkit.limit(10)
+    @documents = Document.toolkit.order_by(:updated_at.desc).limit(10)
     #render :layout => "toolkit_layout"
   end
 

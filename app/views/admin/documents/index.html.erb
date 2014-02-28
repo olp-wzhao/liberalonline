@@ -6,7 +6,13 @@
         <img src="https://secureolp.liberalonline.ca/images/logo_sm_white_vert.png">
       </div>
       <div class="menuholder">
-        <span class="red" style="position : relative; top:.15em;"><a href="#">Fundraising</a> | <a href="#">Nominations</a> | <a href="#">Websites</a> &nbsp;&nbsp;</span> <span class="tiny grey">Logged in as: Webadmin@ontarioliberal.ca | <a href="#">Logout</a></span>
+        <span class="red" style="position : relative; top:.15em;">
+          <a href="#">Fundraising</a> |
+          <a href="#">Nominations</a> |
+          <a href="#">Websites</a> &nbsp;&nbsp;</span>
+        <span class="tiny grey">Logged in as: <%= current_admin.email %>> |
+          <%= link_to "Logout", destroy_admin_session_path, :method => :delete %>
+        </span>
       </div>
     </div>
     <!-- close container -->
@@ -27,7 +33,8 @@
       <p class="grey">Recently Added</p>
       <div class="hrbreake7e6e7">&nbsp;</div>
       <% @documents.each do |document| %>
-                <%= link_to "Edit this document", edit_admin_document_path(document) %>
+             <%= link_to "Edit this document", edit_admin_document_path(document) %>
+          <%= link_to "Delete this document", admin_document_path(document), method: :delete %>
               <!-- <p>ID: <%= document.temp_id %></p> -->
               <div class="listh1 grey"><%= raw document.headline %></div>
               <div class="listh2 red"><%= raw document.subtitle %></div>

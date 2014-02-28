@@ -2,6 +2,7 @@
 
 <%= simple_form_for [:admin, @document], :html => {multipart: true, remote: true} do |f| %>
   <%= f.error_notification %>
+    <input type="hidden" id="ajax_id" />
     <%= f.input :headline %>
     <%= f.input :subtitle %>
     <%= f.input :introduction %>
@@ -44,6 +45,8 @@
     <br />
     <%= f.button :submit %>
 <% end %>
+
+<%= link_to "Delete this document", admin_document_path(@document), method: :delete %>
 
 <%= tinymce %>
 

@@ -1,8 +1,4 @@
 V44::Application.routes.draw do
-  
-  devise_for :admins
-  get "party_history/index"
-  resources :lawnsign_requests
 
   mount RailsAdmin::Engine => '/rails_admin', :as => 'rails_admin'
   devise_for :users, controllers: {
@@ -11,6 +7,9 @@ V44::Application.routes.draw do
     invitations: 'invitations'
   }
 
+  get "party_history/index"
+
+  resources :lawnsign_requests
   resources :volunteers
   resources :photos
   resources :videos
@@ -188,6 +187,8 @@ V44::Application.routes.draw do
   #     resources :products
   #   end
 
+  devise_for :admins, controllers: { sessions: "admins/sessions" }
+
   namespace :admin do
     resources :documents do
       resources :attachments
@@ -205,6 +206,7 @@ V44::Application.routes.draw do
   end
 
   get '*a', :to => redirect('/404.html')
+  #get '/', :to => redirect('home#index')
 
   namespace :api do
     namespace :v1  do
