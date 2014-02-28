@@ -1,20 +1,11 @@
-<div class="modal-header">
-  <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-  <h3 id="myModalLabel">Modal header</h3>
-</div>
 <div class="modal-body">
     <%= simple_form_for [:admin, @document, @attachment], :html => {:multipart => true }, :remote => true do |f| %>
       <%= f.error_notification %>
         <%= f.input :title %>
-        <%= f.input :language, collection: ["English", "French"], priority: [ "English" ], default: 'English' %>
         <%= f.input :description %>
-        <%= f.input :place %>
-        <%= f.input :published, as: :boolean %>
-        <%= f.input :web_site %>
-        <%= f.input :pdf, as: :file, label: 'Upload Attachment'  %>
+        <%= f.input :pdf, as: :file, label: 'Upload Attachment' %>
         <%= f.hidden_field :pdf_cache %>
         <br/>
-      <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
       <%= f.button :submit %>
     <% end %>
 </div>
