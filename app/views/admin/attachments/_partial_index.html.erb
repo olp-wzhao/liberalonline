@@ -1,6 +1,4 @@
-<ul id="attachments">
-  <%= render @document.attachments %>
-</ul>
+
 
 <br />
 <div id="form_placeholder"></div>
@@ -12,7 +10,7 @@
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-        <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+        <h4 class="modal-title" id="myModalLabel">Add file</h4>
       </div>
       <div class="modal-body">
         ...
@@ -20,5 +18,3 @@
     </div>
   </div>
 </div>
-
-<%= link_to 'Add Pdf', new_admin_document_attachment_path(@document.id), {:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#myModal' }%>

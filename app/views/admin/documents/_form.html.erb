@@ -1,55 +1,58 @@
 <%= simple_form_for [:admin, @document], :html => {multipart: true} do |f| %>
   <%= f.error_notification %>
     <input type="hidden" id="ajax_id" />
-    <%= f.input :doc_type, collection: DocumentType.all.map{|t| [t.name, t.temp_id]}, as: :select, selected: '20' %>
-    <%= f.input :language, collection: %w(English French), priority: ['English'], selected: 'English' %>
+    <%= f.input :doc_type, collection: DocumentType.all.map{|t| [t.name, t.temp_id]}, as: :select, selected: '20', label: false %>
+    <%= f.input :language, collection: %w(English French), priority: ['English'], selected: 'English', label: false %>
 	<div class="hrbreake7e6e7">&nbsp;</div>
-    <%= f.input :headline %>
-    <%= f.input :subtitle %>
+    <%= f.input :headline, placeholder: 'Headline', label: false %>
+    <%= f.input :subtitle, placeholder: 'Subtitle', label: false %>
     <%= f.input :body, as: :text, :input_html => { :class => 'tinymce', :rows => 40, :cols => 80 } %>
-    <%= f.input :author %>
-    <%= f.input :reference_url %>
-    <%= f.input :reference_name %>
+    <%#= f.input :author %>
+    <%#= f.input :reference_url %>
+    <%#= f.input :reference_name %>
 
-    <%= f.input :attached_video_ids %>
+    <%#= f.input :attached_video_ids %>
 
-    <%= f.input :helpfulness_rating, collection: 1..10, selected: 1 %>
-    <%= f.input :applicability_rating, collection: 1..10, selected: 1 %>
-    <%= f.input :introduction %>	
-    <%= f.input :allow_comment, as: :boolean %>
-    <%= f.input :published, as: :boolean %>
+    <%#= f.input :helpfulness_rating, collection: 1..10, selected: 1 %>
+    <%#= f.input :applicability_rating, collection: 1..10, selected: 1 %>
+    <%#= f.input :introduction %>
+    <%#= f.input :allow_comment, as: :boolean %>
 
-    <%= f.input :copy_protect, as: :boolean %>
+
+    <%#= f.input :copy_protect, as: :boolean %>
     <%= f.input :document_date, as: :date %>
     <%#= f.input :display_date, as: :date %>
     <%#= f.input :expiry_date, as: :date %>
-    
     <%#= f.input :publish_on_olp, as: :boolean %>
     <%#= f.input :publish_on_mpp, as: :boolean %>
-    <%= f.input :publish_on_pla, as: :boolean, default: "1", label: false, input_html: { style: "display: none"} %>
-    <%= f.input :partisan, as: :boolean, default: "1", label: false, input_html: { style: "display: none"} %>
-    <%= f.input :author_photo %>
-    <%= f.input :is_draft, as: :boolean %>
-    <%= f.input :riding_id, collection: Riding.all.map{|r| [r.title, r.riding_id]}, as: :select, selected: 'Central'%>
-    <%= f.input :web_site %>
+    <%= f.input :publish_on_pla, as: :boolean, default: "1", label: false, input_html: { style: 'display: none'} %>
+    <%= f.input :partisan, as: :boolean, default: "1", label: false, input_html: { style: 'display: none'} %>
+    <%#= f.input :author_photo %>
+    <%#= f.input :is_draft, as: :boolean %>
+    <%= f.input :riding_id, collection: Riding.all.map{|r| [r.title, r.riding_id]}, as: :select, selected: 'Central', label: false, input_html: { style: 'display: none'}%>
+    <%#= f.input :web_site %>
 
-    <%= f.input :category_id, collection: ["Generic", "Environment" "Job/Wages", "Economy", "Crime and Community", "Education", "Healthcare", "Infrastructure", "Green Energy", "Tax Reform", "Transit", "Immigration Services", "Government Efficiency", "Agriculture", "Condolences"], selected: 'Generic' %>
-    <%= f.input :customized_category_id, collection: ['CustomizedCategory 1', 'CustomizedCategory 2', 'CustomizedCategory 3', 'CustomizedCategory 4'], selected: 'CustomizedCategory1' %>
-    <%= f.input :publish_on_toolkit, as: :boolean %>
-    <%= f.input :require_authentication, as: :boolean %>
+    <%= f.input :category_id, collection: ['Generic', 'Environment', "Job/Wages", "Economy", "Crime and Community", "Education", "Healthcare", "Infrastructure", "Green Energy", "Tax Reform", "Transit", "Immigration Services", "Government Efficiency", "Agriculture", "Condolences"], selected: 'Generic' %>
+    <%= f.input :customized_category_id, collection: ['Samples', 'Training', 'LibE', 'Fundraising', 'Finances', 'Engagement', 'Campaign Services', 'Email Marketing', 'Contact', 'Blog'], selected: 'Samples' %>
+    <%#= f.input :publish_on_toolkit, as: :boolean %>
+    <%#= f.input :require_authentication, as: :boolean %>
 
-    <%= f.input :issue_id %>
-
+    <%#= f.input :issue_id %>
+    <%= link_to 'Add Pdf', new_admin_document_attachment_path(@document.id), {:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#myModal' }%>
+    <ul id="attachments">
+      <%= render @document.attachments %>
+    </ul>
     <p>Document Image</p>
     <%= image_tag(@document.image_url) if @document.image? %>
     <%= f.input :image_name %>
     <%= f.input :image, as: :file, label: 'Upload Image' %>
     <%= f.hidden_field :image_cache %>
     <br />
-    <%= f.button :submit %>
+    <%= f.input :published, as: :boolean, html: { value: 'publish' } %>
+    <%= f.button :submit, 'Save', id: 'save' %>
 <% end %>
 
-<%= link_to "Delete this document", admin_document_path(@document), method: :delete %>
+<%= button_to 'Delete', admin_document_path(@document), method: :delete, id: 'delete', :data => { :confirm => 'Are you sure?' } %>
 
 <%= tinymce %>
 
