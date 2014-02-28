@@ -797,22 +797,28 @@ MEGAMENU_JAVASCRIPT
 			photo_file = '_Thumbnail.jpg'
 			photo_url['_Thumbnail.jpg'] = ''
 		end
-        
-        if Net::HTTP.get_response(URI.parse('http://' + request.host + '/photos/' + photo_site + photo_dir + photo_url + photo_file)).kind_of?(Net::HTTPSuccess) == false
-            
-            #save_path = 'public/photos/' + photo_site + photo_dir + photo_url
-            #save_path_with_filename = Rails.root.join(save_path).to_s + photo_file
-            
-            #dir = File.dirname(save_path)
-
-            #unless File.directory?(dir)
-            #    FileUtils.mkdir_p(dir)
-            #end
+        if request.port != 3000
+          if Net::HTTP.get_response(URI.parse('http://' + request.host + '/photos/' + photo_site + photo_dir + photo_url + photo_file)).kind_of?(Net::HTTPSuccess) == false
 
             open('/home/service201/webdocs/photos/' + photo_site + photo_dir + photo_url + photo_file, 'wb') do |file|
-            #external_image = open('http://pantone201.ca/webskins/' + photo_site + 'photos/' + photo_dir + photo_url + photo_file)
+              #external_image = open('http://pantone201.ca/webskins/' + photo_site + 'photos/' + photo_dir + photo_url + photo_file)
+              file << open('http://pantone201.ca/webskins/' + photo_site + 'photos/' + photo_dir + photo_url + photo_file).read
+            end
+          end
+        else
+          #local development
+          save_path = 'public/photos/' + photo_site + photo_dir + photo_url
+          save_path_with_filename = Rails.root.join(save_path).to_s + photo_file
+
+          dir = File.dirname(save_path)
+
+          unless File.directory?(dir)
+              FileUtils.mkdir_p(dir)
+          end
+
+          File.open(save_path_with_filename, 'wb') do |file|
             file << open('http://pantone201.ca/webskins/' + photo_site + 'photos/' + photo_dir + photo_url + photo_file).read
-			end
+          end
         end
         
         '/photos/' + photo_site + photo_dir + photo_url + photo_file

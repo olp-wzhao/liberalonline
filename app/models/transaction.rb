@@ -25,7 +25,7 @@ class Transaction
   field :home_riding, type: Float
   field :type, type: String
   field :comments, type: String
-  field :complete, type: Float
+  field :complete, type: Boolean
   field :reference, type: String
   field :temp_id, type: Integer
   field :success, type: Boolean
@@ -37,7 +37,7 @@ class Transaction
   before_save :find_or_create_user
 
   scope :by_email, -> (email) { where(email: email).group } 
-  scope :memberships, -> { where(type: "Membership") }
+  scope :memberships, -> { where(type: "Membership", ) }
   scope :donations, -> { where(type: "Donation") }
   scope :events, -> { where(type: "Item") }
   scope :under_twenty_dollars, -> { lte(get_total: 20) }
