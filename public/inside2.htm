@@ -207,7 +207,7 @@ h2 {color:#8e7d7e; line-height:102%px;}
 
 #logpanel {
     width:100%; 
-	height:30px; 
+	height:60px; 
 	background-color:white; 
 	text-align:right; 
 	padding-bottom:11px;
@@ -224,6 +224,17 @@ h2 {color:#8e7d7e; line-height:102%px;}
     -moz-box-shadow: 0px 9px 8px -9px #c7c7c7;
 	box-shadow: 0px 9px 8px -9px #c7c7c7; 	
 }
+#undermenu {
+    width:100%; 
+	height:25px; 
+	background-color:#e6e6e6; 
+	padding-left:16px;
+	padding-top:5px;
+	text-align:right;
+	-webkit-box-shadow: 0px 9px 8px -9px #c7c7c7;
+    -moz-box-shadow: 0px 9px 8px -9px #c7c7c7;
+	box-shadow: 0px 9px 8px -9px #c7c7c7; 	
+}
 .dropdown .dropdown-menu,
 .dropdown .dropdown-panel {font-size:14px; font-family: 'Roboto Condensed', sans-serif;}
 .micromenu {float:right;width:220px;margin-top:10px;padding-right:10px;}
@@ -233,7 +244,7 @@ h2 {color:#8e7d7e; line-height:102%px;}
     color:#8b8082;
     margin-bottom:25px;
     font-size:.80em;
-    text-transform:uppercase;
+    text-transform:none;
     text-decoration:none;
     }
 .micromenu a:hover {
@@ -306,11 +317,13 @@ h2 {color:#8e7d7e; line-height:102%px;}
     width: 64%;
 	float:left;
 	min-height:700px;
+	border-right:solid 1px #cccccc;
 }
 #col8picblocker {
 	min-height:395px;
 	width:30%;
 	float:right;
+
 }
 
 .col-4 {
@@ -323,8 +336,11 @@ h2 {color:#8e7d7e; line-height:102%px;}
 	z-index:1;
 	position:static;
 	top:400px;
+	padding-top:50px;
 }
-
+.col-4 > h1,
+.col-4 > h2 {font-size:1.0em;}
+h2 + h1 {padding-top:20px;}
 .clear {display:block; clear:both;}
 
 .col5 {
@@ -501,7 +517,7 @@ min-height:100px;
 .sharetwitter:hover {background-image:url("images/b_sharetwitterhover.png");}
 
 
-.logo {position:relative; top:0px; z-index:888; width:250px;}
+.logo {position:relative; top:-5px; z-index:888; width:250px; margin-left:16px;}
 .mgmenu {clear:right;}
 .mgmenu_container { margin-top:-65px;}
 @media all and (max-width: 768px) {
@@ -536,7 +552,7 @@ h1,h2 {font-size:30px;}
          <a href="#" data-dropdown="#accountoptions">Account<span class="droparrow"></span></a>
       </div>
 
-     <div id="socialmediaicons" class="nomobile" style="margin:0px; padding:0px; margin-top:6px;">
+<!--     <div id="socialmediaicons" class="nomobile" style="margin:0px; padding:0px; margin-top:6px;">
        <ul>
        <li class="facebook"><a href="#" title="facebook" target="_blank"></a></li>
        <li class="twitter"><a href="#" title="twitter" target="_blank"></a></li>
@@ -546,7 +562,7 @@ h1,h2 {font-size:30px;}
        <li class="linkedin"><a href="#" class="linkedin" target="_blank"></a></li>
        </ul>
      </div>
-
+-->
 
          <div id="accountoptions" class="dropdown dropdown-anchor-right">
              <ul class="dropdown-menu">
@@ -958,8 +974,9 @@ h1,h2 {font-size:30px;}
 
 
 
-
-<div class="container"><div class="pagetitle">News</div>
+<div id="undermenu">
+<div class="container"><div class="micromenu" style="margin-right:30px; margin-top:-1px;"><a href="#">Sign In | Create Account</a></div>
+</div>
 
 <div style="clear:both; width:100%; display:block;">&nbsp;</div>
 </div><!-- Close top container -->
@@ -975,7 +992,9 @@ h1,h2 {font-size:30px;}
 			  <div class="container">
 
                 <div class="main">
-				
+				<br><br>
+					<h1 id="responsive_headline">Minimum Wage is Increasing but this headline needs to be broken up</h1>
+					<h2>In the end what I find ugly are orphaned words</h2>
 				    <div id="imageholder" class="drop-shadow lifted"><img src="images/newspic.jpg"></div>
 					<div style="clear:both; display:block;">&nbsp;</div>
 					<h1 id="responsive_headline">Minimum Wage is Increasing but this headline needs to be broken up</h1>
@@ -1013,16 +1032,53 @@ h1,h2 {font-size:30px;}
 				
 				
 				
-                <div class="col-4 fixed">
+<div class="col-4 fixed">
+
+<div class="hrbreake7e6e7"></div>
+<h1><a href="#">Provincial News</a></h1>
+<div class="hrbreake7e6e7"></div>
+<h1>Photo of the Day</h1>
+<div class="hrbreake7e6e7"></div>
+<h1>In Video</h1>
+<div class="hrbreake7e6e7"></div>
+
+
+<h1>Making Ontario's Minimum Wage Fair and Predictable<h1>
+<h2>Ontario is taking the next step to ensure the province's 
+minimum wage keeps pace with the cost of living, and that 
+increases are fair for families and predictable for businesses.</h2>
+
+<h1>Helping Families Make Healthy Food Choices</h1>
+<h2>Ontario will introduce legislation today to make it easier for 
+families to make informed and healthy food choices.</h2>
+
+<h1>A Year of Progress for Ontario</h1>
+<h2>After one year in office, the Ontario government has moved forward 
+on every part of its economic plan focused on people and partnerships 
+to create jobs and grow the economy across the province.</h2>
+
+<h1>Eleanor McMahon Nominated as Ontario Liberal Candidate in Burlington</h1>
+<h2>The Ontario Liberal Party is pleased to announce that Eleanor 
+McMahon was nominated tonight as our Partys candidate for the 
+riding of Burlington.</h2>
+
+
+				<h1>Some Subtitle</h1>
                  <p>Kathleen Wynne</p>
 				 <p>Party History</p>
 				 <p>MPPs</p>
 				 <p>Candidates</p>
-                </div>
-				
 
-				<div class="clear">&nbsp;</div>
-								
+
+
+</div>
+				
+<div class="clear">&nbsp;</div>
+					
+					
+					
+					
+					
 			</div>
 	</div>
 	
