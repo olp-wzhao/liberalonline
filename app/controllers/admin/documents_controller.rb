@@ -32,9 +32,6 @@ class Admin::DocumentsController < Admin::AdminController
     success = false
     @document = Document.where(temp_id: document_params["temp_id"]).first
     
-    logger.info "New or Updated Document: #{@document.attributes.inspect}"
-    logger.info "document parameters: #{document_params}"
-    
     if !@document.nil?
       #binding.pry
       success = @document.update(document_params)
@@ -45,7 +42,6 @@ class Admin::DocumentsController < Admin::AdminController
 
     respond_to do |format|
       if success
-        logger.info "Updated @document"
         format.html { redirect_to admin_documents_path, notice: 'Document was successfully created.' }
         format.json { render json: 'document saved to mongodb', status: :created }
       else
@@ -86,7 +82,7 @@ class Admin::DocumentsController < Admin::AdminController
   end
 
   def show
-      @document = Document.find_by(id: params[:id])
+      @document = Document.find params[:id]
       render :layout => "toolkit_layout"
   end
 
@@ -95,7 +91,7 @@ class Admin::DocumentsController < Admin::AdminController
     def set_document
       @document = Document.where(temp_id: params[:id]).first
       if @document.nil?
-        @document = Document.find_by(id: params["id"])
+        @document = Document.find params[:id]
       end
     end
 
