@@ -1,4 +1,4 @@
-<%= simple_form_for [:admin, @document], :html => {multipart: true, remote: true} do |f| %>
+<%= simple_form_for [:admin, @document], :html => {multipart: true} do |f| %>
   <%= f.error_notification %>
     <input type="hidden" id="ajax_id" />
     <%= f.input :doc_type, collection: DocumentType.all, as: :select %> 
@@ -30,7 +30,7 @@
     <%= f.input :partisan, as: :boolean, default: "1", label: false, input_html: { style: "display: none"} %>
     <%= f.input :author_photo %>
     <%= f.input :is_draft, as: :boolean %>
-    <%= f.input :riding_id, collection: Riding.all.map{|r| [r.name, r.riding_id]}, as: :select, selected: 'Central'%>
+    <%= f.input :riding_id, collection: Riding.all.map{|r| [r.title, r.riding_id]}, as: :select, selected: 'Central'%>
     <%= f.input :web_site %>
     <%= f.input :doc_type, collection: DocumentType.all.map{|t| [t.name, t.temp_id]}, as: :select, selected: '20' %>
     <%= f.input :category_id, collection: ["Generic", "Environment" "Job/Wages", "Economy", "Crime and Community", "Education", "Healthcare", "Infrastructure", "Green Energy", "Tax Reform", "Transit", "Immigration Services", "Government Efficiency", "Agriculture", "Condolences"], selected: 'Generic' %>

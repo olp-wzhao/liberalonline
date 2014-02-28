@@ -102,6 +102,7 @@ class Admin::DocumentsController < Admin::AdminController
     def document_params
       fix_scrambled_date_parameters_on_create("display_date")
       fix_scrambled_date_parameters_on_create("expiry_date")
+      fix_scrambled_date_parameters_on_create("document_date")
       params.require(:document).permit(:name,
         :headline, 
         :subtitle, 
