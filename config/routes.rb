@@ -129,7 +129,8 @@ V44::Application.routes.draw do
   #get 'fbtest' => 'fbtest#index'
   #get 'fbtest/:id' => 'fbtest#show'
 
-
+  get 'toolkit' => 'toolkit#index'
+  get 'toolkit/:id' => 'toolkit#show'
 
   
   # The priority is based upon order of creation: first created -> highest priority.
@@ -195,8 +196,6 @@ V44::Application.routes.draw do
     end
     resources :transactions
     get 'home' => 'home#home'
-    get 'toolkit' => "documents#toolkit"
-    get 'toolkit/:id' => "documents#show"
     get 'transactions' => 'transactions#admin_index'
     get 'transaction_scopes/:id' => 'transactions#scopes'
     get 'petitions/:id' => 'petitions#index'
