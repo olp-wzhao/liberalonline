@@ -9,7 +9,8 @@ class Admin::DocumentsController < Admin::AdminController
   # GET /documents
   # GET /documents.json
   def index
-    @documents = Document.all.limit(10)
+    search_params
+    @documents = @documents.order_by(:updated_at.desc).limit(10)
   end
 
   # GET /documents/new
@@ -80,7 +81,7 @@ class Admin::DocumentsController < Admin::AdminController
 
   #Admin routes
   def toolkit
-    @documents = Document.toolkit.order_by(:updated_at.desc).limit(10)
+    @documents = Document.toolkit.limit(10)
     #render :layout => "toolkit_layout"
   end
 
@@ -159,4 +160,16 @@ class Admin::DocumentsController < Admin::AdminController
       params[:document].delete :"#{field_name}(2i)"
       params[:document].delete :"#{field_name}(3i)"
     end
+
+  def search_params
+    @documents = Document.all
+    params.each do |key, value|
+      # target groups using regular expressions
+      skip_list = ["auth_token", "action", "controller", "format", "scope"]
+      unless skip_list.include?(key)
+        @documents = @documents.where(key => value)
+      end
+    end
+
+  end
 end

@@ -2,7 +2,7 @@ class Document
   include Mongoid::Document
   include Mongoid::Timestamps
   include Mongoid::MultiParameterAttributes
-  #include Mongoid::Slug
+  include Mongoid::Slug
 
   mount_uploader :image, ImageUploader
 
@@ -74,7 +74,7 @@ class Document
 
   #only central
   scope :press_release, -> { where(doc_type: 0).order_by(:document_date.desc) }
-  scope :toolkit, -> { where(doc_type: 20).order_by(:document_date.desc) }
+  scope :toolkit, -> { where(doc_type: 20).order_by(:updated_at.desc) }
   
 
   scope :news_documents, -> {  where(:riding_id => 0, :published => true, :publish_on_pla => true)
@@ -85,5 +85,5 @@ class Document
   #   self.headline = options[:headline]
   # end
 
-  #slug :headline, history: true
+  slug :headline, history: true
 end

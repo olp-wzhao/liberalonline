@@ -196,7 +196,7 @@ V44::Application.routes.draw do
     resources :transactions
     get 'home' => 'home#home'
     get 'toolkit' => "documents#toolkit"
-    get 'toolkit/:id' => "documents#toolkit_show"
+    get 'toolkit/:id' => "documents#show"
     get 'transactions' => 'transactions#admin_index'
     get 'transaction_scopes/:id' => 'transactions#scopes'
     get 'petitions/:id' => 'petitions#index'
