@@ -123,10 +123,6 @@ class ApplicationController < ActionController::Base
 
       @display_right_side_column = true;
 
-      #we are using better metrics from now on!!
-      # if !@is_test_site
-      #   add_web_site_visit_count(@web_site_manager.r_id, @remote_ip, @url_str, request.request_uri)
-      # end
     end
   end
 

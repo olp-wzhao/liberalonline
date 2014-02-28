@@ -8,12 +8,13 @@
 <% if @rotator_documents != nil && @rotator_documents.length > 0 %>
 <div class="flexslider"><!-- set this div to percentages for responsive -->
     <ul class="slides">
+      <% binding.pry %>
     <% @rotator_documents.each do |rotator_document| %>
         <li>
             <img src="<%= raw(croped_image_url(('http://pantone201.ca/webskins/' + (rotator_document.is_draft ? 'mpp' : 'olp') + '/photos/' + rotator_document.image_name), 0, 20, 700, 277)) %>" class="grayscale" />
             <div class="flex-caption">
                 <a href="<%= '/news/' + rotator_document.temp_id.to_s + '?l=' + @language %>"><div class="rotatorheadline"><%= raw(rotator_document.headline) %></div>
-                <div style="font-weight:400; font-size:14px;"><%= raw(rotator_document.subtitle) %></a></div>
+                <div style="font-weight:400; font-size:14px;"><%= raw(rotator_document.subtitle) %></div></a>
             </div>
         </li>
     <% end %>
@@ -23,9 +24,6 @@
 
 <div id="test">rotatortext reverse</div>
 <div id="columns" class="nomobile">
-<%
-=begin
-%>
     <% if @picture_news_documents != nil && @picture_news_documents.length > 0 %>
         <% @picture_news_documents.each do |document| %>
             <div class="threeup">
@@ -39,14 +37,11 @@
             </div>
         <% end %>
     <% end %>
-<%
-=end
-%>
     <% if @photos != nil && @photos.length > 0 %>
         <% @photos.each do |photo| %>
             <div class="threeup">
-                <%#= link_to image_tag(photo_to_local("http://pantone201.ca/webskins/olp/photos/thumbnails/" + photo.temp_id.to_s + "_" + photo.riding_id.to_s + photo.filename.to_s + "_Thumbnail.jpg"), :class => "frame grayscale"), '/photos' %>
-                <%#= link_to image_tag(photo_to_local("http://pantone201.ca/webskins/olp/photos/" + photo.temp_id.to_s + "_" + photo.riding_id.to_s + photo.filename.to_s + "_PhotoUp.jpg"), :class => "frame grayscale"), '/photos' %>
+                <%= link_to image_tag(photo_to_local("http://pantone201.ca/webskins/olp/photos/thumbnails/" + photo.temp_id.to_s + "_" + photo.riding_id.to_s + photo.filename.to_s + "_Thumbnail.jpg"), :class => "frame grayscale"), '/photos' %>
+                <%= link_to image_tag(photo_to_local("http://pantone201.ca/webskins/olp/photos/" + photo.temp_id.to_s + "_" + photo.riding_id.to_s + photo.filename.to_s + "_PhotoUp.jpg"), :class => "frame grayscale"), '/photos' %>
                 <hr class="style-one">
                 <p><%= raw(photo.caption_en) %></p>
             </div>
@@ -55,9 +50,6 @@
 </div>
 
 <div id="columns" class="mobile">
-<%
-=begin
-%>
     <% if @mobile_rotator_documents != nil && @mobile_rotator_documents.length > 0 %>
         <% @mobile_rotator_documents.each do |document| %>
             <div class="floatpicleft">
@@ -73,14 +65,11 @@
             <div class="clearright"></div>
         <% end %>
     <% end %>
-<%
-=end
-%>
     <% if @photos != nil && @photos.length > 0 %>
         <% @photos.each do |photo| %>
             <div class="floatpicleft">
-                <%#= link_to image_tag(photo_to_local("http://pantone201.ca/webskins/olp/photos/thumbnails/" + photo.temp_id.to_s + "_" + photo.riding_id.to_s + photo.filename.to_s + "_Thumbnail.jpg"), :class => "frame grayscale"), '/photos' %>
-                <%#= link_to image_tag(photo_to_local("http://pantone201.ca/webskins/olp/photos/" + photo.temp_id.to_s + "_" + photo.riding_id.to_s + photo.filename.to_s + "_PhotoUp.jpg"), :class => "frame grayscale"), '/photos' %>
+                <%= link_to image_tag(photo_to_local("http://pantone201.ca/webskins/olp/photos/thumbnails/" + photo.temp_id.to_s + "_" + photo.riding_id.to_s + photo.filename.to_s + "_Thumbnail.jpg"), :class => "frame grayscale"), '/photos' %>
+                <%= link_to image_tag(photo_to_local("http://pantone201.ca/webskins/olp/photos/" + photo.temp_id.to_s + "_" + photo.riding_id.to_s + photo.filename.to_s + "_PhotoUp.jpg"), :class => "frame grayscale"), '/photos' %>
             </div>
             <div class="floattextright">
                 <div class="listp"><%= raw(photo.caption_en) %></div>
