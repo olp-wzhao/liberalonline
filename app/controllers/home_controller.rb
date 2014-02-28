@@ -28,9 +28,8 @@ class HomeController < ApplicationController
                 rotator_document = Document.where(temp_id: rotator.document_id).first
                 if rotator_document != nil
                     rotator_document = prepare_document_photo(rotator_document, false, false)
-                    #binding.pry
                     #@mobile_rotator_documents << rotator_document.clone
-                    #@rotator_documents << rotator_document
+                    @rotator_documents << rotator_document
                     if rotator.is_local_published
                         @top_feature_rotator_document = rotator_document
                     end
