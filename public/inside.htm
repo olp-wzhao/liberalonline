@@ -5,7 +5,7 @@
         <title>Inside Page setup</title>
 		
 
-		
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
 
 
         <script src="javascripts/jquery-1.9.1.min.js"></script> 
@@ -292,6 +292,7 @@ h2 {color:#8e7d7e; line-height:102%px;}
 	background-image: url("images/redbottomborder.jpg");
 	background-repeat:y;
 	background-position:bottom center;
+	background-repeat:no-repeat;
 }
 #trigger {width:50px; height:50px; background-color:red;}
 #footertrigger {
@@ -502,30 +503,17 @@ min-height:100px;
 .sharefacebook:hover {background-image:url("images/b_sharefacebookhover.png");}
 .sharetwitter:hover {background-image:url("images/b_sharetwitterhover.png");}
 
+.logo {position:relative; top:57px; z-index:20; width:250px; border:solid 1px green;}
 
-
-@media all and (max-width: 1000px) {
-	  .logoholder {width:350px; */ border:solid 1px black; */}
-	  h1,h2 {font-size:30px;}
-      }
-@media all and (max-width: 950px) {
-	  .logoholder {width:240px;}
-	  h1,h2 {font-size:28px;}	  
-      }
-@media all and (max-width: 800px) { 
-	  .logoholder {width:200px;}
-	  h1,h2 {font-size:22px;}
-	  .col-4{display:none;}
-	  .main {width:100%}
-	  .col-4{display:none;}	  	  
-      }
-@media all and (max-width: 768px) { 
+@media all and (max-width: 768px) {
+.logo {position:relative; top:10px; z-index:0; width:250px; border:solid 1px red; display:block;}
+h1,h2 {font-size:30px;}
 /* the menu will pop to mobile mode at this point */
-	  .logoholder {width:100%;}
-	  h1,h2 {font-size:39px;}
-	  .main {width:100%}
-	  .col-4{display:none;}	  
-      }	  
+.main {width:100%}
+.col-4{display:none;}	  
+	  
+  }	  
+
 
 
 </style>
@@ -537,7 +525,7 @@ min-height:100px;
 
 
 
-
+<div class="logo"><img src="https://secureolp.liberalonline.ca/images/logo-sm.png"></div>
 
 <div id="logpanel">
    <div class="container">
@@ -564,6 +552,8 @@ min-height:100px;
 </div>
 
 
+
+
 <div id="logoandmenu">
     <div class="container">
 
@@ -578,7 +568,7 @@ min-height:100px;
 				
 				
 				
-                <li><span><a href="/Home">Home</a><br /><span class="subzy">Start Here</span></span></li><!-- Begin and end Home -->
+                <li class="right_item"><span><a href="/Home">Home</a><br /><span class="subzy">Start Here</span></span></li><!-- Begin and end Home -->
                 <li>
                         <span class="top"><a href="#">About</a><br /><span class="subzy">About Us</span></span><!-- Begin About Us -->
                         <div class="dropdown_container dropdown_fullwidth">
