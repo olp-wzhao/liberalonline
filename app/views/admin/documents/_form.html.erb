@@ -1,11 +1,11 @@
-
-
 <%= simple_form_for [:admin, @document], :html => {multipart: true, remote: true} do |f| %>
   <%= f.error_notification %>
     <input type="hidden" id="ajax_id" />
+    <%= f.input :doc_type, collection: DocumentType.all, as: :select %> 
+    <%= f.input :language, collection: %w(English French), priority: ['English'] %>	
+	<div class="hrbreake7e6e7">&nbsp;</div>
     <%= f.input :headline %>
     <%= f.input :subtitle %>
-    <%= f.input :introduction %>
     <%= f.input :body, as: :text, :input_html => { :class => 'tinymce', :rows => 40, :cols => 80 } %>
     <%= f.input :author %>
     <%= f.input :reference_url %>
@@ -13,10 +13,12 @@
 
     <%= f.input :attached_video_ids %>
     <%= f.input :language, collection: %w(English French), priority: ['English'], selected: 'English' %>
-    <%= f.input :helpfulness_rating, collection: 1..10, selected: 1 %>
-    <%= f.input :applicability_rating, collection: 1..10, selected: 1 %>
-    <%#= f.input :allow_comment, as: :boolean %>
-    <%#= f.input :published, as: :boolean %>
+    <%= f.input :helpfulness_rating, collection: 1..10 %>
+    <%= f.input :applicability_rating, collection: 1..10 %>
+    <%= f.input :introduction %>	
+    <%= f.input :allow_comment, as: :boolean %>
+    <%= f.input :published, as: :boolean %>
+
     <%= f.input :copy_protect, as: :boolean %>
     <%= f.input :document_date, as: :date %>
     <%#= f.input :display_date, as: :date %>
@@ -28,13 +30,14 @@
     <%= f.input :partisan, as: :boolean, default: "1", label: false, input_html: { style: "display: none"} %>
     <%= f.input :author_photo %>
     <%= f.input :is_draft, as: :boolean %>
-    <%= f.input :riding_id, collection: Riding.all, as: :select, selected: 'Central'%>
+    <%= f.input :riding_id, collection: Riding.all.map{|r| [r.name, r.riding_id]}, as: :select, selected: 'Central'%>
     <%= f.input :web_site %>
     <%= f.input :doc_type, collection: DocumentType.all.map{|t| [t.name, t.temp_id]}, as: :select, selected: '20' %>
     <%= f.input :category_id, collection: ["Generic", "Environment" "Job/Wages", "Economy", "Crime and Community", "Education", "Healthcare", "Infrastructure", "Green Energy", "Tax Reform", "Transit", "Immigration Services", "Government Efficiency", "Agriculture", "Condolences"], selected: 'Generic' %>
     <%= f.input :customized_category_id, collection: ['CustomizedCategory 1', 'CustomizedCategory 2', 'CustomizedCategory 3', 'CustomizedCategory 4'], selected: 'CustomizedCategory1' %>
     <%= f.input :publish_on_toolkit, as: :boolean %>
     <%= f.input :require_authentication, as: :boolean %>
+
     <%= f.input :issue_id %>
 
     <p>Document Image</p>

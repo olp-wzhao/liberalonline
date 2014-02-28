@@ -1,34 +1,90 @@
 <!DOCTYPE html>
-
 <html lang="en">
-
 <head>
-<meta http-equiv="Content-Type" content="text/html;charset=utf-8" >
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+        <meta charset="utf-8" />
+        <title>Inside Page setup</title>
+		
 
-<link rel="stylesheet" href="stylesheets/mgmenu.css" type="text/css" media="screen" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
 
-<title>Universal Mega Menu</title>
 
-<script src="javascripts/jquery.js"></script><!-- jQuery -->
-<script src="javascripts/mgmenu_plugins.js"></script><!-- Mega Menu Plugins -->
-<script src="javascripts/mgmenu.js"></script><!-- Mega Menu Script -->
-<script>
-$(document).ready(function($){
-    $('#mgmenu1').universalMegaMenu({
-        menu_effect: 'hover_slide',
-        menu_speed_show: 300,
-        menu_speed_hide: 200,
-        menu_speed_delay: 200,
-        menu_click_outside: true,
-        menubar_trigger : false,
-        menubar_hide : false,
-        menu_responsive: true
-    });
-});
-</script>
+        <script src="javascripts/jquery-1.9.1.min.js"></script> 
+		<!--  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script> GOOGLE COPY OF JQUERY-->
+		
+		<!-- Floating Side column dependent lib   -->
+        <script src="javascripts/jquery-scrolltofixed-min.js"></script>
+		
+        <!-- Mini Account Menu - http://www.jqueryrain.com/?M89s3TG4 -->
+        <link type="text/css" rel="stylesheet" href="stylesheets/jquery.dropdown.css" />
+        <script type="text/javascript" src="javascripts/jquery.dropdown.js"></script>
+	    <!-- Mega Menu dependent lib   -->
+        <script src="javascripts/mgmenu_plugins.js"></script><!-- Mega Menu Plugins -->
+        <script src="javascripts/mgmenu.js"></script><!-- Mega Menu Script -->
+
+        <link href="/stylesheets/mgmenulib.css" rel="stylesheet" type="text/css" media="screen" />	
+
+
+
+    <script>
+
+      $(function (){ $(".float").each(function () { 
+           var $this = $(this); $this.data("startTop", $this.offset().top);});
+             $(window).scroll(function () { var documentScrollTop = $(document).scrollTop();
+             $(".float").each(function () { var $this = $(this); 
+             $this.offset({ top: $this.data("startTop") + documentScrollTop * $this.data("friction"), left: $this.offset().left });
+      });
+      document.oldScrollTop = documentScrollTop; });
+      });
+  	
+      // Get rid of empty paragraphs
+      $(window).load(function(){
+          $('p').filter(function () { return this.innerHTML == "" }).remove();
+
+      });//]]> 
+	
+    </script>	
+
+ 
 
 <style type="text/css">
+
+	#browserInfo{
+		padding:6px;
+		position:relative;
+		border:1px solid blue;
+		width:300px;
+		float:left;
+		top:55px;
+	}
+
+/* -------------------- */
+/* SECTION ONE ---------*/
+/* LOAD FONTS  ---------*/
+/* -------------------- */
+
+/* -------------------- */
+/* SECTION TWO ---------*/
+/* GLOBAL RESETS -------*/
+/* -------------------- */
+
+/* -------------------- */
+/* SECTION THREE -------*/
+/* MINI MENU -----------*/
+/* -------------------- */
+
+/* -------------------- */
+/* SECTION FOUR --------*/
+/* GLOBAL CONSTRUCTORS--*/
+/* ---------------------*/
+
+/* -------------------- */
+/* SECTION FIVE --------*/
+/* SOCIAL MEDIA ICONS --*/
+/* ---------------------*/
+
+
+/* ------ SECTION ONE ---------- LOAD FONTS ----*/
+
 @font-face {
   font-family: 'Oswald';
   font-style: normal;
@@ -85,24 +141,439 @@ $(document).ready(function($){
   font-weight: 300;
   src: local('Roboto Condensed Light Italic'), local('RobotoCondensed-LightItalic'), url(fonts/RobotoCondensedItalic300.woff) format('woff');
 }
-.logo {position:relative; top:57px; z-index:20; width:250px; border:solid 1px green;}
-.container {min-width:960; width:960px; margin-left:auto; margin-right:auto; border:solid 1px black;}
 
+  /* Sample pallete  */
+
+  /* bb1115   Red           */
+  /* d72f30   LightRed      */
+  /* f84241   HighlightRed  */
+  /* 635857   DarkSwatch    */
+  /* 8e7d7e   Subtitlebig   */
+  /* 5c4a4a   Headlinebig   */
+  
+
+  /* 494949  textgrey  */
+  /* warm white #f0ecec            */
+  /* portrait bg clr #d7e6f4  */
+  /* new portrait bg #e5e5e6 */
+  /* shadclor for new portrait #c0c0c0  */
+  
+  /* Headline color #5c4a4a */
+  /* Subtitle color #8e7d7e */
+
+.hrbreake7e6e7 {
+	background-image: url("images/hr_e7e6e7.gif");
+	background-repeat: repeat-x;
+    background-position: left center;
+	width:100%;
+	min-height:10px;
+	clear:both;
+}	
+
+/* ----------------------------------------------------------------*/	 
+/* ------------------------ SECTION TWO ---------------------------*/
+/* ----------------------- GLOBAL RESETS --------------------------*/
+/* ----------------------------------------------------------------*/
+
+	
+html {margin:0px; padding:0px;}	
+body {
+    font-family: 'Droid sans', sans-serif;
+    margin: 0 auto 0;
+    width: 100%;
+	background-color:#e5e5e6;  
+	font-size:0.9em;
+}
+h1,h2,h3,h4,h5,h6  {	
+    font-weight:400;
+	font-family: 'Droid sans', sans-serif;
+	margin:0px;
+	padding:0px;
+	font-size:2.3em;
+	}
+h1 {color:#5c4a4a; line-height:102%px;}
+h2 {color:#8e7d7e; line-height:102%px;}
+#imageholder {margin-bottom:13px;}
+.headlinebig { color:#5c4a4a; width:600px; height:70%; /* border:solid 1px red; */ font-weight:400; font-family: 'Droid sans';}
+.subtitlebig { text-align:lfet; color:#8e7d7e; width:600px; height:70px; /* border:solid 1px red;*/ font-weight:400; font-family: 'Droid sans';}
+
+
+/* ----------------------------------------------------------------*/	 
+/* ------------------------ SECTION THREE -------------------------*/
+/* ----------------------- MINI MENU STUFF ------------------------*/
+/* ----------------------------------------------------------------*/	
+/* --- See stylesheets/jquery.dropdown.css for + menu classes -----*/
+/* ----------------------------------------------------------------*/
+
+#logpanel {
+    width:100%; 
+	height:30px; 
+	background-color:white; 
+	text-align:right; 
+	padding-bottom:11px;
+	-webkit-box-shadow: inset 0px 9px 8px -9px #c7c7c7;
+    -moz-box-shadow: inset 0px 9px 8px -9px #c7c7c7;
+	box-shadow: inset 0px 9px 8px -9px #c7c7c7;
+		
+	}
+#logoandmenu {
+    width:100%; 
+	height:67px; 
+	background-color:white; 
+	-webkit-box-shadow: 0px 9px 8px -9px #c7c7c7;
+    -moz-box-shadow: 0px 9px 8px -9px #c7c7c7;
+	box-shadow: 0px 9px 8px -9px #c7c7c7; 	
+}
+.dropdown .dropdown-menu,
+.dropdown .dropdown-panel {font-size:14px; font-family: 'Roboto Condensed', sans-serif;}
+.micromenu {float:right;width:220px;margin-top:10px;padding-right:10px;}
+.micromenu a:link,
+.micromenu a:visited {
+    font-family: 'Roboto Condensed', sans-serif;
+    color:#8b8082;
+    margin-bottom:25px;
+    font-size:.80em;
+    text-transform:uppercase;
+    text-decoration:none;
+    }
+.micromenu a:hover {
+         text-decoration:underline;
+}
+
+.micromenu {
+         text-align:right;
+         float:right;
+         display:inline;
+         }
+		 
+/* ------------------------------------------------------------*/	 
+/* --------------------- SECTION FOUR -------------------------*/
+/* -------------- GLOBAL CONSTRUCTOR CLASSES ------------------*/
+/* ------------------------------------------------------------*/		 
+		 
+.container { 
+
+/* Holds the two columns and centres them  */
+	max-width:1080px;
+	margin-left:auto;
+	margin-right:auto;
+	padding-left:25px;
+	padding-right:25px;
+	}
+#pageimageholder { 
+
+/* Wraps container, and holds the image    */
+/* at the bottom right of a slightly wider */
+/* container. 'Wynne' is one of the background
+/* classes that get added */ 
+
+	margin-left:auto;
+	margin-right:auto;
+	max-width:1100px;
+	
+}
+.default {
+    background-image: url("images/pageimageholderdefault.jpg");
+    background-repeat: no-repeat;
+    background-position: center bottom;	
+
+}
+.wynne {    
+    background-image: url("aboutus.jpg");
+    background-repeat: no-repeat;
+    background-position: right bottom;
+	}
+
+#footer {
+    background-color: #d01419;
+    min-height: 500px;
+    padding: 2px;
+    width: 100%;
+	z-index:99;
+	background-image: url("images/redbottomborder.jpg");
+	background-repeat:y;
+	background-position:bottom center;
+}
+#trigger {width:50px; height:50px; background-color:red;}
+#footertrigger {
+    background-color:red;
+    padding: 1px;
+    width: 100%;
+	z-index:2000;
+	height:3px;		
+}
+.main {
+    width: 64%;
+	float:left;
+	min-height:700px;
+}
+#col8picblocker {
+	min-height:395px;
+	width:30%;
+	float:right;
+}
+
+.col-4 {
+    width: 34%;
+	min-width:100px;
+    margin-left: 10px;
+	float:right;
+	min-height:600px;
+	overflow:hidden;
+	z-index:1;
+	position:static;
+	top:400px;
+}
+
+.clear {display:block; clear:both;}
+
+.col5 {
+width:18%;
+float:left;
+min-height:100px;
+	outline:solid 1px #fff;
+}
+.col5 + .col5 {margin-left:2%; outline:solid 1px red;}
+
+.activated {background-color: #2b4170;}
+.fixed {position: static; top: 85px;}
+.static {position: static; top: 85px;}
+
+
+
+/* ---------------------------------------------------------------*/	 
+/* ------------------------ SECTION FIVE -------------------------*/
+/* --------------------- SOCIAL MEDIA ICONS ----------------------*/
+/* ---------------------------------------------------------------*/	
+
+
+#socialmediaicons {
+   float:right;
+   width:200px;
+   padding:0px;
+   margin:0px;
+   margin-top:6px;
+   background: url(../images/social.jpg);
+   background-repeat: no-repeat;
+   background-position: center top;
+}
+#socialmediaicons ul {padding:0px; margin:0px; font-size:0; word-spacing: 0; line-height: 0;}
+#socialmediaicons li {
+   cursor: pointer;
+   display:inline-block;
+   zoom: 1;
+   *display: inline;
+   list-style:none;
+   padding:0px;
+   margin:0px;
+   height:33px;
+        }
+#socialmediaicons li.facebook {width:37px;}
+#socialmediaicons li.twitter {width:30px;}
+#socialmediaicons li.flickr {width:30px;}
+#socialmediaicons li.youtube {width:30px;}
+#socialmediaicons li.fred {width:30px;}
+#socialmediaicons li.linkedin {width:37px;}
+
+#socialmediaicons li.facebook,
+#socialmediaicons li.twitter,
+#socialmediaicons li.flickr,
+#socialmediaicons li.youtube,
+#socialmediaicons li.fred,
+#socialmediaicons li.linkedin
+ {
+   padding: 0;
+   margin: 0;
+
+}
+#socialmediaicons li:hover {
+   background-repeat: no-repeat;
+}
+#socialmediaicons li.facebook:hover {background: url("../images/socialovr.jpg");background-position: -2px 0px;}
+#socialmediaicons li.twitter:hover {background: url("../images/socialovr.jpg");background-position: -39px 0px;}
+#socialmediaicons li.flickr:hover {background: url("../images/socialovr.jpg");background-position: -69px 0px;}
+#socialmediaicons li.youtube:hover {background: url("../images/socialovr.jpg");background-position: -99px 0px;}
+#socialmediaicons li.fred:hover {background: url("../images/socialovr.jpg");background-position: -129px 0px;}
+#socialmediaicons li.linkedin:hover {background: url("../images/socialovr.jpg");background-position: -159px 0px;}
+
+
+		 
+		 
+/*----------------------*/	 
+/* STYLING FOR NEWS PIC */
+/*----------------------*/	
+
+.drop-shadow {
+    position:relative;
+    float:left;
+    width:94%;    
+    padding:4px; 
+    margin-top:11px;
+    background:#fff;
+    -webkit-box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
+       -moz-box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
+            box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
+}
+.drop-shadow img {width:100%; height:100%;}
+.drop-shadow:before,
+.drop-shadow:after {
+    content:"";
+    position:absolute; 
+    z-index:-2;
+}
+
+.drop-shadow p {
+    font-size:16px;
+    font-weight:bold;
+}
+
+/* Lifted corners */
+
+.lifted {
+    -moz-border-radius:4px; 
+         border-radius:4px;
+}
+
+.lifted:before,
+.lifted:after { 
+    bottom:15px;
+    left:10px;
+    width:50%;
+    height:20%;
+    max-width:300px;
+    -webkit-box-shadow:0 15px 10px rgba(0, 0, 0, 0.7);   
+       -moz-box-shadow:0 15px 10px rgba(0, 0, 0, 0.7);
+            box-shadow:0 15px 10px rgba(0, 0, 0, 0.7);
+    -webkit-transform:rotate(-3deg);    
+       -moz-transform:rotate(-3deg);   
+        -ms-transform:rotate(-3deg);   
+         -o-transform:rotate(-3deg);
+            transform:rotate(-3deg);
+}
+
+.lifted:after {
+    right:10px; 
+    left:auto;
+    -webkit-transform:rotate(3deg);   
+       -moz-transform:rotate(3deg);  
+        -ms-transform:rotate(3deg);  
+         -o-transform:rotate(3deg);
+            transform:rotate(3deg);
+}		 
+
+.float { display: block; position: fixed; }    
+#float-1 { top: 23px; right:50%; margin-right:-1000px;} 
+#float-2 { top: 700px; width:100%; } 
+#float-3 { top: 2250px; width:100%; } 
+.content { position: relative; z-index: 2; }
+.opening { 
+          min-height:390px; 
+          height:390px; 
+          background:none; 
+          margin-bottom:20px;
+          }
+
+
+.droparrow {
+    border-top: 4px solid #404040;
+    border-left: 4px dashed transparent;
+    border-right: 4px dashed transparent;
+    display: inline-block;
+    margin-left: 6px;
+    vertical-align: middle;
+}
+
+.shareemail,.sharefacebook,.sharetwitter {
+      max-width:45px;
+	  width:45px;
+	  max-height:46px;
+	  height:46px;
+	  background-position:top center;
+	  background-repeat:no;	
+	  float:left;
+	  }
+	  
+.shareemail {background-image:url("images/b_shareemail.png");}
+.sharefacebook {background-image:url("images/b_sharefacebook.png");}
+.sharetwitter {background-image:url("images/b_sharetwitter.png");}
+.shareemail:hover {background-image:url("images/b_shareemailhover.png");}
+.sharefacebook:hover {background-image:url("images/b_sharefacebookhover.png");}
+.sharetwitter:hover {background-image:url("images/b_sharetwitterhover.png");}
+
+
+.logo {position:relative; top:0px; z-index:888; width:250px;}
+.mgmenu {clear:right;}
+.mgmenu_container { margin-top:-65px;}
 @media all and (max-width: 768px) {
 .logo {position:relative; top:10px; z-index:0; width:250px; border:solid 1px red; display:block;}
- }
+h1,h2 {font-size:30px;}
+/* the menu will pop to mobile mode at this point */
+.main {width:100%}
+.col-4{display:none;}	  
+	  
+  }	
 
 </style>
+
+
 </head>
+
 <body>
 
 
 
 
 
-<div class="page_wrapper"><!-- Begin Page Wrapper -->
+<div id="logpanel">
+   <div class="container">
 
-            <div class="logo"><img src="https://secureolp.liberalonline.ca/images/logo-sm.png"></div>
+
+			
+
+     <div class="micromenu">
+		 <a href="/Login">Logout</a> |
+         <a href="#">Subscribe</a> |
+         <a href="#" data-dropdown="#accountoptions">Account<span class="droparrow"></span></a>
+      </div>
+
+     <div id="socialmediaicons" class="nomobile" style="margin:0px; padding:0px; margin-top:6px;">
+       <ul>
+       <li class="facebook"><a href="#" title="facebook" target="_blank"></a></li>
+       <li class="twitter"><a href="#" title="twitter" target="_blank"></a></li>
+       <li class="flickr"><a href="#" title="flickr" target="_blank"></a></li>
+       <li class="youtube"><a href="#" title="youtube" target="_blank"></a></li>
+       <li class="fred"><a href="http://www.fred.ca" title="fred" target="_blank"></a></li>
+       <li class="linkedin"><a href="#" class="linkedin" target="_blank"></a></li>
+       </ul>
+     </div>
+
+
+         <div id="accountoptions" class="dropdown dropdown-anchor-right">
+             <ul class="dropdown-menu">
+              <li><a href="#1">Edit Profile</a></li>
+              <li><a href="#2">History</a></li>
+              <li><a href="#3">Toolit</a></li>
+              <li class="dropdown-divider"></li>
+              <li><a href="#4">Logout</a></li>
+             </ul>
+         </div>
+   </div>
+</div>
+
+
+
+
+<div id="logoandmenu">
+    <div class="container">
+
+    <div class="logo"><img src="https://secureolp.liberalonline.ca/images/logo-sm.png"></div>  
+	
+	
+<!-- THE MENU STARTS HERE -->
+
+
+
+
 
 
 
@@ -220,16 +691,12 @@ $(document).ready(function($){
                             <div class="col_4">
                                 <p class="text_box text_box_green">Aliquam urna felis, rutrum eu rhoncus at, elementum id est. Sed rutrum eu rhoncus at, elementum id est lacus purus, ullamcorper ut aliquet ut, dictum nec odio.</p>
                             </div>
-
                             <div class="col_4">
-
                                 <p class="text_box text_box_brown">Mauris eu massa turpis, at blandit elit. Mauris rutrum placerat libero, ut rhoncus leo euismod non. Aliquam urna felis, rutrum eu rhoncus at, elementum id est..</p>
                             </div>
-
                             <div class="col_4">
                                 <p class="text_box text_box_purple">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris venenatis bibendum nunc dapibus posuere. Sed quis laoreet justo. Aliquam urna felis.</p>
                             </div>
-
                             <div class="col_4">
                                 <p class="text_box text_box_yellow">Aliquam urna felis, rutrum eu rhoncus at, elementum id est. Sed rutrum eu rhoncus at, elementum id est lacus purus, ullamcorper ut aliquet ut, dictum nec odio..</p>
                             </div>
@@ -242,15 +709,11 @@ $(document).ready(function($){
                         <div id="section2" class="mgmenu_tabs_hide"><!-- Begin Section 2 -->
                             
                             <div class="col_8">
-
                                 <p>Integer nisl nunc, venenatis sagittis condimentum vel, tincidunt in est. Aenean felis sem, suscipit in posuere ultrices, placerat vel ipsum. Donec quis dolor turpis, non accumsan nisl. Ut lorem turpis, consequat eget condimentum quis, consectetur vitae enim. Proin ultricies ornare nibh eget tincidunt. Nulla id lectus est. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Cras pharetra tincidunt erat sit amet sodales. Donec volutpat, leo lacinia facilisis semper, mauris nunc convallis enim, imperdiet volutpat urna nulla ut augue. Suspendisse potenti varius molestie.</p>
-
                             </div>
 
                             <div class="col_4">
-
                                 <p class="text_box text_box_black">Sed lacus purus, ullamcorper ut aliquet ut, dictum nec odio. Donec sed odio ac lectus fermentum accumsan quis ut magna. Sed consectetur ipsum dolor, non laoreet lectus. Phasellus malesuada.</p>
-
                             </div>
                         
                         </div><!-- End Section 2 -->
@@ -258,21 +721,17 @@ $(document).ready(function($){
                         <div id="section3" class="mgmenu_tabs_hide"><!-- Begin Section 3 -->
                         
                             <div class="col_12">
-                                
                                 <h4>List Elements</h4>
-
                             </div>
 
                             <div class="col_3">
 
                                 <ul>
-                                
                                     <li><a href="#">Codecanyon</a></li>
                                     <li><a href="#">Themeforest</a></li>
                                     <li><a href="#">Videohive</a></li>
                                     <li><a href="#">Audiojungle</a></li>
                                     <li><a href="#">Photodune</a></li>
-                                    
                                 </ul>
 
                             </div>
@@ -280,13 +739,11 @@ $(document).ready(function($){
                             <div class="col_3">
 
                                 <ul>
-                                
                                     <li><a href="#">Nettuts</a></li>
                                     <li><a href="#">Webdesigntuts</a></li>
                                     <li><a href="#">PSDtuts</a></li>
                                     <li><a href="#">Vectortuts</a></li>
                                     <li><a href="#">Audiotuts</a></li>
-                                    
                                 </ul>
 
                             </div>
@@ -294,13 +751,11 @@ $(document).ready(function($){
                             <div class="col_3">
 
                                 <ul>
-                                
                                     <li><a href="#">Calendars</a></li>
                                     <li><a href="#">Countdowns</a></li>
                                     <li><a href="#">Forms</a></li>
                                     <li><a href="#">Images</a></li>
                                     <li><a href="#">Medias</a></li>
-                                    
                                 </ul>
 
                             </div>
@@ -482,31 +937,198 @@ $(document).ready(function($){
 
 
 
-    <div class="dummy_content"><!-- Texts (not part of the menu) -->
 
-        <h2>Test of Responsiv Mega Menu</h2>
-        
-        <p>This product is the result of a combination of my best works on Codecanyon : I've put together a flexible mega menu system that can hold 12 sizes of drop downs, unlimited fly-out elements combined with a jQuery script to enhance the whole system.</p>
-        <p>By using the example pages, you have all the necessary code ready to be used in your site. Customizing the menu require some basic knowledge of CSS and you can change the look of every part of the menu : the fonts, the colors, the sizes, etc. The script includes a few options easy to set up so you can choose which type of effect to apply (on mouse hover or mouse click, fade, slide...).</p>
 
-        
-    </div><!-- End Texts -->
+    </div><!-- closes the .container encompassing the logo and the menu -->
+	
+</div><!-- closes #logoandmenu -->
 
 
 
 
 
-</div><!-- End Page Wrapper -->
-
-<div class="container">
 
 
-        
-            <div style="clear:both; display:block;">&nbsp;</div>
 
 
-</div>
 
 
+
+
+
+
+
+
+<div class="container"><div class="pagetitle">News</div>
+
+<div style="clear:both; width:100%; display:block;">&nbsp;</div>
+</div><!-- Close top container -->
+
+
+
+
+
+
+
+
+		<div id="pageimageholder" class="default">
+			  <div class="container">
+
+                <div class="main">
+				
+				    <div id="imageholder" class="drop-shadow lifted"><img src="images/newspic.jpg"></div>
+					<div style="clear:both; display:block;">&nbsp;</div>
+					<h1 id="responsive_headline">Minimum Wage is Increasing but this headline needs to be broken up</h1>
+					<h2>In the end what I find ugly are orphaned words</h2>
+					
+					
+                    <p>The government will also introduce legislation that would tie future minimum wage increases to the CPI. This will ensure the minimum wage keeps up with the cost of living, and that increases are predictable for businesses and families. Under the proposed legislation, increases would be announced by April 1 and come into effect on Oct. 1.</p>
+                    <p>The proposed legislation would act on the&nbsp;<a href="http://www.labour.gov.on.ca/english/es/pubs/mwap/index.php">recommendations</a>&nbsp;of Ontario's Minimum Wage Advisory Panel, which included business, labour, youth and anti-poverty representatives.</p>
+                    <p>Ensuring the minimum wage is fair and predictable for both workers and business is part of the Ontario government's economic plan to invest in people, build modern infrastructure and support a dynamic and innovative business climate.</p>
+                    <ul>
+                    <li><a title="Learn More" href="http://www.labour.gov.on.ca/english/es/pubs/mwap/index.php">Read the Minimum Wage Advisory Panel's Report</a></li>
+                    <li><a title="Learn More" href="http://www.labour.gov.on.ca/english/es/pubs/poster_text.php">Know your rights and responsibilities under Ontario's Employment Standards Act, 2000</a></li>
+                    </ul>
+					<div class="hrbreake7e6e7">&nbsp;</div>
+					
+					<div class="sharefacebook">&nbsp;</div><div class="sharetwitter">&nbsp;</div><div class="shareemail">&nbsp;</div>
+					
+					<div class="hrbreake7e6e7">&nbsp;</div>
+					
+					<a href="#" class="button-white">Test Button</a>
+					<div id="bottomtrigger">#bottomtrigger</div>
+					<div id="col8picblocker">&nbsp;</div>
+					
+					<div style="float:left;">
+					<div class="fbprop">Ontario Liberal Share Count<br><span class="tiny">www.ontarioliberal.ca</span></div>
+					<div id="ontlib" class="num"><span>Test</span></div>
+					</div>
+					
+
+					
+				
+                </div>
+				
+				
+				
+				
+				
+                <div class="col-4 fixed">
+                 <p>Kathleen Wynne</p>
+				 <p>Party History</p>
+				 <p>MPPs</p>
+				 <p>Candidates</p>
+                </div>
+				
+
+				<div class="clear">&nbsp;</div>
+								
+			</div>
+	</div>
+	
+
+        <div id="footertrigger">
+            &nbsp;
+        </div>
+		
+        <div id="footer">
+		 <div class="container">
+            <div class="col5"><h2>Sit amet justo</h2><p>Leo sed sed pulvinar et magna id eget condimentum laborum vel suspendisse.</p></div>
+			<div class="col5"><h2>Sit amet justo</h2><p>Leo sed sed pulvinar et magna id eget condimentum laborum vel suspendisse.</p></div>
+			<div class="col5"><h2>Sit amet justo</h2><p>Leo sed sed pulvinar et magna id eget condimentum laborum vel suspendisse.</p></div>
+			<div class="col5"><h2>Sit amet justo</h2><p>Leo sed sed pulvinar et magna id eget condimentum laborum vel suspendisse.</p></div>
+			<div class="col5"><h2>Sit amet justo</h2><p>Leo sed sed pulvinar et magna id eget condimentum laborum vel suspendisse.</p></div>
+		 </div>
+        </div>	
+
+		
+<script> 
+ 
+ 
+$(document).ready(function() {
+// this works -->   $('.col-4').scrollToFixed({ marginTop: 10, limit: $($('h2')[4]).offset().top });
+//  this works too -->  $('.col-4').scrollToFixed({ marginTop: 10, limit: $('#toptrigger').offset().top });
+//    var stickingpoint = $('.col-8').height()-700; // 700 is the height of col-4, the difference is the heightofdiv variable
+
+var stickingpoint = $('.main').height()-$('.col-4').height();
+$('.col-4').scrollToFixed({ marginTop: 10, limit: stickingpoint });
+	
+        $('#footertrigger').scrollToFixed( {
+            bottom: 0,
+            limit: $('#footertrigger').offset().top
+        });
+		
+	
+		
+		
+});	
+
+
+
+
+
+
+	
+ 
+</script>
+
+
+  
+  
+
+<script>
+$(document).ready(function($){
+    $('#mgmenu1').universalMegaMenu({
+        menu_effect: 'hover_slide',
+        menu_speed_show: 300,
+        menu_speed_hide: 200,
+        menu_speed_delay: 200,
+        menu_click_outside: true,
+        menubar_trigger : false,
+        menubar_hide : false,
+        menu_responsive: true
+    });
+});
+</script>
+
+
+<script>
+// This should only load for News Show
+// Quick check for widows and orphans 
+$(document).ready(function($){
+//  $("h1").each(function() {
+//      var html = $('h1').html().split(" ");
+//      html = html.slice(0,5).join(" ") + "<br />" + html.slice(5).join(" ");
+//      $('h1').html(html);
+//  });
+  
+  $("h2").each(function() {
+  var wordArray = $(this).text().split(" ");
+  if (wordArray.length > 2) {
+    wordArray[wordArray.length-2] += "&nbsp;" + wordArray[wordArray.length-1];
+    wordArray.pop();
+    $(this).html(wordArray.join(" "));
+  }
+});
+
+});
+</script>
+
+
+
+
+<script type="text/javascript">
+
+
+	
+	$('#browserInfo').text('Browser (Width : ' + $(window).width() + ' , Height :' + $(window).height() + ' )');
+	
+    $(window).resize(function () {
+		$('#browserInfo').text('Browser (Width : ' + $(window).width() + ' , Height :' + $(window).height() + ' )');
+    });
+	
+	
+</script>
+  
 </body>
 </html>
