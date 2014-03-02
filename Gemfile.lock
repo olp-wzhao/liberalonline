@@ -403,6 +403,7 @@ DEPENDENCIES
   jbuilder (~> 1.2)
   jquery-rails
   jquery-turbolinks
+  jquery-ui-rails
   kaminari
   libnotify
   mandrill-api

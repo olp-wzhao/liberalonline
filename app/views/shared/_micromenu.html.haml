@@ -1,6 +1,6 @@
 .micromenu
   - if !current_user
-    = link_to 'Login', new_user_session_path
+    = link_to 'Login', new_user_session_path, remote: true
     |
     = link_to 'Create Account', new_user_registration_path 
     |
@@ -11,4 +11,4 @@
     |
     = link_to 'Profile', edit_user_registration_path 
     |
-    = link_to 'Logout', destroy_user_session_path, :method => :delete
+    = link_to 'Logout', destroy_user_sessioen_path, :method => :delete

@@ -29,7 +29,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
       sign_in @user, :bypass => true
       redirect_to my_liberal_index_url
     else
-      render "edit"
+      render 'edit'
     end
   end
 

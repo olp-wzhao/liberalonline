@@ -134,10 +134,3 @@
                     = submit_tag (@language == 'FR' ? 'Envoyer' : 'Submit'), :class => "volunteer_submit_button"
                     %br/
                     .defaultbody= @submit_volunteer_error
-                  - else
-                    %h1
-                      = if @language == 'FR' then 'Merci' else 'Thank you' end
-                      \!
-                    %br/
-                    %p= raw(@volunteer_result.gsub("\n", "<br />"))
-                    %br/

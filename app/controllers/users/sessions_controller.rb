@@ -1,7 +1,11 @@
-class SessionsController < ApplicationController
+class Users::SessionsController < ApplicationController
 
   def new
-    redirect_to '/auth/facebook'
+    #redirect_to '/auth/facebook'
+    #binding.pry
+    respond_to do |format|
+      format.js
+    end
   end
 
 
