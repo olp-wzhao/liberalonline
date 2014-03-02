@@ -27,31 +27,6 @@ LINE 120 - Top Level Menu Font parameters
 
 
 
-/* 
-Demo text
-*/
-body {font-family:Arial,Helvetica,sans-serif;background:url(../img/page_bg.png) repeat}
-@media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min-device-pixel-ratio: 2) {
-	body {background:url(../img/page_bg@2x.png) repeat}
-}
-.page_wrapper {width: 80%;margin: 0 auto;max-width: 960px;}
-p{font-size:12px; line-height:21px; margin-bottom:18px}
-.dummy_content{width:100%;margin:32px auto;}
-.dummy_content_margin {width:100%; margin:75px auto;*padding-top:60px;}
-.dummy_content p,.dummy_content_margin p,.dummy_content li,.dummy_content_margin li{color:#666;font-size:12px;line-height:21px;text-shadow:1px 1px 1px #ffffff;}
-.dummy_content .pusher,.dummy_content_margin .pusher{width:100%;height:50px}
-.dummy_content a,.dummy_content_margin a{color:#888888;text-decoration:none}
-.dummy_content a:hover,.dummy_content_margin a:hover{color:#999999}
-.dummy_content ul,.dummy_content_margin ul{list-style: square;line-height:21px;}
-.dummy_content h1,.dummy_content_margin h1,.dummy_content h2,.dummy_content_margin h2,.dummy_content h3,.dummy_content_margin h3{color:#222;text-shadow:1px 1px 1px #ffffff;}
-@media only screen and (max-width: 980px) {
-	.dummy_content, .dummy_content_margin {width:100%;}
-}
-@media only screen and (max-width: 767px) {
-	.dummy_content_margin {margin:32px auto;}
-}
-
-
 /*  _______________________________________
 
     01 MENU BAR
@@ -537,7 +512,7 @@ p{font-size:12px; line-height:21px; margin-bottom:18px}
 	font-weight: normal;
 	color:#222222;
 	text-shadow:1px 1px 1px #c5c5c5;
-	margin-bottom:18px;
+	margin-bottom:4px;
 }
 .mgmenu h1, 
 .mgmenu h2, 

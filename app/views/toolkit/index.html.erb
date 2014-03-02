@@ -6,16 +6,15 @@
         <img src="https://secureolp.liberalonline.ca/images/logo_sm_white_vert.png">
       </div>
       <div class="menuholder">
-        <span class="red" style="position : relative; top:.15em;"><a href="#">Fundraising</a> | <a href="#">Nominations</a> | <a href="#">Websites</a> &nbsp;&nbsp;</span> <span class="tiny grey">Logged in as: Webadmin@ontarioliberal.ca | <a href="#">Logout</a></span>
+        <span class="red" style="position : relative; top:.15em;"><%= render "shared/toolkit_menu" %> &nbsp;&nbsp;</span> <span class="tiny grey">Webadmin@ontarioliberal.ca | <a href="#">Logout</a></span>
       </div>
     </div><!-- close container -->
   </div><!-- close toolkitheader -->
 
   <div class="opening">
     <div class="container">
-      <br>
-      <h2 class="toolkittitle">Toolkit</h2>
-      <p class="toolkittag">Looking for<br>Stuff? We've<br>got stuff.</p>
+	  <div class="toolkittitle">&nbsp;</div>
+      <p class="toolkittag">You may need this.</p>
     </div>
   </div><!-- close opening -->
 
@@ -23,14 +22,14 @@
     <div class="container"> <!--  this will set the content margins left and right -->
 
 
-      <p class="grey">Recently Added</p>
+      <p class="grey tiny">Recently Added</p>
       <div class="hrbreake7e6e7">&nbsp;</div>
 
       <% @documents.each do |document| %>
 
           <!-- <p>ID: <%= document.temp_id %></p> -->
-          <div class="listh1 grey"><%= raw document.headline %></div>
-          <div class="listh2 red"><%= raw document.subtitle %></div>
+          <div class="listh1 red"><%= raw document.headline %></div>
+          <div class="listh2 grey"><%= raw document.subtitle %></div>
           <p><%= raw document.introduction %></p>
           <!-- <p>body</h2><%= raw document.body %></p> -->
 
@@ -62,11 +61,11 @@
           <% unless document.attachments.nil? %>
               <% document.attachments.each do |a| %>
                   <%= link_to a.title, a.pdf.url %>
+				  <%= link_to "[See pdfs]", toolkit_url + '/' + document.id %>
               <% end %>
           <% end %>
           <div class="hrbreake7e6e7">&nbsp;</div>
-          <br><br>
-          <p class="red"><%= link_to "View a list of these PDFs", toolkit_url + '/' + document.id %></p>
+
 
       <% end %>
       <br/><br/>
@@ -74,11 +73,19 @@
   </div><!-- close containerbg -->
 
 
+             <div class="opening">
+               <div class="container">
+               </div>
+			 </div><!-- close opening -->
+
+
+
+
 </div><!-- close content -->
 
 
-<img class="float" id="float-1" data-friction="0.5" src="https://secureolp.liberalonline.ca/images/toolkitusers4.jpg" />
-<img class="float" id="float-2" data-friction="0.5" src="https://secureolp.liberalonline.ca/images/toolkitusers4.jpg" />
+<div class="float" id="float-1" data-friction="0.5">&nbsp;</div>
+<div class="float" id="float-2" data-friction="0.5">&nbsp;</div>
 <img class="float" id="float-3" data-friction="0.5" src="https://secureolp.liberalonline.ca/images/toolkitusers4.jpg" />
 
 <!-- <div class="float" id="float-1" data-friction="0.5" style="background-image: url('https://secureolp.liberalonline.ca/images/toolkitusers3.jpg'); background:cover; width:100%;" />-->

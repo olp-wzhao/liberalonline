@@ -174,7 +174,15 @@
 /* ------------------------ SECTION TWO ---------------------------*/
 /* ----------------------- GLOBAL RESETS --------------------------*/
 /* ----------------------------------------------------------------*/
-
+body {
+ font-size: 18px;
+}
+h1,h2,h3,h4,h5,h6,p {
+ line-height: 1.45;
+}
+h1 { font-size: 4em; }
+h2 { font-size: 3em; }
+h3 { font-size: 3em; }
 	
 html {margin:0px; padding:0px;}	
 body {
@@ -186,16 +194,16 @@ body {
 }
 h1,h2,h3,h4,h5,h6  {	
     font-weight:400;
-	font-family: 'Droid sans', sans-serif;
+	font-family: 'Roboto Condensed', sans-serif;
 	margin:0px;
 	padding:0px;
-	font-size:2.3em;
+	font-size:28px;
+	line-height:28px;
 	}
 h1 {color:#5c4a4a; line-height:102%px;}
 h2 {color:#8e7d7e; line-height:102%px;}
-#imageholder {margin-bottom:13px;}
-.headlinebig { color:#5c4a4a; width:600px; height:70%; /* border:solid 1px red; */ font-weight:400; font-family: 'Droid sans';}
-.subtitlebig { text-align:lfet; color:#8e7d7e; width:600px; height:70px; /* border:solid 1px red;*/ font-weight:400; font-family: 'Droid sans';}
+#imageholder {margin-bottom:0px; margin-top:23px;}
+.tiny {font-size:12px;}
 
 
 /* ----------------------------------------------------------------*/	 
@@ -502,22 +510,20 @@ min-height:100px;
     vertical-align: middle;
 }
 
-.shareemail,.sharefacebook,.sharetwitter {
-      max-width:45px;
-	  width:45px;
-	  max-height:46px;
-	  height:46px;
-	  background-position:top center;
-	  background-repeat:no;	
-	  float:left;
-	  }
-	  
-.shareemail {background-image:url("images/b_shareemail.png");}
-.sharefacebook {background-image:url("images/b_sharefacebook.png");}
-.sharetwitter {background-image:url("images/b_sharetwitter.png");}
-.shareemail:hover {background-image:url("images/b_shareemailhover.png");}
-.sharefacebook:hover {background-image:url("images/b_sharefacebookhover.png");}
-.sharetwitter:hover {background-image:url("images/b_sharetwitterhover.png");}
+
+
+img.grayscale {
+    filter: url("data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\'><filter id=\'grayscale\'><feColorMatrix type=\'matrix\' values=\'0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0 0 0 1 0\'/></filter></svg>#grayscale"); /* Firefox 3.5+, IE10 */
+    filter: gray; /* IE6-9 */
+    -webkit-filter: grayscale(100%); /* Chrome 19+ & Safari 6+ */
+    -webkit-transition: all .6s ease; /* Fade to color for Chrome and Safari */
+    -webkit-backface-visibility: hidden; /* Fix for transition flickering */
+}
+
+img.grayscale:hover {
+    filter: none;
+    -webkit-filter: grayscale(0%);
+}
 
 
 .logo {position:relative; top:-5px; z-index:888; width:250px; margin-left:16px;}
@@ -1000,9 +1006,19 @@ h1,h2 {font-size:30px;}
 					<h2>In the end what I find ugly are orphaned words</h2>
 				    <div id="imageholder" class="drop-shadow lifted"><img src="images/newspic.jpg"></div>
 					<div style="clear:both; display:block;">&nbsp;</div>
-					<h1 id="responsive_headline">Minimum Wage is Increasing but this headline needs to be broken up</h1>
-					<h2>In the end what I find ugly are orphaned words</h2>
 					
+					<div class="hrbreake7e6e7">&nbsp;</div>
+					<div style="margin-top: 2px;">
+					<p style="font-size:100% line-height: 10px; margin-top:-4px; margin-bottom:-3px;"><span class="tiny" style="position:relative; top:-0.5em;">Published: Tuesday, February 20th, 2014 | Share this</span>&nbsp;&nbsp;
+					<a href="https://www.facebook.com/OntarioLiberalParty">
+					<img class="grayscale" src="http://images.dkkma.com/assets/images/social/facebook.png" style="width: 26px; margin-right: 3px;"></img></a>
+					<a href="https://twitter.com/">
+					<img class="grayscale" src="http://images.dkkma.com/assets/images/social/twitter.png" style="width: 26px; margin-right: 3px;"></img></a>
+					<a href="#">
+					<img class="grayscale" src="http://images.dkkma.com/assets/images/social/email.png" style="width: 26px; margin-right: 3px;"></img></a>
+					</p>
+                    </div>
+					<div class="hrbreake7e6e7">&nbsp;</div>
 					
                     <p>The government will also introduce legislation that would tie future minimum wage increases to the CPI. This will ensure the minimum wage keeps up with the cost of living, and that increases are predictable for businesses and families. Under the proposed legislation, increases would be announced by April 1 and come into effect on Oct. 1.</p>
                     <p>The proposed legislation would act on the&nbsp;<a href="http://www.labour.gov.on.ca/english/es/pubs/mwap/index.php">recommendations</a>&nbsp;of Ontario's Minimum Wage Advisory Panel, which included business, labour, youth and anti-poverty representatives.</p>
@@ -1011,10 +1027,20 @@ h1,h2 {font-size:30px;}
                     <li><a title="Learn More" href="http://www.labour.gov.on.ca/english/es/pubs/mwap/index.php">Read the Minimum Wage Advisory Panel's Report</a></li>
                     <li><a title="Learn More" href="http://www.labour.gov.on.ca/english/es/pubs/poster_text.php">Know your rights and responsibilities under Ontario's Employment Standards Act, 2000</a></li>
                     </ul>
+					
+
+
 					<div class="hrbreake7e6e7">&nbsp;</div>
-					
-					<div class="sharefacebook">&nbsp;</div><div class="sharetwitter">&nbsp;</div><div class="shareemail">&nbsp;</div>
-					
+					<div style="margin-top: 2px;">
+					<p style="font-size:100% line-height: 10px; margin-top:-4px; margin-bottom:-3px;"><span class="tiny" style="position:relative; top:-0.5em;">Published: Tuesday, February 20th, 2014 | Share this</span>&nbsp;&nbsp;
+					<a href="https://www.facebook.com/OntarioLiberalParty">
+					<img class="grayscale" src="http://images.dkkma.com/assets/images/social/facebook.png" style="width: 26px; margin-right: 3px;"></img></a>
+					<a href="https://twitter.com/">
+					<img class="grayscale" src="http://images.dkkma.com/assets/images/social/twitter.png" style="width: 26px; margin-right: 3px;"></img></a>
+					<a href="#">
+					<img class="grayscale" src="http://images.dkkma.com/assets/images/social/email.png" style="width: 26px; margin-right: 3px;"></img></a>
+					</p>
+                    </div>
 					<div class="hrbreake7e6e7">&nbsp;</div>
 					
 
@@ -1059,6 +1085,7 @@ h1,h2 {font-size:30px;}
 <h1>In Video</h1>
 <div class="hrbreake7e6e7"></div>
 
+<h3>Related News</h3>
 <div class="listright">
 <h1>Making Ontario's Minimum Wage Fair and Predictable<h1>
 <h2>Ontario is taking the next step to ensure the province's 
@@ -1201,6 +1228,18 @@ $(document).ready(function($){
     });
 	
 	
+</script>
+
+<script type="text/javascript">
+
+$('body').flowtype({
+ minimum   : 500,
+ maximum   : 1200,
+ minFont   : 12,
+ maxFont   : 40,
+ fontRatio : 30
+});
+
 </script>
   
 </body>

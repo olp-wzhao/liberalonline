@@ -1,211 +1,666 @@
+<!DOCTYPE HTML>
 <html>
-<head>
-<script src="javascripts/jquery-1.9.1.min.js"></script>
-<script>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <title>Ontario Liberal Toolkit</title>
+    <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+    <meta name="keywords" content="Ontario Liberal Toolkit" />
+    <meta name="description" content="Here you’ll find information about donation limits and tax credit information as well as checklists, cost calculation forms, generic donation forms and GST tracking forms in Excel" />
+    <meta property="og:title" content="Ontario Liberal Toolkit" />
+    <meta property="og:type" content="politician" />
+    <meta property="og:url" content="" />
+    <meta property="og:image" content="" />
+    <meta property="og:site_name" content="Ontario Liberal Toolkit" />
+    <meta property="fb:admins" content="100003812622252,686700080,552055122" />
+    <meta property="og:description" content="Here are all the forms and documents you will need" />
 
-$(function (){ $(".float").each(function () { 
-var $this = $(this); $this.data("startTop", $this.offset().top);});
-$(window).scroll(function () { var documentScrollTop = $(document).scrollTop();
-$(".float").each(function () { var $this = $(this); 
-$this.offset({ top: $this.data("startTop") + documentScrollTop * $this.data("friction"), left: $this.offset().left });
-});
-document.oldScrollTop = documentScrollTop; });
-});
 
-// Remove all empty paragraphs
-    $('p').filter(function () { return this.innerHTML == "" }).remove();
-
-</script>
-<script>
-
-	$( document ).ready(function() {
-		
-		/*function getFacebookShares(divName, url){
-			$.getJSON("https://graph.facebook.com/"+ url),
-				function(data){     
-					$("#" + divName).append(data.shares);  
-			});
-		}
-		
-		getFacebookShares("jsonmodel", "www.ontarioliberal.ca"); */
+    <link href="/assets/admin_application.css?body=1" media="all" rel="stylesheet" />
+<link href="/assets/bootstrap_and_overrides.css?body=1" media="all" rel="stylesheet" />
+<link href="/assets/admin.css?body=1" media="all" rel="stylesheet" />
+    <script src="/assets/jquery.js?body=1"></script>
+<script src="/assets/jquery_ujs.js?body=1"></script>
+<script src="/assets/jquery.iframe-transport.js?body=1"></script>
+<script src="/assets/jquery.remotipart.js?body=1"></script>
+<script src="/assets/select2.js?body=1"></script>
+<script src="/assets/tinymce/preinit.js?body=1"></script>
+<script src="/assets/tinymce/tinymce.jquery.js?body=1"></script>
+<script src="/assets/tinymce/jquery.tinymce.js?body=1"></script>
+<script src="/assets/tinymce-jquery.js?body=1"></script>
+<script src="/assets/bootstrap/affix.js?body=1"></script>
+<script src="/assets/bootstrap/alert.js?body=1"></script>
+<script src="/assets/bootstrap/button.js?body=1"></script>
+<script src="/assets/bootstrap/carousel.js?body=1"></script>
+<script src="/assets/bootstrap/collapse.js?body=1"></script>
+<script src="/assets/bootstrap/dropdown.js?body=1"></script>
+<script src="/assets/bootstrap/tab.js?body=1"></script>
+<script src="/assets/bootstrap/transition.js?body=1"></script>
+<script src="/assets/bootstrap/scrollspy.js?body=1"></script>
+<script src="/assets/bootstrap/modal.js?body=1"></script>
+<script src="/assets/bootstrap/tooltip.js?body=1"></script>
+<script src="/assets/bootstrap/popover.js?body=1"></script>
+<script src="/assets/bootstrap.js?body=1"></script>
+<script src="/assets/turbolinks.js?body=1"></script>
+<script src="/assets/admin_application.js?body=1"></script>
+    <meta content="authenticity_token" name="csrf-param" />
+<meta content="03cALloRkAyEp/FOJ7WwPheTTL9vgk0fcgFxlj457n4=" name="csrf-token" />
 	
-		$.getJSON("https://graph.facebook.com/http://www.ontarioliberal.ca",
-				function(data){     
-					$("#jsonmodel").append(data.shares);  
-		});
-		
-		$.getJSON("https://graph.facebook.com/http://www.ontariopc.com",
-			function(data){
-				$("#pc").append(data.shares);
-		});
-			
-	});
+	
+	
+	
+	<link href="stylesheets/bootstrap.min.css" rel="stylesheet">
+	<script src="javascripts/stickUp.min.js"></script>
+    <script src="javascripts/bootstrap.min.js"></script>	
+	<script type="text/javascript"> 
+	
+	//initiating jQuery 
+	jQuery(function($) { 
+	   $(document).ready( function() { 
+	       //enabling stickUp on the '.navbar-wrapper' class 
+		   $('.navbar-wrapper').stickUp({ 
+		            parts: { 
+					0: 'home', 
+					1: 'features', 
+					2: 'organizing', 
+					3: 'fundraising', 
+					4: 'receipting', 
+					5: 'web', 
+					6: 'lit examples', 
+					7: 'contact' 
+				}, 
+				itemClass: 'menuItem', 
+				itemHover: 'active' });; 
+		}); 
+	}); 
+	
+	</script>
+	
+	
+	
+	
+    <script>
 
-// {
-//   "id": "http://www.ontarioliberal.ca",
-//   "shares": 505
-// }
+      $(function (){ $(".float").each(function () { 
+           var $this = $(this); $this.data("startTop", $this.offset().top);});
+             $(window).scroll(function () { var documentScrollTop = $(document).scrollTop();
+             $(".float").each(function () { var $this = $(this); 
+             $this.offset({ top: $this.data("startTop") + documentScrollTop * $this.data("friction"), left: $this.offset().left });
+      });
+      document.oldScrollTop = documentScrollTop; });
+      });
+  	
+      // Get rid of empty paragraphs
+      $(window).load(function(){
+          $('p').filter(function () { return this.innerHTML == "" }).remove();
+      });//]]> 
+	
+    </script>	
+      
+    
+      
+    <style type="text/css">
 
+      /* Sample pallete  */
 
-</script>
-
-<style type="text/css">
-
-  /* Sample pallete  */
-
-  /* e5e5e5   warmwhite  */
-  /* f84241   lightred  */
-  /* d43839   dark red  */
-  /* 494949  textgrey  */
-  /* warm white #f0ecec            */
-  /* portrait bg clr #d7e6f4  */
-  /* new portrait bg #e8eae5 */
-@font-face {
-  font-family: 'Oswald';
-  font-style: normal;
-  font-weight: 400;
-  src: local('Oswald Regular'), local('Oswald-Regular'), url(fonts/Oswald400.woff) format('woff');
-}
-@font-face {
-  font-family: 'Oswald';
-  font-style: normal;
-  font-weight: 700;
-  src: local('Oswald Bold'), local('Oswald-Bold'), url(fonts/Oswald700.woff) format('woff');
-}
-@font-face {
-  font-family: 'Droid Sans';
-  font-style: normal;
-  font-weight: 400;
-  src: local('Droid Sans'), local('DroidSans'), url(fonts/DroidSans400.woff) format('woff');
-}
-@font-face {
-  font-family: 'Droid Sans';
-  font-style: normal;
-  font-weight: 700;
-  src: local('Droid Sans Bold'), local('DroidSans-Bold'), url(fonts/DroidSans700.woff) format('woff');
-}
-@font-face {
-  font-family: 'League Gothic';
-  font-style: normal;
-  font-weight: 400;
-  src: local('League Gothic'), local('LeagueGothic400'), url(fonts/LeagueGothic400.woff) format('woff');
-}
-
-
-@font-face {
-  font-family: 'Roboto Condensed';
-  font-style: normal;
-  font-weight: 300;
-  src: local('Roboto Condensed Light'), local('RobotoCondensed-Light'), url(fonts/RobotoCondensed300.woff) format('woff');
-}
-@font-face {
-  font-family: 'Roboto Condensed';
-  font-style: normal;
-  font-weight: 400;
-  src: local('Roboto Condensed Regular'), local('RobotoCondensed-Regular'), url(fonts/RobotoCondensed400.woff) format('woff');
-}
-@font-face {
-  font-family: 'Roboto Condensed';
-  font-style: normal;
-  font-weight: 700;
-  src: local('Roboto Condensed Bold'), local('RobotoCondensed-Bold'), url(fonts/RobotoCondensed700.woff) format('woff');
-}
-@font-face {
-  font-family: 'Roboto Condensed';
-  font-style: italic;
-  font-weight: 300;
-  src: local('Roboto Condensed Light Italic'), local('RobotoCondensed-LightItalic'), url(fonts/RobotoCondensedItalic300.woff) format('woff');
-}
-.grey a:link,
-.grey a:visited,
-.grey a:hover,
-.grey { color: #494949; }
-
-
-.red a:link,
-.red a:visited,
-.red a:hover,
-.red { color: #bf0612; }
-
-h1,h2,h3,h4,h5,h6,button-white {	
-    font-weight:400;
-	font-family: 'Oswald', sans-serif;
-	margin:0px;
-	padding:0px;
-	}
-p {font-size:19px;}
-h1,h2{ font-size:32px;}
-
-.centerclass {
-  text-align:center;
-  margin-top:20px;
-}
+      /* e5e5e5   warmwhite  */
+      /* f84241   lightred  */
+      /* d43839   dark red  */
+      /* 494949  textgrey  */
+      /* 6b6b6b  darkergrey */
+      /* warm white #f0ecec            */
+      /* portrait bg clr #d7e6f4  */
+      /* new portrait bg #e8eae5 */
+      @font-face {
+        font-family: 'Oswald';
+        font-style: normal;
+        font-weight: 400;
+        src: local('Oswald Regular'), local('Oswald-Regular'), url('https://secureolp.liberalonline.ca/fonts/fonts/Oswald400.woff') format('woff');
+      }
+      @font-face {
+        font-family: 'Oswald';
+        font-style: normal;
+        font-weight: 700;
+        src: local('Oswald Bold'), local('Oswald-Bold'), url('https://secureolp.liberalonline.ca/fonts/fonts/Oswald700.woff') format('woff');
+      }
+      @font-face {
+        font-family: 'Droid Sans';
+        font-style: normal;
+        font-weight: 400;
+        src: local('Droid Sans'), local('DroidSans'), url('https://secureolp.liberalonline.ca/fonts/DroidSans400.woff') format('woff');
+      }
+      @font-face {
+        font-family: 'Droid Sans';
+        font-style: normal;
+        font-weight: 700;
+        src: local('Droid Sans Bold'), local('DroidSans-Bold'), url('https://secureolp.liberalonline.ca/fonts/DroidSans700.woff') format('woff');
+      }
+      @font-face {
+        font-family: 'League Gothic';
+        font-style: normal;
+        font-weight: 400;
+        src: local('League Gothic'), local('LeagueGothic400'), url('https://secureolp.liberalonline.ca/fonts/LeagueGothic400.woff') format('woff');
+      }
 
 
-.containerbg {
-    background-color:#e5e5e5;
-	width:100%;
-	min-height:200px;
-	border:solid 1px red;
-}
+      @font-face {
+        font-family: 'Roboto Condensed';
+        font-style: normal;
+        font-weight: 300;
+        src: local('Roboto Condensed Light'), local('RobotoCondensed-Light'), url('https://secureolp.liberalonline.ca/fonts/RobotoCondensed300.woff') format('woff');
+      }
+      @font-face {
+        font-family: 'Roboto Condensed';
+        font-style: normal;
+        font-weight: 400;
+        src: local('Roboto Condensed Regular'), local('RobotoCondensed-Regular'), url('https://secureolp.liberalonline.ca/fonts/RobotoCondensed400.woff') format('woff');
+      }
+      @font-face {
+        font-family: 'Roboto Condensed';
+        font-style: normal;
+        font-weight: 700;
+        src: local('Roboto Condensed Bold'), local('RobotoCondensed-Bold'), url('https://secureolp.liberalonline.ca/fonts/RobotoCondensed700.woff') format('woff');
+      }
+      @font-face {
+        font-family: 'Roboto Condensed';
+        font-style: italic;
+        font-weight: 300;
+        src: local('Roboto Condensed Light Italic'), local('RobotoCondensed-LightItalic'), url('https://secureolp.liberalonline.ca/fonts/RobotoCondensedItalic300.woff') format('woff');
+      }
+      *,html {padding:0px; margin:0px;}
+      ul,ol {margin-left:30px;}
+      a:link,
+      a:visited {text-decoration:none;}
+      a:hover {text-decoration:underline;}
 
-body { background-color:#e5e5e5; margin:0px; padding:0px; }
-.container {max-width:960px; margin-left:auto; margin-right:auto;}
-
-.top { padding:4px; text-align:center; display: block; min-height:32px; width:100%; background-color:white; border:solid 1px black; }
-
-.float { display: block; position: fixed;  }    
-
-#float-1 { top: 20px; width:100%; } 
-
-#float-2 { top: 800px; width:100%; } 
-
-#float-3 { top: 1250px; width:100%; } 
-
-.content { position: relative; z-index: 2; }
-
-.opening {min-height:540px; height:540px; background:none; border:solid 1px purple;}
-
-</style>
-
-</head>
-
-<body>
-
-
-<div class="content">
-
-
-<div class="containerbg">
-   <div class="container"><!--  this will set the content margins left and right -->
-      <div class="centerclass"><br><h1 class="red">Fundraising | Nominations | Websites</h1></div>
-   </div><!-- close container -->
-</div><!-- close containerbg -->
-
-<div class="opening"><img src="images/logo_sm_white_vert.png"><br><h2 class="grey">Toolkit</h1></div>
-
-<div class="containerbg">
-<div class="container"><!--  this will set the content margins left and right -->
-   <div style="min-height:300px; width:100%; background-color:none;">
-        <h1 class="grey">Attention Riding Presidents</h1>
-       <p>Wolf master cleanse readymade lo-fi leggings, photo booth 3 wolf moon mixtape helvetica single-origin coffee wayfarers. Tumblr photo booth vice VHS, banh mi locavore aesthetic DIY mixtape thundercats banksy american apparel. Squid single-origin coffee tattooed letterpress, viral lo-fi keffiyeh etsy retro. Pitchfork banh mi shoreditch, brunch cred scenester +1 seitan wes anderson before they sold out lomo messenger bag 8-bit jean shorts. Art party portland brooklyn, organic stumptown pitchfork viral. Artisan pitchfork sartorial gentrify synth beard, iphone before they sold out marfa PBR vegan you probably haven't heard of them lo-fi skateboard. DIY chambray dreamcatcher farm-to-table you probably haven't heard of them, beard before they sold out.</p>
-	   <p>Blog vinyl cosby sweater, put a bird on it tumblr salvia four loko tofu stumptown helvetica gentrify craft beer banh mi. Carles put a bird on it keffiyeh, brunch brooklyn fanny pack jean shorts PBR trust fund marfa four loko freegan artisan. Skateboard photo booth 3 wolf moon, sartorial bicycle rights artisan aesthetic vinyl. Mustache sustainable wes anderson leggings, art party banh mi tattooed fap lomo freegan blog craft beer synth etsy brooklyn. Next level aesthetic cosby sweater, 8-bit raw denim tumblr +1 DIY letterpress master cleanse twee four loko helvetica sartorial. Cosby sweater high life skateboard, mlkshk mustache before they sold out american apparel whatever squid fanny pack scenester terry richardson irony vice. Single-origin coffee freegan ethical high life locavore brooklyn.</p>
-   </div>
-   <div style="min-height:200px; width:100%; background-color:#f84241; color:white;">This was messing things up</div>
-       <p>Wolf master cleanse readymade lo-fi leggings, photo booth 3 wolf moon mixtape helvetica single-origin coffee wayfarers. Tumblr photo booth vice VHS, banh mi locavore aesthetic DIY mixtape thundercats banksy american apparel. Squid single-origin coffee tattooed letterpress, viral lo-fi keffiyeh etsy retro. Pitchfork banh mi shoreditch, brunch cred scenester +1 seitan wes anderson before they sold out lomo messenger bag 8-bit jean shorts. Art party portland brooklyn, organic stumptown pitchfork viral. Artisan pitchfork sartorial gentrify synth beard, iphone before they sold out marfa PBR vegan you probably haven't heard of them lo-fi skateboard. DIY chambray dreamcatcher farm-to-table you probably haven't heard of them, beard before they sold out.</p>
-       <p>Blog vinyl cosby sweater, put a bird on it tumblr salvia four loko tofu stumptown helvetica gentrify craft beer banh mi. Carles put a bird on it keffiyeh, brunch brooklyn fanny pack jean shorts PBR trust fund marfa four loko freegan artisan. Skateboard photo booth 3 wolf moon, sartorial bicycle rights artisan aesthetic vinyl. Mustache sustainable wes anderson leggings, art party banh mi tattooed fap lomo freegan blog craft beer synth etsy brooklyn. Next level aesthetic cosby sweater, 8-bit raw denim tumblr +1 DIY letterpress master cleanse twee four loko helvetica sartorial. Cosby sweater high life skateboard, mlkshk mustache before they sold out american apparel whatever squid fanny pack scenester terry richardson irony vice. Single-origin coffee freegan ethical high life locavore brooklyn.</p>
-</div><!-- close container -->
-</div><!-- close containerbg -->
-
-</div>
+      body { 
+         padding:0px; 
+         margin:0px; 
+         font-size:16px; 
+         font-family: 'Droid Sans', sans-serif; 
+         background-color:#e5e5e5; 
+         margin:0px; 
+         padding:0px; 
+         }
+         
+      .grey a:link,
+      .grey a:visited,
+      .grey a:hover,
+      .grey { color: #6b6b6b; }
 
 
-<img class="float" id="float-1" data-friction="0.5" src="images/toolkitusers3.jpg" /> 
-<img class="float" id="float-2" data-friction="0.5" src="http://thelethbridgeveg.files.wordpress.com/2011/09/apples-553.jpg" /> 
-<img class="float" id="float-3" data-friction="0.5" src="http://thelethbridgeveg.files.wordpress.com/2011/09/apples-553.jpg" />
+      .red a:link,
+      .red a:visited,
+      .red a:hover,
+      .red { color: #d30000; }
+      .listh1 { font-size:26px; line-height:24px;}
+      .listh2 { font-size:23px; line-height:22px;}
+      h1,h2,h3,h4,h5,h6 { 
+          font-weight:400;
+          font-family: 'Oswald', sans-serif;
+          margin:0px;
+          padding:0px;
+          }
+      p {line-height:18px;}
+      h1 { font-size:36px; line-height:34px;}
+      h2,h3{ font-size:28px; line-height:34px;}
+
+      p + .tiny {line-height:0px;margin-bottom:-20px;padding:0px;}
+      p + p {padding-top:20px;}
+      h1 + p {padding-top:10px;}
+      .listh2 + p {margin-top:10px;}
+
+      .toolkitheader {
+          background-color:#e5e5e5;
+          width:100%;
+          min-height:60px;
+          padding-top:7px;
+          -webkit-box-shadow: 0px 3px 7px 0px rgba(50, 50, 50, 0.75);
+          -moz-box-shadow:    0px 3px 7px 0px rgba(50, 50, 50, 0.75);
+          box-shadow:         0px 3px 7px 0px rgba(50, 50, 50, 0.75); 
+      }
+      .logoholder {float:left; height:50px; width:50px; padding-bottom:10px;}
+      .logoholder img {width:100%;}
+      .menuholder {float:left; margin-left:30px; height:50px; padding-top:12px;}
+      .containerbg {
+          background-color:#fff;
+          width:100%;
+          padding-top:40px;
+          -moz-box-shadow: inset 0 8px 8px -8px #696868,
+          inset 0 -8px 8px -8px #696868;
+          -webkit-box-shadow: inset 0 8px 8px -8px #696868,
+          inset 0 -8px 8px -8px #696868;
+          box-shadow: inset 0 8px 8px -8px #696868,
+          inset 0 -8px 8px -8px #696868;
+
+          
+
+      }
+
+      .tiny,
+      .legal {
+          line-height: 13px;
+          text-shadow: none;
+          margin: 10px 0px 0px;
+          padding: 0px;
+          border: 0px none;
+          outline: 0px none;
+          font-size: 10px;
+          vertical-align: baseline;
+          font-family: "HelveticaNeue","Helvetica Neue","HelveticaNeueRoman","HelveticaNeue-Roman","Helvetica Neue Roman",'TeXGyreHerosRegular',"Helvetica","Tahoma","Geneva","Arial",sans-serif;
+          font-weight: 400;
+          display:inline;
+      }
+
+
+      .container {max-width:960px; margin-left:auto; margin-right:auto; width:85%}
+
+
+      .toolkittitle { min-height:79px; background-repeat: no-repeat; background-image: url("images/Toolkit.png");margin-top:115px; margin-bottom:0px; margin-left:-8px; padding-bottom:0px;}
+      .toolkittag {margin-top:2px; font-size:27px; color:#6b6b6b; line-height:27px; text-shadow: 0px 1px 2px rgba(150, 150, 150, 1);}
+
+
+      .float { display: block; position: fixed; }    
+
+      #float-1 { top: 23px; width:100%; min-height:500px; background: cover; background-position:center top; background-image: url("images/toolkitusers4.jpg");} 
+
+      #float-2 { top: 700px; width:100%; } 
+
+      #float-3 { top: 2250px; width:100%; } 
+
+      .content { position: relative; z-index: 2; }
+
+      .opening { 
+          min-height:310px; 
+          height:310px; 
+          background:none; 
+          margin-bottom:20px;
+          }
+          
+
+          
+          
+      .hrbreake7e6e7 {
+          background-image: url('https://secureolp.liberalonline.ca/images/hr_e7e6e7.gif');
+          background-repeat: repeat-x;
+          background-position: left center;
+          width:100%;
+          min-height:10px;
+          display:block;
+          clear:both;
+      }
+
+
+
+      @media all and (max-width: 700px) {
+      .container {padding-left:20px; padding-right:20px; width:80%}
+      .toolkittitle {margin-top:50px; margin-bottom:0px; padding-bottom:0px; font-size:48px; text-shadow: 0px 3px 2px rgba(150, 150, 150, 1);}
+      .toolkittag {margin-top:15px; font-size:25px; line-height:24px; text-shadow: 0px 3px 2px rgba(150, 150, 150, 1);}
+      #float-1 { top: 23px; right:50%; margin-right:-995px;} 
+      }
+
+
+    </style>
+  </head>
+  <body>
+  
+  
+  
+      
+      <div class="content">
+
+  <div class="toolkitheader">
+    <div class="container"><!--  this will set the content margins left and right -->
+      <div class="logoholder">
+        <img src="https://secureolp.liberalonline.ca/images/logo_sm_white_vert.png">
+      </div>
+      <div class="menuholder">
+        <span class="red" style="position : relative; top:.15em;">Samples
+Training 
+LibE 
+Fundraising
+Finances
+Engagement 
+Campaign Services
+Email Marketing
+Contact 
+ &nbsp;&nbsp;</span> <span class="tiny grey">Logged in as: Webadmin@ontarioliberal.ca | <a href="#">Logout</a></span>
+      </div>
+    </div><!-- close container -->
+  </div><!-- close toolkitheader -->
+
+  <div class="opening">
+    <div class="container">
+	  <div class="toolkittitle">&nbsp;</div>
+      <p class="toolkittag">You may need this.</p>
+    </div>
+  </div><!-- close opening -->
+
+  <div class="containerbg">
+    <div class="container"> <!--  this will set the content margins left and right -->
+
+
+      <p class="grey">Recently Added</p>
+      <div class="hrbreake7e6e7">&nbsp;</div>
+
+
+          <!-- <p>ID: </p> -->
+          <div class="listh1 grey">PLA Website Manual</div>
+          <div class="listh2 red">If you have a riding association website, this could come in handy</div>
+          <p>OLP provides a basic website for any riding association that wants one. This manual is an overview of many of the basic functions.</p>
+          <!-- <p>body</h2><p>OLP provides a basic website for any riding association that wants one. This manual is an overview of many of the basic functions. From adding news, videos and pictures to selling tickets, this manual covers all the basics. If you're not sure how to obtain a website, or how to receive credentials for your site, this manual covers that procedure as well.</p></p> -->
+
+          <!-- <p class="tiny"></p>
+                        <p class="tiny"></p>
+                        <p class="tiny"></p>
+                        <p class="tiny"></p> -->
+
+          <!-- <div style="float:left; width:50px;"> -->
+          <!-- <a href="http://pantone201.ca/webskins/mpp/pdf/#{}.pdf" target="_blank"><img alt="Pdf_icon" src="http://pantone201.ca/webskins/css/img/pdf_icon.png"></a>  -->
+          <!-- </div>  -->
+          <!-- <div style="float:left; clear:right;"><p><a href="http://pantone201.ca/webskins/mpp/pdf/#{}.pdf" target="_blank">This is the pdf title</a></p><p class="tiny">And this is the description</p></div> -->
+          <!-- </div> -->
+
+          <!-- <p class="tiny">Created:</p>  -->
+          <!-- <p class="tiny">2014-02-28T00:00:00+00:00</p>	-->
+          <!-- <p class="tiny">IP:</p>  -->
+          <!-- <p class="tiny"></p>  -->
+          <!-- <p class="tiny">English</p>  -->
+          <!-- <p class="tiny"></p>  -->
+          <!-- <p class="tiny"></p>  -->
+          <!-- <p class="tiny">false</p>  -->
+          <!-- <p class="tiny">false</p>  -->
+          <!-- <p class="tiny"></p>  -->
+          <!--  <p class="tiny">false</p>  -->
+          <!--  <p class="tiny"></p>    -->
+          <!-- <p class="tiny"></p> -->
+          <div class="hrbreake7e6e7">&nbsp;</div>
+                  <a href="/uploads/pdf/attachment/pdf/530e7ce6386c790ba9040000/WebsiteManual-PLA.pdf">PLA Website Manual</a>
+          <div class="hrbreake7e6e7">&nbsp;</div>
+          <br><br>
+          <p class="red"><a href="https://secureolp.liberalonline.ca/toolkit/530e7c4c386c790ba9020000">View a list of these PDFs</a></p>
+
+
+          <!-- <p>ID: 1304</p> -->
+          <div class="listh1 grey">Attention New CFO’s</div>
+          <div class="listh2 red">Here are all the forms and documents you will need</div>
+          <p><p>Here youll find information about donation limits and tax credit information as well as checklists, cost calculation forms, generic donation forms and GST tracking forms in Excel.</p></p>
+          <!-- <p>body</h2><p><span>Here you&rsquo;ll find information about donation limits and tax credit information as well as checklists, cost calculation forms, generic donation forms and GST tracking forms in Excel. From silent auctions, to processing credit cards at the door, this is where you&rsquo;ll find the forms you need.</span></p></p> -->
+
+          <!-- <p class="tiny"></p>
+                        <p class="tiny"></p>
+                        <p class="tiny"></p>
+                        <p class="tiny">36|37|38|39|40|41|42|43|45</p> -->
+
+          <!-- <div style="float:left; width:50px;"> -->
+          <!-- <a href="http://pantone201.ca/webskins/mpp/pdf/#{36|37|38|39|40|41|42|43|45}.pdf" target="_blank"><img alt="Pdf_icon" src="http://pantone201.ca/webskins/css/img/pdf_icon.png"></a>  -->
+          <!-- </div>  -->
+          <!-- <div style="float:left; clear:right;"><p><a href="http://pantone201.ca/webskins/mpp/pdf/#{36|37|38|39|40|41|42|43|45}.pdf" target="_blank">This is the pdf title</a></p><p class="tiny">And this is the description</p></div> -->
+          <!-- </div> -->
+
+          <!-- <p class="tiny">Created:2014-02-18T20:24:12+00:00</p>  -->
+          <!-- <p class="tiny">2012-04-03T15:07:00+00:00</p>	-->
+          <!-- <p class="tiny">IP:192.75.172.1</p>  -->
+          <!-- <p class="tiny">192.75.172.1</p>  -->
+          <!-- <p class="tiny">EN</p>  -->
+          <!-- <p class="tiny">0</p>  -->
+          <!-- <p class="tiny">0</p>  -->
+          <!-- <p class="tiny">false</p>  -->
+          <!-- <p class="tiny">false</p>  -->
+          <!-- <p class="tiny"></p>  -->
+          <!--  <p class="tiny">false</p>  -->
+          <!--  <p class="tiny">0</p>    -->
+          <!-- <p class="tiny">2014-02-18T20:24:12+00:00</p> -->
+          <div class="hrbreake7e6e7">&nbsp;</div>
+                  <a href="/uploads/pdf/attachment/pdf/530d2012386c791861010000/2011060908075902207.pdf">testing</a>
+                  <a href="/uploads/pdf/attachment/pdf/530d2092386c79186b010000/2011060913173705860.pdf">test2</a>
+          <div class="hrbreake7e6e7">&nbsp;</div>
+          <br><br>
+          <p class="red"><a href="https://secureolp.liberalonline.ca/toolkit/52ff93fa386c7947f4010000">View a list of these PDFs</a></p>
+
+
+          <!-- <p>ID: 1305</p> -->
+          <div class="listh1 grey">Campaign Roles - Assembling a Campaign Team  </div>
+          <div class="listh2 red">This presentation covers the various roles and responsibilities on a campaign team</div>
+          <p><p>From Canvass Coordiantor to Sign Chair, this presentation covers the various roles and responsibilities of an effective campaign team.</p></p>
+          <!-- <p>body</h2><p>From Canvass Coordiantor to Sign Chair, this presentation covers the various roles and responsibilities of an effective campaign team. If you're planning your campaign, this presentation can help facilitate and focus discussion.</p></p> -->
+
+          <!-- <p class="tiny"></p>
+                        <p class="tiny"></p>
+                        <p class="tiny"></p>
+                        <p class="tiny">44</p> -->
+
+          <!-- <div style="float:left; width:50px;"> -->
+          <!-- <a href="http://pantone201.ca/webskins/mpp/pdf/#{44}.pdf" target="_blank"><img alt="Pdf_icon" src="http://pantone201.ca/webskins/css/img/pdf_icon.png"></a>  -->
+          <!-- </div>  -->
+          <!-- <div style="float:left; clear:right;"><p><a href="http://pantone201.ca/webskins/mpp/pdf/#{44}.pdf" target="_blank">This is the pdf title</a></p><p class="tiny">And this is the description</p></div> -->
+          <!-- </div> -->
+
+          <!-- <p class="tiny">Created:2014-02-19T02:36:24+00:00</p>  -->
+          <!-- <p class="tiny">2012-03-04T21:36:00+00:00</p>	-->
+          <!-- <p class="tiny">IP:192.75.172.1</p>  -->
+          <!-- <p class="tiny">192.75.172.1</p>  -->
+          <!-- <p class="tiny">EN</p>  -->
+          <!-- <p class="tiny">0</p>  -->
+          <!-- <p class="tiny">0</p>  -->
+          <!-- <p class="tiny">false</p>  -->
+          <!-- <p class="tiny">false</p>  -->
+          <!-- <p class="tiny"></p>  -->
+          <!--  <p class="tiny">false</p>  -->
+          <!--  <p class="tiny"></p>    -->
+          <!-- <p class="tiny">2014-02-19T02:36:24+00:00</p> -->
+          <div class="hrbreake7e6e7">&nbsp;</div>
+          <div class="hrbreake7e6e7">&nbsp;</div>
+          <br><br>
+          <p class="red"><a href="https://secureolp.liberalonline.ca/toolkit/5304d80c386c797568010000">View a list of these PDFs</a></p>
+
+
+          <!-- <p>ID: 1308</p> -->
+          <div class="listh1 grey">Logo Materials and Guidelines</div>
+          <div class="listh2 red">In here you'll find everything to do with out Party's new logo  </div>
+          <p><p>In the attached files you'll find our new logo in its many forms.</p></p>
+          <!-- <p>body</h2><p>In the attached files you'll find our new logo. From signs, pins to clothing it can be utilized in a variety of ways in order to best serve your campaign.</p></p> -->
+
+          <!-- <p class="tiny"></p>
+                        <p class="tiny"></p>
+                        <p class="tiny"></p>
+                        <p class="tiny"></p> -->
+
+          <!-- <div style="float:left; width:50px;"> -->
+          <!-- <a href="http://pantone201.ca/webskins/mpp/pdf/#{}.pdf" target="_blank"><img alt="Pdf_icon" src="http://pantone201.ca/webskins/css/img/pdf_icon.png"></a>  -->
+          <!-- </div>  -->
+          <!-- <div style="float:left; clear:right;"><p><a href="http://pantone201.ca/webskins/mpp/pdf/#{}.pdf" target="_blank">This is the pdf title</a></p><p class="tiny">And this is the description</p></div> -->
+          <!-- </div> -->
+
+          <!-- <p class="tiny">Created:0001-01-01T00:00:00+00:00</p>  -->
+          <!-- <p class="tiny">2012-04-03T11:26:00+00:00</p>	-->
+          <!-- <p class="tiny">IP:</p>  -->
+          <!-- <p class="tiny">192.75.172.1</p>  -->
+          <!-- <p class="tiny">EN</p>  -->
+          <!-- <p class="tiny">0</p>  -->
+          <!-- <p class="tiny">0</p>  -->
+          <!-- <p class="tiny">false</p>  -->
+          <!-- <p class="tiny">false</p>  -->
+          <!-- <p class="tiny"></p>  -->
+          <!--  <p class="tiny">false</p>  -->
+          <!--  <p class="tiny"></p>    -->
+          <!-- <p class="tiny">0001-01-01T00:00:00+00:00</p> -->
+          <div class="hrbreake7e6e7">&nbsp;</div>
+          <div class="hrbreake7e6e7">&nbsp;</div>
+          <br><br>
+          <p class="red"><a href="https://secureolp.liberalonline.ca/toolkit/5304dd5b386c797568020000">View a list of these PDFs</a></p>
+
+
+          <!-- <p>ID: 1312</p> -->
+          <div class="listh1 grey">Attention Campaign Managers: Here’s a list of Vendors that Can Help</div>
+          <div class="listh2 red">From Billboards, to Lawn Signs, Translation services to Internet</div>
+          <p>Vendors have been prescreened and are ready to offer discounts and special deals on their products to all our local campaigns. Their contact information is below, sorted by category. When contacting a vendor, please be sure to mention that you are from a local campaign for the Ontario Liberal Party and saw their listing on the “Vendor Marketplace."</p>
+          <!-- <p>body</h2><p>dfasdf</p></p> -->
+
+          <!-- <p class="tiny"></p>
+                        <p class="tiny">-1</p>
+                        <p class="tiny">-1</p>
+                        <p class="tiny">-1</p> -->
+
+          <!-- <div style="float:left; width:50px;"> -->
+          <!-- <a href="http://pantone201.ca/webskins/mpp/pdf/#{-1}.pdf" target="_blank"><img alt="Pdf_icon" src="http://pantone201.ca/webskins/css/img/pdf_icon.png"></a>  -->
+          <!-- </div>  -->
+          <!-- <div style="float:left; clear:right;"><p><a href="http://pantone201.ca/webskins/mpp/pdf/#{-1}.pdf" target="_blank">This is the pdf title</a></p><p class="tiny">And this is the description</p></div> -->
+          <!-- </div> -->
+
+          <!-- <p class="tiny">Created:1970-01-01T00:00:00+00:00</p>  -->
+          <!-- <p class="tiny">1970-01-01T00:00:00+00:00</p>	-->
+          <!-- <p class="tiny">IP:</p>  -->
+          <!-- <p class="tiny">192.75.172.1</p>  -->
+          <!-- <p class="tiny">EN</p>  -->
+          <!-- <p class="tiny">0</p>  -->
+          <!-- <p class="tiny">0</p>  -->
+          <!-- <p class="tiny">false</p>  -->
+          <!-- <p class="tiny">false</p>  -->
+          <!-- <p class="tiny"></p>  -->
+          <!--  <p class="tiny">false</p>  -->
+          <!--  <p class="tiny">0</p>    -->
+          <!-- <p class="tiny">1970-01-01T00:00:00+00:00</p> -->
+          <div class="hrbreake7e6e7">&nbsp;</div>
+          <div class="hrbreake7e6e7">&nbsp;</div>
+          <br><br>
+          <p class="red"><a href="https://secureolp.liberalonline.ca/toolkit/52ffadb5386c7946dd030000">View a list of these PDFs</a></p>
+
+
+          <!-- <p>ID: 1311</p> -->
+          <div class="listh1 grey">Common Ground Downloads</div>
+          <div class="listh2 red">Resources to help promote this campaign in your community</div>
+          <p>We’re opening up the policy process and we want you to engage your community. Resources include literature and language you can use to promote the Commonground initiative.</p>
+          <!-- <p>body</h2><p>dfasdf</p></p> -->
+
+          <!-- <p class="tiny"></p>
+                        <p class="tiny">-1</p>
+                        <p class="tiny">-1</p>
+                        <p class="tiny">-1</p> -->
+
+          <!-- <div style="float:left; width:50px;"> -->
+          <!-- <a href="http://pantone201.ca/webskins/mpp/pdf/#{-1}.pdf" target="_blank"><img alt="Pdf_icon" src="http://pantone201.ca/webskins/css/img/pdf_icon.png"></a>  -->
+          <!-- </div>  -->
+          <!-- <div style="float:left; clear:right;"><p><a href="http://pantone201.ca/webskins/mpp/pdf/#{-1}.pdf" target="_blank">This is the pdf title</a></p><p class="tiny">And this is the description</p></div> -->
+          <!-- </div> -->
+
+          <!-- <p class="tiny">Created:1970-01-01T00:00:00+00:00</p>  -->
+          <!-- <p class="tiny">1970-01-01T00:00:00+00:00</p>	-->
+          <!-- <p class="tiny">IP:</p>  -->
+          <!-- <p class="tiny">192.75.172.1</p>  -->
+          <!-- <p class="tiny">EN</p>  -->
+          <!-- <p class="tiny">0</p>  -->
+          <!-- <p class="tiny">0</p>  -->
+          <!-- <p class="tiny">false</p>  -->
+          <!-- <p class="tiny">false</p>  -->
+          <!-- <p class="tiny"></p>  -->
+          <!--  <p class="tiny">false</p>  -->
+          <!--  <p class="tiny">0</p>    -->
+          <!-- <p class="tiny">1970-01-01T00:00:00+00:00</p> -->
+          <div class="hrbreake7e6e7">&nbsp;</div>
+          <div class="hrbreake7e6e7">&nbsp;</div>
+          <br><br>
+          <p class="red"><a href="https://secureolp.liberalonline.ca/toolkit/52ffab88386c7946dd020000">View a list of these PDFs</a></p>
+
+
+          <!-- <p>ID: 1240</p> -->
+          <div class="listh1 grey">Attention New CFO’s</div>
+          <div class="listh2 red">Here are all the forms and documents you will need</div>
+          <p>Here you’ll find information about donation limits and tax credit information as well as checklists, cost calculation forms, generic donation forms and GST tracking forms in Excel. From silent auctions, to processing credit cards at the door, this is where you’ll find the forms you need.</p>
+          <!-- <p>body</h2><p>Sent September 2013 | Dear Riding/Candidate CFO,</p>
+<p><br />Thank you for the dedication and the time you have taken out of your busy schedule to<br />volunteer for this important role in your Provincial Liberal Riding Association or on a<br />candidate&rsquo;s campaign. As a CFO, your function in the riding association and during the<br />candidate&rsquo;s campaign is a crucial one. Your role is to manage and oversee the Riding<br />Association or campaign funds, keep proper documentation and assisting the Central<br />Party in ensuring that donors receive accurate tax receipts in a timely manner.</p>
+<p>As of June 1, 2012, riding associations and candidate campaigns are no longer<br />permitted to issue tax receipts for donations received in their ridings or during the<br />campaign; the Central Party now issues receipts on behalf of riding associations and<br />campaigns. In order for the Central Party to issue receipts on behalf of your riding<br />association or campaign, we require supporting documentation packages from you,<br />related to your riding&rsquo;s fundraising initiatives.</p>
+<p>This year we are simplifying the centralized receipting process by offering to input your<br />riding&rsquo;s fundraising data into the LibE database for you. Each riding has been sent a<br />survey to indicate whether they will opt-in or opt-out of this easier process. Please<br />ensure your riding has responded to the survey and has attended the webinar training.<br />We are asking all ridings to submit their fundraising documentation packages to<br />OLP/OLF within 30 days of each financial quarter so that your riding donors may<br />receive timely 2013 tax receipts.</p>
+<p>To assist you, the Central Party is providing you this binder and USB key with all of the<br />information, forms and documents to assist you with the submission of your<br />documentation to OLP/OLF for tax receipts to be issued. These documents are current<br />as of the date on this letter. They will also be made available in the Toolkit on fRed.<br />In this binder and on the USB key, you will find the following forms/documents under<br />each tab as listed below:</p>
+<h3><br />General Information:</h3>
+<p>1. How to be a CFO (Quick and Dirty Guide) &ndash; coming soon!</p>
+<p>2. CFO Handbook for Constituency Associations.</p>
+<p>3. CFO Handbook for Candidates.</p>
+<p>4. Donation Limits and Tax Credit Information.</p>
+<p>5. Financial Guidelines for Fundraising &ndash; Quick reminder of financial basics for CFOs and<br />riding associations.</p>
+<p>6. Documentation Master Checklist &ndash; For Centralized Receipting Packages to OLF -<br />Reference guide for what documentation is required for events, silent auctions and<br />donations for submitting to OLF for receipting.</p>
+<h4>Events:</h4>
+<p>7. Procedures for Riding Associations/Candidate Campaigns to Use OLF Resources &ndash;<br />Used to request telephone, fax and e-mail and registration form collection resources.</p>
+<p>8. FAQ&rsquo;s: Online Donations and Ticket Sales &ndash; Used to set-up links for ticket sales for<br />events.</p>
+<p>9. Generic Event Form &ndash; Used for events (may be modified).<br />Generic Golf Event Form &ndash; Used for golf tournaments (may be modified).<br />Event Ticket Tracker &ndash; Excel spreadsheet to track number of tickets sold and donations<br />received for an event.</p>
+<p>10. Cost Calculation Form &ndash; Used to calculate the cost of the event based on attendees and<br />invoices.</p>
+<p>11. Event Donation Summary Form &ndash; To provide us with information on any events you<br />have had (to be used as a cover page for all event related batches).<br />General Donations:</p>
+<p>12. Generic Donation Form &ndash; Used to track general donations received (may be modified).<br />Generic Campaign Donation Form &ndash; Used for candidate campaigns (may be modified).</p>
+<p>13. General Donation Summary Form &ndash; To provide us with information on any general<br />donations received (to be used as a cover page for all general donation batches).<br />Goods and Services:</p>
+<p>14. Goods and Services Donation Form &ndash; Used to accept in-kind donations.<br />Goods and Services Donation Tracker &ndash; To keep track of goods and/or services coming<br />into the riding association.</p>
+<p>15. Silent Auction Bid Sheet &ndash; Used for tracking silent auction bids during an event where<br />there is a silent auction (may be modified).</p>
+<p>Silent Auction Payment Form &ndash; To receive payment for silent auction donations. The<br />form will also assist in the calculation of whether a tax receipt should be issued (may be<br />modified).<br />Batches:</p>
+<p>16. Batch Checklist for Document Submission (documentation only) &ndash; Attach to each batch<br />to ensure you are including all information required for OLF to issue tax receipts on your<br />behalf.</p>
+<p>Batch Checklist for Document Submission (entering into LibE and submitting<br />documentation) &ndash; Attach to each batch to ensure you are including all information<br />required for OLF to issue tax receipts on your behalf.</p>
+<h4>Financial:</h4>
+<p>17. Request for Credit Card Processing Form &ndash; Use this form to request credit cards be<br />processed by OLF.</p>
+<p>18. Partnership Donor Confirmation Form &ndash; When receive donations from a partnership, can<br />use this form to request a partnership split (may be modified).</p>
+<p>Please ensure that you are providing us with the appropriate documentation, forms<br />and/or cover pages to issue tax receipts on your behalf.</p>
+<p>Remember, the Ontario Liberal Fund and the Ontario Liberal Party are supporting you<br />all the way. If you have any questions or require any information, we are just an e-mail<br />or phone call away.<br />Regards,</p>
+<p>Your team at the Ontario Liberal Fund and the Ontario Liberal Party</p>
+<p>Cette lettre, et les documents et formulaires ci-joint, sont disponibles en Fran&ccedil;aise pour<br />votre convenance.</p></p> -->
+
+          <!-- <p class="tiny"></p>
+                        <p class="tiny">-1</p>
+                        <p class="tiny">-1</p>
+                        <p class="tiny">-1</p> -->
+
+          <!-- <div style="float:left; width:50px;"> -->
+          <!-- <a href="http://pantone201.ca/webskins/mpp/pdf/#{-1}.pdf" target="_blank"><img alt="Pdf_icon" src="http://pantone201.ca/webskins/css/img/pdf_icon.png"></a>  -->
+          <!-- </div>  -->
+          <!-- <div style="float:left; clear:right;"><p><a href="http://pantone201.ca/webskins/mpp/pdf/#{-1}.pdf" target="_blank">This is the pdf title</a></p><p class="tiny">And this is the description</p></div> -->
+          <!-- </div> -->
+
+          <!-- <p class="tiny">Created:1970-01-01T00:00:00+00:00</p>  -->
+          <!-- <p class="tiny">1970-01-01T00:00:00+00:00</p>	-->
+          <!-- <p class="tiny">IP:</p>  -->
+          <!-- <p class="tiny">192.75.172.1</p>  -->
+          <!-- <p class="tiny">EN</p>  -->
+          <!-- <p class="tiny">0</p>  -->
+          <!-- <p class="tiny">0</p>  -->
+          <!-- <p class="tiny">false</p>  -->
+          <!-- <p class="tiny">true</p>  -->
+          <!-- <p class="tiny"></p>  -->
+          <!--  <p class="tiny">false</p>  -->
+          <!--  <p class="tiny">0</p>    -->
+          <!-- <p class="tiny">1970-01-01T00:00:00+00:00</p> -->
+          <div class="hrbreake7e6e7">&nbsp;</div>
+          <div class="hrbreake7e6e7">&nbsp;</div>
+          <br><br>
+          <p class="red"><a href="https://secureolp.liberalonline.ca/toolkit/5301209b386c791539010000">View a list of these PDFs</a></p>
+
+      <br/><br/>
+    </div><!-- close container -->
+  </div><!-- close containerbg -->
+
+
+<div class="footer">
+  <div class="container"><!--  this will set the content margins left and right -->
+    <div class="centerclass" style="padding-top:30px; min-height:50px;">
+      <p class="tiny grey">Ontario Liberal Party:
+      <p class="tiny grey">Address: 10 St. Mary Street, Suite 210, Toronto, Ontario, M4Y 1P9</p>
+      <p class="tiny grey">Phone: 416-961-3800</p>
+      <p class="tiny grey">Toll Free Phone: 1-800-268-7250</p>
+      <p class="tiny grey">Fax: 416-323-9425</p>
+      <p class="tiny grey">President: Derek Teevan, Ext. 340</p>
+      <p class="tiny grey">Copyright &copy; 2014 Ontario Liberal Party</p></div>
+  </div><!-- close container -->
+</div><!-- close footer -->
+
+
+</div><!-- close content -->
+
+
+<div class="float" id="float-1" data-friction="0.5">This should float</div>
+<div class="float" id="float-2" data-friction="0.5">This should float</div>
+<img class="float" id="float-3" data-friction="0.5" src="https://secureolp.liberalonline.ca/images/toolkitusers4.jpg" />
+
+<!-- <div class="float" id="float-1" data-friction="0.5" style="background-image: url('https://secureolp.liberalonline.ca/images/toolkitusers3.jpg'); background:cover; width:100%;" />-->
 
 
 
 
-</body>
+
+      
+
+  </body>
 </html>
