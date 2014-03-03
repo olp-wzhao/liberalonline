@@ -10,7 +10,8 @@
 
         <script src="javascripts/jquery-1.9.1.min.js"></script> 
 		<!--  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script> GOOGLE COPY OF JQUERY-->
-		
+		<!-- http://simplefocus.com/flowtype/   -->
+        <script src="javascripts/flowtype.js"></script>
 		<!-- Floating Side column dependent lib   -->
         <script src="javascripts/jquery-scrolltofixed-min.js"></script>
 		
@@ -174,15 +175,8 @@
 /* ------------------------ SECTION TWO ---------------------------*/
 /* ----------------------- GLOBAL RESETS --------------------------*/
 /* ----------------------------------------------------------------*/
-body {
- font-size: 18px;
-}
-h1,h2,h3,h4,h5,h6,p {
- line-height: 1.45;
-}
-h1 { font-size: 4em; }
-h2 { font-size: 3em; }
-h3 { font-size: 3em; }
+
+
 	
 html {margin:0px; padding:0px;}	
 body {
@@ -197,11 +191,16 @@ h1,h2,h3,h4,h5,h6  {
 	font-family: 'Roboto Condensed', sans-serif;
 	margin:0px;
 	padding:0px;
-	font-size:28px;
-	line-height:28px;
+	font-size:2.4em;
 	}
-h1 {color:#5c4a4a; line-height:102%px;}
+h1 { color:#5c4a4a; line-height:102%px;}
 h2 {color:#8e7d7e; line-height:102%px;}
+
+.listright > h1, .listright > h2 {font-size:1.2em;}
+
+
+h2 + h1 {padding-top:20px;}
+
 #imageholder {margin-bottom:0px; margin-top:23px;}
 .tiny {font-size:12px;}
 
@@ -347,11 +346,7 @@ h2 {color:#8e7d7e; line-height:102%px;}
 	top:400px;
 	padding-top:50px;
 }
-.listmain > h1, .listmain > h2, 
-.listright > h1, .listright > h2
-{font-size:1.0em;}
 
-h2 + h1 {padding-top:20px;}
 .clear {display:block; clear:both;}
 
 .col5 {
@@ -531,7 +526,7 @@ img.grayscale:hover {
 .mgmenu_container { margin-top:-65px;}
 @media all and (max-width: 768px) {
 .logo {position:relative; top:10px; z-index:0; width:250px; border:solid 1px red; display:block;}
-h1,h2 {font-size:30px;}
+
 /* the menu will pop to mobile mode at this point */
 .main {width:100%}
 .col-4{display:none;}	  
@@ -1002,7 +997,7 @@ h1,h2 {font-size:30px;}
 
                 <div class="main">
 				<br><br>
-					<h1 id="responsive_headline">Minimum Wage is Increasing but this headline needs to be broken up</h1>
+					<h1>Minimum Wage is Increasing but this headline needs to be broken up</h1>
 					<h2>In the end what I find ugly are orphaned words</h2>
 				    <div id="imageholder" class="drop-shadow lifted"><img src="images/newspic.jpg"></div>
 					<div style="clear:both; display:block;">&nbsp;</div>
@@ -1020,6 +1015,8 @@ h1,h2 {font-size:30px;}
                     </div>
 					<div class="hrbreake7e6e7">&nbsp;</div>
 					
+					
+					<div class="body">
                     <p>The government will also introduce legislation that would tie future minimum wage increases to the CPI. This will ensure the minimum wage keeps up with the cost of living, and that increases are predictable for businesses and families. Under the proposed legislation, increases would be announced by April 1 and come into effect on Oct. 1.</p>
                     <p>The proposed legislation would act on the&nbsp;<a href="http://www.labour.gov.on.ca/english/es/pubs/mwap/index.php">recommendations</a>&nbsp;of Ontario's Minimum Wage Advisory Panel, which included business, labour, youth and anti-poverty representatives.</p>
                     <p>Ensuring the minimum wage is fair and predictable for both workers and business is part of the Ontario government's economic plan to invest in people, build modern infrastructure and support a dynamic and innovative business climate.</p>
@@ -1027,7 +1024,9 @@ h1,h2 {font-size:30px;}
                     <li><a title="Learn More" href="http://www.labour.gov.on.ca/english/es/pubs/mwap/index.php">Read the Minimum Wage Advisory Panel's Report</a></li>
                     <li><a title="Learn More" href="http://www.labour.gov.on.ca/english/es/pubs/poster_text.php">Know your rights and responsibilities under Ontario's Employment Standards Act, 2000</a></li>
                     </ul>
-					
+					</div>
+
+
 
 
 					<div class="hrbreake7e6e7">&nbsp;</div>
@@ -1232,11 +1231,25 @@ $(document).ready(function($){
 
 <script type="text/javascript">
 
-$('body').flowtype({
+$('.body').flowtype({
  minimum   : 500,
  maximum   : 1200,
- minFont   : 12,
- maxFont   : 40,
+ minFont   : 11,
+ maxFont   : 18,
+ fontRatio : 30
+});
+$('h1').flowtype({
+ minimum   : 500,
+ maximum   : 1200,
+ minFont   : 20,
+ maxFont   : 36,
+ fontRatio : 30
+});
+$('h2').flowtype({
+ minimum   : 500,
+ maximum   : 1200,
+ minFont   : 20,
+ maxFont   : 36,
  fontRatio : 30
 });
 
