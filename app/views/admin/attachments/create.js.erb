@@ -1,6 +1,15 @@
 // Display a Javascript alert
 console.log('create.js');
-$("#attachments").append("<%= j render @attachment %>");
-$("#myModal").modal('hide');
-$("#document_id").val('<%= @document.id %>');
+<% if @attachment.valid? %>
+    $("#attachments").append("<%= j render @attachment %>");
+    $("#myModal").modal('hide');
+    $("#document_id").val('<%= @document.id %>');
+<% else %>
+    <% @attachment.errors.each do |key, value| %>
+        $('#attachment_<%= key.to_s %>').append(<%= value %>);
+    <% end %>
+<% end %>
+
+
+
 

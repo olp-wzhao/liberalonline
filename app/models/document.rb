@@ -48,7 +48,7 @@ class Document
   field :updated_ip, type: String
   field :updated_time, type: DateTime
 
-  #validates_presence_of :display_date
+  #validates_presence_of :headline, :display_date
 
   #lets make this a table
   field :doc_type, type: Integer
@@ -57,14 +57,14 @@ class Document
   field :customized_category_id, type: Integer
   field :issue_id, type: Integer
 
-  belongs_to :petition
+  #belongs_to :petition
   belongs_to :user
   #belongs_to :customized_category
   #belongs_to :riding
-  has_many :elect_rotators
+  #has_many :elect_rotators
   has_many :comments
-  has_many :mpp_rotators
-  has_many :pla_rotators
+  #has_many :mpp_rotators
+  #has_many :pla_rotators
   has_many :rotators
   has_many :attachments
 
