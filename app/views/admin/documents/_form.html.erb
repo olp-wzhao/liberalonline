@@ -1,9 +1,9 @@
 <%= simple_form_for [:admin, @document], :html => {multipart: true} do |f| %>
   <%= f.error_notification %>
-    <input type="hidden" id="ajax_id" />
+    <input type='hidden' id='ajax_id' />
     <%= f.input :doc_type, collection: DocumentType.all.map{|t| [t.name, t.temp_id]}, as: :select, selected: '20', label: false %>
     <%= f.input :language, collection: %w(English French), priority: ['English'], selected: 'English', label: false %>
-	<div class="hrbreake7e6e7">&nbsp;</div>
+	<div class='hrbreake7e6e7'>&nbsp;</div>
     <%= f.input :headline, placeholder: 'Headline', label: false %>
     <%= f.input :subtitle, placeholder: 'Subtitle', label: false %>
     <%= f.input :body, as: :text, :input_html => { :class => 'tinymce', :rows => 40, :cols => 80 } %>

@@ -9,9 +9,28 @@
   <%= f.input :postal_code, placeholder: "Postal Code" %><span id="riding_box"></span>
   <%= f.input :city, placeholder: "City" %>
   <%= f.input :phone_number, :size => 30, placeholder: "Phone Number" %>
-  <%= f.input :birthday, as: :date, start_year: 1920, end_year: Date.today.year, placeholder: "Birthday", wrapper: :standard %>
+  <%= f.input :birthday, placeholder: "Birthday", wrapper: :standard, input_html: { class: 'date_picker' } %>
   <%= f.input :image, as: :file, label: 'Upload Image' %>
   <%= f.hidden_field :image_cache %>
   <%= f.button :submit, 'Sign up', :class => 'btn-primary' %>
   <%= devise_error_messages!%>
+<% end %>
+
+<%= content_for :scripts_for_body do %>
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $('#user_email').blur( function() {
+                $.get("<%= validate_user_url %>", { email: $('#user_email').val() })
+            });
+
+            $("#user_postal_code").blur( function() {
+                $.getJSON("<%= find_riding_url %>", {search: $("#user_postal_code").val()})
+                        .done(function(data){
+                            $("#riding_box").html(data.name);
+                        });
+            });
+            $('.date_picker').datepicker();
+        });
+
+    </script>
 <% end %>

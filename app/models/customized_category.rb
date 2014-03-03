@@ -13,9 +13,9 @@ class CustomizedCategory
   
   belongs_to :riding
   belongs_to :user
-  has_many :elect_documents
+  #has_many :elect_documents
   has_many :documents
-  has_many :mpp_documents
-  has_many :pla_documents
+  #has_many :mpp_documents
+  #has_many :pla_documents
 
 end

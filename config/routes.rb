@@ -2,12 +2,13 @@ V44::Application.routes.draw do
 
   mount RailsAdmin::Engine => '/rails_admin', :as => 'rails_admin'
   devise_for :users, controllers: {
-    registrations: "users/registrations", 
-    omniauth_callbacks: "users/omniauth_callbacks",
-    invitations: 'invitations'
+    registrations: 'users/registrations',
+    omniauth_callbacks: 'users/omniauth_callbacks',
+    invitations: 'invitations',
+    sessions: 'users/sessions'
   }
 
-  get "party_history/index"
+  get 'party_history/index'
 
   resources :lawnsign_requests
   resources :volunteers
@@ -17,11 +18,11 @@ V44::Application.routes.draw do
   resources :tasks
   resources :events
 
-  get "validate_user" => "users#validate"
+  get 'validate_user' => 'users#validate'
 
-  get "create_account" => "users#edit"
+  get 'create_account' => 'users#edit'
 
-  get "find_riding" => "riding_addresses#index"
+  get 'find_riding' => 'riding_addresses#index'
 
   # devise_for :admins
   #
@@ -30,55 +31,55 @@ V44::Application.routes.draw do
   end
 
   unauthenticated do
-    root to: "home#index"
+    root to: 'home#index'
   end
 
 
   get 'contact' => 'contact#new'
   post 'contact' => 'contact#create'
   
-  get "partyhistory" => "party_history#index"
-  get "constitution/index" => "constitution#index"
-  get "constitution/show" => "constitution#show"
-  get "constitution/:id" => "constitution#show"
-  get "my_liberal/index"
-  #get "profile/index"
-  #get "register/index"
-  #get "login/index"
-  get "volunteer_extended_profile/index"
-  get "volunteer_extended_profile/show"
-  get "donation_limits/index"
-  get "logo/index"
-  get "abc_member/index"
-  #get "contact/index"
-  get "candidates/index"
-  #get "fb_test/index"
-  #get "fb_test/show"
-  get "redtrillium/index"
-  get "ontarioliberalfund/index"
-  get "eligibility/index"
-  get "getinvolved/index"
-  get "aboutus/index"
-  get "privacy/index"
-  get "loginhelp/index"
-  get "executive_council/index"
-  get "pla_presidents" => 'pla_presidents#index'
-  get "history/index"
-  get "commissions/index"
-  get "cabinet/index"
+  get 'partyhistory' => 'party_history#index'
+  get 'constitution/index' => 'constitution#index'
+  get 'constitution/show' => 'constitution#show'
+  get 'constitution/:id' => 'constitution#show'
+  get 'my_liberal/index'
+  #get 'profile/index'
+  #get 'register/index'
+  #get 'login/index'
+  get 'volunteer_extended_profile/index'
+  get 'volunteer_extended_profile/show'
+  get 'donation_limits/index'
+  get 'logo/index'
+  get 'abc_member/index'
+  #get 'contact/index'
+  get 'candidates/index'
+  #get 'fb_test/index'
+  #get 'fb_test/show'
+  get 'redtrillium/index'
+  get 'ontarioliberalfund/index'
+  get 'eligibility/index'
+  get 'getinvolved/index'
+  get 'aboutus/index'
+  get 'privacy/index'
+  get 'loginhelp/index'
+  get 'executive_council/index'
+  get 'pla_presidents' => 'pla_presidents#index'
+  get 'history/index'
+  get 'commissions/index'
+  get 'cabinet/index'
   
-  get "donate/index"
-  get "membership/index"
-  get "volunteer/index"
-  get "photo/index"
-  get "news" => "news#index"
-  get "news/index" => 'news#index'
-  get "news/show" => 'documents#show'
+  get 'donate/index'
+  get 'membership/index'
+  get 'volunteer/index'
+  get 'photo/index'
+  get 'news' => 'news#index'
+  get 'news/index' => 'news#index'
+  get 'news/show' => 'documents#show'
   get 'news/:id' => 'documents#show'
 
-  get "platform/index"
-  get "team/index"
-  get "team/show"
+  get 'platform/index'
+  get 'team/index'
+  get 'team/show'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
@@ -108,7 +109,7 @@ V44::Application.routes.draw do
   get 'logo' => 'logo#index'
   get 'membership' => 'membership#index'
   
-  #get "mpps/index"
+  #get 'mpps/index'
   get 'mpps' => 'mpps#index'
   get 'mpps/:id' => 'mpps#show'
 
@@ -126,17 +127,15 @@ V44::Application.routes.draw do
   get 'video' => 'video#index'
   get 'video/:id' => 'video#show'
   get 'volunteerextendedprofile' => 'volunteerextendedprofile#index'
-  #get 'fbtest' => 'fbtest#index'
-  #get 'fbtest/:id' => 'fbtest#show'
 
   get 'toolkit' => 'toolkit#index'
   get 'toolkit/:id' => 'toolkit#show'
 
   
   # The priority is based upon order of creation: first created -> highest priority.
-  # See how all your routes lay out with "rake routes".
+  # See how all your routes lay out with 'rake routes'.
 
-  # You can have the root of your site routed with "root"
+  # You can have the root of your site routed with 'root'
   # root 'welcome#index'
 
   # Example of regular route:
@@ -188,7 +187,7 @@ V44::Application.routes.draw do
   #     resources :products
   #   end
 
-  devise_for :admins, controllers: { sessions: "admins/sessions" }
+  devise_for :admins, controllers: { sessions: 'admins/sessions' }
 
   namespace :admin do
     resources :documents do

@@ -27,62 +27,50 @@
     <link href="/stylesheets/FlexSlider/css/flexslider.css" rel="stylesheet" type="text/css" />
     <link href="/stylesheets/mgmenulib.css" rel="stylesheet" type="text/css" media="screen" />
 
-    <%= stylesheet_link_tag "application", :media => "all" %>
-    <%= javascript_include_tag "application" %>
+    <%= stylesheet_link_tag 'application', :media => 'all' %>
+    <%= javascript_include_tag 'application' %>
     <%= csrf_meta_tags %>
 
-    <script type="text/javascript">var addthis_config = {"data_track_clickback":true};</script>
+    <script src="http://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+    <script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js" charset="utf-8"></script>
+
     <script type="text/javascript">
+        var addthis_config = {"data_track_clickback":true};
         var addthis_config = {
             pubid: "ra-5150c0b15241e409"
         }
-    </script>
-    <script>
+
         function googleTranslateElementInit() {
             new google.translate.TranslateElement({
                 pageLanguage: 'en',
                 multilanguagePage: true
             }, 'google_translate_element');
         }
-    </script>
 
+        var addthis_config = {
+            data_ga_property: '<%= @website_google_analytics_account %>',
+            data_track_clickback: true
+        };
 
-  <script src="http://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
-  <script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js" charset="utf-8"></script>
+        var today = new Date();
+        var expiry = new Date(today.getTime() + 1 * 24 * 3600 * 1000); // add 1 day
+        function set_cookie(name, value)
+        {
+          document.cookie=name + "=" + escape(value) + "; path=/; expires=" + expiry.toGMTString();
+        }
 
-  <script type="text/javascript">
-     var addthis_config = {
-        data_ga_property: '<%= @website_google_analytics_account %>',
-        data_track_clickback: true
-     };
-  </script>
-
-  <script type="text/javascript">
-    var today = new Date();
-    var expiry = new Date(today.getTime() + 1 * 24 * 3600 * 1000); // add 1 day
-    function set_cookie(name, value)
-    {
-      document.cookie=name + "=" + escape(value) + "; path=/; expires=" + expiry.toGMTString();
-    }
-  </script>
-
-  
-
-  <script src="/javascripts/mgmenu_plugins.js"></script><!-- Mega Menu Plugins -->
-  <script src="/javascripts/mgmenu.js"></script><!-- Mega Menu Script -->
-  <script>
-  $(document).ready(function($){
-      $('#mgmenu1').universalMegaMenu({
-          menu_effect: 'hover_slide',
-          menu_speed_show: 300,
-          menu_speed_hide: 200,
-          menu_speed_delay: 200,
-          menu_click_outside: true,
-          menubar_trigger : false,
-          menubar_hide : false,
-          menu_responsive: true
+      $(document).ready(function($){
+          $('#mgmenu1').universalMegaMenu({
+              menu_effect: 'hover_slide',
+              menu_speed_show: 300,
+              menu_speed_hide: 200,
+              menu_speed_delay: 200,
+              menu_click_outside: true,
+              menubar_trigger : false,
+              menubar_hide : false,
+              menu_responsive: true
+          });
       });
-  });
   </script>
   
   <%= yield :header %>
