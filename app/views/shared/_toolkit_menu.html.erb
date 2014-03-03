@@ -1,1 +1,7 @@
-<div class="tiny red">Samples | Training | LibE | Fundraising | Finances | Engagement | Campaign Services | Email Marketing | Contact</div>
+<div class="tiny red">
+  <% customized_categories = ['Samples', 'Training', 'LibE', 'Fundraising', 'Finances', 'Engagement', 'Campaign Services', 'Email Marketing', 'Contact'] %>
+
+  <% customized_categories.each do |c| %>
+    <%= link_to c, toolkit_url + '?customized_category=' + c %> |
+  <% end %>
+</div>

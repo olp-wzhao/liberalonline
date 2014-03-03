@@ -1,3 +1,6 @@
+<% customized_categories = ['Samples', 'Training', 'LibE', 'Fundraising', 'Finances', 'Engagement', 'Campaign Services', 'Email Marketing', 'Contact'] %>
+<% categories = ['Generic', 'Environment', "Job/Wages", "Economy", "Crime and Community", "Education", "Healthcare", "Infrastructure", "Green Energy", "Tax Reform", "Transit", "Immigration Services", "Government Efficiency", "Agriculture", "Condolences"] %>
+
 <%= simple_form_for [:admin, @document], :html => {multipart: true} do |f| %>
   <%= f.error_notification %>
     <%= f.input :id, as: :hidden %>
@@ -25,26 +28,25 @@
     <%#= f.input :expiry_date, as: :date %>
     <%#= f.input :publish_on_olp, as: :boolean %>
     <%#= f.input :publish_on_mpp, as: :boolean %>
-    <%= f.input :publish_on_pla, as: :boolean, default: "1", label: false, input_html: { style: 'display: none'} %>
-    <%= f.input :partisan, as: :boolean, default: "1", label: false, input_html: { style: 'display: none'} %>
+    <%= f.input :publish_on_pla, as: :boolean, default: '1', label: false, input_html: { style: 'display: none'} %>
+    <%= f.input :partisan, as: :boolean, default: '1', label: false, input_html: { style: 'display: none'} %>
     <%#= f.input :author_photo %>
     <%#= f.input :is_draft, as: :boolean %>
     <%= f.input :riding_id, collection: Riding.all.map{|r| [r.title, r.riding_id]}, as: :select, selected: 'Central', label: false, input_html: { style: 'display: none'}%>
     <%#= f.input :web_site %>
 
-    <%= f.input :category_id, collection: ['Generic', 'Environment', "Job/Wages", "Economy", "Crime and Community", "Education", "Healthcare", "Infrastructure", "Green Energy", "Tax Reform", "Transit", "Immigration Services", "Government Efficiency", "Agriculture", "Condolences"], selected: 'Generic' %>
-    <%= f.input :customized_category_id, collection: ['Samples', 'Training', 'LibE', 'Fundraising', 'Finances', 'Engagement', 'Campaign Services', 'Email Marketing', 'Contact', 'Blog'], selected: 'Samples' %>
+    <%= f.input :category_id, collection: categories, selected: 'Generic' %>
+    <%= f.input :customized_category, collection: customized_categories %>
     <%#= f.input :publish_on_toolkit, as: :boolean %>
     <%#= f.input :require_authentication, as: :boolean %>
 
     <%#= f.input :issue_id %>
-    <%= link_to 'Add Pdf', new_admin_document_attachment_path(@document.id), {:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#myModal' }%>
+    <%= link_to 'Add Pdf', new_admin_document_attachment_path(@document.id), {:remote => true, 'data-toggle' =>  'modal', 'data-target' => '#myModal', :id => 'add_pdf' }%>
     <ul id="attachments">
       <%= render @document.attachments %>
     </ul>
     <p>Document Image</p>
     <%= image_tag(@document.image_url) if @document.image? %>
-    <%= f.input :image_name %>
     <%= f.input :image, as: :file, label: 'Upload Image' %>
     <%= f.hidden_field :image_cache %>
     <br />
