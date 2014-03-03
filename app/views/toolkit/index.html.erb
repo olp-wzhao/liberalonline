@@ -22,14 +22,14 @@
     <div class="container"> <!--  this will set the content margins left and right -->
 
 
-      <p class="grey tiny">Recently Added <%= params['customized_category'] %></p>
+      <p class="grey tiny"><%= params['customized_category'] %></p>
       <div class="hrbreake7e6e7">&nbsp;</div>
 
       <% @documents.each do |document| %>
 
           <!-- <p>ID: <%= document.temp_id %></p> -->
-          <div class="listh1 red"><%= raw document.headline %></div>
-          <div class="listh2 grey"><%= raw document.subtitle %></div>
+          <div class="listh1 red"><%= link_to document.headline, admin_document_path(document) %></div>
+          <div class="listh2 grey"><%= link_to document.subtitle, admin_document_path(document) %></div>
           <p><%= raw document.introduction %></p>
           <!-- <p>body</h2><%= raw document.body %></p> -->
 
