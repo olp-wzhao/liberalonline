@@ -1,6 +1,8 @@
 <h1>Editing document</h1>
 
-<%= render 'form' %>
+<div id='form_wrapper'>
+    <%= render 'form' %>
+</div>
 
 <%= link_to 'Show', admin_document_path(@document) %> |
 <%= link_to 'Back', admin_documents_path %>
