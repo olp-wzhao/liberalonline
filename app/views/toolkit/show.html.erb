@@ -1,7 +1,6 @@
 <div class="content">
   <div class="container">
-    <br><br>
-<!-- ID: <%= @document.temp_id %> -->
+    <br /><br />
          <h1><%= raw @document.headline %></h1>
          <h2><%= raw @document.subtitle %></h2>
 
@@ -44,18 +43,10 @@
                  <%= image_tag @document.image_url %>
             <% unless @document.attachments.nil? %>
                  <% @document.attachments.each do |a| %>
-                     <%= link_to a.title, a.pdf.url %>
+                    <div class="<%= a.pdf.file.extension %>" >
+                        <%= link_to a.title, a.pdf.url %>
+                    </div>
                  <% end %>
-            <% end %>
-            <% unless @document.attached_pdf_ids.nil? %>
-              <% @document.attached_pdf_ids.split("|").each do |pdf_id| %>
-                <% pdf = Attachment.where(temp_id: pdf_id) %>
-                <% unless pdf.count == 0 %>
-                  <a href="http://pantone201.ca/webskins/olp/pdf/<%= pdf %>.pdf" target="_blank"><img alt="Pdf_icon" src="http://pantone201.ca/webskins/css/img/pdf_icon.png"></a>
-                                 </div>
-                  <div style="float:left; clear:right;"><p><a href="http://pantone201.ca/webskins/olp/pdf/<%= pdf %>.pdf" target="_blank">This is the pdf title</a></p><p class="tiny">And this is the description</p></div>
-                <% end %>
-              <% end %>
             <% end %>
   </div>
 </div>
