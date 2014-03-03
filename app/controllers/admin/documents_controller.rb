@@ -77,12 +77,12 @@ class Admin::DocumentsController < Admin::AdminController
   #Admin routes
   def toolkit
     @documents = Document.toolkit.where(published: true).limit(10)
-    render :layout => "toolkit_layout"
+    render :layout => 'toolkit_layout'
   end
 
   def show
       @document = Document.find params[:id]
-      render :layout => "toolkit_layout"
+      render :layout => 'toolkit_layout'
   end
 
   private
@@ -96,9 +96,9 @@ class Admin::DocumentsController < Admin::AdminController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def document_params
-      fix_scrambled_date_parameters_on_create("display_date")
-      fix_scrambled_date_parameters_on_create("expiry_date")
-      fix_scrambled_date_parameters_on_create("document_date")
+      fix_scrambled_date_parameters_on_create('display_date')
+      fix_scrambled_date_parameters_on_create('expiry_date')
+      fix_scrambled_date_parameters_on_create('document_date')
       params.require(:document).permit(
         :id,
         :name,
@@ -162,7 +162,7 @@ class Admin::DocumentsController < Admin::AdminController
     @documents = Document.all
     params.each do |key, value|
       # target groups using regular expressions
-      skip_list = ['auth_token', 'action', 'controller', 'format', 'scope']
+      skip_list = %w(auth_token action controller format scope)
       unless skip_list.include?(key)
         @documents = @documents.where(key => value)
       end
