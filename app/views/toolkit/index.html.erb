@@ -22,7 +22,7 @@
     <div class="container"> <!--  this will set the content margins left and right -->
 
 
-      <p class="grey tiny">Recently Added</p>
+      <p class="grey tiny">Recently Added <%= params['customized_category'] %></p>
       <div class="hrbreake7e6e7">&nbsp;</div>
 
       <% @documents.each do |document| %>

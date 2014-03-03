@@ -4,6 +4,7 @@ class ToolkitController < ApplicationController
   #Admin routes
   def index
     search
+    @documents = @documents.limit(5)
     render :layout => 'toolkit_layout'
   end
 
