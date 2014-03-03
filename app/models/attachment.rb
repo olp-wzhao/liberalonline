@@ -14,6 +14,6 @@ class Attachment
   #belongs_to :riding
   belongs_to :document
 
-  validates_presence_of :title
+  validates_presence_of :title, :pdf
 
 end

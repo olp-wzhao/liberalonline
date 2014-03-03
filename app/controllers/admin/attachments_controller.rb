@@ -22,12 +22,15 @@ class Admin::AttachmentsController < Admin::AdminController
 
   def create
     #if the document doesn't exist how do I pass the parameters
-
-    @document = Document.find params[:document_id]
     @attachment = Attachment.new(attachment_params)
-    @document.attachments << @attachment
+    valid = @attachment.valid?
+    if valid
+      @document = Document.find params[:document_id]
+      @document.attachments << @attachment
+      valid = @document.save
+    end
 
-    if @document.save
+    if valid
       if request.xhr? || remotipart_submitted?
         render :layout => false, :template => '/admin/attachments/create.js', :status => :ok, :format => :js
       end
@@ -37,6 +40,7 @@ class Admin::AttachmentsController < Admin::AdminController
       respond_to do |format|
         format.html { render action: 'new' }
         format.json { render json: @attachment.errors, status: :unprocessable_entity }
+        format.js
       end
     end
   end
