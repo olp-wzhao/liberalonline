@@ -76,7 +76,7 @@ class Admin::DocumentsController < Admin::AdminController
 
   #Admin routes
   def toolkit
-    @documents = Document.toolkit.limit(10)
+    @documents = Document.toolkit.where(published: true).limit(10)
     render :layout => "toolkit_layout"
   end
 
