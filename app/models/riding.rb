@@ -53,17 +53,17 @@ class Riding
   has_many :customized_categories
   has_many :customized_managements
   has_many :documents
-  has_many :elect_attachments
-  has_many :elect_customized_managements
-  has_many :elect_documents
-  has_many :elect_events
-  has_many :elect_pdfs
-  has_many :elect_photo_albums
-  has_many :elect_photos
-  has_many :elect_rotators
-  has_many :elect_site_menus
-  has_many :elect_video_galleries
-  has_many :elect_videos
+  #has_many :elect_attachments
+  #has_many :elect_customized_managements
+  #has_many :elect_documents
+  #has_many :elect_events
+  #has_many :elect_pdfs
+  #has_many :elect_photo_albums
+  #has_many :elect_photos
+  #has_many :elect_rotators
+  #has_many :elect_site_menus
+  #has_many :elect_video_galleries
+  #has_many :elect_videos
   has_many :endorsements
   has_many :enews_duplicate_subscribers
   has_many :enews_subscribers

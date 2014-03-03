@@ -155,7 +155,8 @@ class Admin::TransactionsController < Admin::AdminController
 
     def search_params
       if !params[:scope].nil?
-        case params[:scope]  
+        @scope = params[:scope]
+        case @scope
         when 'donations'
           @transactions = Transaction.donations
         when 'memberships'
@@ -172,7 +173,7 @@ class Admin::TransactionsController < Admin::AdminController
       end
       params.each do |key, value|
         # target groups using regular expressions
-        skip_list = ["auth_token", "action", "controller", "format", "scope"]
+        skip_list = ['auth_token', 'action', 'controller', 'format', "scope"]
         unless skip_list.include?(key)
           @transactions = @transactions.where(key => value)
         end

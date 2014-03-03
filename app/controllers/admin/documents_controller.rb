@@ -30,8 +30,9 @@ class Admin::DocumentsController < Admin::AdminController
   # POST /documents.json
   def create
     success = false
-    @document = Document.where(temp_id: document_params["temp_id"]).first
-    
+    # API calls need to use temp_id, perhaps they should be in an API controller
+    @document = Document.where(id: document_params['id']).first
+    binding.pry
     if !@document.nil?
       #binding.pry
       success = @document.update(document_params)
@@ -100,7 +101,9 @@ class Admin::DocumentsController < Admin::AdminController
       fix_scrambled_date_parameters_on_create("display_date")
       fix_scrambled_date_parameters_on_create("expiry_date")
       fix_scrambled_date_parameters_on_create("document_date")
-      params.require(:document).permit(:name,
+      params.require(:document).permit(
+        :id,
+        :name,
         :headline, 
         :subtitle, 
         :introduction, 
@@ -161,7 +164,7 @@ class Admin::DocumentsController < Admin::AdminController
     @documents = Document.all
     params.each do |key, value|
       # target groups using regular expressions
-      skip_list = ["auth_token", "action", "controller", "format", "scope"]
+      skip_list = ['auth_token', 'action', 'controller', 'format', 'scope']
       unless skip_list.include?(key)
         @documents = @documents.where(key => value)
       end

@@ -54,12 +54,12 @@ class Document
   field :doc_type, type: Integer
   field :temp_id, type: Integer
   field :category_id, type: Integer
-  field :customized_category_id, type: Integer 
+  field :customized_category_id, type: Integer
   field :issue_id, type: Integer
 
   belongs_to :petition
   belongs_to :user
-  belongs_to :customized_category
+  #belongs_to :customized_category
   #belongs_to :riding
   has_many :elect_rotators
   has_many :comments

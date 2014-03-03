@@ -67,7 +67,7 @@ class User
   has_many :documents
   has_many :elect_attachments
   has_many :elect_customized_managements
-  has_many :elect_documents
+  #has_many :elect_documents
   has_many :elect_events
   has_many :elect_pdfs
   has_many :elect_photo_albums

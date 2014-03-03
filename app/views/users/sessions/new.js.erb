@@ -1,1 +1,2 @@
-$('.micromenu').hide().after('<%= j render("new") %>');
+$('.modal-body').html("");
+$('.modal-body').html('<%= j (render partial: 'form', user: @user) %>');
