@@ -23,7 +23,7 @@ class Admin::AttachmentsController < Admin::AdminController
   def create
     #if the document doesn't exist how do I pass the parameters
 
-    @document = Document.find_by(id: params[:document_id])
+    @document = Document.find params[:document_id]
     @attachment = Attachment.new(attachment_params)
     @document.attachments << @attachment
 
