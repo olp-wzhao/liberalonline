@@ -75,10 +75,10 @@ class Admin::DocumentsController < Admin::AdminController
   end
 
   #Admin routes
-  def toolkit
-    @documents = Document.toolkit.where(published: true).limit(10)
-    render :layout => 'toolkit_layout'
-  end
+  #def toolkit
+  #  @documents = Document.toolkit.where(published: true).limit(5)
+  #  render :layout => 'toolkit_layout'
+  #end
 
   def show
       @document = Document.find params[:id]
@@ -144,7 +144,7 @@ class Admin::DocumentsController < Admin::AdminController
         :doc_type, 
         :temp_id, 
         :category_id, 
-        :customized_category_id,  
+        :customized_category,
         :issue_id,
         :image,
         :image_cache)
@@ -167,6 +167,5 @@ class Admin::DocumentsController < Admin::AdminController
         @documents = @documents.where(key => value)
       end
     end
-
   end
 end
