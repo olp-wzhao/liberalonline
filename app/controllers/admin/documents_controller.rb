@@ -33,7 +33,6 @@ class Admin::DocumentsController < Admin::AdminController
     # API calls need to use temp_id, perhaps they should be in an API controller
     @document = Document.where(id: document_params['id']).first
     if !@document.nil?
-      #binding.pry
       success = @document.update(document_params)
     else
       @document = Document.new(document_params)

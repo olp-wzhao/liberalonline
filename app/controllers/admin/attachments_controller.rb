@@ -34,7 +34,6 @@ class Admin::AttachmentsController < Admin::AdminController
       #format.js #redirect_to edit_admin_document_path(@document) }
       #format.json { render json: 'attachment saved to mongodb', status: :created }
     else
-      binding.pry
       respond_to do |format|
         format.html { render action: 'new' }
         format.json { render json: @attachment.errors, status: :unprocessable_entity }

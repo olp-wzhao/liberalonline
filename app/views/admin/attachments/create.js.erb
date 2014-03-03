@@ -2,3 +2,5 @@
 console.log('create.js');
 $("#attachments").append("<%= j render @attachment %>");
 $("#myModal").modal('hide');
+$("#document_id").val('<%= @document.id %>');
+

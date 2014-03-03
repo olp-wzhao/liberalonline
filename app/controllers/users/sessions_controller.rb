@@ -6,6 +6,7 @@ class Users::SessionsController < Devise::SessionsController
     self.resource = resource_class.new(sign_in_params)
     respond_to do |format|
       format.js
+      format.html { super }
     end
   end
 
@@ -14,9 +15,10 @@ class Users::SessionsController < Devise::SessionsController
     resource = resource_class.new(sign_in_params)
 
     sign_in(resource, :bypass => true)
-    binding.pry
+    #binding.pry
     respond_to do |format|
       format.js
+      format.html { super }
     end
 
   end
