@@ -28,8 +28,8 @@
       <% @documents.each do |document| %>
 
           <!-- <p>ID: <%= document.temp_id %></p> -->
-          <div class="listh1 red"><%= link_to document.headline, admin_document_path(document) %></div>
-          <div class="listh2 grey"><%= link_to document.subtitle, admin_document_path(document) %></div>
+          <div class="listh1 red"><%= link_to document.headline, toolkit_url + '/' + document.id %></div>
+          <div class="listh2 grey"><%= link_to document.subtitle, toolkit_path + '/' + document.id %></div>
           <p><%= raw document.introduction %></p>
           <!-- <p>body</h2><%= raw document.body %></p> -->
 
