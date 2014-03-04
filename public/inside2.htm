@@ -428,8 +428,7 @@ min-height:100px;
 .drop-shadow {
     position:relative;
     float:left;
-    width:94%;    
-    padding:4px; 
+    padding:2px; 
     margin-top:11px;
     background:#fff;
     -webkit-box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
@@ -444,10 +443,6 @@ min-height:100px;
     z-index:-2;
 }
 
-.drop-shadow p {
-    font-size:16px;
-    font-weight:bold;
-}
 
 /* Lifted corners */
 
@@ -508,18 +503,32 @@ min-height:100px;
 
 
 img.grayscale {
-    filter: url("data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\'><filter id=\'grayscale\'><feColorMatrix type=\'matrix\' values=\'0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0 0 0 1 0\'/></filter></svg>#grayscale"); /* Firefox 3.5+, IE10 */
-    filter: gray; /* IE6-9 */
-    -webkit-filter: grayscale(100%); /* Chrome 19+ & Safari 6+ */
-    -webkit-transition: all .6s ease; /* Fade to color for Chrome and Safari */
-    -webkit-backface-visibility: hidden; /* Fix for transition flickering */
+/* filter: url("data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\'><filter id=\'grayscale\'><feColorMatrix type=\'matrix\' values=\'0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0 0 0 1 0\'/></filter></svg>#grayscale");  Firefox 10+, Firefox on Android */
+filter: url("data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\'><filter id=\'grayscale\'><feColorMatrix type=\'matrix\' values=\'0.763 0.214 0.021 0 0 0.063 0.914 0.021 0 0 0.063 0.214 0.721 0 0 0 0 0 1 0\'/></filter></svg>#grayscale"); /* Firefox 10+, Firefox on Android */
+filter: gray; /* IE6-9 */
+-webkit-filter: grayscale(60%) contrast(120%); /* Chrome 19+, Safari 6+, Safari 6+ iOS */
 }
-
 img.grayscale:hover {
-    filter: none;
-    -webkit-filter: grayscale(0%);
+filter: url("data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\'><filter id=\'grayscale\'><feColorMatrix type=\'matrix\' values=\'1.157 -0.143 -0.014 0 0 -0.042 1.057 -0.014 0 0 -0.042 -0.143 1.185 0 0 0.8 0 0 1 0\'/></filter></svg>#grayscale");
+ -webkit-filter: grayscale(0%);
 }
 
+
+threeup.img.grayscale {
+filter: url("data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\'><filter id=\'grayscale\'><feColorMatrix type=\'matrix\' values=\'0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0 0 0 1 0\'/></filter></svg>#grayscale"); /* Firefox 10+, Firefox on Android */
+filter: gray; /* IE6-9 */
+-webkit-filter: grayscale(100%) contrast(120%); /* Chrome 19+, Safari 6+, Safari 6+ iOS */
+}
+threeup.img.grayscale:hover {
+filter: url("data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\'><filter id=\'grayscale\'><feColorMatrix type=\'matrix\' values=\'1 0 0 0 0, 0 1 0 0 0, 0 0 1 0 0, 0 0 0 1 0\'/></filter></svg>#grayscale");
+-webkit-filter: grayscale(0%);
+filter: hue-rotate(90deg)
+}
+.threeup {
+    width: 32%;
+    float: left;
+    -moz-box-sizing: border-box;
+}
 
 .logo {position:relative; top:-5px; z-index:888; width:250px; margin-left:16px;}
 .mgmenu {clear:right;}

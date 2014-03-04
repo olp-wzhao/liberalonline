@@ -24,7 +24,9 @@
 
         <link href="/stylesheets/mgmenulib.css" rel="stylesheet" type="text/css" media="screen" />	
 
-
+	<!-- Flexslider Lib   -->
+    <script src="javascripts/jquery.flexslider.js"></script><!-- Homepage only -->
+    <link href="/stylesheets/flexslider.css" rel="stylesheet" type="text/css" />
 
     <script>
 
@@ -233,14 +235,16 @@ h2 + h1 {padding-top:20px;}
 }
 #undermenu {
     width:100%; 
-	height:25px; 
+	height:18px; 
 	background-color:#e6e6e6; 
 	padding-left:16px;
-	padding-top:5px;
+	padding-top:2px;
 	text-align:right;
 	-webkit-box-shadow: 0px 9px 8px -9px #c7c7c7;
     -moz-box-shadow: 0px 9px 8px -9px #c7c7c7;
-	box-shadow: 0px 9px 8px -9px #c7c7c7; 	
+	box-shadow: 0px 9px 8px -9px #c7c7c7; 
+	margin-bottom:8px;
+
 }
 .dropdown .dropdown-menu,
 .dropdown .dropdown-panel {font-size:14px; font-family: 'Roboto Condensed', sans-serif;}
@@ -428,7 +432,6 @@ min-height:100px;
 .drop-shadow {
     position:relative;
     float:left;
-    width:94%;    
     padding:4px; 
     margin-top:11px;
     background:#fff;
@@ -444,10 +447,6 @@ min-height:100px;
     z-index:-2;
 }
 
-.drop-shadow p {
-    font-size:16px;
-    font-weight:bold;
-}
 
 /* Lifted corners */
 
@@ -505,21 +504,67 @@ min-height:100px;
     vertical-align: middle;
 }
 
+.flexslider {
+    -moz-box-sizing: border-box;
+	}
+.rotatorheadline {
+    color: #FFF;
+    font-family: 'Oswald',sans-serif;
+    font-weight: 400;
+    font-size: 33px;
+    line-height: 102%;
+    text-shadow: 0px 1px 1px #333;
+    padding-bottom: 5px;
+}
+.rotatorsub, .rotatorsub a:link, .rotatorsub a:visited {
+    color: #FFF;
+    font-family: 'Oswald',sans-serif;
+    font-weight: 300;
+    font-size: 14px;
+    line-height: 102%;
+    text-shadow: 0px 1px 1px #333;
+    padding-bottom: 5px;
+	text-decoration:none;
+}
 
+.sectionbreak {
+    background-color:red;
+    -moz-border-radius:4px; 
+         border-radius:4px;
+}
 
 img.grayscale {
-    filter: url("data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\'><filter id=\'grayscale\'><feColorMatrix type=\'matrix\' values=\'0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0 0 0 1 0\'/></filter></svg>#grayscale"); /* Firefox 3.5+, IE10 */
-    filter: gray; /* IE6-9 */
-    -webkit-filter: grayscale(100%); /* Chrome 19+ & Safari 6+ */
-    -webkit-transition: all .6s ease; /* Fade to color for Chrome and Safari */
-    -webkit-backface-visibility: hidden; /* Fix for transition flickering */
+/* filter: url("data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\'><filter id=\'grayscale\'><feColorMatrix type=\'matrix\' values=\'0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0 0 0 1 0\'/></filter></svg>#grayscale");  Firefox 10+, Firefox on Android */
+filter: url("data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\'><filter id=\'grayscale\'><feColorMatrix type=\'matrix\' values=\'0.763 0.214 0.021 0 0 0.063 0.914 0.021 0 0 0.063 0.214 0.721 0 0 0 0 0 1 0\'/></filter></svg>#grayscale"); /* Firefox 10+, Firefox on Android */
+filter: gray; /* IE6-9 */
+-webkit-filter: grayscale(60%) contrast(120%); /* Chrome 19+, Safari 6+, Safari 6+ iOS */
 }
-
 img.grayscale:hover {
-    filter: none;
-    -webkit-filter: grayscale(0%);
+filter: url("data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\'><filter id=\'grayscale\'><feColorMatrix type=\'matrix\' values=\'1.157 -0.143 -0.014 0 0 -0.042 1.057 -0.014 0 0 -0.042 -0.143 1.185 0 0 0.8 0 0 1 0\'/></filter></svg>#grayscale");
+ -webkit-filter: grayscale(0%);
 }
 
+
+threeup.img.grayscale {
+filter: url("data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\'><filter id=\'grayscale\'><feColorMatrix type=\'matrix\' values=\'0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0 0 0 1 0\'/></filter></svg>#grayscale"); /* Firefox 10+, Firefox on Android */
+filter: gray; /* IE6-9 */
+-webkit-filter: grayscale(100%) contrast(120%); /* Chrome 19+, Safari 6+, Safari 6+ iOS */
+}
+threeup.img.grayscale:hover {
+filter: url("data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\'><filter id=\'grayscale\'><feColorMatrix type=\'matrix\' values=\'1 0 0 0 0, 0 1 0 0 0, 0 0 1 0 0, 0 0 0 1 0\'/></filter></svg>#grayscale");
+-webkit-filter: grayscale(0%);
+filter: hue-rotate(90deg)
+}
+.threeup {
+    width: 32.33%;
+    float: left;
+    -moz-box-sizing: border-box;
+}
+.threeup img {
+    width: 100%;
+}
+
+.threeup + .threeup {margin-left:1.3%;}
 
 .logo {position:relative; top:-5px; z-index:888; width:250px; margin-left:16px;}
 .mgmenu {clear:right;}
@@ -979,7 +1024,7 @@ img.grayscale:hover {
 
 
 <div id="undermenu">
-<div class="container"><div class="micromenu" style="margin-right:30px; margin-top:-1px;"><a href="#">Sign In | Create Account</a></div>
+<div class="container"><div class="micromenu" style="margin-right:30px; margin-top:-1px;">&nbsp;</div>
 </div>
 
 <div style="clear:both; width:100%; display:block;">&nbsp;</div>
@@ -995,52 +1040,73 @@ img.grayscale:hover {
 		<div id="pageimageholder" class="default">
 			  <div class="container">
 
-                <div class="main">
-				<br><br>
-					<h1>Minimum Wage is Increasing but this headline needs to be broken up</h1>
-					<h2>In the end what I find ugly are orphaned words</h2>
-				    <div id="imageholder" class="drop-shadow lifted"><img src="images/newspic.jpg"></div>
-					<div style="clear:both; display:block;">&nbsp;</div>
-					
-					<div class="hrbreake7e6e7">&nbsp;</div>
-					<div style="margin-top: 2px;">
-					<p style="font-size:100% line-height: 10px; margin-top:-4px; margin-bottom:-3px;"><span class="tiny" style="position:relative; top:-0.5em;">Published: Tuesday, February 20th, 2014 | Share this</span>&nbsp;&nbsp;
-					<a href="https://www.facebook.com/OntarioLiberalParty">
-					<img class="grayscale" src="images/facebook.png" style="width: 26px; margin-right: 3px;"></img></a>
-					<a href="https://twitter.com/">
-					<img class="grayscale" src="images/twitter.png" style="width: 26px; margin-right: 3px;"></img></a>
-					<a href="#">
-					<img class="grayscale" src="images/email.png" style="width: 26px; margin-right: 3px;"></img></a>
-					</p>
-                    </div>
-					<div class="hrbreake7e6e7">&nbsp;</div>
-					
-					
-					<div class="body">
-                    <p>The government will also introduce legislation that would tie future minimum wage increases to the CPI. This will ensure the minimum wage keeps up with the cost of living, and that increases are predictable for businesses and families. Under the proposed legislation, increases would be announced by April 1 and come into effect on Oct. 1.</p>
-                    <p>The proposed legislation would act on the&nbsp;<a href="http://www.labour.gov.on.ca/english/es/pubs/mwap/index.php">recommendations</a>&nbsp;of Ontario's Minimum Wage Advisory Panel, which included business, labour, youth and anti-poverty representatives.</p>
-                    <p>Ensuring the minimum wage is fair and predictable for both workers and business is part of the Ontario government's economic plan to invest in people, build modern infrastructure and support a dynamic and innovative business climate.</p>
-                    <ul>
-                    <li><a title="Learn More" href="http://www.labour.gov.on.ca/english/es/pubs/mwap/index.php">Read the Minimum Wage Advisory Panel's Report</a></li>
-                    <li><a title="Learn More" href="http://www.labour.gov.on.ca/english/es/pubs/poster_text.php">Know your rights and responsibilities under Ontario's Employment Standards Act, 2000</a></li>
-                    </ul>
-					</div>
+				<!-- Rotator inserted in the middle here -->
+<div class="flexslider drop-shadow lifted"><!-- set this div to percentages for responsive -->
+    
+<div style="overflow: hidden; position: relative;" class="flex-viewport"><ul style="width: 1000%; transition-duration: 0.6s; transform: translate3d(-2856px, 0px, 0px);" class="slides"><li style="float: left; display: block; width: 952px;" class="clone">
+            <img src="http://www.service201.net/ImgCrop.cgi?x=0&amp;y=20&amp;w=700&amp;h=277&amp;s=olp&amp;i=1082_0__TFMF_im53ze55iw2jeouaw3qs2e34_4d8c61a3-6ecc-4798-8156-058872b811ee_0_PhotoUp" class="grayscale">
+            <div class="flex-caption">
+                <a href="/news/1067?l=EN"><div class="rotatorheadline">Ontario Unveils Plan for New Infrastructure Fund</div>
+                <div class="rotatorsub">Helping Small, Rural and Northern Municipalities Build Roads and Bridges</div></a>
+            </div>
+        </li>
+        <li class="" style="float: left; display: block; width: 952px;">
+            <img src="http://www.service201.net/ImgCrop.cgi?x=0&amp;y=20&amp;w=700&amp;h=277&amp;s=olp&amp;i=1109_0__TFMF_uwt2jjqj0xdhnl45z2ppeb45_200a7c85-0b7c-47f7-90ac-96e394873127_0_PhotoUp" class="grayscale">
+            <div class="flex-caption">
+                <a href="/news/1103?l=EN"><div class="rotatorheadline">More Support for Low-Income Families</div>
+                <div class="rotatorsub">Ontario Government Proposes Increase in Child Benefit</div></a>
+            </div>
+        </li>
+        <li class="" style="float: left; display: block; width: 952px;">
+            <img src="http://www.service201.net/ImgCrop.cgi?x=0&amp;y=20&amp;w=700&amp;h=277&amp;s=olp&amp;i=1094_0__TFMF_1kdybp3vlrlfibukkk2ijd45_eed20041-a488-44d6-a00f-af03738a2258_0_PhotoUp" class="grayscale">
+            <div class="flex-caption">
+                <a href="/news/1077?l=EN"><div class="rotatorheadline">Jobs and Opportunity for Youth</div>
+                <div class="rotatorsub">New Ontario Government Plans to Tackle Youth Unemployment</div></a>
+            </div>
+        </li>
+        <li class="flex-active-slide" style="float: left; display: block; width: 952px;">
+            <img src="http://www.service201.net/ImgCrop.cgi?x=0&amp;y=20&amp;w=700&amp;h=277&amp;s=olp&amp;i=1082_0__TFMF_im53ze55iw2jeouaw3qs2e34_4d8c61a3-6ecc-4798-8156-058872b811ee_0_PhotoUp" class="grayscale">
+            <div class="flex-caption">
+                <a href="/news/1067?l=EN"><div class="rotatorheadline">Ontario Unveils Plan for New Infrastructure Fund</div>
+                <div class="rotatorsub">Helping Small, Rural and Northern Municipalities Build Roads and Bridges</div></a>
+            </div>
+        </li>
+    <li class="clone" style="float: left; display: block; width: 952px;">
+            <img src="http://www.service201.net/ImgCrop.cgi?x=0&amp;y=20&amp;w=700&amp;h=277&amp;s=olp&amp;i=1109_0__TFMF_uwt2jjqj0xdhnl45z2ppeb45_200a7c85-0b7c-47f7-90ac-96e394873127_0_PhotoUp" class="grayscale">
+            <div class="flex-caption">
+                <a href="/news/1103?l=EN"><div class="rotatorheadline">More Support for Low-Income Families</div>
+                <div class="rotatorsub">Ontario Government Proposes Increase in Child Benefit</div></a>
+            </div>
+        </li></ul></div><ul class="flex-direction-nav"><li><a class="flex-prev" href="#">Previous</a></li><li><a class="flex-next" href="#">Next</a></li></ul></div>
+				
+<div style="clear:both;display:block;">&nbsp;</div>
+<div class="sectionbreak">The News</div>
+<div class="hrbreake7e6e7">In Photos</div>
 
 
 
+            <div class="threeup">
+                <a href="/photos"><img alt="1251 0  tfmf b1owqj55ig0cgffcojsdog45 5d06b374 b05e 473d abb8 5176ec210175 0 thumbnail" class="grayscale drop-shadow lifted" src="/photos/olp/thumbnails/1251_0__TFMF_b1owqj55ig0cgffcojsdog45_5d06b374-b05e-473d-abb8-5176ec210175_0_Thumbnail.jpg"></a>
+                <div class="hrbreake7e6e7">&nbsp;</div>
+				<p style="margin-top:3px; font-weight:700; font-size:12px;">Premier Kathleen Wynne at the Keg-Tapping Ceremony for the 2013 Kitchener-Waterloo Oktoberfest</p>
+            </div>
+            <div class="threeup">
+                <a href="/photos"><img alt="1249 0  tfmf dvuwgo45031seu4531tyrt55 24b89c77 7e31 419a 8748 6eb8cdd4d762 0 thumbnail" class="grayscale drop-shadow lifted" src="/photos/olp/thumbnails/1249_0__TFMF_dvuwgo45031seu4531tyrt55_24b89c77-7e31-419a-8748-6eb8cdd4d762_0_Thumbnail.jpg"></a>
+                <div class="hrbreake7e6e7">&nbsp;</div>
+				<p style="margin-top:3px; font-weight:700; font-size:12px;">Premier Kathleen Wynne joins with George Brown College culinary students to prepare Thanksgiving meals</p>
+            </div>
+            <div class="threeup">
+                <a href="/photos"><img alt="1248 0  tfmf 0p4qym45msbkugbnwsywmr45 cb9aeea4 b83b 4c2b 9b60 b2789d01fdcc 0 thumbnail" class="grayscale drop-shadow lifted" src="/photos/olp/thumbnails/1248_0__TFMF_0p4qym45msbkugbnwsywmr45_cb9aeea4-b83b-4c2b-9b60-b2789d01fdcc_0_Thumbnail.jpg"></a>
+                <div class="hrbreake7e6e7">&nbsp;</div>
+				<p style="margin-top:3px; font-weight:700; font-size:12px;">Premier Kathleen Wynne, Ministers Linda Jeffrey, Michael Chan and Yasir Naqvi, and MPP Mitzie Hunter welcome delegates from the Pan American Sports Organization General Assembly</p>
+            </div>
 
-					<div class="hrbreake7e6e7">&nbsp;</div>
-					<div style="margin-top: 2px;">
-					<p style="font-size:100% line-height: 10px; margin-top:-4px; margin-bottom:-3px;"><span class="tiny" style="position:relative; top:-0.5em;">Published: Tuesday, February 20th, 2014 | Share this</span>&nbsp;&nbsp;
-					<a href="https://www.facebook.com/OntarioLiberalParty">
-					<img class="grayscale" src="http://images.dkkma.com/assets/images/social/facebook.png" style="width: 26px; margin-right: 3px;"></img></a>
-					<a href="https://twitter.com/">
-					<img class="grayscale" src="http://images.dkkma.com/assets/images/social/twitter.png" style="width: 26px; margin-right: 3px;"></img></a>
-					<a href="#">
-					<img class="grayscale" src="http://images.dkkma.com/assets/images/social/email.png" style="width: 26px; margin-right: 3px;"></img></a>
-					</p>
-                    </div>
-					<div class="hrbreake7e6e7">&nbsp;</div>
+
+
+				
+
+                <div class="main" style="display:none;">
+
 					
 
 					
@@ -1071,50 +1137,10 @@ img.grayscale:hover {
                 </div>
 				
 				
+				<div class="drop-shadow lifted">This is just to test the drop-shadow lifted class</div>
 				
 				
-				
-<div class="col-4 fixed">
 
-<div class="hrbreake7e6e7"></div>
-<h1><a href="#">Provincial News</a></h1>
-<div class="hrbreake7e6e7"></div>
-<h1>Photo of the Day</h1>
-<div class="hrbreake7e6e7"></div>
-<h1>In Video</h1>
-<div class="hrbreake7e6e7"></div>
-
-<h3>Related News</h3>
-<div class="listright">
-<h1>Making Ontario's Minimum Wage Fair and Predictable<h1>
-<h2>Ontario is taking the next step to ensure the province's 
-minimum wage keeps pace with the cost of living, and that 
-increases are fair for families and predictable for businesses.</h2>
-
-<h1>Helping Families Make Healthy Food Choices</h1>
-<h2>Ontario will introduce legislation today to make it easier for 
-families to make informed and healthy food choices.</h2>
-
-<h1>A Year of Progress for Ontario</h1>
-<h2>After one year in office, the Ontario government has moved forward 
-on every part of its economic plan focused on people and partnerships 
-to create jobs and grow the economy across the province.</h2>
-
-<h1>Eleanor McMahon Nominated as Ontario Liberal Candidate in Burlington</h1>
-<h2>The Ontario Liberal Party is pleased to announce that Eleanor 
-McMahon was nominated tonight as our Partys candidate for the 
-riding of Burlington.</h2>
-</div>
-
-				<h1>Some Subtitle</h1>
-                 <p>Kathleen Wynne</p>
-				 <p>Party History</p>
-				 <p>MPPs</p>
-				 <p>Candidates</p>
-
-
-
-</div>
 				
 <div class="clear">&nbsp;</div>
 					
@@ -1240,6 +1266,26 @@ $('.body').flowtype({
 });
 
 </script>
+
+
+<!-- FlexSlider -->
+
+    <script type="text/javascript">
+    // $(function(){
+    //   SyntaxHighlighter.all();
+    // });
+    $(window).load(function(){
+        $('.flexslider').flexslider({
+            controlNav: false,
+            touch: true,
+            pauseOnAction: true,
+            animation: "slide",
+            start: function(slider){
+                $('body').removeClass('loading');
+            }
+        });
+    });
+    </script>
   
 </body>
 </html>
