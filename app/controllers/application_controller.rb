@@ -25,7 +25,6 @@ class ApplicationController < ActionController::Base
   end
   
   rescue_from CanCan::AccessDenied do |exception|
-    binding.pry
     redirect_to "/", :alert => exception.message
   end
 

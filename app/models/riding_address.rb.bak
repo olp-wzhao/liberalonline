@@ -16,7 +16,6 @@ class RidingAddress
   after_validation :geocode #, :reverse_geocode
   # reverse_geocoded_by :coordinates do |obj, results|
   #   if geo = results.first
-  #     binding.pry
   #     obj.street      = geo.intersection["street"]
   #     obj.city        = geo.intersection["city"]
   #     obj.postal_code = geo.postal_code

@@ -46,7 +46,6 @@ class Admin::TransactionsController < Admin::AdminController
     @transaction = Transaction.new(transaction_params)
     success = @transaction.save
     #end
-    #binding.pry
     respond_to do |format|
       if success
         #format.html { redirect_to @transaction, notice: 'Transaction was successfully created.' }
@@ -202,7 +201,6 @@ class Admin::TransactionsController < Admin::AdminController
   #     @user = User.find(cookies["liberalonline_user_id"])
   #   end
   #   @user.transactions << transaction
-  #   binding.pry
   #   @user.save!(validate: false)
   # end
 

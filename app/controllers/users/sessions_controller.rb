@@ -2,7 +2,6 @@ class Users::SessionsController < Devise::SessionsController
 
   def new
     #redirect_to '/auth/facebook'
-    #binding.pry
     self.resource = resource_class.new(sign_in_params)
     respond_to do |format|
       format.js {
@@ -48,11 +47,6 @@ class Users::SessionsController < Devise::SessionsController
       format.html { head :no_content }
       format.any(*navigational_formats) { redirect_to redirect_path }
     end
-  end
-
-  def failure
-    binding.pry
-    #redirect_to root_url, :alert => "Authentication error: #{params[:message].humanize}"
   end
 
 end
