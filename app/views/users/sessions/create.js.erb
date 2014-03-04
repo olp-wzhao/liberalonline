@@ -1,2 +1,15 @@
 console.log('sessions.create.js.erb');
-$("#myModal").modal('hide');
+
+<% if @user.errors.count == 0 %>
+
+    $("#myModal").hide();
+    $('body').removeClass('modal-open');
+    $('.modal-backdrop').remove();
+    $('#micromenu_placeholder').html('');
+    $('#micromenu_placeholder').html('<%= j render '/shared/micromenu' %>')
+
+<% else %>
+    $('#errors').html('');
+    console.log('errors should be displayed');
+    $('#errors').html('<%= j devise_error_messages!%>');
+<% end %>

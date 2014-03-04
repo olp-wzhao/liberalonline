@@ -95,49 +95,41 @@
   </script>
 
 <div id="fb-root"></div>
-<script>
-// (function(d, s, id) {
-//   var js, fjs = d.getElementsByTagName(s)[0];
-//   if (d.getElementById(id)) return;
-//   js = d.createElement(s); js.id = id;
-//   js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=539610256085770";
-//   fjs.parentNode.insertBefore(js, fjs);
-// }(document, 'script', 'facebook-jssdk'));
-</script>
 
 
 <div id="bodywrapper1">
-<div class="wrapper">
+    <div class="wrapper">
 
-<%= render "shared/micromenu" %>
 
-<div id="socialmediaicons" class="nomobile">
-<ul>
-<li class="facebook"><a href="#" title="facebook" target="_blank"></a></li>
-<li class="twitter"><a href="#" title="twitter" target="_blank"></a></li>
-<li class="flickr"><a href="#" title="flickr" target="_blank"></a></li>
-<li class="youtube"><a href="#" title="youtube" target="_blank"></a></li>
-<li class="fred"><a href="http://www.fred.ca" title="fred" target="_blank"></a></li>
-<li class="linkedin"><a href="#" class="linkedin" target="_blank"></a></li>
-</ul>
-</div>
+        <span id="micromenu_placeholder">
+            <%= render 'shared/micromenu' %>
+        </span>
 
-<div style="clear:both; width:100%; display:block;">&nbsp;</div>
+    <div id="socialmediaicons" class="nomobile">
+        <ul>
+            <li class="facebook"><a href="#" title="facebook" target="_blank"></a></li>
+            <li class="twitter"><a href="#" title="twitter" target="_blank"></a></li>
+            <li class="flickr"><a href="#" title="flickr" target="_blank"></a></li>
+            <li class="youtube"><a href="#" title="youtube" target="_blank"></a></li>
+            <li class="fred"><a href="http://www.fred.ca" title="fred" target="_blank"></a></li>
+            <li class="linkedin"><a href="#" class="linkedin" target="_blank"></a></li>
+        </ul>
+    </div>
+    <div style="clear:both; width:100%; display:block;">&nbsp;</div>
 
-<%= render "shared/menu" %>
+    <%= render "shared/menu" %>
+    <div style="clear:both; margin-top:40px;">&nbsp;</div>
 
-<div style="clear:both; margin-top:40px;">&nbsp;</div>
+    <%= flash[:notice] %>
 
-<%= flash[:notice] %>
+    <div class="main">
+        <%= yield %>
+        <div style="clear:both;">&nbsp;</div>
+    </div><!-- closes .main -->
 
-<div class="main">
-    <%= yield %>
-    <div style="clear:both;">&nbsp;</div>
-</div><!-- closes .main -->
-
-<div class="m_sidecolumn">
-This won't even be visible until browser width reaches 640 pixels.
-</div> <!-- closes .m_sidecolumn -->
+    <div class="m_sidecolumn">
+    This won't even be visible until browser width reaches 640 pixels.
+    </div> <!-- closes .m_sidecolumn -->
 
 </div><!-- closes first .wrapper -->
 
@@ -147,7 +139,7 @@ This won't even be visible until browser width reaches 640 pixels.
 <div class="footerbg">
 <div class="wrapper">
 
-<%= render "shared/sitemenu" %>
+<%= render 'shared/sitemenu' %>
 
     <div id="footer" style="display:block; clear:both;">
         <span class="defaultbody small reverse">

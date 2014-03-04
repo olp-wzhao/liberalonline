@@ -1,3 +1,4 @@
+= render 'shared/modal'
 .micromenu
   - if !current_user
     = link_to 'Login', new_user_session_path, {:remote => true, 'data-toggle' =>  'modal', 'data-target' => '#myModal' }
@@ -11,6 +12,4 @@
     |
     = link_to 'Profile', edit_user_registration_path 
     |
-    = link_to 'Logout', destroy_user_session_path, :method => :delete
-
-= render 'shared/modal'
+    = link_to 'Logout', destroy_user_session_path, method: :delete, remote: true
