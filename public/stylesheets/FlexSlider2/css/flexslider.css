@@ -91,3 +91,5 @@ z-index:1;
     padding:5px;
 
 }
+.flex-caption a:link,
+.flex-caption a:visited {text-decoration:none;}
