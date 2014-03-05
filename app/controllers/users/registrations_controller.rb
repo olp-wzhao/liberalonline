@@ -9,6 +9,15 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # end
   # private :resource_params
 
+  def new
+    @user = User.new
+    @user.birthday = Time.now
+    respond_to do |format|
+      format.html
+      format.js
+    end
+  end
+
   def create
     build_resource(sign_up_params)
 
@@ -89,14 +98,14 @@ class Users::RegistrationsController < Devise::RegistrationsController
       u.permit(:first_name, :last_name,
         :email, :password, :password_confirmation,
         :address, :postal_code, :city, :phone_number,
-        :birthday, :image)
+        :birthday, :image, :image_cache)
     end
     devise_parameter_sanitizer.for(:account_update) do |u|
       fix_scrambled_date_parameters_on_create
       u.permit(:first_name, :last_name,
         :email, :password, :password_confirmation, :current_password,
         :address, :postal_code, :city, :phone_number,
-        :birthday, :image)
+        :birthday, :image, :image_cache)
     end
   end
 

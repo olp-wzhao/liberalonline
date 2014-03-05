@@ -5,6 +5,7 @@ class RidingAddressesController < ApplicationController
   # GET /riding_addresses.json
   def index
     #@riding_addresses = RidingAddress.all
+    binding.pry
     if params[:search].present?
       @riding_locations = RidingAddress.near(params[:search], 10, :order => :distance)
       

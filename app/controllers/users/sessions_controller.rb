@@ -1,7 +1,6 @@
 class Users::SessionsController < Devise::SessionsController
 
   def new
-    #redirect_to '/auth/facebook'
     self.resource = resource_class.new(sign_in_params)
     respond_to do |format|
       format.js {

@@ -18,6 +18,8 @@
 //= require mgmenu_plugins
 // require rails.validations
 
+//= require helpers
+
 //= require main
 
 //= require turbolinks

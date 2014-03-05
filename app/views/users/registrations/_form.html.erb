@@ -1,15 +1,16 @@
-<%= simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
+<%= simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name), :remote => true) do |f| %>
 
-  <%= f.input :email, :required => true, :autofocus => true, :class => 'submittable', placeholder: "Enter Email" %>
-  <%= f.input :first_name, placeholder: "First Name" %>
-  <%= f.input :last_name, placeholder: "Last Name" %>
-  <%= f.input :password, :required => true, placeholder: "Password" %>
-  <%= f.input :password_confirmation, :required => true, placeholder: "Repeat Password" %>
-  <%= f.input :address, placeholder: "Address" %>
-  <%= f.input :postal_code, placeholder: "Postal Code" %><span id="riding_box"></span>
-  <%= f.input :city, placeholder: "City" %>
-  <%= f.input :phone_number, :size => 30, placeholder: "Phone Number" %>
-  <%= f.input :birthday, placeholder: "Birthday", wrapper: :standard, input_html: { class: 'date_picker' } %>
+  <%= f.input :email, :required => true, :autofocus => true, :class => 'submittable', placeholder: 'Enter Email', input_html: { onblur: 'isEmailUnique("' + validate_user_url + '")' } %>
+  <%= f.input :first_name, placeholder: 'First Name' %>
+  <%= f.input :last_name, placeholder: 'Last Name' %>
+  <%= f.input :password, :required => true, placeholder: 'Password' %>
+  <%= f.input :password_confirmation, :required => true, placeholder: 'Repeat Password' %>
+  <%= f.input :address, placeholder: 'Address' %>
+  <%= f.input :postal_code, placeholder: 'Postal Code' , input_html: { onblur: 'findRiding("' + find_riding_url + '")' } %><span id='riding_box'></span>
+  <%= f.input :city, placeholder: 'City' %>
+  <%= f.input :phone_number, :size => 30, placeholder: 'Phone Number' %>
+  <%= f.input :birthday, label:'Date of Birth', as: :date, start_year: Date.today.year - 90,
+                                                end_year: Date.today.year - 12 %>
   <%= f.input :image, as: :file, label: 'Upload Image' %>
   <%= f.hidden_field :image_cache %>
   <%= f.button :submit, 'Sign up', :class => 'btn-primary' %>
@@ -17,20 +18,7 @@
 <% end %>
 
 <%= content_for :scripts_for_body do %>
-    <script type="text/javascript">
-        $(document).ready(function(){
-            $('#user_email').blur( function() {
-                $.get("<%= validate_user_url %>", { email: $('#user_email').val() })
-            });
-
-            $("#user_postal_code").blur( function() {
-                $.getJSON("<%= find_riding_url %>", {search: $("#user_postal_code").val()})
-                        .done(function(data){
-                            $("#riding_box").html(data.name);
-                        });
-            });
-            $('.date_picker').datepicker();
-        });
+    <script type='text/javascript'>
 
     </script>
 <% end %>

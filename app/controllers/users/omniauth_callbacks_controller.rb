@@ -3,6 +3,7 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
   def all
     identity = Identity.from_omniauth(request.env["omniauth.auth"])
     user = identity.find_or_create_user(current_user)
+    binding.pry
     if user.valid?
       flash.notice = "Signed in!"
       sign_in_and_redirect user

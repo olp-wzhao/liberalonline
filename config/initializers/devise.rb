@@ -251,7 +251,10 @@ Devise.setup do |config|
   # Add a new OmniAuth provider. Check the wiki for more information on setting
   # up on your models and hooks.
   # config.omniauth :github, 'APP_ID', 'APP_SECRET', :scope => 'user,public_repo'
-  config.omniauth :facebook, '539610256085770', 'ebc87510eab37711e89b788259f09751', scope: 'email,user_birthday,read_streamid,first_name,hometown,bio,religion,middle_name,about,is_verified,gender,third_party_id,relationship_status,last_name,locale,verified', :display => "popup"
+  config.omniauth :facebook, '173872612791834', '98c61e444430c94e4dba1de6b821eff0',
+                  :scope => 'email,user_birthday,read_stream',
+                  :display => 'popup',
+                  :provider_ignores_state => true
 # Indicates whether the user account has been verified. This is distinct from the is_verified field. Someone is considered verified if they take any of the following actions:
 
 # Register for mobile

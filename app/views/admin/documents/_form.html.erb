@@ -23,7 +23,7 @@
 
 
     <%#= f.input :copy_protect, as: :boolean %>
-    <%= f.input :document_date, as: :date %>
+    <%= f.input :document_date, as: :date, default: Date.today %>
     <%#= f.input :display_date, as: :date %>
     <%#= f.input :expiry_date, as: :date %>
     <%#= f.input :publish_on_olp, as: :boolean %>

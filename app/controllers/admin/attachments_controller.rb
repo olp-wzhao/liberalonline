@@ -30,17 +30,11 @@ class Admin::AttachmentsController < Admin::AdminController
       valid = @document.save
     end
 
-    if valid
-      if request.xhr? || remotipart_submitted?
+    if request.xhr? || remotipart_submitted?
+      if valid
         render :layout => false, :template => '/admin/attachments/create.js', :status => :ok, :format => :js
-      end
-      #format.js #redirect_to edit_admin_document_path(@document) }
-      #format.json { render json: 'attachment saved to mongodb', status: :created }
-    else
-      respond_to do |format|
-        format.html { render action: 'new' }
-        format.json { render json: @attachment.errors, status: :unprocessable_entity }
-        format.js
+      else
+        render :layout => false, :template => '/admin/attachments/create.js', :format => :js
       end
     end
   end

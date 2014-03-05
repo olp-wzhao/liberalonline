@@ -30,6 +30,7 @@
 # user.skip_confirmation!
 # user.save
 
+
 doc_type = DocumentType.new(
   name: "Press Release",
   temp_id: 0)
