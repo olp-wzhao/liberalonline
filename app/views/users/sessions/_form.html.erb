@@ -1,7 +1,8 @@
 <h2>Sign in</h2>
 <%= flash[:notice] %>
 <%= flash[:alert] %>
-<%= link_to 'Sign in with Facebook', user_omniauth_authorize_path(:facebook), :class => "popup", :"data-width" => 600, :"data-height" => 400 %>
+<%= link_to 'Sign in with Facebook', '/users/auth/facebook', id: 'sign_in', class: 'popup', data: { width: 600, height: 400 } %>
+<%=link_to image_tag("facebook_64.png", :size => "64x64", :alt => "Facebook", class: 'popup', data: { width: 600, height: 400 }), user_omniauth_authorize_path(:facebook),  :title=>"Facebook" %>
 <br/>
 <%= simple_form_for(resource, :as => resource_name, :url => session_path(resource_name), :html => {:class => 'form-vertical' }, remote: true) do |f| %>
     <%= f.input :email, :autofocus => true, :class => 'rounded' %>
@@ -11,16 +12,3 @@
     <div id="errors"></div>
 <% end %>
 <%= render 'users/shared/links' %>
-
-<script>
-    function popupCenter(url, width, height, name) {
-        var left = (screen.width/2)-(width/2);
-        var top = (screen.height/2)-(height/2);
-        return window.open(url, name, "menubar=no,toolbar=no,status=no,width="+width+",height="+height+",toolbar=no,left="+left+",top="+top);
-    }
-
-    $("a.popup").click(function(e) {
-        popupCenter($(this).attr("href"), $(this).attr("data-width"), $(this).attr("data-height"), "authPopup");
-        e.stopPropagation(); return false;
-    });
-</script>
