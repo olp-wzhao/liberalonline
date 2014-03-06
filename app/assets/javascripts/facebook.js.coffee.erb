@@ -1,0 +1,21 @@
+#jQuery ->
+#
+#    $.ajax
+#        url: "#{window.location.protocol}//connect.facebook.net/en_US/all.js"
+#        dataType: 'script'
+#        cache: true
+#
+#
+#window.fbAsyncInit = ->
+#    FB.init(appId: '<%= ENV["FACEBOOK_APP_ID"] %>', cookie: true)
+#
+#    $('#facebook_sign_in').click (e) ->
+#        console.log 'jquery button event achieved'
+#        e.preventDefault()
+#        FB.login (response) ->
+#            window.location = '/users/auth/facebook' if response.authResponse
+#
+#    $('#sign_out').click (e) ->
+#        FB.getLoginStatus (response) ->
+#            FB.logout() if response.authResponse
+#        true
