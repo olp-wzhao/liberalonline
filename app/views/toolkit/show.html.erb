@@ -3,48 +3,33 @@
     <br /><br />
          <h1><%= raw @document.headline %></h1>
          <h2><%= raw @document.subtitle %></h2>
-
+			<!-- <%= image_tag @document.image_url %> -->
                <%= raw @document.body %>
 
             <div class="hrbreake7e6e7">&nbsp;</div>
-               <div style="display:block; border:solid 1px blue;">
-               <div style="float:left; width:50px;">
+              
+			  <div>
 
-               </div>
-                        <div class="hrbreake7e6e7">&nbsp;</div>
+                        
 
                         <p class="tiny"><%= @document.author %></p>
                         <p class="tiny"><%= @document.reference_url %></p>
                         <p class="tiny"><%= @document.reference_name %></p>
                         <p class="tiny"><%= @document.attached_photo_ids %></p>
-                        <p class="tiny"><%= @document.attached_video_ids %></p>
                         <p class="tiny"><%= @document.attached_pdf_ids %></p>
                         <p class="tiny"><%= @document.created_date %></p>
                         <p class="tiny"><%= @document.created_ip %></p>
-                        <p class="tiny"><%= @document.created_user_id %></p>
-                        <p class="tiny"><%= @document.updated_ip %></p>
-                        <p class="tiny"><%= @document.language %></p>
-                        <p class="tiny"><%= @document.helpfulness_rating %></p>
-                        <p class="tiny"><%= @document.applicability_rating %></p>
-                        <p class="tiny"><%= @document.allow_comment %></p>
-                        <p class="tiny"><%= @document.published %></p>
-                        <p class="tiny"><%= @document.copy_protect %></p>
                         <p class="tiny"><%= @document.document_date %></p>
-                        <p class="tiny"><%= @document.display_date %></p>
-                        <p class="tiny"><%= @document.expiry_date %></p>
-                        <p class="tiny"><%= @document.image_name %></p>
-                        <p class="tiny"><%= @document.publish_on_olp %></p>
-                        <p class="tiny"><%= @document.publish_on_mpp %></p>
-                        <p class="tiny"><%= @document.publish_on_pla %></p>
-                        <p class="tiny"><%= @document.publish_on_elect %></p>
-                        <p class="tiny"><%= @document.partisan %></p>
-                        <p class="tiny"><%= @document.user_id %></p>
                         <p class="tiny"><%= @document.updated_time %></p>
-                 <%= image_tag @document.image_url %>
+						
+						<div class="hrbreake7e6e7">&nbsp;</div>
+						
+
             <% unless @document.attachments.nil? %>
                  <% @document.attachments.each do |a| %>
                     <div class="<%= a.pdf.file.extension %>" >
-                        <%= link_to a.title, a.pdf.url %>
+                        <h1><%= link_to a.title, a.pdf.url %></h1>
+						<p><%= link_to a.description, a.pdf.url %></p>
                     </div>
                  <% end %>
             <% end %>

@@ -58,13 +58,7 @@
           <!--  <p class="tiny"><%= document.user_id %></p>    -->
           <!-- <p class="tiny"><%= document.updated_time %></p> -->
           <div class="hrbreake7e6e7">&nbsp;</div>
-          <% unless document.attachments.nil? %>
-              <% document.attachments.each do |a| %>
-                  <%= link_to a.title, a.pdf.url %>
-				  <%= link_to "[See pdfs]", toolkit_url + '/' + document.id %>
-              <% end %>
-          <% end %>
-          <div class="hrbreake7e6e7">&nbsp;</div>
+
 
 
       <% end %>
