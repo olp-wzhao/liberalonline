@@ -1,4 +1,4 @@
-<!DOCTYPE HTML>
+ï»¿<!DOCTYPE HTML>
 <html>
   <head>
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
@@ -12,16 +12,12 @@
     <meta property="og:type" content="politician" />
     <meta property="og:url" content="" />
     <meta property="og:image" content="" />
-    <meta property="og:site_name" content="More Support for Low-Income Families" />
+    <meta property="og:site_name" content="Ontario Liberal Party" />
     <meta property="fb:admins" content="100003812622252,686700080,552055122" />
     <meta property="og:description" content="More Support for Low-Income Families" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0;">
 
-    <link href="/stylesheets/backgroundA2_en.css" media="screen" rel="stylesheet" type="text/css" />
-    <link href="/stylesheets/fonts.css" media="screen" rel="stylesheet" type="text/css" />
-    <link href='https://fonts.googleapis.com/css?family=Droid+Sans:400,700' rel='stylesheet' type='text/css'>
-    <link href='https://fonts.googleapis.com/css?family=Oswald:400,700' rel='stylesheet' type='text/css'>
-    <link href='https://fonts.googleapis.com/css?family=Roboto+Condensed:400,700,300italic,300' rel='stylesheet' type='text/css'/>
+
     <link href="/stylesheets/FlexSlider/css/shCore.css" rel="stylesheet" type="text/css" />
     <link href="/stylesheets/FlexSlider/css/shThemeDefault.css" rel="stylesheet" type="text/css" />
     <link href="/stylesheets/FlexSlider/css/flexslider.css" rel="stylesheet" type="text/css" />
@@ -77,22 +73,40 @@
   
   </head>
 <body>
+
   <div id="emailpopout" class="in nomobile">
   <iframe src="//www.facebook.com/plugins/facepile.php?app_id&amp;href=https%3A%2F%2Fwww.facebook.com%2FOntarioLiberalParty&amp;action=Comma+separated+list+of+action+of+action+types&amp;width=248&amp;max_rows=3&amp;colorscheme=light&amp;size=medium&amp;show_count=true&amp;appId=539610256085770" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:250px;" allowTransparency="true"></iframe>
   <div class="fb-activity" data-app-id="142580569097102" data-site="http://www.ontarioliberal.ca/GetInvolved.aspx" data-action="like, watch, read" data-width="232" data-height="300" data-header="true"></div>
   </div>
 
 
-  <script>
-   $("#emailpopout").click(function(){
-       if($("#emailpopout").css('left') == '-240px'){
-         $("#emailpopout").stop().animate({left:'2px'},1000);
-       };
-       if($("#emailpopout").css('left') == '2px'){
-          $("#emailpopout").stop().animate({left:'-240px'},1000);
-       };
-   });
-  </script>
+
+
+<div id="logpanel">
+   <div class="container">
+
+
+			
+
+     <div class="micromenu">
+		 <a href="/Login">Logout</a> |
+         <a href="#">Subscribe</a> |
+         <a href="#" data-dropdown="#accountoptions">Account<span class="droparrow"></span></a>
+      </div>
+
+	  <div id="accountoptions" class="dropdown dropdown-anchor-right">
+             <ul class="dropdown-menu">
+              <li><a href="#1">Edit Profile</a></li>
+              <li><a href="#2">History</a></li>
+              <li><a href="#3">Toolit</a></li>
+              <li class="dropdown-divider"></li>
+              <li><a href="#4">Logout</a></li>
+             </ul>
+         </div>
+   </div>
+</div>
+
+
 
 <div id="fb-root"></div>
 
@@ -145,9 +159,9 @@
         <span class="defaultbody small reverse">
         <%= label_tag 'label_footer',
             if @language == 'FR'
-                'Copyright Â© 2013 Parti LibÃ©ral de l\'Ontario - AutorisÃ© par le DF pour le Parti LibÃ©ral de l\'Ontario'
+                'Copyright © 2013 Parti Libéral de l\'Ontario - Autorisé par le DF pour le Parti Libéral de l\'Ontario'
             else
-                'Copyright Â© 2013 Ontario Liberal Party - Authorized by the CFO for the Ontario Liberal Party'
+                'Copyright © 2013 Ontario Liberal Party - Authorized by the CFO for the Ontario Liberal Party'
             end
           %>
         </span>
@@ -166,5 +180,18 @@
 </div><!-- close bodywrapper1 -->
 
 <%= yield :scripts_for_body %>
+
+  <script>
+   $("#emailpopout").click(function(){
+       if($("#emailpopout").css('left') == '-240px'){
+         $("#emailpopout").stop().animate({left:'2px'},1000);
+       };
+       if($("#emailpopout").css('left') == '2px'){
+          $("#emailpopout").stop().animate({left:'-240px'},1000);
+       };
+   });
+  </script>
+  
+  
 </body>
 </html>
