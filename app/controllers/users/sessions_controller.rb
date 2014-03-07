@@ -11,6 +11,13 @@ class Users::SessionsController < Devise::SessionsController
     end
   end
 
+  def edit
+    respond_to do |format|
+      format.js
+      format.html { super }
+    end
+  end
+
 
   def create
 

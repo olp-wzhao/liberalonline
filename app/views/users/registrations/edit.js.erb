@@ -1,4 +1,4 @@
-console.log('sessions.new.js.erb');
+console.log('registrations.edit.js.erb');
 $('.modal-body').html("");
 $('.modal-body').html('<%= j (render partial: 'form', user: @user) %>');
-
+$('.date_picker').datepicker();

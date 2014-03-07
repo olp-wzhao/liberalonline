@@ -15,6 +15,9 @@ class Identity
   field :nickname, type: String
   field :first_name, type: String
   field :last_name, type: String
+  field :birthday, type: DateTime
+  field :gender, type: String
+  field :raw_info, type:String
 
   index({ uid: 1, provider: 1 }, { unique: true })
 
@@ -31,6 +34,9 @@ class Identity
       identity.nickname     = auth.info.nickname
       identity.first_name   = auth.info.first_name
       identity.last_name    = auth.info.last_name
+      identity.birthday     = DateTime.strptime(auth.extra.raw_info.birthday, "%m/%d/%Y").to_date if auth.extra.raw_info.birthday
+      identity.gender       = auth.extra.raw_info.gender if auth.extra.raw_info.gender
+      identity.raw_info     = auth.extra.raw_info if auth.extra.raw_info
     end
     identity.save!
 
@@ -53,6 +59,8 @@ class Identity
       self.user.image       ||= self.image
       self.user.first_name  ||= self.first_name
       self.user.last_name   ||= self.last_name
+      self.user.birthday    ||= self.birthday
+      self.user.gender      ||= self.gender
       self.user.skip_reconfirmation!
       self.user.save!
       self.save!
@@ -68,6 +76,8 @@ class Identity
         image: self.image,
         first_name: self.first_name,
         last_name: self.last_name,
+        birthday: self.birthday,
+        gender: self.gender,
         roles: [AppConfig.default_role],
         riding: Riding.where(riding_id: 0).first
       )

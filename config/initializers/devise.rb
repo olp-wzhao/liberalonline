@@ -254,31 +254,9 @@ Devise.setup do |config|
   config.omniauth :facebook, ENV['FACEBOOK_APP_ID'], ENV['FACEBOOK_SECRET'],
                   :scope => 'email,user_birthday,read_stream',
                   :display => 'popup',
+                  :authorize_params => { :display => 'popup'},
                   :provider_ignores_state => true
 # Indicates whether the user account has been verified. This is distinct from the is_verified field. Someone is considered verified if they take any of the following actions:
-
-# Register for mobile
-# Confirm their account via SMS
-# Enter a valid credit card
-# bool
-# political
-# The user's political views
-# string
-# name_format
-# The user's name formatted to correctly handle Chinese, Japanese, Korean ordering
-# string
-# significant_other
-# The user's significant other
-# User
-# website
-# The user's website
-# string
-# location
-# The user's current location
-# Page
-# username
-# The user's username
-
 
   #config.omniauth :twitter,'tqfa7iV6zrbglF7Kjr3zg', '4UjibpBNP9EO9gtKkJG952mrE0X6IsaQYHwsT4weYQ'
 

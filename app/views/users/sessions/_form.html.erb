@@ -1,9 +1,7 @@
 <h2>Sign in</h2>
 <%= flash[:notice] %>
 <%= flash[:alert] %>
-<%= link_to 'Sign in with Facebook', '/users/auth/facebook', id: 'sign_in', class: 'popup', data: { width: 600, height: 400 } %>
-<%=link_to image_tag("facebook_64.png", :size => "64x64", :alt => "Facebook", class: 'popup', data: { width: 600, height: 400 }), user_omniauth_authorize_path(:facebook),  :title=>"Facebook" %>
-<br/>
+
 <%= simple_form_for(resource, :as => resource_name, :url => session_path(resource_name), :html => {:class => 'form-vertical' }, remote: true) do |f| %>
     <%= f.input :email, :autofocus => true, :class => 'rounded' %>
     <%= f.input :password %>
