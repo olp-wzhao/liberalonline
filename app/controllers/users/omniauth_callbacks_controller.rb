@@ -21,8 +21,6 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
     # Try to find authentication first
     identity = Identity.from_omniauth(request.env["omniauth.auth"])
 
-    binding.pry
-
     #unless current_user
     #  # Request a new 60 day token using the current 2 hour token obtained from fb
     #  auth.merge!(extend_fb_token(auth['credentials']['token']))

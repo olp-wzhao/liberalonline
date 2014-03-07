@@ -1,197 +1,288 @@
-﻿<%# encoding: utf-8 %>
-<!DOCTYPE HTML>
-<html>
-  <head>
-    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-    <title>Ontario Liberal Party - BETA - Kathleen Wynne - Not for Release</title>
-    <%= if @allow_google_index then raw('<META NAME="ROBOTS" CONTENT="INDEX, FOLLOW">') else raw('<META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">') end %>
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+  <title>Ontario Liberal Party - BETA - Kathleen Wynne - Not for Release</title>
+  <%= if @allow_google_index then raw('<META NAME="ROBOTS" CONTENT="INDEX, FOLLOW">') else raw('<META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">') end %>
 
-    <meta name="keywords" content="ontario Liberal Party - Kathleen Wynne, olp PLA" />
-    <meta name="description" content="The Official site of the Ontario Liberal Party" />
+  <meta name="keywords" content="ontario Liberal Party - Kathleen Wynne, olp PLA" />
+  <meta name="description" content="The Official site of the Ontario Liberal Party" />
 
-    <meta property="og:title" content="More Support for Low-Income Families" />
-    <meta property="og:type" content="politician" />
-    <meta property="og:url" content="" />
-    <meta property="og:image" content="" />
-    <meta property="og:site_name" content="Ontario Liberal Party" />
-    <meta property="fb:admins" content="100003812622252,686700080,552055122" />
-    <meta property="og:description" content="More Support for Low-Income Families" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0;">
+  <meta property="og:title" content="More Support for Low-Income Families" />
+  <meta property="og:type" content="politician" />
+  <meta property="og:url" content="" />
+  <meta property="og:image" content="" />
+  <meta property="og:site_name" content="Ontario Liberal Party" />
+  <meta property="fb:admins" content="100003812622252,686700080,552055122" />
+  <meta property="og:description" content="More Support for Low-Income Families" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0;">
 
 
-    <link href="/stylesheets/FlexSlider/css/shCore.css" rel="stylesheet" type="text/css" />
-    <link href="/stylesheets/FlexSlider/css/shThemeDefault.css" rel="stylesheet" type="text/css" />
-    <link href="/stylesheets/FlexSlider/css/flexslider.css" rel="stylesheet" type="text/css" />
-    <link href="/stylesheets/mgmenulib.css" rel="stylesheet" type="text/css" media="screen" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
 
-    <%= stylesheet_link_tag 'application', :media => 'all' %>
-    <%= javascript_include_tag 'application' %>
-    <%= csrf_meta_tags %>
 
-    <script src="http://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
-    <script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js" charset="utf-8"></script>
+  <script src="javascripts/jquery-1.9.1.min.js"></script>
+  <!--  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script> GOOGLE COPY OF JQUERY-->
+  <!-- http://simplefocus.com/flowtype/   -->
+  <script src="javascripts/flowtype.js"></script>
+  <!-- Floating Side column dependent lib   -->
+  <script src="javascripts/jquery-scrolltofixed-min.js"></script>
 
-    <script type="text/javascript">
-        var addthis_config = {"data_track_clickback":true};
-        var addthis_config = {
-            pubid: "ra-5150c0b15241e409"
-        }
+  <!-- Mini Account Menu - http://www.jqueryrain.com/?M89s3TG4 -->
+  <link type="text/css" rel="stylesheet" href="stylesheets/jquery.dropdown.css" />
+  <script type="text/javascript" src="javascripts/jquery.dropdown.js"></script>
+  <!-- Mega Menu dependent lib   -->
+  <script src="javascripts/mgmenu_plugins.js"></script><!-- Mega Menu Plugins -->
+  <script src="javascripts/mgmenu.js"></script><!-- Mega Menu Script -->
 
-        function googleTranslateElementInit() {
-            new google.translate.TranslateElement({
-                pageLanguage: 'en',
-                multilanguagePage: true
-            }, 'google_translate_element');
-        }
+  <link href="/stylesheets/mgmenulib.css" rel="stylesheet" type="text/css" media="screen" />
+  <link href="/stylesheets/stylesheet.css" rel="stylesheet" type="text/css" media="screen" />
+  <!-- Flexslider Lib   -->
+  <script src="javascripts/jquery.flexslider.js"></script><!-- Homepage only -->
+  <link href="/stylesheets/flexslider.css" rel="stylesheet" type="text/css" />
 
-        var addthis_config = {
-            data_ga_property: '<%= @website_google_analytics_account %>',
-            data_track_clickback: true
-        };
+  <script>
 
-        var today = new Date();
-        var expiry = new Date(today.getTime() + 1 * 24 * 3600 * 1000); // add 1 day
-        function set_cookie(name, value)
-        {
-          document.cookie=name + "=" + escape(value) + "; path=/; expires=" + expiry.toGMTString();
-        }
-
-      $(document).ready(function($){
-          $('#mgmenu1').universalMegaMenu({
-              menu_effect: 'hover_slide',
-              menu_speed_show: 300,
-              menu_speed_hide: 200,
-              menu_speed_delay: 200,
-              menu_click_outside: true,
-              menubar_trigger : false,
-              menubar_hide : false,
-              menu_responsive: true
-          });
+      $(function (){ $(".float").each(function () {
+          var $this = $(this); $this.data("startTop", $this.offset().top);});
+          $(window).scroll(function () { var documentScrollTop = $(document).scrollTop();
+              $(".float").each(function () { var $this = $(this);
+                  $this.offset({ top: $this.data("startTop") + documentScrollTop * $this.data("friction"), left: $this.offset().left });
+              });
+              document.oldScrollTop = documentScrollTop; });
       });
+
+      // Get rid of empty paragraphs
+      $(window).load(function(){
+          $('p').filter(function () { return this.innerHTML == "" }).remove();
+
+      });//]]> 
+
   </script>
-  
+
+
+
+  <style type="text/css">
+
+
+
+  </style>
+
   <%= yield :header %>
-  
-  </head>
+
+
+</head>
+
+
+
+
 <body>
 
-<%= render 'shared/modal' %>
 
-  <div id="emailpopout" class="in nomobile">
+<!--  <div id="emailpopout" class="in nomobile">
   <iframe src="//www.facebook.com/plugins/facepile.php?app_id&amp;href=https%3A%2F%2Fwww.facebook.com%2FOntarioLiberalParty&amp;action=Comma+separated+list+of+action+of+action+types&amp;width=248&amp;max_rows=3&amp;colorscheme=light&amp;size=medium&amp;show_count=true&amp;appId=539610256085770" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:250px;" allowTransparency="true"></iframe>
   <div class="fb-activity" data-app-id="142580569097102" data-site="http://www.ontarioliberal.ca/GetInvolved.aspx" data-action="like, watch, read" data-width="232" data-height="300" data-header="true"></div>
-  </div>
-
-
+  </div> -->
 
 
 
 <div id="logpanel">
-   <div class="container">
+  <div class="container">
 
 
-			
+    <%= render 'shared/micromenu' %>
 
-     <div class="micromenu">
-		 <a href="/Login">Logout</a> |
-         <a href="#">Subscribe</a> |
-         <a href="#" data-dropdown="#accountoptions">Account<span class="droparrow"></span></a>
-      </div>
+    <div class="micromenu">
+      <a href="/Login">Logout</a> |
+      <a href="#">Subscribe</a> |
+      <a href="#" data-dropdown="#accountoptions">Account<span class="droparrow"></span></a>
+    </div>
 
-	  <div id="accountoptions" class="dropdown dropdown-anchor-right">
-             <ul class="dropdown-menu">
-              <li><a href="#1">Edit Profile</a></li>
-              <li><a href="#2">History</a></li>
-              <li><a href="#3">Toolit</a></li>
-              <li class="dropdown-divider"></li>
-              <li><a href="#4">Logout</a></li>
-             </ul>
-         </div>
-   </div>
+    <div id="accountoptions" class="dropdown dropdown-anchor-right">
+      <ul class="dropdown-menu">
+        <li><a href="#1">Edit Profile</a></li>
+        <li><a href="#2">History</a></li>
+        <li><a href="#3">Toolit</a></li>
+        <li class="dropdown-divider"></li>
+        <li><a href="#4">Logout</a></li>
+      </ul>
+    </div>
+  </div>
 </div>
 
 
-<div id="bodywrapper1">
-    <div class="wrapper">
 
 
-        <span id="micromenu_placeholder">
-            <%= render 'shared/micromenu' %>
-        </span>
+<div id="logoandmenu">
+  <div class="container">
 
-    <div id="socialmediaicons" class="nomobile">
-        <ul>
-            <li class="facebook"><a href="#" title="facebook" target="_blank"></a></li>
-            <li class="twitter"><a href="#" title="twitter" target="_blank"></a></li>
-            <li class="flickr"><a href="#" title="flickr" target="_blank"></a></li>
-            <li class="youtube"><a href="#" title="youtube" target="_blank"></a></li>
-            <li class="fred"><a href="http://www.fred.ca" title="fred" target="_blank"></a></li>
-            <li class="linkedin"><a href="#" class="linkedin" target="_blank"></a></li>
-        </ul>
-    </div>
-    <div style="clear:both; width:100%; display:block;">&nbsp;</div>
+    <div class="logo"><img src="https://secureolp.liberalonline.ca/images/logo-sm.png"></div>
+
 
     <%= render "shared/menu" %>
-    <div style="clear:both; margin-top:40px;">&nbsp;</div>
-
     <%= flash[:notice] %>
 
-    <div class="main">
-        <%= yield %>
-        <div style="clear:both;">&nbsp;</div>
-    </div><!-- closes .main -->
+  </div><!-- closes the .container encompassing the logo and the menu -->
 
-    <div class="m_sidecolumn">
-    This won't even be visible until browser width reaches 640 pixels.
-    </div> <!-- closes .m_sidecolumn -->
-
-</div><!-- closes first .wrapper -->
-
-<div style="clear:both;">&nbsp;</div>
-
-<!--- opening the second wrapper to hold sitemenu and footer --->
-<div class="footerbg">
-<div class="wrapper">
-
-<%= render 'shared/sitemenu' %>
-
-    <div id="footer" style="display:block; clear:both;">
-        <span class="defaultbody small reverse">
-        <%= label_tag 'label_footer',
-            if @language == 'FR'
-                'Copyright � 2013 Parti Lib�ral de l\'Ontario - Autoris� par le DF pour le Parti Lib�ral de l\'Ontario'
-            else
-                'Copyright � 2013 Ontario Liberal Party - Authorized by the CFO for the Ontario Liberal Party'
-            end
-          %>
-        </span>
-        <div id="google_translate_element"></div>
-
-    </div><!-- closes footer -->
-
-<div style="clear:both;">&nbsp;</div>
-
-</div> <!-- closes second wrapper -->
-
-</div> <!-- closes footerbg -->
+</div><!-- closes #logoandmenu -->
 
 
 
-</div><!-- close bodywrapper1 -->
 
-<%= yield :scripts_for_body %>
 
-  <script>
-   $("#emailpopout").click(function(){
-       if($("#emailpopout").css('left') == '-240px'){
-         $("#emailpopout").stop().animate({left:'2px'},1000);
-       };
-       if($("#emailpopout").css('left') == '2px'){
-          $("#emailpopout").stop().animate({left:'-240px'},1000);
-       };
-   });
-  </script>
-  
-  
+<div id="undermenu">
+  <div class="container"><div class="micromenu" style="margin-right:30px; margin-top:-1px;">&nbsp;</div>
+  </div>
+
+  <div style="clear:both; width:100%; display:block;">&nbsp;</div>
+</div><!-- Close top container -->
+
+
+
+
+
+
+
+
+<div id="pageimageholder" class="default">
+  <div class="container">
+
+    <%= yield %>
+    <div class="clear">&nbsp;</div>
+
+  </div>
+</div>
+
+
+<div id="footertrigger">
+  &nbsp;
+</div>
+
+<div id="footer">
+  <div class="container">
+
+    <%= render 'shared/sitemenu' %>
+
+  </div>
+</div>
+
+
+<script>
+
+    $(document).ready(function() {
+// this works -->   $('.col-4').scrollToFixed({ marginTop: 10, limit: $($('h2')[4]).offset().top });
+//  this works too -->  $('.col-4').scrollToFixed({ marginTop: 10, limit: $('#toptrigger').offset().top });
+//    var stickingpoint = $('.col-8').height()-700; // 700 is the height of col-4, the difference is the heightofdiv variable
+
+        var stickingpoint = $('.main').height()-$('.col-4').height();
+        $('.col-4').scrollToFixed({ marginTop: 10, limit: stickingpoint });
+
+        $('#footertrigger').scrollToFixed( {
+            bottom: 0,
+            limit: $('#footertrigger').offset().top
+        });
+
+
+    });
+
+
+</script>
+
+
+
+<script>
+    $(document).ready(function($){
+        $('#mgmenu1').universalMegaMenu({
+            menu_effect: 'hover_slide',
+            menu_speed_show: 300,
+            menu_speed_hide: 200,
+            menu_speed_delay: 200,
+            menu_click_outside: true,
+            menubar_trigger : false,
+            menubar_hide : false,
+            menu_responsive: true
+        });
+    });
+</script>
+
+
+<script>
+    // This should only load for News Show
+    // Quick check for widows and orphans
+    $(document).ready(function($){
+//  $("h1").each(function() {
+//      var html = $('h1').html().split(" ");
+//      html = html.slice(0,5).join(" ") + "<br />" + html.slice(5).join(" ");
+//      $('h1').html(html);
+//  });
+
+        $("h2").each(function() {
+            var wordArray = $(this).text().split(" ");
+            if (wordArray.length > 2) {
+                wordArray[wordArray.length-2] += "&nbsp;" + wordArray[wordArray.length-1];
+                wordArray.pop();
+                $(this).html(wordArray.join(" "));
+            }
+        });
+
+    });
+</script>
+
+<script type="text/javascript">
+
+    $('#browserInfo').text('Browser (Width : ' + $(window).width() + ' , Height :' + $(window).height() + ' )');
+
+    $(window).resize(function () {
+        $('#browserInfo').text('Browser (Width : ' + $(window).width() + ' , Height :' + $(window).height() + ' )');
+    });
+
+</script>
+
+<script type="text/javascript">
+
+    $('.body').flowtype({
+        minimum   : 500,
+        maximum   : 1200,
+        minFont   : 11,
+        maxFont   : 18,
+        fontRatio : 30
+    });
+
+</script>
+
+
+<!-- FlexSlider -->
+
+<script type="text/javascript">
+    // $(function(){
+    //   SyntaxHighlighter.all();
+    // });
+    $(window).load(function(){
+        $('.flexslider').flexslider({
+            controlNav: false,
+            touch: true,
+            pauseOnAction: true,
+            animation: "slide",
+            start: function(slider){
+                $('body').removeClass('loading');
+            }
+        });
+    });
+</script>
+
+<!-- emailpopout -->
+<script>
+    $("#emailpopout").click(function(){
+        if($("#emailpopout").css('left') == '-240px'){
+            $("#emailpopout").stop().animate({left:'2px'},1000);
+        };
+        if($("#emailpopout").css('left') == '2px'){
+            $("#emailpopout").stop().animate({left:'-240px'},1000);
+        };
+    });
+</script>
+
+
 </body>
 </html>

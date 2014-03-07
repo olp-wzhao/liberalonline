@@ -11,7 +11,6 @@ class TasksController < ApplicationController
 
   def create
     @task = Task.create!(task_params[:task])
-    binding.pry
     respond_to do |format|
       format.html { redirect_to tasks_url }
       format.js
