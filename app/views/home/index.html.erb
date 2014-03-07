@@ -10,7 +10,7 @@
             <img src="<%= raw(croped_image_url(('http://pantone201.ca/webskins/' + (rotator_document.is_draft ? 'mpp' : 'olp') + '/photos/' + rotator_document.image_name), 0, 20, 700, 277)) %>" class="grayscale" />
             <div class="flex-caption">
                 <a href="<%= '/news/' + rotator_document.temp_id.to_s + '?l=' + @language %>"><div class="rotatorheadline"><%= raw(rotator_document.headline) %></div>
-                <div style="font-weight:400; font-size:14px;"><%= raw(rotator_document.subtitle) %></div></a>
+                <div class="rotatorsub"><%= raw(rotator_document.subtitle) %></div></a>
             </div>
         </li>
     <% end %>
