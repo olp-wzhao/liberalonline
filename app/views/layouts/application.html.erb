@@ -1,83 +1,78 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-  <title>Ontario Liberal Party - BETA - Kathleen Wynne - Not for Release</title>
-  <%= if @allow_google_index then raw('<META NAME="ROBOTS" CONTENT="INDEX, FOLLOW">') else raw('<META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">') end %>
+        <meta charset="utf-8" />
+        <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+		<title>Ontario Liberal Party - BETA - Kathleen Wynne - Not for Release</title>
+        <%= if @allow_google_index then raw('<META NAME="ROBOTS" CONTENT="INDEX, FOLLOW">') else raw('<META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">') end %>
 
-  <meta name="keywords" content="ontario Liberal Party - Kathleen Wynne, olp PLA" />
-  <meta name="description" content="The Official site of the Ontario Liberal Party" />
+        <meta name="keywords" content="ontario Liberal Party - Kathleen Wynne, olp PLA" />
+        <meta name="description" content="The Official site of the Ontario Liberal Party" />
 
-  <meta property="og:title" content="More Support for Low-Income Families" />
-  <meta property="og:type" content="politician" />
-  <meta property="og:url" content="" />
-  <meta property="og:image" content="" />
-  <meta property="og:site_name" content="Ontario Liberal Party" />
-  <meta property="fb:admins" content="100003812622252,686700080,552055122" />
-  <meta property="og:description" content="More Support for Low-Income Families" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0;">
+        <meta property="og:title" content="More Support for Low-Income Families" />
+        <meta property="og:type" content="politician" />
+        <meta property="og:url" content="" />
+        <meta property="og:image" content="" />
+        <meta property="og:site_name" content="Ontario Liberal Party" />
+        <meta property="fb:admins" content="100003812622252,686700080,552055122" />
+        <meta property="og:description" content="More Support for Low-Income Families" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0;">
+		
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
 
 
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+        <script src="javascripts/jquery-1.9.1.min.js"></script> 
+		<!--  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script> GOOGLE COPY OF JQUERY-->
+		<!-- http://simplefocus.com/flowtype/   -->
+        <script src="javascripts/flowtype.js"></script>
+		<!-- Floating Side column dependent lib   -->
+        <script src="javascripts/jquery-scrolltofixed-min.js"></script>
+		
+        <!-- Mini Account Menu - http://www.jqueryrain.com/?M89s3TG4 -->
+        <link type="text/css" rel="stylesheet" href="stylesheets/jquery.dropdown.css" />
+        <script type="text/javascript" src="javascripts/jquery.dropdown.js"></script>
+	    <!-- Mega Menu dependent lib   -->
+        <script src="javascripts/mgmenu_plugins.js"></script><!-- Mega Menu Plugins -->
+        <script src="javascripts/mgmenu.js"></script><!-- Mega Menu Script -->
 
+        <link href="/stylesheets/mgmenulib.css" rel="stylesheet" type="text/css" media="screen" />	
+        <link href="/stylesheets/stylesheet.css" rel="stylesheet" type="text/css" media="screen" />
+	<!-- Flexslider Lib   -->
+    <script src="javascripts/jquery.flexslider.js"></script><!-- Homepage only -->
+    <link href="/stylesheets/flexslider.css" rel="stylesheet" type="text/css" />
 
-  <script src="javascripts/jquery-1.9.1.min.js"></script>
-  <!--  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script> GOOGLE COPY OF JQUERY-->
-  <!-- http://simplefocus.com/flowtype/   -->
-  <script src="javascripts/flowtype.js"></script>
-  <!-- Floating Side column dependent lib   -->
-  <script src="javascripts/jquery-scrolltofixed-min.js"></script>
+    <script>
 
-  <!-- Mini Account Menu - http://www.jqueryrain.com/?M89s3TG4 -->
-  <link type="text/css" rel="stylesheet" href="stylesheets/jquery.dropdown.css" />
-  <script type="text/javascript" src="javascripts/jquery.dropdown.js"></script>
-  <!-- Mega Menu dependent lib   -->
-  <script src="javascripts/mgmenu_plugins.js"></script><!-- Mega Menu Plugins -->
-  <script src="javascripts/mgmenu.js"></script><!-- Mega Menu Script -->
-
-  <link href="/stylesheets/mgmenulib.css" rel="stylesheet" type="text/css" media="screen" />
-  <link href="/stylesheets/stylesheet.css" rel="stylesheet" type="text/css" media="screen" />
-  <!-- Flexslider Lib   -->
-  <script src="javascripts/jquery.flexslider.js"></script><!-- Homepage only -->
-  <link href="/stylesheets/flexslider.css" rel="stylesheet" type="text/css" />
-
-  <script>
-
-      $(function (){ $(".float").each(function () {
-          var $this = $(this); $this.data("startTop", $this.offset().top);});
-          $(window).scroll(function () { var documentScrollTop = $(document).scrollTop();
-              $(".float").each(function () { var $this = $(this);
-                  $this.offset({ top: $this.data("startTop") + documentScrollTop * $this.data("friction"), left: $this.offset().left });
-              });
-              document.oldScrollTop = documentScrollTop; });
+      $(function (){ $(".float").each(function () { 
+           var $this = $(this); $this.data("startTop", $this.offset().top);});
+             $(window).scroll(function () { var documentScrollTop = $(document).scrollTop();
+             $(".float").each(function () { var $this = $(this); 
+             $this.offset({ top: $this.data("startTop") + documentScrollTop * $this.data("friction"), left: $this.offset().left });
       });
-
+      document.oldScrollTop = documentScrollTop; });
+      });
+  	
       // Get rid of empty paragraphs
       $(window).load(function(){
           $('p').filter(function () { return this.innerHTML == "" }).remove();
 
       });//]]> 
+	
+    </script>	
 
-  </script>
-
-
-
-  <style type="text/css">
-
-
-
-  </style>
-
-  <%= yield :header %>
-
-
-</head>
+  
+  
+  </head>
 
 
 
 
 <body>
+
+
+
+
 
 
 <!--  <div id="emailpopout" class="in nomobile">
@@ -88,43 +83,43 @@
 
 
 <div id="logpanel">
-  <div class="container">
+   <div class="container">
 
 
-    <%= render 'shared/micromenu' %>
+	<%= render 'shared/micromenu' %>	
 
-    <div class="micromenu">
-      <a href="/Login">Logout</a> |
-      <a href="#">Subscribe</a> |
-      <a href="#" data-dropdown="#accountoptions">Account<span class="droparrow"></span></a>
-    </div>
+     <div class="micromenu">
+		 <a href="/Login">Logout</a> |
+         <a href="#">Subscribe</a> |
+         <a href="#" data-dropdown="#accountoptions">Account<span class="droparrow"></span></a>
+      </div>
 
-    <div id="accountoptions" class="dropdown dropdown-anchor-right">
-      <ul class="dropdown-menu">
-        <li><a href="#1">Edit Profile</a></li>
-        <li><a href="#2">History</a></li>
-        <li><a href="#3">Toolit</a></li>
-        <li class="dropdown-divider"></li>
-        <li><a href="#4">Logout</a></li>
-      </ul>
-    </div>
-  </div>
+      <div id="accountoptions" class="dropdown dropdown-anchor-right">
+             <ul class="dropdown-menu">
+              <li><a href="#1">Edit Profile</a></li>
+              <li><a href="#2">History</a></li>
+              <li><a href="#3">Toolit</a></li>
+              <li class="dropdown-divider"></li>
+              <li><a href="#4">Logout</a></li>
+             </ul>
+         </div>
+   </div>
 </div>
 
 
 
 
 <div id="logoandmenu">
-  <div class="container">
+    <div class="container">
 
-    <div class="logo"><img src="https://secureolp.liberalonline.ca/images/logo-sm.png"></div>
-
-
+    <div class="logo"><%= image_tag "logo-sm.png" %></div>  
+	
+	
     <%= render "shared/menu" %>
     <%= flash[:notice] %>
 
-  </div><!-- closes the .container encompassing the logo and the menu -->
-
+    </div><!-- closes the .container encompassing the logo and the menu -->
+	
 </div><!-- closes #logoandmenu -->
 
 
@@ -132,129 +127,130 @@
 
 
 <div id="undermenu">
-  <div class="container"><div class="micromenu" style="margin-right:30px; margin-top:-1px;">&nbsp;</div>
-  </div>
-
-  <div style="clear:both; width:100%; display:block;">&nbsp;</div>
-</div><!-- Close top container -->
-
-
-
-
-
-
-
-
-<div id="pageimageholder" class="default">
-  <div class="container">
-
-    <%= yield %>
-    <div class="clear">&nbsp;</div>
-
-  </div>
+<div class="container">
+<div style="clear:both; width:100%; display:block;">&nbsp;</div>
 </div>
-
-
-<div id="footertrigger">
-  &nbsp;
 </div>
-
-<div id="footer">
-  <div class="container">
-
-    <%= render 'shared/sitemenu' %>
-
-  </div>
-</div>
+<!-- Close top container -->
 
 
-<script>
 
-    $(document).ready(function() {
+
+
+
+
+
+		<div id="pageimageholder" class="<%= yield :backgroundclass %>">
+			  <div class="container">
+
+			  <%= yield %>	
+
+
+
+			  </div>
+	    </div>
+	
+
+        <div id="footertrigger">
+            &nbsp;
+        </div>
+		
+        <div id="footer">
+		 <div class="container">
+            
+			<%= render 'shared/sitemenu' %>
+			
+		 </div>
+        </div>	
+
+		
+<script> 
+  
+$(document).ready(function() {
 // this works -->   $('.col-4').scrollToFixed({ marginTop: 10, limit: $($('h2')[4]).offset().top });
 //  this works too -->  $('.col-4').scrollToFixed({ marginTop: 10, limit: $('#toptrigger').offset().top });
 //    var stickingpoint = $('.col-8').height()-700; // 700 is the height of col-4, the difference is the heightofdiv variable
 
-        var stickingpoint = $('.main').height()-$('.col-4').height();
-        $('.col-4').scrollToFixed({ marginTop: 10, limit: stickingpoint });
-
+var stickingpoint = $('.main').height()-$('.col-4').height();
+$('.col-4').scrollToFixed({ marginTop: 10, limit: stickingpoint });
+	
         $('#footertrigger').scrollToFixed( {
             bottom: 0,
             limit: $('#footertrigger').offset().top
         });
+		
+		
+});	
 
+ 
+</script>
 
+  
+
+<script>
+$(document).ready(function($){
+    $('#mgmenu1').universalMegaMenu({
+        menu_effect: 'hover_slide',
+        menu_speed_show: 300,
+        menu_speed_hide: 200,
+        menu_speed_delay: 200,
+        menu_click_outside: true,
+        menubar_trigger : false,
+        menubar_hide : false,
+        menu_responsive: true
     });
-
-
+});
 </script>
 
 
-
 <script>
-    $(document).ready(function($){
-        $('#mgmenu1').universalMegaMenu({
-            menu_effect: 'hover_slide',
-            menu_speed_show: 300,
-            menu_speed_hide: 200,
-            menu_speed_delay: 200,
-            menu_click_outside: true,
-            menubar_trigger : false,
-            menubar_hide : false,
-            menu_responsive: true
-        });
-    });
-</script>
-
-
-<script>
-    // This should only load for News Show
-    // Quick check for widows and orphans
-    $(document).ready(function($){
+// This should only load for News Show
+// Quick check for widows and orphans 
+$(document).ready(function($){
 //  $("h1").each(function() {
 //      var html = $('h1').html().split(" ");
 //      html = html.slice(0,5).join(" ") + "<br />" + html.slice(5).join(" ");
 //      $('h1').html(html);
 //  });
+  
+  $("h2").each(function() {
+  var wordArray = $(this).text().split(" ");
+  if (wordArray.length > 2) {
+    wordArray[wordArray.length-2] += "&nbsp;" + wordArray[wordArray.length-1];
+    wordArray.pop();
+    $(this).html(wordArray.join(" "));
+  }
+});
 
-        $("h2").each(function() {
-            var wordArray = $(this).text().split(" ");
-            if (wordArray.length > 2) {
-                wordArray[wordArray.length-2] += "&nbsp;" + wordArray[wordArray.length-1];
-                wordArray.pop();
-                $(this).html(wordArray.join(" "));
-            }
-        });
-
-    });
+});
 </script>
 
 <script type="text/javascript">
-
-    $('#browserInfo').text('Browser (Width : ' + $(window).width() + ' , Height :' + $(window).height() + ' )');
-
+	
+	$('#browserInfo').text('Browser (Width : ' + $(window).width() + ' , Height :' + $(window).height() + ' )');
+	
     $(window).resize(function () {
-        $('#browserInfo').text('Browser (Width : ' + $(window).width() + ' , Height :' + $(window).height() + ' )');
+		$('#browserInfo').text('Browser (Width : ' + $(window).width() + ' , Height :' + $(window).height() + ' )');
     });
-
+		
 </script>
 
 <script type="text/javascript">
 
-    $('.body').flowtype({
-        minimum   : 500,
-        maximum   : 1200,
-        minFont   : 11,
-        maxFont   : 18,
-        fontRatio : 30
-    });
+$('.body').flowtype({
+ minimum   : 500,
+ maximum   : 1200,
+ minFont   : 11,
+ maxFont   : 18,
+ fontRatio : 30
+});
 
 </script>
 
 
 <!-- FlexSlider -->
 
-<script type="text/javascript">
+    <script type="text/javascript">
     // $(function(){
     //   SyntaxHighlighter.all();
     // });
@@ -269,20 +265,20 @@
             }
         });
     });
-</script>
-
-<!-- emailpopout -->
-<script>
-    $("#emailpopout").click(function(){
-        if($("#emailpopout").css('left') == '-240px'){
-            $("#emailpopout").stop().animate({left:'2px'},1000);
-        };
-        if($("#emailpopout").css('left') == '2px'){
-            $("#emailpopout").stop().animate({left:'-240px'},1000);
-        };
-    });
-</script>
-
-
+    </script>
+	
+    <!-- emailpopout -->
+	  <script>
+         $("#emailpopout").click(function(){
+            if($("#emailpopout").css('left') == '-240px'){
+              $("#emailpopout").stop().animate({left:'2px'},1000);
+            };
+            if($("#emailpopout").css('left') == '2px'){
+               $("#emailpopout").stop().animate({left:'-240px'},1000);
+            };
+        });
+     </script>
+	
+  
 </body>
 </html>

@@ -304,9 +304,9 @@ h2 + h1 {padding-top:20px;}
 width:18%;
 float:left;
 min-height:100px;
-	outline:solid 1px #fff;
+margin-top:26px;
 }
-.col5 + .col5 {margin-left:2%; outline:solid 1px red;}
+.col5 + .col5 {margin-left:2%;}
 
 .activated {background-color: #2b4170;}
 .fixed {position: static; top: 85px;}
@@ -377,7 +377,7 @@ min-height:100px;
 /*----------------------*/	
 
 .dropshadow {
-   background-image:url("images/dropshadow.png");
+   background-image:url("../images/dropshadow.png");
    background-position:center top;
    background-size:99%;
    background-repeat:no-repeat;
@@ -538,7 +538,7 @@ filter: hue-rotate(90deg)
     line-height: 103%;
     color: #FFF;	
 }
-.col5 > h2 {
+.col5 > p {
     font-family: 'Droid sans',sans-serif;
     font-weight: 400;
     font-size: 13px;
@@ -546,10 +546,14 @@ filter: hue-rotate(90deg)
     line-height: 103%;
     color: #FFF;	
 }
-#sitemenusecondary, .reverse a:link,.reverse a:hover,.reverse a:visited {
+.reverse {color: #FFF;}
+a.reverse:link,a.reverse:hover,a.reverse:visited {
      color: #FFF;
-	 text-decoration:none;}
-
+	 text-decoration:none;
+	 }
+a.reverse:hover {text-decoration:underline;}	 
+#sitemenusecondary {margin-left:20px;}
+.mobile {display:none;}
 
 
 .logo {position:relative; top:-5px; z-index:888; width:250px; margin-left:16px;}
@@ -557,7 +561,7 @@ filter: hue-rotate(90deg)
 .mgmenu_container { margin-top:-65px;}
 @media all and (max-width: 768px) {
 .logo {position:relative; top:10px; z-index:0; width:250px; border:solid 1px red; display:block;}
-
+.mobile {display:block;}
 /* the menu will pop to mobile mode at this point */
 .main {width:100%}
 .col-4{display:none;}	  

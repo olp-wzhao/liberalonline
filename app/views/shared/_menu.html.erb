@@ -1,74 +1,11 @@
 <!-- THE MENU STARTS HERE -->
 
 
-<div id="mgmenu1" class="mgmenu_container" style="margin-top:10px;"><!-- Begin Mega Menu Container -->
-
-	<ul class="mgmenu"><!-- Begin Mega Menu -->
-	           <li class="right_item">Menu</li><!-- Button (Mobile Devices) -->
+    <div id="mgmenu1" class="mgmenu_container"><!-- Begin Mega Menu Container -->
+        <ul class="mgmenu"><!-- Begin Mega Menu -->
+            <li class="mgmenu_button">Mega Menu</li><!-- Button (Mobile Devices) -->
 		
-		
-		
-		<li class="right_item">
-			<span><a href="#">Get Involved</a><br /><span class="subzy">Take the Next Step</span></span><!-- Begin Item -->
-			<div class="dropdown_container dropdown_fullwidth"><!-- Begin Item Container -->
-				<div class="col_3">
-					<h4>Join the Party</h4>
-					<%= image_tag "join.jpg", class: "inline_img", width: "220", height: "140", alt: "" %>
-					<p>Sign up online. Price is $5 for youth, $10 for adults and $5 for Seniors. Join Today.</p>
-				</div>
-				<div class="col_3">
-					<h4>Lawn Sign</h4>
-					<%= link_to image_tag("lawnsign.jpg", class: "inline_img", width: "220", height: "140", alt: ""), new_lawnsign_request_path %>
-					<p>Support your local candidate, order a lawn sign.</p>
-				</div>
-				<div class="col_3">
-					<h4>Volunteer</h4>
-					<% if current_user.nil? || current_user.volunteer.nil? %>
-						<%= link_to image_tag("volunteer.jpg", class: "inline_img", width: "220", height: "140", alt: ""), new_volunteer_path %>
-					<% else  %>
-						<%= link_to image_tag("volunteer.jpg", class: "inline_img", width: "220", height: "140", alt: ""), edit_volunteer_path(current_user.volunteer.id) %>
-					<% end %>
-					<p>Campaigns are successful because of volunteers like you.</p>
-				</div>
-				<div class="col_3">
-					<h4>Subscribe</h4>
-					<a href="#">
-						<%= image_tag "enewsletter.jpg", class: "inline_img", width: "220", height: "140", alt: "" %>
-					</a>
-					<p>Subscribe to the Wire, the OntarioLiberal enewsletter.</p>
-				</div>
-			</div><!-- End Item Container -->
-		</li><!-- End Item -->
-		
-		
-           <li class="right_item"><span>Donate<span class="subzy">See the Benefits</span></span><!-- Begin Item -->
-			<div class="dropdown_container dropdown_fullwidth"><!-- Begin Item Container -->
-				<div class="col_3">
-					<h4>Donate Now</h4>
-					<a href="#"><img src="img/products/product01@2x.jpg" style="clip:rect(0px,60px,200px,0px)" width="220" height="140" alt="" class="inline_img" /></a>
-					<p>Your donations allow us to get our message out. Even a small donation can make a big difference.</p>
-				</div>
-				<div class="col_3">
-					<h4>Make a Monthly Contribution (ABC)</h4>
-					<a href="#"><img src="img/products/product02@2x.jpg" width="220" height="140" alt="" class="inline_img" /></a>
-					<p>Automatic membership renewal and special prices for Ontario Liberal events are just some of the perks of signing up for monthly contributions.</p>
-				</div>
-				<div class="col_3">
-					<h4>Taxable Benefits</h4>
-					<a href="#"><img src="img/products/product03@2x.jpg" width="220" height="140" alt="" class="inline_img" /></a>
-					<p>If you gave $300.00, you'd get back $225 at tax time. Read more about the benefits of donating.</p>
-				</div>
-				<div class="col_3">
-					<h4>About Donations</h4>
-					<a href="#"><img src="img/products/product03@2x.jpg" width="220" height="140" alt="" class="inline_img" /></a>
-					<p>They're our schools, our hospitals, our environment, our economy, and our future. Your donation makes a big difference in the fight.</p>
-				</div>
-			</div><!-- End Item Container -->
-		</li><!-- End Item -->
-		
-		
-		
-		<li><span><a href="#">News</a><br /><span class="subzy">Pics and Videos</span></span><!-- Begin Item -->
+		  <li class="right_item"><span><a href="#">News</a><br /><span class="subzy">Pics and Videos</span></span><!-- Begin Item -->
 			<div class="dropdown_container dropdown_fullwidth"><!-- Begin Item Container -->
 				<div class="col_3">
 					<% cache do %>
@@ -104,18 +41,76 @@
 					<% end %>
 				</div>
 			</div><!-- End Item Container -->
+		</li><!-- End Item -->		
+		
+		
+
+          <li class="right_item"><span>Donate<span class="subzy">See the Benefits</span></span><!-- Begin Item -->
+			<div class="dropdown_container dropdown_fullwidth"><!-- Begin Item Container -->
+				<div class="col_3">
+					<h4>Donate Now</h4>
+					<a href="#"><img src="img/products/product01@2x.jpg" style="clip:rect(0px,60px,200px,0px)" width="220" height="140" alt="" class="inline_img" /></a>
+					<p>Your donations allow us to get our message out. Even a small donation can make a big difference.</p>
+				</div>
+				<div class="col_3">
+					<h4>Make a Monthly Contribution (ABC)</h4>
+					<a href="#"><img src="img/products/product02@2x.jpg" width="220" height="140" alt="" class="inline_img" /></a>
+					<p>Automatic membership renewal and special prices for Ontario Liberal events are just some of the perks of signing up for monthly contributions.</p>
+				</div>
+				<div class="col_3">
+					<h4>Taxable Benefits</h4>
+					<a href="#"><img src="img/products/product03@2x.jpg" width="220" height="140" alt="" class="inline_img" /></a>
+					<p>If you gave $300.00, you'd get back $225 at tax time. Read more about the benefits of donating.</p>
+				</div>
+				<div class="col_3">
+					<h4>About Donations</h4>
+					<a href="#"><img src="img/products/product03@2x.jpg" width="220" height="140" alt="" class="inline_img" /></a>
+					<p>They're our schools, our hospitals, our environment, our economy, and our future. Your donation makes a big difference in the fight.</p>
+				</div>
+			</div><!-- End Item Container -->
 		</li><!-- End Item -->
 		
 		
-			
-		<li class="right_item"><span><a href="/home">Home</a><br /><span class="subzy">Start Here</span></span></li><!-- Begin and end Home -->
-
+		
+		
+		<li class="right_item">
+			<span><a href="#">Get Involved</a><br /><span class="subzy">Take the Next Step</span></span><!-- Begin Item -->
+			<div class="dropdown_container dropdown_fullwidth"><!-- Begin Item Container -->
+				<div class="col_3">
+					<h4>Join the Party</h4>
+					<%= image_tag "join.jpg", class: "inline_img", width: "220", height: "140", alt: "" %>
+					<p>Sign up online. Price is $5 for youth, $10 for adults and $5 for Seniors. Join Today.</p>
+				</div>
+				<div class="col_3">
+					<h4>Lawn Sign</h4>
+					<%= link_to image_tag("lawnsign.jpg", class: "inline_img", width: "220", height: "140", alt: ""), new_lawnsign_request_path %>
+					<p>Support your local candidate, order a lawn sign.</p>
+				</div>
+				<div class="col_3">
+					<h4>Volunteer</h4>
+					<% if current_user.nil? || current_user.volunteer.nil? %>
+						<%= link_to image_tag("volunteer.jpg", class: "inline_img", width: "220", height: "140", alt: ""), new_volunteer_path %>
+					<% else  %>
+						<%= link_to image_tag("volunteer.jpg", class: "inline_img", width: "220", height: "140", alt: ""), edit_volunteer_path(current_user.volunteer.id) %>
+					<% end %>
+					<p>Campaigns are successful because of volunteers like you.</p>
+				</div>
+				<div class="col_3">
+					<h4>Subscribe</h4>
+					<a href="#">
+						<%= image_tag "enewsletter.jpg", class: "inline_img", width: "220", height: "140", alt: "" %>
+					</a>
+					<p>Subscribe to the Wire, the OntarioLiberal enewsletter.</p>
+				</div>
+			</div><!-- End Item Container -->
+		</li><!-- End Item -->
+		
 
 
 		<li class="right_item">
 			<span><a href="#">About</a><br /><span class="subzy">About Us</span></span><!-- Begin About Us -->
 			<div class="dropdown_container dropdown_fullwidth">
-				<div class="col_4">
+				<div class="col_3">
 				    <img src="images/kathleen.jpg" width="220" height="140" alt="" class="inline_img" />
 					<h3><%= link_to "Kathleen Wynne", "/leader" %></h3>
 					<p>Kathleen Wynne was elected Leader of the Ontario Liberal Party on January 26, 2013. She was sworn in as the 25th Premier on February 11, 2013, becoming the first woman to hold the position in Ontario's history. <%= link_to "[Read]", "/leader" %></p>
@@ -152,6 +147,7 @@
 			</div>
 		</li><!-- End About Us -->
 		
+		<li class="right_item"><span><a href="/home">Home</a><br /><span class="subzy">Start Here</span></span></li><!-- Begin and end Home -->
 
 		
 		
@@ -172,350 +168,3 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-<!-- THE MENU STARTS HERE -->
-
-    <div id="mgmenu1" class="mgmenu_container"><!-- Begin Mega Menu Container -->
-        <ul class="mgmenu"><!-- Begin Mega Menu -->
-            <li class="mgmenu_button">Mega Menu</li><!-- Button (Mobile Devices) -->
-               
-
-
-
-
-            <li class="right_item"><span>News<span class="subzy">Pics and Videos</span></span><!-- Begin Item -->
-                <div class="dropdown_container dropdown_fullwidth"><!-- Begin Item Container -->
-
-                    <div class="col_12">
-                        <h3>Find more infos about us</h3>
-                        <p>Nunc vulputate purus a justo scelerisque viverra. Morbi eleifend tortor vehicula, adipiscing metus interdum, mattis diam. Etiam non augue elementum, blandit leo vel, vestibulum ipsum. Ut ac vulputate sem. Cras mi mi, suscipit sit amet dapibus in, interdum sit amet libero. Mauris tristique eleifend lectus, vitae sodales urna aliquet ut.</p>
-                        <p>Nullam varius congue nisi eu porttitor. Pellentesque fringilla vehicula tortor nec tempor. Donec lectus mi, gravida a fermentum a, malesuada id nulla. Duis vestibulum faucibus justo ut molestie.</p>
-                        <hr>
-                    </div>
-
-                    <div class="col_4">
-                        <h4>John Doe</h4>
-                        <a href="#"><img src="img/products/product01@2x.jpg" width="220" height="140" alt="" class="inline_img" /></a>
-                        <p>Nunc vulputate purus a justo scelerisque viverra.</p>   
-                    </div>
-                    <div class="col_4">
-                        <h4>Jane Austin</h4>
-                        <a href="#"><img src="img/products/product02@2x.jpg" width="220" height="140" alt="" class="inline_img" /></a>
-                        <p>Nunc vulputate purus a justo scelerisque viverra.</p>   
-                    </div>
-                    <div class="col_4">
-                        <h4>Mark Way</h4>
-                        <a href="#"><img src="img/products/product03@2x.jpg" width="220" height="140" alt="" class="inline_img" /></a>
-                        <p>Nunc vulputate purus a justo scelerisque viverra.</p>   
-                    
-                    </div>
-					
-                </div><!-- End Item Container -->
-            </li><!-- End Item -->
-
-
-
-
-
-
-
-            <li class="right_item"><span>Donate<span class="subzy">See the Benefits</span></span><!-- Begin Item -->
-            
-                <div class="dropdown_container dropdown_fullwidth"><!-- Begin Item Container -->
-
-                    <div class="col_12">
-                        <h3>Find more infos about us</h3>
-                        <p>Nunc vulputate purus a justo scelerisque viverra. Morbi eleifend tortor vehicula, adipiscing metus interdum, mattis diam. Etiam non augue elementum, blandit leo vel, vestibulum ipsum. Ut ac vulputate sem. Cras mi mi, suscipit sit amet dapibus in, interdum sit amet libero. Mauris tristique eleifend lectus, vitae sodales urna aliquet ut.</p>
-                        <p>Nullam varius congue nisi eu porttitor. Pellentesque fringilla vehicula tortor nec tempor. Donec lectus mi, gravida a fermentum a, malesuada id nulla. Duis vestibulum faucibus justo ut molestie.</p>
-                        <hr>
-                    </div>
-
-                    <div class="col_3">
-                        <h4>John Doe</h4>
-                        <a href="#"><img src="img/products/product01@2x.jpg" width="220" height="140" alt="" class="inline_img" /></a>
-                        <p>Nunc vulputate purus a justo scelerisque viverra.</p>   
-                    </div>
-
-                    <div class="col_3">
-                        <h4>Jane Austin</h4>
-                        <a href="#"><img src="img/products/product02@2x.jpg" width="220" height="140" alt="" class="inline_img" /></a>
-                        <p>Nunc vulputate purus a justo scelerisque viverra.</p>   
-                    </div>
-
-                    <div class="col_3">
-                        <h4>Mark Way</h4>
-                        <a href="#"><img src="img/products/product03@2x.jpg" width="220" height="140" alt="" class="inline_img" /></a>
-                        <p>Nunc vulputate purus a justo scelerisque viverra.</p>   
-                    </div>
-
-                    <div class="col_3">
-
-                        <h4>Mark Way</h4>
-                        <a href="#"><img src="img/products/product03@2x.jpg" width="220" height="140" alt="" class="inline_img" /></a>
-                        <p>Nunc vulputate purus a justo scelerisque viverra.</p>   
-                    
-                    </div>                    
-                </div><!-- End Item Container -->
-            </li><!-- End Item -->
-
-
-
-            <li class="right_item"><span>Get Involved<span class="subzy">Take the Next Step</span></span><!-- Begin Item -->
-                <div class="dropdown_container dropdown_fullwidth mgmenu_tabs mgmenu_tabs_top"><!-- Begin Item Container -->
-                    <ul class="mgmenu_tabs_nav">
-
-                        <li><a href="#section1" class="current">Boxes</a></li>
-                        <li><a href="#section2">Texts</a></li>
-                        <li><a href="#section3">Lists</a></li>
-
-                    </ul>
-        
-                    <div class="mgmenu_tabs_panels"><!-- Begin Panels Container -->
-                    
-                        <div id="section1"><!-- Begin Section 1 -->
-                            
-                            <div class="col_12">
-                                <h4>Colored Text Boxes</h4>
-                            </div>
-
-                            <div class="col_4">
-                                <p class="text_box text_box_red">Mauris eu massa turpis, at blandit elit. Mauris rutrum placerat libero, ut rhoncus leo euismod non. Aliquam urna felis, rutrum eu rhoncus at, elementum id est.</p>
-                            </div>
-                            <div class="col_4">
-                                <p class="text_box text_box_blue">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris venenatis bibendum nunc dapibus posuere. Sed quis laoreet justo. Aliquam urna eu.</p>
-                            </div>
-                            <div class="col_4">
-                                <p class="text_box text_box_green">Aliquam urna felis, rutrum eu rhoncus at, elementum id est. Sed rutrum eu rhoncus at, elementum id est lacus purus, ullamcorper ut aliquet ut, dictum nec odio.</p>
-                            </div>
-                            <div class="col_4">
-                                <p class="text_box text_box_brown">Mauris eu massa turpis, at blandit elit. Mauris rutrum placerat libero, ut rhoncus leo euismod non. Aliquam urna felis, rutrum eu rhoncus at, elementum id est..</p>
-                            </div>
-                            <div class="col_4">
-                                <p class="text_box text_box_purple">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris venenatis bibendum nunc dapibus posuere. Sed quis laoreet justo. Aliquam urna felis.</p>
-                            </div>
-                            <div class="col_4">
-                                <p class="text_box text_box_yellow">Aliquam urna felis, rutrum eu rhoncus at, elementum id est. Sed rutrum eu rhoncus at, elementum id est lacus purus, ullamcorper ut aliquet ut, dictum nec odio..</p>
-                            </div>
-
-                            <div class="col_12">
-                                <p>Morbi volutpat pharetra tempor. Mauris dignissim eget nisl vel blandit. Nam pellentesque faucibus gravida. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas egestas, quam nec molestie.</p>
-                            </div>
-                        </div><!-- End Section 1 -->
-                        
-                        <div id="section2" class="mgmenu_tabs_hide"><!-- Begin Section 2 -->
-                            
-                            <div class="col_8">
-                                <p>Integer nisl nunc, venenatis sagittis condimentum vel, tincidunt in est. Aenean felis sem, suscipit in posuere ultrices, placerat vel ipsum. Donec quis dolor turpis, non accumsan nisl. Ut lorem turpis, consequat eget condimentum quis, consectetur vitae enim. Proin ultricies ornare nibh eget tincidunt. Nulla id lectus est. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Cras pharetra tincidunt erat sit amet sodales. Donec volutpat, leo lacinia facilisis semper, mauris nunc convallis enim, imperdiet volutpat urna nulla ut augue. Suspendisse potenti varius molestie.</p>
-                            </div>
-
-                            <div class="col_4">
-                                <p class="text_box text_box_black">Sed lacus purus, ullamcorper ut aliquet ut, dictum nec odio. Donec sed odio ac lectus fermentum accumsan quis ut magna. Sed consectetur ipsum dolor, non laoreet lectus. Phasellus malesuada.</p>
-                            </div>
-                        
-                        </div><!-- End Section 2 -->
-                        
-                        <div id="section3" class="mgmenu_tabs_hide"><!-- Begin Section 3 -->
-                        
-                            <div class="col_12">
-                                <h4>List Elements</h4>
-                            </div>
-
-                            <div class="col_3">
-
-                                <ul>
-                                    <li><a href="#">Codecanyon</a></li>
-                                    <li><a href="#">Themeforest</a></li>
-                                    <li><a href="#">Videohive</a></li>
-                                    <li><a href="#">Audiojungle</a></li>
-                                    <li><a href="#">Photodune</a></li>
-                                </ul>
-
-                            </div>
-
-                            <div class="col_3">
-
-                                <ul>
-                                    <li><a href="#">Nettuts</a></li>
-                                    <li><a href="#">Webdesigntuts</a></li>
-                                    <li><a href="#">PSDtuts</a></li>
-                                    <li><a href="#">Vectortuts</a></li>
-                                    <li><a href="#">Audiotuts</a></li>
-                                </ul>
-
-                            </div>
-
-                            <div class="col_3">
-
-                                <ul>
-                                    <li><a href="#">Calendars</a></li>
-                                    <li><a href="#">Countdowns</a></li>
-                                    <li><a href="#">Forms</a></li>
-                                    <li><a href="#">Images</a></li>
-                                    <li><a href="#">Medias</a></li>
-                                </ul>
-
-                            </div>
-
-                            <div class="col_3">
-
-                                <ul>
-                                
-                                    <li><a href="#">Loaders</a></li>
-                                    <li><a href="#">Uploaders</a></li>
-                                    <li><a href="#">Navigation</a></li>
-                                    <li><a href="#">News Tickets</a></li>
-                                    <li><a href="#">Charts</a></li>
-                                    
-                                </ul>
-
-                            </div>
-
-                            <div class="col_12">
-                                
-                                <hr>
-                                <h4>Additional Categories</h4>
-
-                            </div>
-
-                            <div class="col_3">
-
-                                <ul>
-                                
-                                    <li><a href="#">Calendars</a></li>
-                                    <li><a href="#">Countdowns</a></li>
-                                    <li><a href="#">Forms</a></li>
-                                    <li><a href="#">Images</a></li>
-                                    <li><a href="#">Medias</a></li>
-                                    
-                                </ul>
-
-                            </div>
-
-                            <div class="col_3">
-
-                                <ul>
-                                
-                                    <li><a href="#">Loaders</a></li>
-                                    <li><a href="#">Uploaders</a></li>
-                                    <li><a href="#">Navigation</a></li>
-                                    <li><a href="#">News Tickets</a></li>
-                                    <li><a href="#">Charts</a></li>
-                                    
-                                </ul>
-
-                            </div>                    
-
-                            <div class="col_3">
-
-                                <ul>
-                                
-                                    <li><a href="#">Codecanyon</a></li>
-                                    <li><a href="#">Themeforest</a></li>
-                                    <li><a href="#">Videohive</a></li>
-                                    <li><a href="#">Audiojungle</a></li>
-                                    <li><a href="#">Photodune</a></li>
-                                    
-                                </ul>
-
-                            </div>
-
-                            <div class="col_3">
-
-                                <ul>
-                                
-                                    <li><a href="#">Nettuts</a></li>
-                                    <li><a href="#">Webdesigntuts</a></li>
-                                    <li><a href="#">PSDtuts</a></li>
-                                    <li><a href="#">Vectortuts</a></li>
-                                    <li><a href="#">Audiotuts</a></li>
-                                    
-                                </ul>
-                            </div>
-                        </div><!-- End Section 3 -->
-                    </div><!-- End Panels Container -->	
-                </div><!-- End Item Container -->
-            </li><!-- End Item -->
-            
-
-            <li class="right_item"><span>About<span class="subzy">About&nbsp;Us</span></span><!-- Begin Item -->
-
-                <div class="dropdown_container dropdown_fullwidth"><!-- Begin Item Container -->
-
-                    <div class="col_2">
-							 <img src="img/map.jpg" alt="" class="inline_img inline_img_border" />
-                             <h3><%= link_to "Kathleen Wynne", "/leader" %></h3>
-					         <p>Kathleen Wynne was elected Leader of the Ontario Liberal Party on January 26, 2013. She was sworn in as the 25th Premier on February 11, 2013, becoming the first woman to hold the position in Ontario's history. <%= link_to "[Read]", "/leader" %></p>
-                    </div>
-
-                    <div class="col_2">
-                        <ul>
-                            <li><a href="#">Psdtuts</a></li>
-                            <li><a href="#">Nettuts</a></li>
-                            <li><a href="#">Vectortuts</a></li>
-                            <li><a href="#">Audiotuts</a></li>
-                            <li><a href="#">Aetuts</a></li>
-                        </ul>
-                    </div>
-
-                    <div class="col_2">
-                        <ul>
-                            <li><a href="#">Cgtuts</a></li>
-                            <li><a href="#">Phototuts</a></li>
-                            <li><a href="#">Mobiletuts</a></li>
-                            <li><a href="#">Webdesigntuts</a></li>
-                            <li><a href="#">Mobiletuts</a></li>
-                        </ul>
-                    </div>
-                    
-                    <div class="col_2">
-                        <ul>
-                            <li><a href="#">Appstorm</a></li>
-                            <li><a href="#">Android</a></li>
-                            <li><a href="#">iPhone</a></li>
-                            <li><a href="#">iPad</a></li>
-                            <li><a href="#">Windows</a></li>
-                        </ul>
-                    </div>
-                    
-                    <div class="col_4">
-                        <p class="text_box">Aliquam nunc sapien, pretium eu dapibus vel, adipiscing sed nisl. Nulla facilisi. Duis iaculis leo. Integer auctor sagittis massa.</p>
-                    </div>
-                </div><!-- End Item Container -->
-            </li><!-- End Item -->
-
-            
-
-            <li class="right_item"><span>Home<span class="subzy">Start&nbsp;here</span></span><!-- Begin Item -->
-                <div class="dropdown_container dropdown_6columns"><!-- Begin Item Container -->
-                    <div class="col_12">
-                        <h3>Visit Us !</h3>
-                        <p>Curabitur quis fermentum dolor. Curabitur ultrices sem eget lectus fermentum eleifend. Nullam suscipit egestas est sed convallis. Phasellus sem velit, luctus nec diam et, interdum vehicula velit. Interdum et malesuada fames ac ante ipsum primis in faucibus.</p>
-                        <img src="img/map.jpg" alt="" class="inline_img inline_img_border" />
-                        <p>Sed lacinia, nisl at porta imperdiet, odio mi auctor lectus, eu dapibus tellus sapien tincidunt lorem. Sed magna est, accumsan sed sollicitudin quis, malesuada at est. Duis ac convallis metus. Integer ligula massa, cursus non ornare quis, varius id urna. Vivamus pulvinar mauris sed libero aliquet tincidunt. Donec et lacinia lorem. Curabitur nec nibh tortor. Sed consequat imperdiet gravida.</p>
-
-                    </div>
-                </div><!-- End Item Container -->
-            </li><!-- End Item -->
-
-
-
-        </ul><!-- End Mega Menu -->
-
-
-
-    </div><!-- End Mega Menu Container -->
-
-
-
-    <!-- THE MENU ENDS HERE -->

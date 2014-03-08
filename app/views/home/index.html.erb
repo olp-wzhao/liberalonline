@@ -15,11 +15,27 @@
         </li>
     <% end %>
     </ul>
-</div>
+</div><div class="dropshadow">&nbsp;</div><div style="clear:both;display:block;">&nbsp;</div>	
 <% end %>
 
-<div id="test">rotatortext reverse</div>
-<div id="columns" class="nomobile">
+<div id="test">The Week in Pictures</div>
+<div id="columns" class="desktop">
+
+    <% if @photos != nil && @photos.length > 0 %>
+        <% @photos.each do |photo| %>
+            <div class="threeup">
+				<%#= link_to image_tag(photo_to_local("http://pantone201.ca/webskins/olp/photos/thumbnails/" + photo.temp_id.to_s + "_" + photo.riding_id.to_s + photo.filename.to_s + "_Thumbnail.jpg"), :class => "frame grayscale"), '/photos' %>
+				<%= link_to image_tag(photo_to_local("http://pantone201.ca/webskins/olp/photos/" + photo.temp_id.to_s + "_" + photo.riding_id.to_s + photo.filename.to_s + "_PhotoUp.jpg"), :class => "frame grayscale"), '/photos' %>
+                
+                <p><%= raw(photo.caption_en) %></p>
+            </div>
+        <% end %>
+    <% end %>
+</div>
+
+<div id="columns" class="mobile">
+
+
     <% if @picture_news_documents != nil && @picture_news_documents.length > 0 %>
         <% @picture_news_documents.each do |document| %>
             <div class="threeup">
@@ -33,19 +49,13 @@
             </div>
         <% end %>
     <% end %>
-    <% if @photos != nil && @photos.length > 0 %>
-        <% @photos.each do |photo| %>
-            <div class="threeup">
-                <%= link_to image_tag(photo_to_local("http://pantone201.ca/webskins/olp/photos/thumbnails/" + photo.temp_id.to_s + "_" + photo.riding_id.to_s + photo.filename.to_s + "_Thumbnail.jpg"), :class => "frame grayscale"), '/photos' %>
-                <%= link_to image_tag(photo_to_local("http://pantone201.ca/webskins/olp/photos/" + photo.temp_id.to_s + "_" + photo.riding_id.to_s + photo.filename.to_s + "_PhotoUp.jpg"), :class => "frame grayscale"), '/photos' %>
-                <hr class="style-one">
-                <p><%= raw(photo.caption_en) %></p>
-            </div>
-        <% end %>
-    <% end %>
-</div>
 
-<div id="columns" class="mobile">
+
+
+
+
+
+
     <% if @mobile_rotator_documents != nil && @mobile_rotator_documents.length > 0 %>
         <% @mobile_rotator_documents.each do |document| %>
             <div class="floatpicleft">
@@ -73,6 +83,15 @@
             <div class="clearright"></div>
         <% end %>
     <% end %>
+	
+	
+	
+	
+	
+	
+	
+	
+	
 </div><!-- closes columns -->
 
 <div style="clear:both;">&nbsp;</div>
@@ -98,3 +117,7 @@
         });
     });
     </script>
+	
+	
+<% content_for :backgroundclass do %>wynne<% end %>	
+	
