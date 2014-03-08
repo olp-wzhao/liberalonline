@@ -9,6 +9,7 @@
  * Contributing author: Tyler Smith (@mbmufffin)
  */
 
+
 ;(function ($) {
 
   //FlexSlider: Object Instance
