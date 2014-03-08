@@ -10,6 +10,12 @@ class MyLiberalController < ApplicationController
         @olp_passport_user_web_site_manager = nil
 
   		if current_user
+
+        #check if there is a web_site_manager attached
+        if current_user.riding.web_site_manager == nil
+          current_user.riding.web_site_manager = WebSiteManager.find_by(r_id: (current_user.riding.riding_id + 9000) )
+        end
+
   			# already login
         # this was removed from the query :riding_id => -6..0,
   			@bites_documents = Document.where({ :doc_type => 17, :published => true, :language => @language, :expiry_date => DateTime.now..(DateTime.now+3650)})

@@ -1,6 +1,7 @@
 class User
   include Mongoid::Document
   include Mongoid::Timestamps
+  include Mongoid::Slug
   include User::AuthDefinitions
   include User::Roles
   include Geocoder::Model::Mongoid
@@ -189,6 +190,5 @@ class User
     now.year - self.birthday.year - (self.birthday.to_date.change(:year => now.year) > now ? 1 : 0)
   end
 
-  
-  
+  slug :full_name, history: true
 end

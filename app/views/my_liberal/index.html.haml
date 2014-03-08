@@ -19,7 +19,7 @@
       = raw(localized_date_str(document.document_date, @language))
     %div{style: "display:block; clear:left; padding-bottom:3px; height:6px;"}  
 %p
-  Your riding is #{current_user.riding.title}, click #{link_to 'here', 'http://' + current_user.riding.web_site_manager.r_str + '.ridingassociation.org', :target => '_blank'} to visit your riding association web site.
+  Your riding is #{current_user.riding.title}, click #{link_to 'here', 'http://' + (current_user.riding.riding_id + 9000).to_s  + '.ridingassociation.org', :target => '_blank'} to visit your riding association web site.
 - if @local_pla_documents != nil && @local_pla_documents.length > 0
   %p Local news from your riding association
   - @local_pla_documents.each do |document|

@@ -1,17 +1,29 @@
-<div class="micromenu">
 <% if !current_user %>
-    <%= link_to 'Login', new_user_session_path, {:remote => true, 'data-toggle' =>  'modal', 'data-target' => '#myModal' } %>
-    |
-    <%= link_to 'Create Account', new_user_registration_path, {:remote => true, 'data-toggle' =>  'modal', 'data-target' => '#myModal' } %>
-    |
-    <%= link_to 'subscribe', '#' %>
-    <% else %>
+      <div class="micromenu">
+          <%= link_to 'Login', new_user_session_path, { :remote => true, 'data-toggle' => 'modal', 'data-target' => '#myModal' } %>
+          |
+          <%= link_to 'Create Account', new_user_registration_path, { :remote => true, 'data-toggle' => 'modal', 'data-target' => '#myModal' } %>
+          |
+          <%= link_to 'subscribe', '#' %>
+      </div>
+  <% else %>
+      <div class="micromenu">
         <% if current_user.first_name %>
-            <%= link_to 'Welcome ' + current_user.first_name, my_liberal_index_path %>
+            <%= link_to 'Welcome ' + current_user.first_name, my_liberal_index_path %> |
         <% end %>
-    |
-    <%= link_to 'Profile', edit_user_registration_path %>
-    |
-    <%= link_to 'Logout', destroy_user_session_path, method: :delete, remote: true %>
-    <% end %>
-</div>
+        <%= link_to 'Logout', destroy_user_session_path, method: :delete, remote: true %> |
+        <a href="#">Subscribe</a> |
+        <a href="#" data-dropdown="#accountoptions">Account<span class="droparrow"></span></a>
+      </div>
+      <div id="accountoptions" class="dropdown dropdown-anchor-right">
+        <ul class="dropdown-menu">
+          <li><%= link_to 'Edit Profile', edit_user_registration_url, id: current_user.id, remote: true %></li>
+          <li><a href="#2">History</a></li>
+          <% if current_user.roles.include? 'toolkit' %>
+              <li><%= link_to 'Toolkit', toolkit_path %></li>
+          <% end %>
+          <li class="dropdown-divider"></li>
+          <li><%= link_to 'Logout', destroy_user_session_path, method: :delete, remote: true %></li>
+        </ul>
+      </div>
+  <% end %>
