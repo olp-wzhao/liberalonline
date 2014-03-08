@@ -10,11 +10,8 @@
  *
  *= require_self
  *= require bootstrap_and_overrides
- *= require mgmenulib
- *= require jquery.dropdown
- *= require stylesheet
  *= require select2
  *= require jquery.ui.datepicker
 
- *= require_tree .
+ * require_tree .
  */
