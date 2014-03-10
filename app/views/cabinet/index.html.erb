@@ -1,10 +1,10 @@
-<div id="inside_column_main">
 
-	<div class="sectionheaderbig">
-		<h1>Executive Council of Ontario</h1>
-	</div>
 
-	<div id="storywrapperlarge" style="margin-bottom:40px;">
+
+<h1>Executive Council of Ontario</h1>
+
+
+
 		<!------- HERE ARE THE CLASSES FOR THE DATA REPEATER -------->
 		<!------- DON'T FORGET THE FRAME CLASS ON IMG -------->
 		<% @cabinet_mpps.each do |cabinet_mpp| %>
@@ -14,10 +14,11 @@
 					<div style="height:280px;">
 						<div class="listh1"><%= cabinet_mpp.first_name %> <%= cabinet_mpp.last_name %></div>
 						<p><%= raw(cabinet_mpp.cabinet_minister_en) %></p>
-					</div>
-				</div>
 			<% end %>
 		<% end %>
-	</div>
 
-</div>
+
+
+
+<% content_for :col4content do %>test<% end %>
+
