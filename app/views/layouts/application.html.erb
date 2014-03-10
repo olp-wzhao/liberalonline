@@ -1,6 +1,6 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
-<head>
+  <head>
     <meta charset="utf-8" />
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
     <title>Ontario Liberal Party - BETA - Kathleen Wynne - Not for Release</title>
@@ -18,9 +18,6 @@
     <meta property="og:description" content="More Support for Low-Income Families" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0;">
 
-
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
-
     <%= stylesheet_link_tag 'application', :media => 'all' %>
     <%= javascript_include_tag 'application' %>
     <%= csrf_meta_tags %>
@@ -28,41 +25,52 @@
     <!-- http://simplefocus.com/flowtype/   -->
     <%= javascript_include_tag 'flowtype.js' %>
     <!-- Floating Side column dependent lib   -->
-  <%= javascript_include_tag 'jquery-scrolltofixed-min.js' %>
-		
-        <!-- Mini Account Menu - http://www.jqueryrain.com/?M89s3TG4 -->
-  <%= stylesheet_link_tag 'stylesheets/jquery.dropdown.css' %>
-  <%= javascript_include_tag 'jquery.dropdown.js' %>
-	    <!-- Mega Menu dependent lib   -->
-  <%= javascript_include_tag 'mgmenu_plugins.js' %><!-- Mega Menu Plugins -->
-  <%= javascript_include_tag 'mgmenu.js' %><!-- Mega Menu Script -->
+    <%= javascript_include_tag 'jquery-scrolltofixed-min.js' %>
 
-  <%= stylesheet_link_tag 'mgmenulib.css', media: "screen" %>
-  <%= stylesheet_link_tag 'stylesheet.css', media: "screen" %>
-	<!-- Flexslider Lib   -->
-  <%= stylesheet_link_tag 'jquery.flexslider.js' %><!-- Homepage only -->
-  <%= stylesheet_link_tag 'flexslider.css' %> />
+        <!-- Mini Account Menu - http://www.jqueryrain.com/?M89s3TG4 -->
+    <%= stylesheet_link_tag 'jquery.dropdown.css' %>
+    <%= javascript_include_tag 'jquery.dropdown.js' %>
+        <!-- Mega Menu dependent lib   -->
+    <%= javascript_include_tag 'mgmenu_plugins.js' %><!-- Mega Menu Plugins -->
+    <%= javascript_include_tag 'mgmenu.js' %><!-- Mega Menu Script -->
+
+    <%= stylesheet_link_tag 'mgmenulib.css', media: "screen" %>
+    <%= stylesheet_link_tag 'stylesheet.css', media: "screen" %>
+
+    <!-- Flexslider Lib   -->
+    <%= stylesheet_link_tag 'jquery.flexslider.js' %><!-- Homepage only -->
+    <%= stylesheet_link_tag 'flexslider.css' %>
 
     <script>
-      $(function (){ $(".float").each(function () { 
+      $(function (){ $(".float").each(function () {
            var $this = $(this); $this.data("startTop", $this.offset().top);});
              $(window).scroll(function () { var documentScrollTop = $(document).scrollTop();
-             $(".float").each(function () { var $this = $(this); 
+             $(".float").each(function () { var $this = $(this);
              $this.offset({ top: $this.data("startTop") + documentScrollTop * $this.data("friction"), left: $this.offset().left });
       });
       document.oldScrollTop = documentScrollTop; });
       });
-  	
+
       // Get rid of empty paragraphs
       $(window).load(function(){
           $('p').filter(function () { return this.innerHTML == "" }).remove();
 
       });//]]>
     </script>
-
+    <script src="/vex/js/vex.js"></script>
+    <script src="/vex/js/vex.dialog.js"></script>
+    <link href="/vex/css/vex.css" rel="stylesheet" />
+    <link href="/vex/css/vex-theme-default.css" rel="stylesheet" />
+    <link href="/vex/css/vex-theme-os.css" rel="stylesheet">
+    <link href="/vex/css/vex-theme-plain.css" rel="stylesheet">
+    <link href="/vex/css/vex-theme-wireframe.css" rel="stylesheet">
+    <link href="/vex/css/vex-theme-flat-attack.css" rel="stylesheet">
+    <link href="/vex/css/vex-theme-top.css" rel="stylesheet">
+    <link href="/vex/css/vex-theme-bottom-right-corner.css" rel="stylesheet">
+    <script>vex.defaultOptions.className = 'vex-theme-flat-attack';</script>
   </head>
 
-<body>
+    <body>
     <%= render 'shared/modal' %>
 
     <div id="logpanel">
@@ -103,9 +111,9 @@
             <%= render 'shared/sitemenu' %>
         </div>
     </div>
-		
+
     <script>
-  
+
         $(document).ready(function() {
             // this works -->   $('.col-4').scrollToFixed({ marginTop: 10, limit: $($('h2')[4]).offset().top });
             //  this works too -->  $('.col-4').scrollToFixed({ marginTop: 10, limit: $('#toptrigger').offset().top });
@@ -149,9 +157,9 @@
             });
 
         });
-	
-	$('#browserInfo').text('Browser (Width : ' + $(window).width() + ' , Height :' + $(window).height() + ' )');
-	
+
+	    $('#browserInfo').text('Browser (Width : ' + $(window).width() + ' , Height :' + $(window).height() + ' )');
+
         $(window).resize(function () {
             $('#browserInfo').text('Browser (Width : ' + $(window).width() + ' , Height :' + $(window).height() + ' )');
         });
@@ -180,7 +188,7 @@
                 }
             });
         });
-	
+
         <!-- emailpopout -->
          $("#emailpopout").click(function(){
             if($("#emailpopout").css('left') == '-240px'){
@@ -193,5 +201,6 @@
      </script>
 
     <%= yield :scripts_for_body %>
+
     </body>
 </html>

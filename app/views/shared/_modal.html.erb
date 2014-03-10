@@ -57,11 +57,14 @@
             });
         });
     });
+
 </script>
 
+
 <br/>
+
 <!-- Modal -->
-<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display:none">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
@@ -94,11 +97,6 @@
                             $("#riding_box").html(data.name);
                         });
             });
-            $('.date_picker').datepicker();
-        });
-
-        $("a.popup").click(function(e) {
-
         });
     </script>
 <% end %>

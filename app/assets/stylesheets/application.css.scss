@@ -9,9 +9,17 @@
  * compiled file, but it's generally better to create a new file per style scope.
  *
  *= require_self
- *= require bootstrap_and_overrides
- *= require select2
- *= require jquery.ui.datepicker
+ * require select2
+ * require jquery.ui.all
 
  * require_tree .
  */
+
+html, body {
+  overflow: hidden;
+  margin: 0;
+}
+body.demo-start .page, body.page-intro .page {
+  opacity: 0;
+  z-index: 0;
+}

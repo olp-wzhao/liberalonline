@@ -10,17 +10,19 @@
 // Read Sprockets README (https://github.com/sstephenson/sprockets#sprockets-directives) for details
 // about supported directives.
 //
+
 //= require jquery
 //= require jquery_ujs
-//= require jquery.ui.datepicker
 
-//= require mgmenu
-//= require mgmenu_plugins
+// require bootstrap
+
+// require mgmenu
+// require mgmenu_plugins
 // require rails.validations
 
-//= require helpers
+// require helpers
 
-//= require main
+// require main
 
-//= require turbolinks
+// require turbolinks
 // require_tree .
