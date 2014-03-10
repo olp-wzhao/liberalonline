@@ -112,7 +112,7 @@
   /* Subtitle color #8e7d7e */
 
 .hrbreake7e6e7 {
-	background-image: url("images/hr_e7e6e7.gif");
+	background-image: url("hr_e7e6e7.gif");
 	background-repeat: repeat-x;
     background-position: left center;
 	width:100%;
@@ -242,7 +242,7 @@ h2 + h1 {padding-top:20px;}
 	
 }
 .default {
-    background-image: url("images/pageimageholderdefault.jpg");
+    background-image: url("pageimageholderdefault.jpg");
     background-repeat: no-repeat;
     background-position: center bottom;	
 
@@ -259,7 +259,7 @@ h2 + h1 {padding-top:20px;}
     padding: 2px;
     width: 100%;
 	z-index:99;
-	background-image: url("images/redbottomborder.jpg");
+	background-image: url("redbottomborder.jpg");
 	background-repeat:repeat-x;
 	background-position:bottom center;
 }
