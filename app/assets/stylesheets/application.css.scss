@@ -14,12 +14,3 @@
 
  * require_tree .
  */
-
-html, body {
-  overflow: hidden;
-  margin: 0;
-}
-body.demo-start .page, body.page-intro .page {
-  opacity: 0;
-  z-index: 0;
-}

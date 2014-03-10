@@ -1,6 +1,6 @@
 class NewsController < ApplicationController
 
-    
+
 
     def index
       @paginate_size = 10
@@ -9,7 +9,6 @@ class NewsController < ApplicationController
 								.page(params[:page])
 								.per(@paginate_size)
 								.order_by(:document_date.desc)
-								.between(riding_id: -6..0, doc_type: 0..1)
 								.gt(expiry_date: DateTime.now)
 								.where(:published => true, :language => @language)
     end
