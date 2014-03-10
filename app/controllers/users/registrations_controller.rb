@@ -40,7 +40,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
     else
       clean_up_passwords resource
       respond_to do |format|
-        format.html { redirect_to resource }
+        format.html { redirect_to new_user_registration_path(resource) }
         format.js
       end
     end
