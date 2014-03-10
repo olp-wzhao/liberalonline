@@ -1,11 +1,19 @@
 console.log('registrations.create.js.erb');
 <% if @user.errors.count == 0 %>
 
-    $("#myModal").hide();
-    $('body').removeClass('modal-open');
-    $('.modal-backdrop').remove();
-    $('#micromenu_placeholder').html('');
-    $('#micromenu_placeholder').html('<%= j render '/shared/micromenu' %>')
+    vex.open({
+
+        content: '<%= j (render partial: 'users/registrations/form', user: @user) %>',
+
+        afterOpen: function($vexContent) {
+            return $vexContent.append($el);
+        },
+
+        afterClose: function() {
+            return console.log('vexClose');
+        }
+
+    });
 
 <% else %>
     $('#errors').html('');

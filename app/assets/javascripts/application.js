@@ -20,9 +20,9 @@
 // require mgmenu_plugins
 // require rails.validations
 
-// require helpers
+//= require helpers
 
-// require main
+//= require main
 
-// require turbolinks
+//= require turbolinks
 // require_tree .

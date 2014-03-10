@@ -21,23 +21,28 @@
 
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
 
+      <%= stylesheet_link_tag 'application', :media => 'all' %>
+      <%= javascript_include_tag 'application' %>
+      <%= csrf_meta_tags %>
 
-        <script src="assets/jquery-1.9.1.min.js"></script> 
-		<!--  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script> GOOGLE COPY OF JQUERY-->
-		<!-- http://simplefocus.com/flowtype/   -->
-        <script src="javascripts/flowtype.js"></script>
-		<!-- Floating Side column dependent lib   -->
-        <script src="javascripts/jquery-scrolltofixed-min.js"></script>
-		
-        <!-- Mini Account Menu - http://www.jqueryrain.com/?M89s3TG4 -->
-        <link type="text/css" rel="stylesheet" href="assets/jquery.dropdown.css" />
-        <script type="text/javascript" src="assets/jquery.dropdown.js"></script>
-	    <!-- Mega Menu dependent lib   -->
-        <script src="assets/mgmenu_plugins.js"></script><!-- Mega Menu Plugins -->
-        <script src="assets/mgmenu.js"></script><!-- Mega Menu Script -->
+      <!-- http://simplefocus.com/flowtype/   -->
+      <%= javascript_include_tag 'flowtype.js' %>
+      <!-- Floating Side column dependent lib   -->
+      <%= javascript_include_tag 'jquery-scrolltofixed-min.js' %>
 
-        <link href="/assets/mgmenulib.css" rel="stylesheet" type="text/css" media="screen" />	
-        <link href="/assets/stylesheet.css" rel="stylesheet" type="text/css" media="screen" />
+      <!-- Mini Account Menu - http://www.jqueryrain.com/?M89s3TG4 -->
+      <%= stylesheet_link_tag 'jquery.dropdown.css' %>
+      <%= javascript_include_tag 'jquery.dropdown.js' %>
+      <!-- Mega Menu dependent lib   -->
+      <%= javascript_include_tag 'mgmenu_plugins.js' %><!-- Mega Menu Plugins -->
+      <%= javascript_include_tag 'mgmenu.js' %><!-- Mega Menu Script -->
+
+      <%= stylesheet_link_tag 'mgmenulib.css', media: "screen" %>
+      <%= stylesheet_link_tag 'stylesheet.css', media: "screen" %>
+
+      <!-- Flexslider Lib   -->
+      <%= stylesheet_link_tag 'jquery.flexslider.js' %><!-- Homepage only -->
+      <%= stylesheet_link_tag 'flexslider.css' %>
 
 
     <script>
