@@ -89,7 +89,13 @@ class ApplicationController < ActionController::Base
   end
 
   def riding_id
-      current_user.nil? ? 0 : current_user.riding.riding_id - 9000
+    riding = 9000
+    unless current_user.nil?
+      unless current_user.riding.nil?
+        riding = current_user.riding.riding_id - 9000
+      end
+    end
+    riding
   end
     
   def load_application_layout

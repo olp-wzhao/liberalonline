@@ -53,69 +53,22 @@ class User
   has_many :attachments
   has_many :authorizations
   has_many :authors
-  has_many :candidate_authors
-  has_many :candidate_contact_infos
-  has_many :candidate_endorsements
-  has_many :candidate_infos
-  has_many :candidate_public_feed_items
-  has_many :candidate_twitter_contents
-  has_many :candidate_web_skins
   has_many :cg_users
   has_many :comments
   has_many :contact_messages
   has_many :customized_categories
   has_many :customized_managements
   has_many :documents
-  has_many :elect_attachments
-  has_many :elect_customized_managements
-  #has_many :elect_documents
-  has_many :elect_events
-  has_many :elect_pdfs
-  has_many :elect_photo_albums
-  has_many :elect_photos
-  has_many :elect_rotators
-  has_many :elect_site_menus
-  has_many :elect_video_galleries
-  has_many :elect_videos
   has_many :endorsements
   has_many :enews_duplicate_subscribers
   has_many :enews_subscribers
   has_many :event_registers
   has_many :events
-  
-  has_many :mpp_attachments
-  has_many :mpp_contact_infos
-  has_many :mpp_customized_managements
-  has_many :mpp_documents
-  has_many :mpp_infos
-  has_many :mpp_petition_subscribers
-  has_many :mpp_petitions
-  has_many :mpp_photo_albums
-  has_many :mpp_photos
-  has_many :mpp_public_feed_items
-  has_many :mpp_rotators
-  has_many :mpp_site_menus
-  has_many :mpp_twitter_contents
-  has_many :mpp_video_galleries
-  has_many :mpp_videos
 
   has_and_belongs_to_many  :petitions
   
   has_many :photo_albums
   has_many :photos
-  has_many :pla_attachments
-  has_many :pla_customized_managements
-  has_many :pla_documents
-  has_many :pla_events
-  has_many :pla_pdfs
-  has_many :pla_photo_albums
-  has_many :pla_photos
-  has_many :pla_public_feed_items
-  has_many :pla_rotators
-  has_many :pla_site_menus
-  has_many :pla_video_galleries
-  has_many :pla_videos
-  has_many :pla_web_skins
   has_many :public_feed_items
   has_many :recognition_scrolls
   has_many :riding_executives

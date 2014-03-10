@@ -8,12 +8,7 @@
       </div>
   <% else %>
       <div class="micromenu">
-        <% if current_user.first_name %>
-            <%= link_to 'Welcome ' + current_user.first_name, my_liberal_index_path %> |
-        <% end %>
-        <%= link_to 'Logout', destroy_user_session_path, method: :delete, remote: true %> |
-        <a href="#">Subscribe</a> |
-        <a href="#" data-dropdown="#accountoptions">Account<span class="droparrow"></span></a>
+        <a href="#" data-dropdown="#accountoptions"><%= current_user.full_name %><span class="droparrow"></span></a>
       </div>
 
       <div id="accountoptions" class="dropdown dropdown-anchor-right">
