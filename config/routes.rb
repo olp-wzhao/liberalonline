@@ -74,8 +74,8 @@ V44::Application.routes.draw do
   get 'photo/index'
   get 'news' => 'news#index'
   get 'news/index' => 'news#index'
-  get 'news/show' => 'documents#show'
-  get 'news/:id' => 'documents#show'
+  get 'news/show' => 'news#show'
+  get 'news/:id' => 'news#show'
 
   get 'platform/index'
   get 'team/index'

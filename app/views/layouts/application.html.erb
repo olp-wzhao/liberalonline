@@ -17,22 +17,9 @@
 
     <%= render partial: 'shared/header_scripts' %>
 
-    <script>
-      $(function (){ $(".float").each(function () {
-           var $this = $(this); $this.data("startTop", $this.offset().top);});
-             $(window).scroll(function () { var documentScrollTop = $(document).scrollTop();
-             $(".float").each(function () { var $this = $(this);
-             $this.offset({ top: $this.data("startTop") + documentScrollTop * $this.data("friction"), left: $this.offset().left });
-      });
-      document.oldScrollTop = documentScrollTop; });
-      });
-
-      // Get rid of empty paragraphs
-      $(window).load(function(){
-          $('p').filter(function () { return this.innerHTML == "" }).remove();
-
-      });//]]>
-    </script>
+    <!-- Flexslider Lib   -->
+    <%= stylesheet_link_tag 'jquery.flexslider.js' %><!-- Homepage only -->
+    <%= stylesheet_link_tag 'flexslider.css' %>
   </head>
 
     <body>

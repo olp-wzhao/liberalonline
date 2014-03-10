@@ -1,6 +1,6 @@
 class NewsController < ApplicationController
 
-
+  layout 'inside_layout'
 
     def index
       @paginate_size = 10
@@ -18,11 +18,12 @@ class NewsController < ApplicationController
 			@current_document = nil
 			
 			begin
-				@current_documents = Document.where(id: params[:id], published: true, language: @language)
-												.between(riding_id: -6..0)
-												.gt(expiry_date: DateTime.now)
-												.order_by(:id.desc)
-				@current_document = @current_documents[0]
+        #@current_documents = Document.where(id: params[:id], published: true, language: @language)
+					#							.between(riding_id: -6..0)
+					#							.gt(expiry_date: DateTime.now)
+					#							.order_by(:id.desc)
+        #binding.pry
+        @current_document = Document.find params[:id]
 			rescue ActiveRecord::RecordNotFound
 				redirect_to '/news?l=' + @language
 			end

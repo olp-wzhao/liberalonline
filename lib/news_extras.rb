@@ -2,7 +2,7 @@ module NewsExtras
   def prepare_news_documents
     news_documents = Document.news_documents.where(language: @language)
     news_documents.each do |document|
-      document.photo = prepare_document_photo(document, false)
+      document = prepare_document_photo(document, false)
     end
     news_documents
   end
