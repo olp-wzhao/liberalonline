@@ -17,7 +17,7 @@
 
         <%= render partial: 'shared/header_scripts' %>
 
-<%= yield :header %>
+         <%= yield :header %>
   
   </head>
 
@@ -85,15 +85,15 @@
 			  <div class="container">
 			  
 			    <div class="main">
-			        <%= yield %>
+			     <%= yield %>	
 			    </div>
 				
 				<div class="col-4 fixed">
-				    <%= yield :col4content %>
+				<%= yield :col4content %>
 				</div>
-
+                   <div style="clear:both; display:block;">&nbsp;</div>
 			  </div>
-	    </div>
+	    </div> <div style="clear:both; display:block;">&nbsp;</div>
 	
 
         <div id="footertrigger">
@@ -111,26 +111,28 @@
 		
 <script> 
   
-$(document).ready(function() {
-// this works -->   $('.col-4').scrollToFixed({ marginTop: 10, limit: $($('h2')[4]).offset().top });
-//  this works too -->  $('.col-4').scrollToFixed({ marginTop: 10, limit: $('#toptrigger').offset().top });
-//    var stickingpoint = $('.col-8').height()-700; // 700 is the height of col-4, the difference is the heightofdiv variable
+// to figure out where to stop this thing (the limit)
+// I've got to add the offset of main to the height of main 
+// and then subtract the height of col-4
+// that tells me how far col-4 can travel before bumping into
+// the footer
 
-var stickingpoint = $('.main').height()-$('.col-4').height();
-$('.col-4').scrollToFixed({ marginTop: 10, limit: stickingpoint });
-	
+$(document).ready(function() {
+
+var footerisat = $('.main').offset().top+$('.main').height()-$('.col-4').height();
+$('.col-4').scrollToFixed({ marginTop: 0, limit: footerisat });
+
         $('#footertrigger').scrollToFixed( {
             bottom: 0,
             limit: $('#footertrigger').offset().top
         });
-		
+				
 		
 });	
 
  
 </script>
 
-  
 
 <script>
 $(document).ready(function($){
