@@ -17,7 +17,7 @@
 
         <%= render partial: 'shared/header_scripts' %>
 
-<%= yield :header %>
+         <%= yield :header %>
   
   </head>
 
@@ -64,15 +64,15 @@
 			  <div class="container">
 
 			    <div class="main">
-			        <%= yield %>
+			     <%= yield %>	
 			    </div>
 				
 				<div class="col-4 fixed">
-				    <%= yield :col4content %>
+				<%= yield :col4content %>
 				</div>
-
+                   <div style="clear:both; display:block;">&nbsp;</div>
 			  </div>
-	    </div>
+	    </div> <div style="clear:both; display:block;">&nbsp;</div>
 	
 
         <div id="footertrigger">
@@ -85,7 +85,93 @@
 			<%= render 'shared/sitemenu' %>
 			
 		 </div>
-        </div>
+        </div>	
+
+		
+<script> 
+  
+// to figure out where to stop this thing (the limit)
+// I've got to add the offset of main to the height of main 
+// and then subtract the height of col-4
+// that tells me how far col-4 can travel before bumping into
+// the footer
+
+$(document).ready(function() {
+
+var footerisat = $('.main').offset().top+$('.main').height()-$('.col-4').height();
+$('.col-4').scrollToFixed({ marginTop: 0, limit: footerisat });
+
+        $('#footertrigger').scrollToFixed( {
+            bottom: 0,
+            limit: $('#footertrigger').offset().top
+        });
+				
+		
+});	
+
+ 
+</script>
+
+
+<script>
+$(document).ready(function($){
+    $('#mgmenu1').universalMegaMenu({
+        menu_effect: 'hover_slide',
+        menu_speed_show: 300,
+        menu_speed_hide: 200,
+        menu_speed_delay: 200,
+        menu_click_outside: true,
+        menubar_trigger : false,
+        menubar_hide : false,
+        menu_responsive: true
+    });
+});
+</script>
+
+
+<script>
+// This should only load for News Show
+// Quick check for widows and orphans 
+$(document).ready(function($){
+//  $("h1").each(function() {
+//      var html = $('h1').html().split(" ");
+//      html = html.slice(0,5).join(" ") + "<br />" + html.slice(5).join(" ");
+//      $('h1').html(html);
+//  });
+  
+  $("h2").each(function() {
+  var wordArray = $(this).text().split(" ");
+  if (wordArray.length > 2) {
+    wordArray[wordArray.length-2] += "&nbsp;" + wordArray[wordArray.length-1];
+    wordArray.pop();
+    $(this).html(wordArray.join(" "));
+  }
+});
+
+});
+</script>
+
+<script type="text/javascript">
+	
+	$('#browserInfo').text('Browser (Width : ' + $(window).width() + ' , Height :' + $(window).height() + ' )');
+	
+    $(window).resize(function () {
+		$('#browserInfo').text('Browser (Width : ' + $(window).width() + ' , Height :' + $(window).height() + ' )');
+    });
+		
+</script>
+
+<script type="text/javascript">
+
+$('.body').flowtype({
+ minimum   : 500,
+ maximum   : 1200,
+ minFont   : 11,
+ maxFont   : 18,
+ fontRatio : 30
+});
+
+</script>
 
 
     <%= yield :scripts_for_body %>

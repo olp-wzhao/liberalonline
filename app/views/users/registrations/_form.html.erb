@@ -3,12 +3,12 @@
   <%= f.input :email, :required => true, :autofocus => true, :class => 'submittable', placeholder: 'Enter Email', input_html: { onblur: 'isEmailUnique("' + validate_user_url + '")' } %>
   <%= f.input :first_name, placeholder: 'First Name' %>
   <%= f.input :last_name, placeholder: 'Last Name' %>
-  <%= f.input :password, :required => true, placeholder: 'Password' %>
-  <%= f.input :password_confirmation, :required => true, placeholder: 'Repeat Password' %>
+  <%#= f.input :password, :required => true, placeholder: 'Password' %>
+  <%#= f.input :password_confirmation, :required => true, placeholder: 'Repeat Password' %>
   <%= f.input :address, placeholder: 'Address' %>
   <%= f.input :postal_code, placeholder: 'Postal Code' , input_html: { onblur: 'findRiding("' + find_riding_url + '")' } %><span id='riding_box'></span>
   <%= f.input :city, placeholder: 'City' %>
-  <%= f.input :phone_number, :size => 30, placeholder: 'Phone Number' %>
+  <%= f.input :phone_number, as: :tel, :size => 30, placeholder: 'Phone Number' %>
   <%= f.input :birthday, label:'Date of Birth', as: :date, start_year: Date.today.year - 90,
                                                 end_year: Date.today.year - 12 %>
   <%= f.input :image, as: :file, label: 'Upload Image' %>

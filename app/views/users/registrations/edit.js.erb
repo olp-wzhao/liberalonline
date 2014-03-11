@@ -1,14 +1,25 @@
 console.log('registrations.edit.js.erb');
-vex.open({
 
-    content: '<%= j (render partial: 'users/registrations/form', user: @user) %>',
+vex.close();
 
-    afterOpen: function($vexContent) {
-        return $vexContent.append($el);
-    },
+function showRegistrationForm(){
+    vex.open({
 
-    afterClose: function() {
-        return console.log('vexClose');
-    }
+        content: '<%= j (render partial: 'users/registrations/form', user: @user) %>',
 
-});
+        afterOpen: function($vexContent) {
+            return $vexContent.append($el);
+        },
+
+        afterClose: function() {
+            return console.log('vexClose');
+        }
+
+    });
+}
+
+setTimeout(function(){
+            vex.close();
+            showRegistrationForm();
+        }, 3000
+);

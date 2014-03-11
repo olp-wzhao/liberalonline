@@ -2,7 +2,7 @@ console.log('password.new.js');
 vex.close();
 vex.open({
 
-    content: '<%= j (render 'users/passwords/new_password', user: @user) %>',
+    content: '<%= j (render 'users/confirmations/new_confirmation', user: @user) %>',
 
     afterOpen: function($vexContent) {
         return $vexContent.append($el);

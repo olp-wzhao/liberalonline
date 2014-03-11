@@ -276,6 +276,7 @@ h2 + h1 {padding-top:20px;}
 	float:left;
 	min-height:700px;
 	border-right:solid 1px #cccccc;
+	border:solid 1px green;
 }
 .maincontainer {width:97%;}
 #col8picblocker {
@@ -296,6 +297,7 @@ h2 + h1 {padding-top:20px;}
 	position:static;
 	top:400px;
 	padding-top:50px;
+		border:solid 1px yellow;
 }
 
 .clear {display:block; clear:both;}
@@ -309,8 +311,8 @@ margin-top:26px;
 .col5 + .col5 {margin-left:2%;}
 
 .activated {background-color: #2b4170;}
-.fixed {position: static; top: 85px;}
-.static {position: static; top: 85px;}
+.fixed {position: static; top: 166px;}
+.static {position: static; top: 166px;}
 
 
 

@@ -21,8 +21,8 @@
 // require rails.validations
 
 //= require helpers
-
 //= require main
+//= require flash_notification
 
 //= require turbolinks
 // require_tree .

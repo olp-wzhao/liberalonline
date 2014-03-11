@@ -3,6 +3,7 @@ console.log('sessions.create.js.erb');
 <% if @user.errors.count == 0 %>
 
     vex.close();
+    $('#micromenu_placeholder').html('<%= j render '/shared/micromenu' %>');
 
 <% else %>
     $('#errors').html('');
