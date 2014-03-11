@@ -2,11 +2,7 @@ console.log('sessions.create.js.erb');
 
 <% if @user.errors.count == 0 %>
 
-    $("#myModal").hide();
-    $('body').removeClass('modal-open');
-    $('.modal-backdrop').remove();
-    $('#micromenu_placeholder').html('');
-    $('#micromenu_placeholder').html('<%= j render '/shared/micromenu' %>')
+    vex.close();
 
 <% else %>
     $('#errors').html('');

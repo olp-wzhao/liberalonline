@@ -1,21 +1,20 @@
 <h1>Liberal Members of Provincial Parliament</h1>
 
-
-
-		<!------- HERE ARE THE CLASSES FOR THE DATA REPEATER -------->
-		<!------- DON'T FORGET THE FRAME CLASS ON IMG -------->
-		<% @web_site_managers.each do |web_site_manager| %>
-			<% if web_site_manager.r_fsr %>
-				<div class="photolist last">
-					<img src="/photos/mpp/mpp_photos/<%= web_site_manager.r_id.to_s %>_thumbnail.jpg" class="frame" >
-					<div style="height:280px;">
-						<div class="listh1"><%= web_site_manager.m_nf %> <%= web_site_manager.m_nl %></div>
-						<div class="listh2"><%= raw(web_site_manager.r_name_en) %></div>
-						<p><%= raw(web_site_manager.m_nm) %></p>
-						<span class="tinynav"><a href="http://<%= web_site_manager.m_nf %><%= web_site_manager.m_nl %>.onmpp.ca" target="_blank">website</a> | <%= link_to 'Bio', '/mpps/' + web_site_manager.r_id.to_s + '?l=' + @language %></span>
-
-			<% end %>
-		<% end %>
+<!------- HERE ARE THE CLASSES FOR THE DATA REPEATER -------->
+<!------- DON'T FORGET THE FRAME CLASS ON IMG -------->
+<% @web_site_managers.each do |web_site_manager| %>
+    <% if web_site_manager.r_fsr %>
+        <div class="photolist last">
+            <img src="/photos/mpp/mpp_photos/<%= web_site_manager.r_id.to_s %>_thumbnail.jpg" class="frame" >
+            <div style="height:280px;">
+                <div class="listh1"><%= web_site_manager.m_nf %> <%= web_site_manager.m_nl %></div>
+                <div class="listh2"><%= raw(web_site_manager.r_name_en) %></div>
+                <p><%= raw(web_site_manager.m_nm) %></p>
+                <span class="tinynav"><a href="http://<%= web_site_manager.m_nf %><%= web_site_manager.m_nl %>.onmpp.ca" target="_blank">website</a> | <%= link_to 'Bio', '/mpps/' + web_site_manager.r_id.to_s + '?l=' + @language %></span>
+            </div>
+        </div>
+    <% end %>
+<% end %>
 
 
 

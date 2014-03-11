@@ -1,9 +1,8 @@
-console.log('sessions.new.js.erb');
-
+console.log('password.new.js');
 vex.close();
 vex.open({
 
-    content: '<%= j (render partial: 'users/sessions/form', user: @user) %>',
+    content: '<%= j (render 'users/password/new', user: @user) %>',
 
     afterOpen: function($vexContent) {
         return $vexContent.append($el);
@@ -14,5 +13,3 @@ vex.open({
     }
 
 });
-
-

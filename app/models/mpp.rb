@@ -1,5 +1,4 @@
 class Mpp < User
-  field :id, type: Integer
   field :title, type: String
   field :tollfree_phone, type: String
   field :fax, type: String

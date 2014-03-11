@@ -1,4 +1,5 @@
-
+<meta charset="utf-8" />
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0;">
 
@@ -21,23 +22,6 @@
 <%= stylesheet_link_tag 'mgmenulib.css', media: "screen" %>
 <%= stylesheet_link_tag 'stylesheet.css', media: "screen" %>
 
-<script>
-    $(function (){ $(".float").each(function () {
-        var $this = $(this); $this.data("startTop", $this.offset().top);});
-        $(window).scroll(function () { var documentScrollTop = $(document).scrollTop();
-            $(".float").each(function () { var $this = $(this);
-                $this.offset({ top: $this.data("startTop") + documentScrollTop * $this.data("friction"), left: $this.offset().left });
-            });
-            document.oldScrollTop = documentScrollTop; });
-    });
-
-    // Get rid of empty paragraphs
-    $(window).load(function(){
-        $('p').filter(function () { return this.innerHTML == "" }).remove();
-
-    });//]]>
-</script>
-
 <script src="/vex/js/vex.js"></script>
 <script src="/vex/js/vex.dialog.js"></script>
 <link href="/vex/css/vex.css" rel="stylesheet" />
@@ -48,4 +32,4 @@
 <link href="/vex/css/vex-theme-flat-attack.css" rel="stylesheet">
 <link href="/vex/css/vex-theme-top.css" rel="stylesheet">
 <link href="/vex/css/vex-theme-bottom-right-corner.css" rel="stylesheet">
-<script>vex.defaultOptions.className = 'vex-theme-os';</script>
+<script>vex.defaultOptions.className = 'vex-theme-flat-attack';</script>
