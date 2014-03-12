@@ -1,31 +1,4 @@
-<div class="content">
-
-  <div class="toolkitheader">
-    <div class="container"><!--  this will set the content margins left and right -->
-      <div class="logoholder">
-        <img src="https://secureolp.liberalonline.ca/images/logo_sm_white_vert.png">
-      </div>
-      <div class="menuholder">
-        <span class="red" style="position : relative; top:.15em;"><%= render "shared/toolkit_menu" %> &nbsp;&nbsp;</span> <span class="tiny grey">Webadmin@ontarioliberal.ca | <a href="#">Logout</a></span>
-      </div>
-    </div><!-- close container -->
-  </div><!-- close toolkitheader -->
-
-  <div class="opening">
-    <div class="container">
-	  <div class="toolkittitle">&nbsp;</div>
-      <p class="toolkittag">You may need this.</p>
-    </div>
-  </div><!-- close opening -->
-
-  <div class="containerbg">
-    <div class="container"> <!--  this will set the content margins left and right -->
-
-
-      <p class="grey tiny"><%= params['customized_category'] %></p>
-      <div class="hrbreake7e6e7">&nbsp;</div>
-
-      <% @documents.each do |document| %>
+<% @documents.each do |document| %>
 
           <!-- <p>ID: <%= document.temp_id %></p> -->
           <div class="listh1 red"><%= link_to document.headline, toolkit_url + '/' + document.id %></div>
@@ -46,61 +19,20 @@
 
           <!-- <p class="tiny">Created:<%= document.created_date %></p>  -->
           <!-- <p class="tiny"><%= document.document_date %></p>	-->
-          <!-- <p class="tiny">IP:<%= document.created_ip %></p>  -->
-          <!-- <p class="tiny"><%= document.updated_ip %></p>  -->
           <!-- <p class="tiny"><%= document.language %></p>  -->
-          <!-- <p class="tiny"><%= document.helpfulness_rating %></p>  -->
-          <!-- <p class="tiny"><%= document.applicability_rating %></p>  -->
-          <!-- <p class="tiny"><%= document.allow_comment %></p>  -->
           <!-- <p class="tiny"><%= document.published %></p>  -->
           <!-- <p class="tiny"><%= document.image_name %></p>  -->
-          <!--  <p class="tiny"><%= document.is_draft %></p>  -->
           <!--  <p class="tiny"><%= document.user_id %></p>    -->
           <!-- <p class="tiny"><%= document.updated_time %></p> -->
           <div class="hrbreake7e6e7">&nbsp;</div>
 
 
 
-      <% end %>
-      <br/><br/>
-    </div><!-- close container -->
-  </div><!-- close containerbg -->
-
-
-             <div class="opening">
-               <div class="container">
-               </div>
-			 </div><!-- close opening -->
+<% end %>
 
 
 
 
-</div><!-- close content -->
 
-
-<div class="float" id="float-1" data-friction="0.5">&nbsp;</div>
-<div class="float" id="float-2" data-friction="0.5">&nbsp;</div>
-<img class="float" id="float-3" data-friction="0.5" src="https://secureolp.liberalonline.ca/images/toolkitusers4.jpg" />
-
-<!-- <div class="float" id="float-1" data-friction="0.5" style="background-image: url('https://secureolp.liberalonline.ca/images/toolkitusers3.jpg'); background:cover; width:100%;" />-->
-
-<div class="footer">
-  <div class="container"><!--  this will set the content margins left and right -->
-    <div class="centerclass" style="padding-top:30px; min-height:50px;">
-      <p class="tiny grey">Ontario Liberal Party:
-
-      <p class="tiny grey">Address: 10 St. Mary Street, Suite 210, Toronto, Ontario, M4Y 1P9</p>
-
-      <p class="tiny grey">Phone: 416-961-3800</p>
-
-      <p class="tiny grey">Toll Free Phone: 1-800-268-7250</p>
-
-      <p class="tiny grey">Fax: 416-323-9425</p>
-
-      <p class="tiny grey">President: Derek Teevan, Ext. 340</p>
-
-      <p class="tiny grey">Copyright &copy; 2014 Ontario Liberal Party</p></div>
-  </div><!-- close container -->
-</div><!-- close footer -->
 
 
