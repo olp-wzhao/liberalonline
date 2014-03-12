@@ -1,5 +1,7 @@
-<% if current_user.identities.count > 0 %>
-    <%= image_tag current_user.identities.first.image %>
+<% unless current_user.nil? %>
+   <% if current_user.identities.count > 0 %>
+        <%= image_tag current_user.identities.first.image %>
+   <% end %>
 <% end %>
 
 <%= simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name), :remote => true) do |f| %>
