@@ -157,7 +157,22 @@ img.grayscale {
       h1 + p {padding-top:10px;}
       .listh2 + p {margin-top:6px;}
 
-      .toolkitheader {
+      #header { 
+	      margin-top: -50px; 
+	      width:100%; 
+		  min-height:300px; 
+		  height:400px;
+		  background-image: url("https://secureolp.liberalonline.ca/assets/toolkitusers4.jpg");
+		  border:solid 1px green;		  
+		  background: cover; 
+		  -webkit-background-size: cover;
+          -moz-background-size: cover;
+          -o-background-size: cover;
+
+		  } 
+
+
+      .toolkitmenu {
           background-color:#e5e5e5;
           width:100%;
           min-height:60px;
@@ -202,31 +217,19 @@ img.grayscale {
 
 
       .container {max-width:960px; margin-left:auto; margin-right:auto; width:85%}
+	.maincontent {min-height:500px;}
 
-
-      .toolkittitle { min-height:79px; background-repeat: no-repeat; background-image: url("Toolkit.png");margin-top:115px; margin-bottom:0px; margin-left:-8px; padding-bottom:0px;}
+      .toolkittitle { min-height:79px; background-repeat: no-repeat; background-image: url("https://secureolp.liberalonline.ca/assets/Toolkit.png");margin-top:115px; margin-bottom:0px; margin-left:-8px; padding-bottom:0px;}
       .toolkittag {margin-top:2px; font-size:27px; color:#6b6b6b; line-height:27px; text-shadow: 0px 1px 2px rgba(150, 150, 150, 1);}
 
 
-      .float { display: block; position: fixed; }    
-
-      #float-1 { 
-	      top: 17px; 
-	      width:100%; 
-		  min-height:500px; 
-		  background: cover; 
-		  -webkit-background-size: cover;
-          -moz-background-size: cover;
-          -o-background-size: cover;
-		  background-image: url("toolkitusers4.jpg");
-		  } 
 
       #float-2 { 
 	      top: 700px; 
 		  width:100%; 
 		  min-height:600px; 
 		  background: cover; 
-		  background-image: url("bg_bottomopening.jpg");
+		  background-image: url("assets/bg_bottomopening.jpg");
 		  background-color:#c7c0ba; 
 		  -webkit-background-size: cover;
           -moz-background-size: cover;
@@ -238,14 +241,9 @@ img.grayscale {
 
       .content { position: relative; z-index: 2; }
 
-      .opening { 
-          min-height:310px; 
-          height:310px; 
-          background:none; 
-          margin-bottom:20px;
-          }
+
       .hrbreake7e6e7 {
-          background-image: url('https://secureolp.liberalonline.ca/images/hr_e7e6e7.gif');
+          background-image: url('https://secureolp.liberalonline.ca/assets/hr_e7e6e7.gif');
           background-repeat: repeat-x;
           background-position: left center;
           width:100%;
@@ -265,19 +263,19 @@ img.grayscale {
 }
 .pdf > h1,.doc > h1,.docx > h1,.xls > h1,.xlsx > h1,.ppt > h1,.zip > h1 { font-size:15px; line-height:15px; margin:0px; font-family: 'Droid sans', sans serif;}
 .pdf > p,.doc > p,.docx > p,.xls > p,.xlsx > p,.ppt > p,.zip > p { font-size:13px; line-height:12px; margin-top:-10px;}
-.pdf { background-image: url('../images/pdf.png');}
-.doc { background-image: url('../images/doc.png');}
-.docx { background-image: url('../images/doc.png');}
-.xls { background-image: url('../images/xlsx.png');}
-.xlsx { background-image: url('../images/xlsx.png');}
-.ppt { background-image: url('../images/ppt.png');}
-.zip { background-image: url('../images/zip.png');}
+.pdf { background-image: url('../assets/pdf.png');}
+.doc { background-image: url('../assets/doc.png');}
+.docx { background-image: url('../assets/doc.png');}
+.xls { background-image: url('../assets/xlsx.png');}
+.xlsx { background-image: url('../assets/xlsx.png');}
+.ppt { background-image: url('../assets/ppt.png');}
+.zip { background-image: url('../assets/zip.png');}
 
 
 
 @media all and (max-width: 700px) {
       .container {padding-left:20px; padding-right:20px; width:80%}
-      .toolkittitle {margin-top:50px; margin-bottom:0px; padding-bottom:0px; font-size:48px; text-shadow: 0px 3px 2px rgba(150, 150, 150, 1);}
+      .toolkittitle {margin-top:40px; margin-bottom:0px; padding-bottom:0px; font-size:48px; text-shadow: 0px 3px 2px rgba(150, 150, 150, 1);}
       .toolkittag {margin-top:15px; font-size:25px; line-height:24px; text-shadow: 0px 3px 2px rgba(150, 150, 150, 1);}
       #float-1 { top: 23px; right:50%; margin-right:-995px;} 
 
@@ -295,12 +293,60 @@ img.grayscale {
     </style>
   </head>
   <body>
-  
-  
-  
-      <%= yield :admin_menu %>
-      <%= yield %>
-      <%= yield :scripts_for_body %>
 
+
+  <div id="header">
+    <div class="container">
+	  <div class="toolkittitle">&nbsp;</div>
+      <p class="toolkittag">You may need this.</p>
+	  <div style="clear:both; display:block;">&nbsp;</div> 
+    </div>
+  </div><!-- close header -->
+  
+	   <div style="clear:both; display:block;">&nbsp;</div>  
+  
+  <div class="container"><!--  this will set the content margins left and right -->  
+	
+            <div class="toolkitmenu">
+			
+            <div class="logoholder"><img src="https://secureolp.liberalonline.ca/assets/logo_sm_white_vert.png"></div>
+            <div class="menuholder">
+            <%= render "shared/toolkit_menu" %>
+            </div>
+         
+            </div><!-- close toolkitmenu -->
+			
+  </div><!-- close container -->
+  
+	      <div style="clear:both; display:block;">&nbsp;</div>
+
+    <div class="container"><!--  this will set the content margins left and right -->  
+	  <div class="maincontent">
+       <%= yield %>
+	  </div> 
+     </div><!-- close container -->
+	
+	   <div style="clear:both; display:block;">&nbsp;</div>
+	
+<div class="footer">
+  <div class="container"><!--  this will set the content margins left and right -->
+    <div class="centerclass" style="padding-top:30px; min-height:50px;">
+      <p class="tiny grey">Ontario Liberal Party:
+
+      <p class="tiny grey">Address: 10 St. Mary Street, Suite 210, Toronto, Ontario, M4Y 1P9</p>
+
+      <p class="tiny grey">Phone: 416-961-3800</p>
+
+      <p class="tiny grey">Toll Free Phone: 1-800-268-7250</p>
+
+      <p class="tiny grey">Fax: 416-323-9425</p>
+
+      <p class="tiny grey">President: Derek Teevan, Ext. 340</p>
+
+      <p class="tiny grey">Copyright &copy; 2014 Ontario Liberal Party</p></div>
+  </div><!-- close container -->
+</div><!-- close footer -->
+
+      <%= yield :scripts_for_body %>
   </body>
 </html>
