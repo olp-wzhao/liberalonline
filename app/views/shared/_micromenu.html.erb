@@ -11,6 +11,9 @@
 
       <div id="accountoptions" class="dropdown dropdown-anchor-right">
         <ul class="dropdown-menu">
+          <% if current_user.identities.count > 0 %>
+            <%= image_tag current_user.identities.first.image %>
+          <% end %>
           <li><%= link_to 'Edit Profile', edit_user_registration_url, id: current_user.id, remote: true %></li>
           <li><a href="#2">History</a></li>
           <% if current_user.roles.include? 'toolkit' %>

@@ -3,14 +3,19 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
   def all
     identity = Identity.from_omniauth(request.env["omniauth.auth"])
     @user = identity.find_or_create_user(current_user)
+    #a completely valid user has already registered previously
     if @user.valid?
-      flash.notice = 'Signed in!'
+      flash.notice = 'Welcome back to the Ontario Liberal Website'
       sign_in_and_redirect @user
     else
+      #this user has never signed in before using
+      flash[:notice] = "<p>Thank you for creating an account</p><a href='/users/'#{@user.slug}>Click here to complete your profile</a>"
       sign_in @user
-        render :json => { :success => (current_user ? true : false),
-                          :current_user => current_user.as_json }
-
+      respond_to do |format|
+        format.html { redirect_to root_url }
+        format.json { render :json => { :success => (current_user ? true : false),
+                          :current_user => current_user.as_json } }
+      end
     end
   end
 

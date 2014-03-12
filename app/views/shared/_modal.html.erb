@@ -1,66 +1,5 @@
+
 <div id="fb-root"></div>
-<%= flash_notifications -%>
-<script type="text/javascript">
-
-    window.fbAsyncInit = function() {
-        FB.init({
-            appId  : '173872612791834',
-            status : true, // check login status
-            cookie : true, // enable cookies to allow the server to access the session
-            xfbml  : true  // parse XFBML
-        });
-    };
-
-    (function(d) {
-        var js, id = 'facebook-jssdk'; if (d.getElementById(id)) {return;}
-        js = d.createElement('script'); js.id = id; js.async = true;
-        js.src = "//connect.facebook.net/en_US/all.js";
-        d.getElementsByTagName('head')[0].appendChild(js);
-    }(document));
-
-    $(function() {
-        $('#connect .signin').on( 'click', function(e) {
-            e.preventDefault();
-
-            FB.login(function(response) {
-                if (response.authResponse) {
-                    // since we have cookies enabled, this request will allow omniauth to parse
-                    // out the auth code from the signed request in the fbsr_XXX cookie
-                    $.getJSON('<%= user_omniauth_callback_path(:facebook) %>', function(json) {
-                        //Determine if the user is valid
-                        if (json.success == true)
-                        {
-                            $('.modal-body').html("");
-                            $('.modal-body').html('<%= j (render partial: 'users/registrations/form', user: User.new) %>');
-                            $('#user_email').val(json.current_user.email);
-                            $('#user_first_name').val(json.current_user.first_name);
-                            $('#user_last_name').val(json.current_user.last_name);
-                            $('#user_address').val(json.current_user.address);
-                            $('#user_postal_code').val(json.current_user.postal_code);
-                            $('#user_city').val(json.current_user.city);
-                            $('#user_phone_number').val(json.current_user.phone_number);
-                            $('#user_birthday').val(json.current_user.birthday);
-                        }
-                        else
-                        {
-                            console.log('this is a blackhole');
-                        }
-                        // Do some other stuff here (call more json, load in more elements, etc)
-                    });
-                }
-            }, { scope: 'email,read_stream,user_birthday' }); // These are the permissions you are requesting
-        });
-
-        $('#connect .signout').click(function(e) {
-            e.preventDefault();
-            $.getJSON('/auth/facebook/signout', function(json) {
-                $('#results').html(JSON.stringify(json));
-            });
-        });
-    });
-
-</script>
-
 <%= content_for :scripts_for_body do %>
     <script type="text/javascript">
         $(document).ready(function(){
@@ -73,6 +12,7 @@
                 $.getJSON("<%= find_riding_url %>", {search: $("#user_postal_code").val()})
                         .done(function(data){
                             $("#riding_box").html(data.name);
+                            $('#riding_id').val(data.riding_id);
                         });
             });
         });

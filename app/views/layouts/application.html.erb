@@ -20,6 +20,8 @@
     <!-- Flexslider Lib   -->
     <%= stylesheet_link_tag 'jquery.flexslider.js' %><!-- Homepage only -->
     <%= stylesheet_link_tag 'flexslider.css' %>
+
+    <%= yield :scripts_for_header %>
   </head>
 
     <body>
@@ -38,7 +40,6 @@
             <div class="logo"><%= image_tag "logo-sm.png" %></div>
 
             <%= render "shared/menu" %>
-            <%= flash[:notice] %>
 
             </div><!-- closes the .container encompassing the logo and the menu -->
         </div><!-- closes #logoandmenu -->

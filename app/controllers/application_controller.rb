@@ -4,6 +4,7 @@ class ApplicationController < ActionController::Base
   #before_filter :check_registration
   before_filter :configure_permitted_parameters, if: :devise_controller?
   before_filter :load_application_action, :load_application_layout, :most_recent_event
+  after_filter :prepare_unobtrusive_flash
 
   layout :layout_by_resource
 

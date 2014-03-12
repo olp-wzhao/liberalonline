@@ -22,7 +22,8 @@
 
 //= require helpers
 //= require main
-//= require flash_notification
+//= require unobtrusive_flash
+//= require unobtrusive_flash_ui
 
 //= require turbolinks
 // require_tree .

@@ -20,7 +20,8 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   def create
     build_resource(sign_up_params)
-
+    riding = Riding.find_by(riding_id: sign_up_params['riding_id'])
+    resource.riding = riding
     if resource.save
       if resource.active_for_authentication?
         set_flash_message :notice, :signed_up if is_navigational_format?
@@ -38,6 +39,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
         end
       end
     else
+      #incomplete user profile
       clean_up_passwords resource
       respond_to do |format|
         format.html { redirect_to new_user_registration_path(resource) }
@@ -47,7 +49,11 @@ class Users::RegistrationsController < Devise::RegistrationsController
   end
 
   def edit
-    super
+    binding.pry
+    respond_to do |format|
+      format.js
+      format.html { super }
+    end
   end
 
   def update
@@ -98,14 +104,15 @@ class Users::RegistrationsController < Devise::RegistrationsController
       u.permit(:first_name, :last_name,
         :email, :password, :password_confirmation,
         :address, :postal_code, :city, :phone_number,
-        :birthday, :image, :image_cache)
+        :birthday, :image, :image_cache, :riding_id)
     end
+
     devise_parameter_sanitizer.for(:account_update) do |u|
       fix_scrambled_date_parameters_on_create
       u.permit(:first_name, :last_name,
         :email, :password, :password_confirmation, :current_password,
         :address, :postal_code, :city, :phone_number,
-        :birthday, :image, :image_cache)
+        :birthday, :image, :image_cache, :riding_id)
     end
   end
 

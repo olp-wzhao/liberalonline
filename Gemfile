@@ -29,6 +29,8 @@ group :assets do
   gem 'uglifier'
 end
 
+gem 'compass-rails'
+
 group :doc do
   gem 'sdoc', '0.3.20', require: false
 end
@@ -45,7 +47,7 @@ group :development do
   gem 'better_errors'
   gem 'binding_of_caller'
   gem 'meta_request'
-  gem 'html_routes', '~> 1.0', group: :development
+  gem 'html_routes', '~> 1.0'
 end
 
 group :development, :test do
@@ -91,3 +93,4 @@ gem 'tinymce-rails'
 gem 'select2-rails'
 gem 'remotipart', '~> 1.2'
 gem 'figaro'
+gem 'unobtrusive_flash', '>=3'
