@@ -21,15 +21,15 @@ gem 'jbuilder', '~> 1.2'
 gem 'font-awesome-sass-rails'
 gem 'kaminari'
 
-group :assets do
+#group :assets do
   gem 'modernizr-rails'
   gem 'sprockets-rails', github: 'rails/sprockets-rails'
   gem 'sass-rails', github: 'rails/sass-rails'
   gem 'coffee-rails', github: 'rails/coffee-rails'
   gem 'uglifier'
-end
+#end
 
-gem 'compass-rails'
+gem 'compass-rails', '~> 1.1.2'
 
 group :doc do
   gem 'sdoc', '0.3.20', require: false

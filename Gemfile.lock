@@ -404,7 +404,7 @@ DEPENDENCIES
   carrierwave
   carrierwave-mongoid
   coffee-rails!
-  compass-rails
+  compass-rails (~> 1.1.2)
   database_cleaner
   devise (~> 3.0.0)
   devise_invitable

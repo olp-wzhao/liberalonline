@@ -49,7 +49,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
   end
 
   def edit
-    binding.pry
     respond_to do |format|
       format.js
       format.html { super }
