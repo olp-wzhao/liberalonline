@@ -1,4 +1,5 @@
 class Admin::UsersController < Admin::AdminController
+  before_action :set_user, only: [:show, :edit, :update, :destroy]
   before_filter :authenticate_admin!
 
   def index
@@ -6,6 +7,12 @@ class Admin::UsersController < Admin::AdminController
     respond_to do |format|
       format.js
       format.html
+    end
+  end
+
+  def show
+    respond_to do |format|
+      format.js
     end
   end
 
@@ -17,11 +24,12 @@ class Admin::UsersController < Admin::AdminController
   end
 
   def update
-    authorize! :update, @user, :message => 'Not authorized as an administrator.'
     respond_to do |format|
       if @user.update_attributes(user_params)
+        format.js
         format.html { redirect_to @user, notice: 'User was successfully updated.' }
       else
+        format.js
         format.html { render action: 'edit' }
       end
     end
@@ -29,7 +37,6 @@ class Admin::UsersController < Admin::AdminController
 
   def destroy
     #authorize! :destroy, @user, :message => 'Not authorized as an administrator.'
-    set_user
     @user.delete
     respond_to do |format|
       format.js

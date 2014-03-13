@@ -10,7 +10,10 @@
     <%= f.input :headline, placeholder: 'Headline', label: false %>
     <%= f.input :subtitle, placeholder: 'Subtitle', label: false %>
     <%= f.input :body, as: :text, :input_html => { :class => 'tinymce', :rows => 40, :cols => 80 } %>
-    <%#= f.input :author %>
+	
+		<div class="hrbreake7e6e7">&nbsp;</div>
+	
+	<%#= f.input :author %>
     <%#= f.input :reference_url %>
     <%#= f.input :reference_name %>
 
@@ -34,18 +37,26 @@
     <%#= f.input :is_draft, as: :boolean %>
     <%= f.input :riding_id, collection: Riding.all.map{|r| [r.title, r.riding_id]}, as: :select, selected: 'Central', label: false, input_html: { style: 'display: none'}%>
     <%#= f.input :web_site %>
-
+	
+	<div class="hrbreake7e6e7">&nbsp;</div>
+	
     <%= f.input :category_id, collection: categories, selected: 'Generic' %>
     <%= f.input :customized_category, collection: customized_categories %>
     <%#= f.input :publish_on_toolkit, as: :boolean %>
     <%#= f.input :require_authentication, as: :boolean %>
 
     <%#= f.input :issue_id %>
+	
+	<div class="hrbreake7e6e7">&nbsp;</div>
+	
     <%= link_to 'Add Pdf', new_admin_document_attachment_path(@document.id), {:remote => true, 'data-toggle' =>  'modal', 'data-target' => '#myModal', :id => 'add_pdf' }%>
-    <ul id="attachments">
+
+	<ul id="attachments">
       <%= render @document.attachments %>
     </ul>
-    <p>Document Image</p>
+	<div class="hrbreake7e6e7">&nbsp;</div>
+	
+    <h4>Document Image</h4>
     <%= image_tag(@document.image_url) if @document.image? %>
     <%= f.input :image, as: :file, label: 'Upload Image' %>
     <%= f.hidden_field :image_cache %>

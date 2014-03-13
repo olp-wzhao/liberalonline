@@ -37,7 +37,7 @@ class User
   field :birthday, type: DateTime, default: Date.new
   field :referal_url, type: String
 
-  validates_presence_of :email, :first_name, :city, :postal_code, :address, :phone_number, :birthday
+  validates_presence_of :email #, :first_name, :city, :postal_code, :address, :phone_number, :birthday
   #validates_uniqueness_of :email
 
   belongs_to :riding

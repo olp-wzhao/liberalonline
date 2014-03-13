@@ -9,23 +9,40 @@
     <link href='https://fonts.googleapis.com/css?family=Oswald:400,700' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Roboto+Condensed:400,700,300italic,300' rel='stylesheet' type='text/css'/>
 
-    <%= stylesheet_link_tag "admin_application", :media => "all" %>
-    <%= javascript_include_tag "admin_application" %>
+    <%= stylesheet_link_tag 'admin_application', :media => 'all' %>
+    <%= javascript_include_tag 'admin_application' %>
     <%= csrf_meta_tags %>
+
+    <%= render partial: '/shared/admin_header_scripts' %>
   
   <%= yield :header %>
 
 </head>
 <body>
-  <div class="container">
-    <h1>Webservice Version 7.0 BETA</h1>
-    <% if admin_signed_in? %>
+<div class="wholepagebacker"> 
+<div class="wholepagecontainer">  
+  
+  <div id="adminmenu">
+     <h2 class="tiny">Website Manager version x beta</h2>
+      <% if admin_signed_in? %>
         <%= render '/shared/admin_menu' %>
     <% end %>
+  </div>	
+	
+<div style="float:left; width:76%;"> 
+  <div class="container">
+    <h1 class="white">LCSB Website Managaer X</h1>
+
     <%= yield %>
 
   </div>
+</div>  
 
   <%= yield :scripts_for_body %>
+  
+  <div style="clear:both; display:block;">
+</div><!-- close wholepagebacker -->
+</div><!-- close wholepagecontainer -->
+    </div>
 </body>
 </html>

@@ -1,9 +1,9 @@
 defaults: &defaults
   roles:
+    - user
     - admin
     - webadmin
-    - moderator
-    - user
+    - toolkit
     - volunteer
   default_role: user
 

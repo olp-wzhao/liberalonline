@@ -1,0 +1,13 @@
+vex.open({
+
+    content: '<%= j (render partial: 'admin/users/user', user: @user) %>',
+
+    afterOpen: function($vexContent) {
+        return $vexContent.append($el);
+    },
+
+    afterClose: function() {
+        return console.log('vexClose');
+    }
+
+});

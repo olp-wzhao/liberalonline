@@ -56,9 +56,55 @@
   src: local('Roboto Condensed Light Italic'), local('RobotoCondensed-LightItalic'), url('https://secureolp.liberalonline.ca/fonts/RobotoCondensedItalic300.woff') format('woff');
 }
 *,html {padding:0px; margin:0px;}
+body {font-family: 'Droid sans', sans serif; font-size:14px;}
+
+.wholepagebacker {
+    background-image:url("../assets/backsplash_c9c5c5.jpg");
+	background-repeat:no-repeat;
+	background-position:center top;
+	background-color:#c9c4c5;
+	min-height:100%;
+	}
+.wholepagecontainer {
+    background-image:url("../assets/tile.png");
+	background-repeat:repeat;
+	min-height:100%;
+    }
+#adminmenu {
+    width:17%;
+	left:5px;
+	padding-top:100px;
+	min-height:900px;
+	border:solid 1px #e1e1e1;
+	float:left;
+	background-color:#e6e6e6;
+	}	
+.adminmenuitem {
+    background-image:url("../assets/adminmenu_bg.png");
+	background-repeat:repeat-x;
+	background-position:center top;
+	min-height:30px;
+	width:100%;
+	padding:10px;
+	margin-bottom:3px;
+	-moz-border-radius: 2px;
+    border-radius: 2px;
+	}
+#add_pdf {
+    background-image:url("../assets/adminmenu_bg.png");
+	background-repeat:repeat-x;
+	background-position:center top;
+	min-height:30px;
+	min-width:300px;
+	padding:10px;
+	border:solid 1px white;
+	margin-bottom:3px;
+	-moz-border-radius: 2px;
+    border-radius: 2px;
+	}
 
 .hrbreake7e6e7 {
-	background-image: url("../images/hr_e7e6e7.gif");
+	background-image: url("../assets/hr_e7e6e7.gif");
 	background-repeat: repeat-x;
     background-position: left center;
 	width:100%;
@@ -67,7 +113,7 @@
 	clear:both;
 }	
 
-ul,ol {margin-left:30px;}
+ul,ol {margin-left:30px; margin-top:10px; clear:both;}
 a:link,
 a:visited {text-decoration:none;}
 a:hover {text-decoration:underline;}
@@ -81,9 +127,9 @@ h1,h2,h3,h4 {
   text-shadow: 0px 1px 3px #d9d9d9;
 }
 h1 {font-size: 32px;}
-h2 {font-size: 24px; color: #8e7d7e;}
-h3 {font-size: 20px; color: #8e7d7e;}
-h4 {font-size: 20px; color: #8e7d7e;}
+h2 {font-size: 22px; color: #8e7d7e;}
+h3 {font-size: 22px; color: #8e7d7e;}
+h4 {font-size: 22px; color: #8e7d7e;}
 
 .container {max-width:960px; margin-left:auto; margin-right:auto; width:85%}
 
@@ -227,6 +273,25 @@ input[type="submit"]:hover {
   clear:left;
   /*    outline: 0px none;  */
 }
+#document_document_date_1i,
+#document_document_date_2i,
+#document_document_date_3i{
+  width:20%;
+  height: 38px;
+  float:left;
+  margin-right:19px;
+  margin-bottom:10px;
+  border: 1px solid rgb(204, 204, 204);
+  border-radius: 3px;
+  box-shadow: 2px 3px 2px #7e8a9a;
+  font-size: 16px;
+  padding: 6px 7px;
+  /*    outline: 0px none;  */
+}
+
+
+#document_category_id,
+#document_customized_category,
 #document_doc_type,
 #document_language {
   width:45%;
@@ -273,7 +338,8 @@ input[type="submit"]:hover {
 a.button-red,
 a.button-facebook,
 a.button-twitter,
-input[type=submit] {
+input[type=submit],
+input[type=file] {
   border-radius: 3px;
   box-shadow: 0 1px 1px #7e8a9a;
   color: #fff;
