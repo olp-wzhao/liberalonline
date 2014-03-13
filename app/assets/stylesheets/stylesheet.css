@@ -520,7 +520,7 @@ filter: hue-rotate(90deg)
 }
 .threeup {
     width: 32.33%;
-    float: left;
+    float: left; 
     -moz-box-sizing: border-box;
 }
 .threeup img {
