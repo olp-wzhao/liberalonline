@@ -8,11 +8,11 @@
 </ul>
 
 <% @documents.each do |document| %>
-     <%= link_to "Edit this document", edit_admin_document_path(document) %>
-  <%= link_to "Delete this document", admin_document_path(document), method: :delete %>
+
       <!-- <p>ID: <%= document.temp_id %></p> -->
-      <div class="listh1 grey"><%= raw document.headline %></div>
-      <div class="listh2 red"><%= raw document.subtitle %></div>
+      <h1><%= raw document.headline %></h1>
+      <h2><%= raw document.subtitle %></h2>
+	  <%= link_to "Edit this document", edit_admin_document_path(document) %>
+      <%= link_to "Delete this document", admin_document_path(document), method: :delete %>
       <div class="hrbreake7e6e7">&nbsp;</div>
-      <br><br>
 <% end %>

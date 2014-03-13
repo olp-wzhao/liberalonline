@@ -1,14 +1,18 @@
-<ul>
-  <li>
-    <%= link_to 'Admin Home', admin_home_url %>
-  </li>
-  <li>
-    <%= link_to 'New Document', new_admin_document_url %>
-  </li>
-  <li>
-    <%= link_to 'Manage Documents', admin_documents_url %>
-  </li>
-  <li>
-    <%= link_to 'Financials', admin_transactions_url %>
-  </li>
-</ul>
+
+  <div class="adminmenuitem">
+    <h4><%= link_to 'Admin Home', admin_home_url %></h4>
+	<p>Return to the homepage</p>
+  </div>
+  <div class="adminmenuitem">
+    <h4><%= link_to 'New Document', new_admin_document_url %></h4>
+	<p>Add an Article, like a new toolkit document</p>
+  </div>
+  <div class="adminmenuitem">
+    <h4><%= link_to 'Manage Documents', admin_documents_url %></h4>
+	<p>See all the documents in the database</p>
+  </div>
+  <div class="adminmenuitem">
+    <h4><%= link_to 'Financials', admin_transactions_url %></h4>
+	<p>See all recent donations, memberships and ticket sales</p>
+  </div>
+

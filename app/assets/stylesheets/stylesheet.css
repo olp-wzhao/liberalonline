@@ -328,7 +328,7 @@ margin-top:26px;
    padding:0px;
    margin:0px;
    margin-top:6px;
-   background: url(../images/social.jpg);
+   background: url(../assets/social.jpg);
    background-repeat: no-repeat;
    background-position: center top;
 }
@@ -364,12 +364,12 @@ margin-top:26px;
 #socialmediaicons li:hover {
    background-repeat: no-repeat;
 }
-#socialmediaicons li.facebook:hover {background: url("../images/socialovr.jpg");background-position: -2px 0px;}
-#socialmediaicons li.twitter:hover {background: url("../images/socialovr.jpg");background-position: -39px 0px;}
-#socialmediaicons li.flickr:hover {background: url("../images/socialovr.jpg");background-position: -69px 0px;}
-#socialmediaicons li.youtube:hover {background: url("../images/socialovr.jpg");background-position: -99px 0px;}
-#socialmediaicons li.fred:hover {background: url("../images/socialovr.jpg");background-position: -129px 0px;}
-#socialmediaicons li.linkedin:hover {background: url("../images/socialovr.jpg");background-position: -159px 0px;}
+#socialmediaicons li.facebook:hover {background: url("../assets/socialovr.jpg");background-position: -2px 0px;}
+#socialmediaicons li.twitter:hover {background: url("../assets/socialovr.jpg");background-position: -39px 0px;}
+#socialmediaicons li.flickr:hover {background: url("../assets/socialovr.jpg");background-position: -69px 0px;}
+#socialmediaicons li.youtube:hover {background: url("../assets/socialovr.jpg");background-position: -99px 0px;}
+#socialmediaicons li.fred:hover {background: url("../assets/socialovr.jpg");background-position: -129px 0px;}
+#socialmediaicons li.linkedin:hover {background: url("../assets/socialovr.jpg");background-position: -159px 0px;}
 
 
 		 
@@ -379,12 +379,12 @@ margin-top:26px;
 /*----------------------*/	
 
 .dropshadow {
-   background-image:url("../images/dropshadow.png");
+   background-image:url("../assets/box-shadow-960.png");
    background-position:center top;
    background-size:99%;
    background-repeat:no-repeat;
    min-height:20px;
-   height:20px;
+   height:40px;
    width:100%;
    clear:both;
    display:block;
@@ -533,9 +533,9 @@ filter: hue-rotate(90deg)
 .threeup + .threeup {margin-left:1.3%;}
 
 .col5 > h1 {
-    font-family: 'Droid sans',sans-serif;
+    font-family: 'Oswald',sans-serif;
     font-weight: 400;
-    font-size: 22px;
+    font-size: 20px;
     letter-spacing: 0.02em;
     line-height: 103%;
     color: #FFF;	

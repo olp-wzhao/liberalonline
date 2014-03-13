@@ -17,15 +17,29 @@
 
 </head>
 <body>
-  <div class="container">
-    <h1>Webservice Version 7.0 BETA</h1>
-    <% if admin_signed_in? %>
+<div class="wholepagebacker"> 
+<div class="wholepagecontainer">  
+  
+  <div id="adminmenu">
+     <h2 class="tiny">Website Manager version x beta</h2>
+      <% if admin_signed_in? %>
         <%= render '/shared/admin_menu' %>
     <% end %>
+  </div>	
+	
+<div style="float:left; width:76%;"> 
+  <div class="container">
+    <h1 class="white">LCSB Website Managaer X</h1>
+
     <%= yield %>
 
   </div>
+</div>  
 
   <%= yield :scripts_for_body %>
+  
+  <div style="clear:both; display:block;">
+</div><!-- close wholepagebacker -->
+</div><!-- close wholepagecontainer -->
 </body>
 </html>
