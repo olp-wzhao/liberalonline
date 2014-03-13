@@ -25,25 +25,6 @@
   </head>
 
     <body>
-        <script>
-            $(document).ready(function(){
-                function init(){
-                    $("#content").html("Welcome!")
-                    FB.init({
-                        appId  : '173872612791834',
-                        status : true,
-                        cookie : true,
-                        xfbml  : true
-                    });
-                }
-
-                if(window.FB) {
-                    init();
-                } else {
-                    window.fbAsyncInit = init;
-                }
-            });
-        </script>
         <%= render 'shared/modal' %>
 
         <div id="logpanel">
