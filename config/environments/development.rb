@@ -2,16 +2,16 @@ V44::Application.configure do
   config.action_mailer.smtp_settings = {
     address: "smtp.mandrillapp.com",
     port: 587,
-    domain: "localhost:3000",
+    domain: "https://secureolp.liberalonline.ca",
     authentication: "plain",
     enable_starttls_auto: true, # detects and uses STARTTLS
-    user_name: "app18320422@heroku.com",
-    password: "INRldA5GpP0IFiy9bMfNxg"
+    user_name: "jessenaiman@gmail.com",
+    password: ENV['EMAIL_PASSWORD']
   }
 
   #BetterErrors::Middleware.allow_ip! "10.0.2.2"
   
-  config.action_mailer.default_url_options = {host: "localhost:3000"}
+  config.action_mailer.default_url_options = {host: "https://secureolp.liberalonline.ca"}
   # Settings specified here will take precedence over those in config/application.rb.
 
   # In the development environment your application's code is reloaded on

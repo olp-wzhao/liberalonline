@@ -3,7 +3,7 @@
 <%= link_to 'Sign in with facebook', user_omniauth_authorize_path(:facebook), id: 'sign_in', class: 'popup facebook_sign_in', data: { width: 600, height: 400} %>
 
 <%= simple_form_for(resource, :as => resource_name, :url => session_path(resource_name), :html => {:class => 'form-vertical' }, remote: true) do |f| %>
-    <%= f.input :email, :autofocus => true, :class => 'rounded', placeholder: 'Enter Email', label: false %>
+    <%= f.input :email, :autofocus => true, :class => 'rounded', placeholder: 'Enter Email', label: false, data: {tip: 'Enter your email'} %>
     <%= f.input :password, label: false, placeholder: 'Password' %>
     <%= f.input :remember_me, :as => :boolean %>
     <%= f.button :submit, 'Sign in', class: 'btn-primary' %>
