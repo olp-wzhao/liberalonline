@@ -1,2 +1,14 @@
 console.log('new.js');
-$('.modal-body').html('<%= escape_javascript render("form") %>');
+vex.open({
+
+    content: '<%= j (render('form')) %>',
+
+    afterOpen: function($vexContent) {
+        return $vexContent.append($el);
+    },
+
+    afterClose: function() {
+        return console.log('vexClose');
+    }
+
+});

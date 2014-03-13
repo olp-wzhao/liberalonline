@@ -1,7 +1,7 @@
 console.log('attachments/create.js');
 <% if @attachment.valid? %>
+    vex.close();
     $("#attachments").append("<%= j render @attachment %>");
-    $("#myModal").modal('hide');
     $("#document_id").val('<%= @document.id %>');
 <% else %>
     $('.error').html('');
