@@ -5,7 +5,7 @@ vex.close();
 function showRegistrationForm(){
     vex.open({
 
-        content: '<%= j (render partial: 'users/registrations/form', user: @user) %>',
+        content: '<%= j (render partial: 'users/registrations/edit_form', user: @user) %>',
 
         afterOpen: function($vexContent) {
             return $vexContent.append($el);

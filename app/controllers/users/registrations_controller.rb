@@ -20,8 +20,14 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   def create
     build_resource(sign_up_params)
-    riding = Riding.find_by(riding_id: sign_up_params['riding_id'])
-    resource.riding = riding
+
+    #check and assign riding
+    if sign_up_params['riding_id']
+      riding = Riding.find_by(riding_id: sign_up_params['riding_id'])
+      resource.riding = riding
+    end
+
+    #attempt to save new user
     if resource.save
       if resource.active_for_authentication?
         set_flash_message :notice, :signed_up if is_navigational_format?
@@ -39,7 +45,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
         end
       end
     else
-      #incomplete user profile
+      #facebook authentication creates an incomplete profile and so the user must be informed that their account is missing information
       clean_up_passwords resource
       respond_to do |format|
         format.html { redirect_to new_user_registration_path(resource) }

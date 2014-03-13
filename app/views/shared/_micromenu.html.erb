@@ -16,9 +16,9 @@
           <% end %>
           <li><%= link_to 'Edit Profile', edit_user_registration_url, id: current_user.id, remote: true %></li>
           <li><a href="#2">History</a></li>
-          <% if current_user.roles.include? 'toolkit' %>
+          <%# if current_user.roles.include? 'toolkit' %>
               <li><%= link_to 'Toolkit', toolkit_path %></li>
-          <% end %>
+          <%# end %>
           <li class="dropdown-divider"></li>
           <li><%= link_to 'Logout', destroy_user_session_path, method: :delete, remote: true %></li>
         </ul>

@@ -4,11 +4,6 @@ $('.notice').remove();
 $('#micromenu_placeholder').html('<%= j render '/shared/micromenu' %>');
 
 <% if flash[:notice] %>
-    notif({
-        type: "info",
-        msg: "#{flash[:notice]}",
-        width: "all",
-        height: 100,
-        position: "center"
-    });
+    <% binding.pry %>
+    UnobtrusiveFlash.showFlashMessage('<%= flash[:notice] %>', {type: 'notice'})
 <% end %>

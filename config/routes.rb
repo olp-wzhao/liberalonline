@@ -194,6 +194,9 @@ V44::Application.routes.draw do
       resources :attachments
     end
     resources :transactions
+    resources :users do
+    end
+    get 'search/users' => 'users#search'
     get 'home' => 'home#home'
     get 'transactions' => 'transactions#admin_index'
     get 'transaction_scopes/:id' => 'transactions#scopes'

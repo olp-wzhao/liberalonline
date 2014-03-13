@@ -9,14 +9,14 @@ module NewsExtras
   
   def prepare_menu_photo
   	photo = nil 
-  	photos = Photo.where({riding_id: 0, published: true}).order_by(:created_date.desc)
+  	photos = Photo.where({riding_id: 0, published: true}).order_by(:created_date.desc).limit(10)
 	if photos != nil && photos.length > 0 then photo = photos[0] end 
 	photo 
   end 
   
   def prepare_menu_video
   	video = nil 
-  	videos = Video.where(:riding_id => 0, :published => true, language: @language).order_by(:created_date.desc)
+  	videos = Video.where(:riding_id => 0, :published => true, language: @language).order_by(:created_date.desc).limit(5)
 	if videos != nil && videos.length > 0 then video = videos[0] end 
 	video
   end

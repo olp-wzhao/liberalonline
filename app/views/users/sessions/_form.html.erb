@@ -1,13 +1,11 @@
 <h2>Sign in</h2>
-
-<%= javascript_include_tag 'facebook' %>
-
-<%= link_to 'Sign in with facebook', user_omniauth_authorize_path(:facebook), id: 'sign_in', class: 'popup', data: { width: 600, height: 400} %>
+<%= javascript_include_tag 'facebook-modal' %>
+<%= link_to 'Sign in with facebook', user_omniauth_authorize_path(:facebook), id: 'sign_in', class: 'popup facebook_sign_in', data: { width: 600, height: 400} %>
 
 <%= simple_form_for(resource, :as => resource_name, :url => session_path(resource_name), :html => {:class => 'form-vertical' }, remote: true) do |f| %>
-    <%= f.input :email, :autofocus => true, :class => 'rounded' %>
-    <%= f.input :password %>
-    <%= f.input :remember_me, :as => :boolean, :wrapper => :inline_checkbox if devise_mapping.rememberable? %>
+    <%= f.input :email, :autofocus => true, :class => 'rounded', placeholder: 'Enter Email', label: false %>
+    <%= f.input :password, label: false, placeholder: 'Password' %>
+    <%= f.input :remember_me, :as => :boolean %>
     <%= f.button :submit, 'Sign in', class: 'btn-primary' %>
     <div id="errors"></div>
     <%= devise_error_messages!%>

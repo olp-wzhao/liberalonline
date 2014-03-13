@@ -24,6 +24,7 @@
 //= require main
 //= require unobtrusive_flash
 //= require unobtrusive_flash_ui
+//= require facebook
 
 //= require turbolinks
 // require_tree .

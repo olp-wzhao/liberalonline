@@ -9,7 +9,7 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
       sign_in_and_redirect @user
     else
       #this user has never signed in before using
-      flash[:notice] = "<p>Thank you for creating an account</p><a href='/users/'#{@user.slug}>Click here to complete your profile</a>"
+      flash[:notice] = "Thank you for creating an account, please visit your profile to complete registration"
       sign_in @user
       respond_to do |format|
         format.html { redirect_to root_url }

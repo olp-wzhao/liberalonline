@@ -4,6 +4,7 @@ class User
   include Mongoid::Slug
   include User::AuthDefinitions
   include User::Roles
+  include Mongoid::Search
   include Geocoder::Model::Mongoid
 
   mount_uploader :image, ImageUploader
@@ -144,4 +145,6 @@ class User
   end
 
   slug :full_name, history: true
+
+  search_in :first_name, :last_name, :email
 end
