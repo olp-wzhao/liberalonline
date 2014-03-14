@@ -1,3 +1,5 @@
+<div class="main">
+
 <% if current_user.nil? %>
 	<h1> New volunteer </h1>
 <% else %>
@@ -5,3 +7,9 @@
 <% end %>
 
 <%= render 'form' %>
+
+<div style="clear:both; display:block;">&nbsp;</div>
+
+</div>
+<div style="clear:both; display:block;">&nbsp;</div>
+<% content_for :backgroundclass do %>join<% end %>	

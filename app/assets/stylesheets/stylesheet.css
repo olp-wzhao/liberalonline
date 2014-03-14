@@ -142,8 +142,8 @@ h1,h2,h3,h4,h5,h6,listh1  {
 	padding:0px;
 	font-size:2.4em;
 	}
-h1 { color:#5c4a4a; line-height:102;}
-h2 {color:#8e7d7e; line-height:102px;}
+h1 { color:#5c4a4a; line-height:102%;}
+h2 {color:#8e7d7e; line-height:102%;}
 .listh1 {}
 .listright > h1, .listright > h2 {font-size:1.2em;}
 
@@ -236,10 +236,12 @@ h2 + h1 {padding-top:20px;}
 /* container. 'Wynne' is one of the background
 /* classes that get added */ 
 
-	margin-left:auto;
+/*	margin-left:auto; 
 	margin-right:auto;
-	max-width:1100px;
+	max-width:1100px; */ 
 	
+	width:100%;
+	margin-bottom:-20px;
 }
 .default {
     background-image: url("pageimageholderdefault.jpg");
@@ -247,11 +249,16 @@ h2 + h1 {padding-top:20px;}
     background-position: center bottom;	
 
 }
-.wynne {    
-    background-image: url("aboutus.jpg");
+.wynne {     
+    background-image: url("bg_imagecontainer.jpg");
     background-repeat: no-repeat;
     background-position: right bottom;
 	}
+.join {    
+    background-image: url("bg_container_join.jpg");
+    background-repeat: no-repeat;
+    background-position: 140% bottom;
+	}	
 
 #footer {
     background-color: #db080e;
@@ -297,7 +304,7 @@ h2 + h1 {padding-top:20px;}
 	position:static;
 	top:400px;
 	padding-top:50px;
-		border:solid 1px yellow;
+		border:solid 1px beige;
 }
 
 .clear {display:block; clear:both;}
@@ -648,12 +655,14 @@ input[type="submit"]:hover {
 #user_birthday_2i,
 #user_birthday_3i {
     height: 30px;
-	margin-right:19px;
+	margin-right:8px;
 	margin-bottom:10px;
     border: 1px solid rgb(204, 204, 204);
     border-radius: 2px;
     box-shadow: 2px 3px 2px #7e8a9a;
     padding: 6px 7px;
+	font-size:15px;
+	line-height:15px;
 }
 
 
@@ -686,6 +695,10 @@ textarea:focus {
     background-color:#f84241;
 }
 
+
+.photolist {width:100% border:solid 1px black;}
+#imageholder {margin-right:20px;}
+.photolist.div > h3 {font-size:10px;}
 
 .logo {position:relative; top:-5px; z-index:888; width:250px; margin-left:16px;}
 .mgmenu {clear:right;}
