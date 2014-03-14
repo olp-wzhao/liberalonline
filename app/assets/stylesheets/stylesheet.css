@@ -135,16 +135,16 @@ body {
 	background-color:#e5e5e6;  
 	font-size:0.9em;
 }
-h1,h2,h3,h4,h5,h6  {	
+h1,h2,h3,h4,h5,h6,listh1  {	
     font-weight:400;
 	font-family: 'Roboto Condensed', sans-serif;
 	margin:0px;
 	padding:0px;
 	font-size:2.4em;
 	}
-h1 { color:#5c4a4a; line-height:102%px;}
-h2 {color:#8e7d7e; line-height:102%px;}
-
+h1 { color:#5c4a4a; line-height:102;}
+h2 {color:#8e7d7e; line-height:102px;}
+.listh1 {}
 .listright > h1, .listright > h2 {font-size:1.2em;}
 
 
@@ -554,8 +554,137 @@ a.reverse:link,a.reverse:hover,a.reverse:visited {
 	 text-decoration:none;
 	 }
 a.reverse:hover {text-decoration:underline;}	 
-#sitemenusecondary {margin-left:20px;}
+
 .mobile {display:none;}
+
+
+/* Facebook Button */
+
+.facebook_sign_in {
+    height: 52px;
+    padding: 0 18px 0 62px;
+    line-height: 50px;
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+    font-size: 16px;
+    font-family: "HelveticaNeueMedium", "HelveticaNeue-Medium", "Helvetica Neue Medium", "HelveticaNeue", "Helvetica Neue", 'TeXGyreHerosRegular', "Helvetica", "Tahoma", "Geneva", "Arial", sans-serif;
+    font-weight: 500;
+    font-stretch: normal;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    margin-bottom:8px;
+    color: #f1f1f1;
+    text-shadow: 0 1px #173B86;
+    border: 1px solid transparent;
+    background: #4D78CE;
+    background: -moz-linear-gradient(top,  #4D78CE 0%, #456fa7 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#4D78CE), color-stop(100%, #456fa7)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top,  #4D78CE 0%, #456fa7 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top, #4D78CE 0%, #456fa7 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top, #4D78CE 0%, #456fa7 100%); /* IE10+ */
+    background: linear-gradient(to bottom, #4D78CE 0%, #456fa7 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#4D78CE', endColorstr='#456fa7',GradientType=0 ); /* IE6-9 */
+}
+.facebook_sign_in:hover {
+    border: 1px solid #225DD8;
+    background: #356AB1;
+    background: -moz-linear-gradient(top,  #4D78CE 0%, #356AB1 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#4D78CE), color-stop(100%, #356AB1)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top,  #4D78CE 0%, #356AB1 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top, #4D78CE 0%, #356AB1 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top, #4D78CE 0%, #356AB1 100%); /* IE10+ */
+    background: linear-gradient(to bottom, #4D78CE 0%, #356AB1 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#4D78CE', endColorstr='#356AB1',GradientType=0 ); /* IE6-9 */
+}
+.facebook_sign_in:active {
+    border: 1px solid #18294D;
+    box-shadow: 0 1px 1px rgba(255, 255, 255, .2);
+}
+
+#sign_in.facebook_sign_in:after {
+    height: 48px;
+    width: 48px;
+    position: absolute;
+    left: 2px;
+    top: 1px;
+	content: " ";
+    background: url('https://secureolp.liberalonline.ca/assets/f.png') no-repeat;
+    border-right: 1px solid #5272AA;
+}
+#sign_in.a.facebook_sign_in {text-decoration:none;}
+
+input[type="submit"] {
+    background: -moz-linear-gradient(center top , rgb(203, 32, 39), rgb(160, 23, 28)) repeat scroll 0% 0% transparent;
+    border: 1px solid rgb(160, 23, 28);
+    margin-top: 5px;
+	margin-bottom:20px;
+	width:160px;		
+}
+input[type="submit"] {
+    border-radius: 3px;
+    box-shadow: 0px 1px 1px rgb(50, 50, 50);
+    color: rgb(255, 255, 255);
+    display: inline-block;
+    font-size: 16px;
+    margin: 0px 0.8rem 2rem 0px;
+    padding: 0.8rem 1.1rem;
+    text-align: center;
+    text-decoration: none;
+
+}
+input[type="submit"]:hover {
+  background-color: #cb2027;
+  /* fallback color */
+  background: -moz-linear-gradient(top, #a0171c, #cb2027);
+  background: -ms-linear-gradient(top, #a0171c, #cb2027);
+  background: -webkit-linear-gradient(top, #a0171c, #cb2027); 
+  }
+
+#user_birthday_1i,
+#user_birthday_2i,
+#user_birthday_3i {
+    height: 30px;
+	margin-right:19px;
+	margin-bottom:10px;
+    border: 1px solid rgb(204, 204, 204);
+    border-radius: 2px;
+    box-shadow: 2px 3px 2px #7e8a9a;
+    padding: 6px 7px;
+}
+
+
+input[type=text],
+input[type=email],
+input[type=url],
+input[type=password],
+input[type=tel],
+textarea { 
+    height: 30px;
+	margin-right:19px;
+	margin-bottom:10px;
+    border: 1px solid rgb(204, 204, 204);
+    border-radius: 2px;
+    box-shadow: 2px 3px 2px #7e8a9a;
+    font-size: 16px;
+    padding: 6px 7px;
+	width:70%;
+}
+input[type=text]:focus,
+input[type=email]:focus,
+input[type=url]:focus,
+input[type=password]:focus,
+input[type=tel]:focus,
+textarea:focus { 
+    border-color:#f84241;
+}
+#user_email_validation {
+	color:#fff;
+    background-color:#f84241;
+}
 
 
 .logo {position:relative; top:-5px; z-index:888; width:250px; margin-left:16px;}
