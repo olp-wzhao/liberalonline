@@ -1,11 +1,8 @@
-<h1>
-  <%= t('volunteer') %>
-</h1>
-<p style="width:420px;">
+<h1><%= t('volunteer') %></h1>
+
   <%= t("volunteer_heading", :riding_name => (current_user.nil? ? "" : current_user.riding.title)) %>
-</p>
-<br/>
-<br/>
+
+
 <p>
   <%= t("volunteer_second_paragraph") %>
 </p>
@@ -45,26 +42,19 @@
     <%= raw(current_user.first_name + ' ' + current_user.last_name) %>
     <br/>
   </p>
-  <p>
-    <%= current_user.address %>
-  </p>
-  <p>
-    <%= current_user.postal_code %>
-  </p>
-  <p>
-    <%= current_user.city %>
-  </p>
-  <p>
-    <%= current_user.phone_number %>
-  </p>
-  <p></p>
-  <%= current_user.email %>
-  <p style="width:420px;">We’ll email you with some opportunities. But If you have a moment now, please help us by filling in your skills so we know how to maximize your skills.</p>
-  <br/>
+  <p><%= current_user.address %></p>
+  <p><%= current_user.postal_code %></p>
+  <p><%= current_user.city %></p>
+  <p><%= current_user.phone_number %></p>
+  <p><%= current_user.email %></p>
+  <p>If you have a moment now, please help us by filling in your skills so we know how to maximize your skills.</p>
+
+
   <h2>Skills Survey</h2>
-  <br/>
-  <p>Campaigns will always need people to canvass and work the phones, but it doesn’t end there. If you’re interested in dedicating your special talents to a good cause you can start by letting us know what you’re good at - we may have some special projects for you to consider.</p>
-  <br/>
+  <p>Campaigns will always need people to canvass and work the phones, but it doesn’t end there. If 
+     you’re interested in dedicating your special talents to a good cause you can start by letting 
+	us know what you’re good at - we may have some special projects for you to consider.</p>
+
   <%= render 'extended' %>
 <% end %>
 <div style="display:block; clear:both;"></div>
