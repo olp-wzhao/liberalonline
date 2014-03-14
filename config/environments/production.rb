@@ -78,14 +78,14 @@ V44::Application.configure do
   # Use default logging formatter so that PID and timestamp are not suppressed.
   config.log_formatter = ::Logger::Formatter.new
 
-  config.action_mailer.smtp_settings = {
-    address: "smtp.mandrillapp.com",
-    port: 587,
-    domain: "hidden-journey-6062.herokuapp.com",
-    authentication: "plain",
-    enable_starttls_auto: true, # detects and uses STARTTLS
-    user_name: "app18320422@heroku.com",
-    password: "INRldA5GpP0IFiy9bMfNxg"
+  config.action_mailer.smtp_settings ={
+      address: "smtp.mandrillapp.com",
+      port: 587,
+      domain: "https://secureolp.liberalonline.ca",
+      authentication: "plain",
+      enable_starttls_auto: true, # detects and uses STARTTLS
+      user_name: "jessenaiman@gmail.com",
+      password: ENV['EMAIL_PASSWORD']
   }
-  config.action_mailer.default_url_options = {host: "hidden-journey-6062.herokuapp.com"}
+  config.action_mailer.default_url_options = {host: "https://secureolp.liberalonline.ca"}
 end

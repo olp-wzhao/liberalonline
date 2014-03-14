@@ -133,13 +133,13 @@ LINE 120 - Top Level Menu Font parameters
 			outline:none;
 		}
 		.mgmenu > li .mgmenu_drop {
-			background-image:url("images/downArrow.png");
+			background-image:url("downArrow.png");
 			background-repeat: no-repeat;
 			background-position:right 19px;
 			padding-right:20px;
 		}
 		.mgmenu_footer .mgmenu > li .mgmenu_drop {
-			background-image:url("images/upArrow.png");
+			background-image:url("upArrow.png");
 		}
 		.mgmenu > li.right_item {
 			float:right;
@@ -157,7 +157,7 @@ LINE 120 - Top Level Menu Font parameters
 			transition: none;
 			font-weight: bold;
 			background-color:#635857; /* dark swatch background color of megamenu in responsive mode pre-click */
-			background-image:url("images/toggle.png");
+			background-image:url("toggle.png");
 			background-repeat: no-repeat;
 			background-position:96% 10px;
 			line-height:12px;
@@ -187,21 +187,21 @@ LINE 120 - Top Level Menu Font parameters
 }
 .mgmenu_trigger {
 	top: 0; 
-	background-image:url("../images/button_up.png");
+	background-image:url("button_up.png");
 	background-position:center center;
 	background-repeat:no-repeat;
 	background-color: #121212;
 }
 .mgmenu_trigger.active {
-	background-image:url("../images/button_down.png");
+	background-image:url("button_down.png");
 }
 .mgmenu_footer ~ .mgmenu_trigger {
 	top:auto;
 	bottom: 0; 
-	background-image:url("../images/button_down.png");
+	background-image:url("button_down.png");
 }
 .mgmenu_footer ~ .mgmenu_trigger.active {
-	background-image:url("../images/button_up.png");
+	background-image:url("button_up.png");
 }
 
 
@@ -468,10 +468,10 @@ LINE 120 - Top Level Menu Font parameters
 	right:100%;
 }
 .mgmenu .dropdown_flyout .dropdown_parent {
-	background:url("images/rightArrow.png") no-repeat 90% 9px;
+	background:url("rightArrow.png") no-repeat 90% 9px;
 }
 .mgmenu .dropdown_flyout .dropdown_parent_left {
-	background:url("images/img/leftArrow.png") no-repeat 90% 9px;
+	background:url("leftArrow.png") no-repeat 90% 9px;
 }
 .mgmenu .dropdown_flyout li:hover > .dropdown_flyout_level,
 .mgmenu .dropdown_flyout li:hover > .dropdown_flyout_level_left {
@@ -736,7 +736,7 @@ LINE 120 - Top Level Menu Font parameters
 
 
 .mgmenu .mini_icon {
-    background-image: url("images/icons/mini-icons-white.png");
+    background-image: url("mini-icons-white.png");
 	background-repeat: no-repeat;
 	margin-top: -2px;
 	padding-left: 6px;
@@ -840,19 +840,19 @@ LINE 120 - Top Level Menu Font parameters
 	height: 24px;
 }
 .mgmenu .icon_vimeo {
-    background-image: url("images/icon_vimeo.png");
+    background-image: url("icon_vimeo.png");
 }
 .mgmenu .icon_dribbble {
-    background-image: url("images/icon_dribbble.png");
+    background-image: url("icon_dribbble.png");
 }
 .mgmenu .icon_twitter {
-    background-image: url("images/icon_twitter.png");
+    background-image: url("icon_twitter.png");
 }
 .mgmenu .icon_facebook {
-    background-image: url("images/icons/icon_facebook.png");
+    background-image: url("icon_facebook.png");
 }
 .mgmenu .icon_flickr {
-    background-image: url("images/icons/icon_flickr.png");
+    background-image: url("icon_flickr.png");
 }
 
 
@@ -1291,7 +1291,7 @@ LINE 120 - Top Level Menu Font parameters
 		padding: 6px 0 6px 0;
 	}
 	.mgmenu li .dropdown_flyout .dropdown_parent {
-		background:url("../img/downArrow-b.png") no-repeat 98% 14px;
+		background:url("downArrow-b.png") no-repeat 98% 14px;
 	}
 
 	/* Tabs */
@@ -1354,44 +1354,44 @@ LINE 120 - Top Level Menu Font parameters
 
 	.mgmenu > li .mgmenu_drop {
 		background-size: 9px 5px;
-		background-image:url("images/downArrow@2x.png");
+		background-image:url("downArrow@2x.png");
 	}
 	.mgmenu_footer .mgmenu > li .mgmenu_drop {
 		background-size: 9px 5px;
-		background-image:url("images/upArrow@2x.png");
+		background-image:url("upArrow@2x.png");
 	}
 	.mgmenu_container > .mgmenu > li.mgmenu_button,
 	.mgmenu_fixed > .mgmenu > li.mgmenu_button,
 	.mgmenu_footer > .mgmenu > li.mgmenu_button {
 		background-size: 24px 24px;
-		background-image:url("images/toggle@2x.png");
+		background-image:url("toggle@2x.png");
 	}
 	.mgmenu_trigger {
 		background-size: 35px 35px;
-		background-image:url("images/button_up@2x.png");
+		background-image:url("button_up@2x.png");
 	}
 	.mgmenu_trigger.active {
 		background-size: 35px 35px;
-		background-image:url("images/button_down@2x.png");
+		background-image:url("button_down@2x.png");
 	}
 	.mgmenu_footer ~ .mgmenu_trigger {
 		background-size: 35px 35px;
-		background-image:url("images/button_down@2x.png");
+		background-image:url("button_down@2x.png");
 	}
 	.mgmenu_footer ~ .mgmenu_trigger.active {
 		background-size: 35px 35px;
-		background-image:url("images/button_up@2x.png");
+		background-image:url("button_up@2x.png");
 	}
 	.mgmenu .dropdown_flyout .dropdown_parent {
 		background-size: 5px 9px;
-		background-image:url("images/rightArrow@2x.png");
+		background-image:url("rightArrow@2x.png");
 	}
 	.mgmenu .dropdown_flyout .dropdown_parent_left {
 		background-size: 5px 9px;
-		background-image:url("images/leftArrow@2x.png");
+		background-image:url("leftArrow@2x.png");
 	}
 	.mgmenu .mini_icon {
-	    background-image: url("../img/icons/mini-icons-white@2x.png");
+	    background-image: url("mini-icons-white@2x.png");
 		background-repeat: no-repeat;
 		background-size: 304px 144px;
 	}
@@ -1400,19 +1400,19 @@ LINE 120 - Top Level Menu Font parameters
 		background-size: 24px 24px;
 	}
 	.mgmenu .icon_vimeo {
-	    background-image: url("images/icon_vimeo@2x.png");
+	    background-image: url("icon_vimeo@2x.png");
 	}
 	.mgmenu .icon_dribbble {
-	    background-image: url("images/icons/icon_dribbble@2x.png");
+	    background-image: url("icon_dribbble@2x.png");
 	}
 	.mgmenu .icon_twitter {
-	    background-image: url("images/icons/icon_twitter@2x.png");
+	    background-image: url("icon_twitter@2x.png");
 	}
 	.mgmenu .icon_facebook {
-	    background-image: url("images/icons/icon_facebook@2x.png");
+	    background-image: url("icon_facebook@2x.png");
 	}
 	.mgmenu .icon_flickr {
-	    background-image: url("images/icons/icon_flickr@2x.png");
+	    background-image: url("icon_flickr@2x.png");
 	}
 
 
@@ -1423,7 +1423,7 @@ LINE 120 - Top Level Menu Font parameters
 
 	.mgmenu li .dropdown_flyout .dropdown_parent {
 		background-size: 9px 5px;
-		background-image:url("images/downArrow-b@2x.png");
+		background-image:url("downArrow-b@2x.png");
 	}
 
 
