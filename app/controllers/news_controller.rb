@@ -22,7 +22,6 @@ class NewsController < ApplicationController
 					#							.between(riding_id: -6..0)
 					#							.gt(expiry_date: DateTime.now)
 					#							.order_by(:id.desc)
-        #binding.pry
         @current_document = Document.find params[:id]
 			rescue ActiveRecord::RecordNotFound
 				redirect_to '/news?l=' + @language

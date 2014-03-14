@@ -1,3 +1,9 @@
+<% content_for :scripts_for_header do %>
+   <!-- Flexslider Lib   -->
+    <%= stylesheet_link_tag 'jquery.flexslider.js' %><!-- Homepage only -->
+    <%= stylesheet_link_tag 'flexslider.css' %>
+<% end %>
+
 <% content_for :enews_subscribe do %>
 <% end %>
 
@@ -83,23 +89,11 @@
             <div class="clearright"></div>
         <% end %>
     <% end %>
-	
-	
-	
-	
-	
-	
-	
-	
-	
+
 </div><!-- closes columns -->
 
 <div style="clear:both;">&nbsp;</div>
 
-
-<!-- FlexSlider -->
-
-    <%= javascript_include_tag "jquery.flexslider.js" %>
 
     <script type="text/javascript">
     // $(function(){

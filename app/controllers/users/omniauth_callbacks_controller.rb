@@ -4,6 +4,7 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
     identity = Identity.from_omniauth(request.env["omniauth.auth"])
     @user = identity.find_or_create_user(current_user)
     #a completely valid user has already registered previously
+
     if @user.valid?
       flash.notice = 'Welcome back to the Ontario Liberal Website'
       sign_in_and_redirect @user

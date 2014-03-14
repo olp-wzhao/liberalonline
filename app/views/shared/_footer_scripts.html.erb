@@ -57,23 +57,6 @@
         fontRatio : 30
     });
 
-    <!-- FlexSlider -->
-
-    // $(function(){
-    //   SyntaxHighlighter.all();
-    // });
-    $(window).load(function(){
-        $('.flexslider').flexslider({
-            controlNav: false,
-            touch: true,
-            pauseOnAction: true,
-            animation: "slide",
-            start: function(slider){
-                $('body').removeClass('loading');
-            }
-        });
-    });
-
     <!-- emailpopout -->
     $("#emailpopout").click(function(){
         if($("#emailpopout").css('left') == '-240px'){

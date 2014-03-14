@@ -3,7 +3,7 @@
         <%= image_tag current_user.identities.first.image %>
    <% end %>
 <% end %>
-<%= javascript_include_tag 'facebook-modal' %>
+
 <%= link_to 'Sign in with facebook', user_omniauth_authorize_path(:facebook), id: 'sign_in', class: 'popup facebook_sign_in', data: { width: 600, height: 400} %>
 
 <%= simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name), :remote => true) do |f| %>
@@ -30,3 +30,20 @@
 <% end %>
 
 <%= render 'users/shared/links' %>
+
+<%= content_for :scripts_for_header do %>
+
+    <script>
+        function popupCenter(url, width, height, name) {
+            var left = (screen.width/2)-(width/2);
+            var top = (screen.height/2)-(height/2);
+            return window.open(url, name, "menubar=no,toolbar=no,status=no,width="+width+",height="+height+",toolbar=no,left="+left+",top="+top);
+        }
+
+        $("a.popup").click(function(e) {
+            vex.hide();
+            popupCenter($(this).attr("href"), $(this).attr("data-width"), $(this).attr("data-height"), "authPopup");
+            e.stopPropagation(); return false;
+        });
+    </script>
+<% end %>

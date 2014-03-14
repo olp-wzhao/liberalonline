@@ -17,15 +17,12 @@
 
     <%= render partial: 'shared/header_scripts' %>
 
-    <!-- Flexslider Lib   -->
-    <%= stylesheet_link_tag 'jquery.flexslider.js' %><!-- Homepage only -->
-    <%= stylesheet_link_tag 'flexslider.css' %>
-
     <%= yield :scripts_for_header %>
+
   </head>
 
     <body>
-        <%= render 'shared/modal' %>
+        <%= render partial: 'shared/facebook_login_button' %>
 
         <div id="logpanel">
            <div class="container">

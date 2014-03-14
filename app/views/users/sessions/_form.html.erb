@@ -1,5 +1,5 @@
 <h2>Sign in</h2>
-<%= javascript_include_tag 'facebook-modal' %>
+<%#= javascript_include_tag 'facebook-modal' %>
 <%= link_to 'Sign in with facebook', user_omniauth_authorize_path(:facebook), id: 'sign_in', class: 'popup facebook_sign_in', data: { width: 600, height: 400} %>
 
 <%= simple_form_for(resource, :as => resource_name, :url => session_path(resource_name), :html => {:class => 'form-vertical' }, remote: true) do |f| %>
@@ -28,3 +28,5 @@
         });
     </script>
 <% end %>
+
+<%= render 'shared/modal' %>
