@@ -190,6 +190,8 @@ V44::Application.routes.draw do
   devise_for :admins, controllers: { sessions: 'admins/sessions' }
 
   namespace :admin do
+
+    get '/' => 'home#home'
     resources :documents do
       resources :attachments
     end
