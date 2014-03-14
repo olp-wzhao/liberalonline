@@ -141,7 +141,7 @@ class User
 
   def age
     now = Time.now.utc.to_date
-    unless self.birthday.null?
+    unless self.birthday.nil?
       now.year - self.birthday.year - (self.birthday.to_date.change(:year => now.year) > now ? 1 : 0)
     end
   end
