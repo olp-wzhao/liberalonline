@@ -659,7 +659,6 @@ input[type="submit"]:hover {
 	margin-bottom:10px;
     border: 1px solid rgb(204, 204, 204);
     border-radius: 2px;
-    box-shadow: 2px 3px 2px #7e8a9a;
     padding: 6px 7px;
 	font-size:15px;
 	line-height:15px;
@@ -672,12 +671,11 @@ input[type=url],
 input[type=password],
 input[type=tel],
 textarea { 
-    height: 30px;
+    height: 33px;
 	margin-right:19px;
 	margin-bottom:10px;
     border: 1px solid rgb(204, 204, 204);
     border-radius: 2px;
-    box-shadow: 2px 3px 2px #7e8a9a;
     font-size: 16px;
     padding: 6px 7px;
 	width:70%;
@@ -696,13 +694,35 @@ textarea:focus {
 }
 
 
-.photolist {width:100% border:solid 1px black;}
-#imageholder {margin-right:20px;}
-.photolist.div > h3 {font-size:10px;}
+/* ------------------------------------------------------*/
+/* -----------  VEX Cascade overwrites ------------------*/
+/* ------------------------------------------------------*/
 
+.vex.vex-theme-flat-attack .vex-content { border-radius: 1%; background-color:#e6e6e6; box-shadow: 0 3px 2px rgba(0, 0, 0, 0.3);}
+.vex.vex-theme-flat-attack .vex-close {top:10px; right:10px;}
+.vex.vex-theme-flat-attack .vex-close:before {box-shadow: 0 3px 2px rgba(0, 0, 0, 0.3); padding-top: 0.6em; font-size: .8em; background: none repeat scroll 0% 0% #f84241; border-radius: 50%;}
+
+
+/* ------------------------------------------------------*/
+/* ----------------  Photo lists ------------------------*/
+/* ------------------------------------------------------*/
+
+.photolist {width:100% border:solid 1px black; width:48%; float:left; border:solid 1px green;}
+#imageholder {margin-right:20px;}
+.listh1 {font-size:20px; padding-top:20px;}
+.listh2 {font-size:12px;}
+.listdetails {font-size:10px; color:red;}
 .logo {position:relative; top:-5px; z-index:888; width:250px; margin-left:16px;}
 .mgmenu {clear:right;}
 .mgmenu_container { margin-top:-65px;}
+
+
+
+/* ------------------------------------------------------*/
+/* -------------------  Reponses ------------------------*/
+/* ------------------------------------------------------*/
+
+
 @media all and (max-width: 768px) {
 .logo {position:relative; top:10px; z-index:0; width:250px; border:solid 1px red; display:block;}
 .mobile {display:block;}

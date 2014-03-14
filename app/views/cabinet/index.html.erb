@@ -1,7 +1,5 @@
-
-
-
-<h1>Executive Council of Ontario</h1>
+<h1 class="pagetitle">Cabinet</h1>
+<h2 class="pagesubtitle">Executive Council of Ontario</h2>
 
 
 
@@ -10,10 +8,12 @@
 		<% @cabinet_mpps.each do |cabinet_mpp| %>
 			<% if cabinet_mpp.cabinet_minister_en != nil && cabinet_mpp.cabinet_minister_en != '' %>
 				<div class="photolist last">
-					<img src="/photos/mpp/mpp_photos/<%= (cabinet_mpp.riding_id + 9000).to_s %>_thumbnail.jpg" class="frame" >
-					<div style="height:280px;">
-						<div class="listh1"><%= cabinet_mpp.first_name %> <%= cabinet_mpp.last_name %></div>
-						<p><%= raw(cabinet_mpp.cabinet_minister_en) %></p>
+					<div id="imageholder"><img src="/photos/mpp/mpp_photos/<%= (cabinet_mpp.riding_id + 9000).to_s %>_thumbnail.jpg" class="drop-shadow lifted"></div>
+					<div style="height:200px;">
+					<div class="listh1"><%= cabinet_mpp.first_name %> <%= cabinet_mpp.last_name %></div>
+					<div class="listh2"><%= raw(cabinet_mpp.cabinet_minister_en) %></div>
+					</div>
+				</div>	
 			<% end %>
 		<% end %>
 

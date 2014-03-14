@@ -1,15 +1,16 @@
-<h1>Liberal Members of Provincial Parliament</h1>
+<h1 class="pagetitle">MPPs</h1>
+<h2 class="pagesubtitle">Liberal Members of Provincial Parliament</h2>
 
 <!------- HERE ARE THE CLASSES FOR THE DATA REPEATER -------->
 <!------- DON'T FORGET THE FRAME CLASS ON IMG -------->
 <% @web_site_managers.each do |web_site_manager| %>
     <% if web_site_manager.r_fsr %>
-        <div class="photolist last" style="width:48%; float:left; border:solid 1px green;">
+        <div class="photolist last">
             <div id="imageholder"><img src="/photos/mpp/mpp_photos/<%= web_site_manager.r_id.to_s %>_thumbnail.jpg" class="drop-shadow lifted" ></div>
             <div style="height:200px;">
-                <h3 style="font-size:17px; margin-top:20px; margin-left:20px;"><%= web_site_manager.m_nf %> <%= web_site_manager.m_nl %></h3>
-                <p><%= raw(web_site_manager.r_name_en) %></p>
-                <p><%= raw(web_site_manager.m_nm) %></p>
+                <div class="listh1"><%= web_site_manager.m_nf %> <%= web_site_manager.m_nl %></div>
+                <div class="listh2"><%= raw(web_site_manager.r_name_en) %></div>
+                <div class="listdetails"><%= raw(web_site_manager.m_nm) %></div>
                 <span class="tiny"><a href="http://<%= web_site_manager.m_nf %><%= web_site_manager.m_nl %>.onmpp.ca" target="_blank">website</a> | <%= link_to 'Bio', '/mpps/' + web_site_manager.r_id.to_s + '?l=' + @language %></span>
             </div>
         </div>
