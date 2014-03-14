@@ -31,7 +31,7 @@
 
 <%= render 'users/shared/links' %>
 
-<%= content_for :scripts_for_header do %>
+<%= content_for :scripts_for_body do %>
 
     <script>
         function popupCenter(url, width, height, name) {
@@ -40,7 +40,7 @@
             return window.open(url, name, "menubar=no,toolbar=no,status=no,width="+width+",height="+height+",toolbar=no,left="+left+",top="+top);
         }
 
-        $(".popup").click(function(e) {
+        $("a.popup").click(function(e) {
             vex.hide();
             popupCenter($(this).attr("href"), $(this).attr("data-width"), $(this).attr("data-height"), "authPopup");
             e.stopPropagation(); return false;
