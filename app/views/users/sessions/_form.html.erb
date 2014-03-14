@@ -30,3 +30,32 @@
 <% end %>
 
 <%= render 'shared/modal' %>
+
+<script>
+    $('#errors').on('ajax:error', function(event, xhr, status) {
+        // insert the failure message inside the "#account_settings" element
+        $(this).append(xhr.responseText);
+        console.log('ajax error occurred');
+    });
+
+    $('#errors').on('ajax:success', function(event, status, xhr) {
+        // insert the failure message inside the "#account_settings" element
+        $(this).append(xhr.responseText)
+        console.log('ajax success occurred');
+    });
+
+    $('#errors').on('ajax:before', function() {
+        // insert the failure message inside the "#account_settings" element
+        console.log('ajax before event occurred');
+    });
+
+    $('#errors').on('ajax:beforeSend', function(xhr, settings) {
+        // insert the failure message inside the "#account_settings" element
+        console.log('ajax beforeSend event occurred');
+    });
+
+    $('#errors').on('ajax:abort:required', function(elements) {
+        // insert the failure message inside the "#account_settings" element
+        console.log('ajax:abort:required event occurred: ' + elements);
+    });
+</script>

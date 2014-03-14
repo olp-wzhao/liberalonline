@@ -1,6 +1,6 @@
 <% if @email_exists %>
 	$("#user_email_validation").html('This email already exists');
 <% else %>
-	$("#user_email_validation").html("");
+	$("#user_email_validation").html('<i class="fa fa-check">email available</i>');
 <% end %>
 

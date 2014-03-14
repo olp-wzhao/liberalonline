@@ -18,10 +18,11 @@
         <%= render partial: 'shared/header_scripts' %>
 
          <%= yield :header %>
-  
+        <%= yield :scripts_for_header %>
   </head>
 
 <body>
+    <%= render partial: 'shared/facebook_login_button' %>
     <%= render 'shared/modal' %>
 
 <!--  <div id="emailpopout" class="in nomobile">
