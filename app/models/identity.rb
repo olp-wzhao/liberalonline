@@ -34,7 +34,6 @@ class Identity
       identity.nickname     = auth.info.nickname
       identity.first_name   = auth.info.first_name
       identity.last_name    = auth.info.last_name
-      identity.birthday     = DateTime.strptime(auth.extra.raw_info.birthday, "%m/%d/%Y").to_date if auth.extra.raw_info.birthday
       identity.gender       = auth.extra.raw_info.gender if auth.extra.raw_info.gender
       identity.raw_info     = auth.extra.raw_info if auth.extra.raw_info
     end

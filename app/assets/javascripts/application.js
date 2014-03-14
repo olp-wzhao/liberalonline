@@ -25,5 +25,5 @@
 //= require unobtrusive_flash
 //= require unobtrusive_flash_ui
 
-//= require turbolinks
+// require turbolinks
 // require_tree .
