@@ -3,7 +3,7 @@
         <%= image_tag current_user.identities.first.image %>
    <% end %>
 <% end %>
-
+<%= javascript_include_tag 'facebook-modal' %>
 <%= link_to 'Sign in with facebook', user_omniauth_authorize_path(:facebook), id: 'sign_in', class: 'popup facebook_sign_in', data: { width: 600, height: 400} %>
 
 <%= simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name), :remote => true) do |f| %>

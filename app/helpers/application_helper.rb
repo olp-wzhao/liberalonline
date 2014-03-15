@@ -475,6 +475,7 @@ MEGAMENU_JAVASCRIPT
 
             megamenu_photos_popup_en = ''
             megamenu_photos_popup_fr = ''
+            binding.pry
             photos = Photo.find(:all, :limit => 1, :order => "created_date DESC", :conditions => {:riding_id => riding_id, :published => true})
             if photos != nil && photos.length > 0
                 local_photo_galleries = PlaPhotoAlbum.find(:all, :order => "description_en", :conditions => {:riding_id => riding_id, :published => true})

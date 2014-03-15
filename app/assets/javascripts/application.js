@@ -13,6 +13,7 @@
 
 //= require jquery
 //= require jquery_ujs
+//= require jquery.ui.effect
 
 // require bootstrap
 
@@ -24,6 +25,7 @@
 //= require main
 //= require unobtrusive_flash
 //= require unobtrusive_flash_ui
+//= require facebook
 
 // require turbolinks
 // require_tree .

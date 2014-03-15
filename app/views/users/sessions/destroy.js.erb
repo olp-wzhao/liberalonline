@@ -1,6 +1,8 @@
 console.log('sessions.destroy.js.erb');
 $('.notice').remove();
 
+//$('#sign_in_box').show();
+//$('#signed_in_box').fade();
 $('#micromenu_placeholder').html('<%= j render '/shared/micromenu' %>');
 
 <% if flash[:notice] %>
