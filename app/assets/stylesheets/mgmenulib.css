@@ -377,6 +377,7 @@ LINE 120 - Top Level Menu Font parameters
 	*/
 	*padding-left: 1.9%;
 	*padding-right: 1.9%;
+	padding-bottom:1.9%;
 }
 .mgmenu .col_1 {width:4.33%;}
 .mgmenu .col_2 {width:12.66%;}
@@ -1263,6 +1264,7 @@ LINE 120 - Top Level Menu Font parameters
 		padding: 0;
 		float: left;
 		display: block;
+		padding-bottom:.5%;
 	}
 	.mgmenu .col_border {
 		box-shadow:none;

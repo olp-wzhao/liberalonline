@@ -1,7 +1,6 @@
-<div class="tiny red">
-  <% customized_categories = ['Samples', 'Training', 'LibE', 'Fundraising', 'Finances', 'Engagement', 'Campaign Services', 'Email Marketing', 'Contact'] %>
+<%= link_to image_tag("home_white.png", :alt => "toolkit home"), "toolkit" %>&nbsp;&nbsp;&nbsp;<% customized_categories = ['Samples', 'Training', 'LibE', 'Fundraising', 'Finances', 'Engagement', 'Campaign Services', 'Email Marketing', 'Contact'] %>
 
-  <% customized_categories.each do |c| %>
-    <%= link_to c, toolkit_url + '?customized_category=' + c %> |
+  <% customized_categories.each do |c| %> 
+    <%= link_to c, toolkit_url + '?customized_category=' + c,{ :class=>"toolkitmenitem" } %> 
   <% end %>
-</div>
+

@@ -243,22 +243,53 @@ h2 + h1 {padding-top:20px;}
 	width:100%;
 	margin-bottom:-20px;
 }
-.default {
-    background-image: url("pageimageholderdefault.jpg");
-    background-repeat: no-repeat;
-    background-position: center bottom;	
+       .default {
+           background-image: url("pageimageholderdefault.jpg");
+           background-repeat: no-repeat;
+           background-position: center bottom;	
 
-}
-.wynne {     
-    background-image: url("bg_imagecontainer.jpg");
-    background-repeat: no-repeat;
-    background-position: right bottom;
-	}
-.join {    
-    background-image: url("bg_container_join.jpg");
-    background-repeat: no-repeat;
-    background-position: 140% bottom;
-	}	
+       }
+       .wynne {     
+           background-image: url("bg_imagecontainer.jpg");
+           background-repeat: no-repeat;
+           background-position: 80% bottom;
+	       }
+       .wynneinconversation {     
+           background-image: url("wynne_conversation.jpg");
+           background-repeat: no-repeat;
+           background-position: 80% bottom;
+	       }	
+       .wynne_kids {     
+           background-image: url("wynnewkids.jpg");
+           background-repeat: no-repeat;
+           background-position: 86% bottom;
+	       }	
+       .join {    
+           background-image: url("bg_container_join.jpg");
+           background-repeat: no-repeat;
+           background-position: 80% bottom;
+	       }	
+	   .wynne_mpp {    
+           background-image: url("kathleen_mpp.jpg");
+           background-repeat: no-repeat;
+           background-position: 80% bottom;
+	       }  
+	
+       /* ----- WORD WRAP FOR INDIVIDUAL IMAGES ------*/
+       /* ---- Donations main uses wynnewkids.jpg ----*/
+       #about_donations_main > p:nth-child(2) {width:100%;}
+       #about_donations_main > p:nth-child(3) {width:100%;}
+       #about_donations_main > p:nth-child(4) {width:96%;}
+       #about_donations_main > p:nth-child(5) {width:94%;}
+       #about_donations_main > p:nth-child(6) {width:92%;}
+
+       /* ---- contact main uses wynneinconversation.jpg ----*/
+       #contact_main > p:nth-child(2) {width:100%; border:solid 1px red;}
+       #contact_main > p:nth-child(3) {width:100%; border:solid 1px red;}
+       #contact_main > p:nth-child(4) {width:100%; border:solid 1px red;}
+       #contact_main > p:nth-child(5) {width:100%; border:solid 1px red;}
+       #contact_main > p:nth-child(6) {width:100%; border:solid 1px red;}	
+	
 
 #footer {
     background-color: #db080e;
@@ -285,6 +316,11 @@ h2 + h1 {padding-top:20px;}
 	border-right:solid 1px #cccccc;
 	border:solid 1px green;
 }
+
+
+
+
+
 .maincontainer {width:97%;}
 #col8picblocker {
 	min-height:395px;
@@ -729,5 +765,5 @@ textarea:focus {
 /* the menu will pop to mobile mode at this point */
 .main {width:100%}
 .col-4{display:none;}	  
-	  
+.join {background:none;}	  
   }	

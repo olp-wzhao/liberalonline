@@ -1,6 +1,7 @@
-<h1>Contact Us</h1>
+<h1 class="pagetitle">Contact Us</h1>
+<h2 class="subtitle">The Ontario Liberal Party</h2>
 
-  <h2 class="inpage">The Ontario Liberal Party</h2>
+
   <p class="mobile"><a href="tel:1.800.268.7250">1.800.268.7250</a></p>
   <p class="nomobile">1.800.268.7250</p>
   <p class="listp"> Fax: 416.323.9425</p>
@@ -38,3 +39,7 @@
       <li><%= msg %></li>  
     <% end %>
 <% end %>
+
+<%# pass in pageimageholder background class and main column id %>
+<% content_for :backgroundclass do %>wynneinconversation<% end %>
+<% content_for :main_id do %>contact_main<% end %>

@@ -15,8 +15,15 @@
         <meta property="fb:admins" content="100003812622252,686700080,552055122" />
         <meta property="og:description" content="More Support for Low-Income Families" />
 
-        <%= render partial: 'shared/header_scripts' %>
 
+<script type="text/javascript" src="[JS library]"></script>
+<!--[if (gte IE 6)&(lte IE 8)]>
+  <script type="text/javascript" src="selectivizr.js"></script>
+  <noscript><link rel="stylesheet" href="stylesheet.css" /></noscript>
+<![endif]--> 
+
+
+	   <%= render partial: 'shared/header_scripts' %>
          <%= yield :header %>
         <%= yield :scripts_for_header %>
   </head>
@@ -63,7 +70,7 @@
 		<div id="pageimageholder" class="<%= yield :backgroundclass %>">
 			  <div class="container">
 
-			    <div class="main">
+			    <div class="main" id="<%= yield :main_id %>">
 			     <%= yield %>	
 			    </div>
 				
