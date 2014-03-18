@@ -1,7 +1,7 @@
 
         <% if @news_documents != nil && @news_documents.length > 0 %>
                 
-                <h1>Provincial News</h1>
+                <h1 class="pagetitle">Provincial News</h1>
                
                 <% @news_documents.each do |document| %>
                                 <div class="listh1"><%= link_to raw(document.headline), '/news/' + document.id.to_s + '?l=' + @language %></div>
@@ -15,4 +15,6 @@
         <% end %>
 
 
-<% content_for :col4content do %>test<% end %>
+<%# pass in pageimageholder background class and main column id and submenu %>
+<% content_for :backgroundclass do %>wynne_kids<% end %>	
+<% content_for :main_id do %>main_taxable_benefits<% end %>

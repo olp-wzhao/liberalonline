@@ -97,6 +97,7 @@
   /* bb1115   Red           */
   /* d72f30   LightRed      */
   /* f84241   HighlightRed  */
+  /* 9B161F   Dark red      */
   /* 635857   DarkSwatch    */
   /* 8e7d7e   Subtitlebig   */
   /* 5c4a4a   Headlinebig   */
@@ -144,7 +145,22 @@ h1,h2,h3,h4,h5,h6,listh1  {
 	}
 h1 { color:#5c4a4a; line-height:102%;}
 h2 {color:#8e7d7e; line-height:102%;}
-.listh1 {}
+h1.pagetitle {
+  color:#fff;
+  font-family: 'Oswald',sans-serif; 
+  font-size:4.2em; 
+  padding-top:10px;
+  margin-bottom:10px;
+  text-shadow: 0px 3px 3px rgba(0,0,0,0.4),
+             0px 6px 10px rgba(0,0,0,0.1),
+             0px 18px 23px rgba(0,0,0,0.1);
+  }
+h2.pagesubtitle {
+   font-family: 'Oswald',sans-serif; 
+   font-size:2.2em;
+   text-shadow: 0px 2px 3px rgba(0,0,0,0.4),
+             0px 4px 7px rgba(0,0,0,0.1),
+   }
 .listright > h1, .listright > h2 {font-size:1.2em;}
 
 
@@ -152,7 +168,8 @@ h2 + h1 {padding-top:20px;}
 
 #imageholder {margin-bottom:0px; margin-top:23px;}
 .tiny {font-size:12px;}
-
+.tiny a:link,
+.tiny a:visited {color:#8e7d7e;}
 
 /* ----------------------------------------------------------------*/	 
 /* ------------------------ SECTION THREE -------------------------*/
@@ -240,9 +257,12 @@ h2 + h1 {padding-top:20px;}
 	margin-right:auto;
 	max-width:1100px; */ 
 	
-	width:100%;
+	max-width:1200px;
 	margin-bottom:-20px;
+	margin-left:auto;
+	margin-right:auto;
 }
+
        .default {
            background-image: url("pageimageholderdefault.jpg");
            background-repeat: no-repeat;
@@ -253,35 +273,40 @@ h2 + h1 {padding-top:20px;}
            background-image: url("bg_imagecontainer.jpg");
            background-repeat: no-repeat;
            background-position: 80% bottom;
+		   background-size: 100% Auto;
 	       }
        .wynneinconversation {     
-           background-image: url("wynne_conversation.jpg");
+           background-image: url("pageimageholder_wynne_conversation.jpg");
            background-repeat: no-repeat;
-           background-position: 80% bottom;
+           background-position: center bottom;
+		   background-size: 100% Auto;		   
 	       }	
        .wynne_kids {     
-           background-image: url("wynnewkids.jpg");
+           background-image: url("pageimageholder_wynne_kids.jpg");
            background-repeat: no-repeat;
-           background-position: 86% bottom;
+           background-position: center bottom;
+		   background-size: 100% Auto;		   
 	       }	
        .join {    
            background-image: url("bg_container_join.jpg");
            background-repeat: no-repeat;
-           background-position: 80% bottom;
+           background-position: center bottom;
+		   background-size: 100% Auto;		   
 	       }	
 	   .wynne_mpp {    
-           background-image: url("kathleen_mpp.jpg");
+           background-image: url("pageimageholder_wynne_mpp.jpg");
            background-repeat: no-repeat;
-           background-position: 80% bottom;
+           background-position: center bottom;
+		   background-size: 100% Auto;		   
 	       }  
 	
        /* ----- WORD WRAP FOR INDIVIDUAL IMAGES ------*/
        /* ---- Donations main uses wynnewkids.jpg ----*/
        #about_donations_main > p:nth-child(2) {width:100%;}
        #about_donations_main > p:nth-child(3) {width:100%;}
-       #about_donations_main > p:nth-child(4) {width:96%;}
-       #about_donations_main > p:nth-child(5) {width:94%;}
-       #about_donations_main > p:nth-child(6) {width:92%;}
+       #about_donations_main > p:nth-child(4) {width:85%;}
+       #about_donations_main > p:nth-child(5) {width:78%;}
+       #about_donations_main > p:nth-child(6) {width:70%;}
 
        /* ---- contact main uses wynneinconversation.jpg ----*/
        #contact_main > p:nth-child(2) {width:100%; border:solid 1px red;}
@@ -312,12 +337,22 @@ h2 + h1 {padding-top:20px;}
 .main {
     width: 64%;
 	float:left;
-	min-height:700px;
+	min-height:800px;
 	border-right:solid 1px #cccccc;
-	border:solid 1px green;
 }
-
-
+.menulengthcheck {padding-left:50px;}
+.menulengthcheck > .listh1 > a:link,
+.menulengthcheck > .listh1 > a:visited,
+.menulengthcheck > .listh2 > a:link,
+.menulengthcheck > .listh2 > a:visited,
+.menulengthcheck > .listh2 {
+     font-size:1em; 
+	 line-height:114%; 
+	 color:#fff; 
+	 text-decoration:none; 
+     text-shadow: 0px 4px 3px rgba(0,0,0,0.4),
+             0px 8px 13px rgba(0,0,0,0.1),
+}
 
 
 
@@ -339,7 +374,7 @@ h2 + h1 {padding-top:20px;}
 	z-index:1;
 	position:static;
 	top:400px;
-	padding-top:50px;
+	padding-top:40px;
 		border:solid 1px beige;
 }
 
@@ -439,7 +474,6 @@ margin-top:26px;
     position:relative;
     float:left;
     padding:4px; 
-    margin-top:11px;
     background:#fff;
     -webkit-box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
        -moz-box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
@@ -517,16 +551,19 @@ margin-top:26px;
     color: #FFF;
     font-family: 'Oswald',sans-serif;
     font-weight: 400;
-    font-size: 33px;
+    font-size: 3em;
     line-height: 102%;
-    text-shadow: 0px 1px 1px #333;
     padding-bottom: 5px;
+    text-shadow: 0px 3px 3px rgba(0,0,0,0.4),
+             0px 6px 10px rgba(0,0,0,0.1),
+             0px 18px 23px rgba(0,0,0,0.1);
 }
+.rotatorheadline a:link, .rotatorheadline a:visited {text-decoration:none;}
 .rotatorsub, .rotatorsub a:link, .rotatorsub a:visited {
     color: #FFF;
     font-family: 'Oswald',sans-serif;
     font-weight: 300;
-    font-size: 14px;
+    font-size: 1em;
     line-height: 102%;
     text-shadow: 0px 1px 1px #333;
     padding-bottom: 5px;
@@ -578,7 +615,7 @@ filter: hue-rotate(90deg)
 .col5 > h1 {
     font-family: 'Oswald',sans-serif;
     font-weight: 400;
-    font-size: 20px;
+    font-size: 17px;
     letter-spacing: 0.02em;
     line-height: 103%;
     color: #FFF;	
@@ -588,7 +625,7 @@ filter: hue-rotate(90deg)
     font-weight: 400;
     font-size: 13px;
     letter-spacing: 0.02em;
-    line-height: 103%;
+    line-height: 101%;
     color: #FFF;	
 }
 .reverse {color: #FFF;}
@@ -730,6 +767,14 @@ textarea:focus {
 }
 
 
+.listh1 {font-size:20px; padding-top:20px;}
+.listh2 {font-size:16px;}
+.listdetails {font-size:10px; color:red;}
+.logo {position:relative; top:-5px; z-index:888; width:250px; margin-left:16px;}
+.mgmenu {clear:right;}
+.mgmenu_container { margin-top:-65px;}
+
+
 /* ------------------------------------------------------*/
 /* -----------  VEX Cascade overwrites ------------------*/
 /* ------------------------------------------------------*/
@@ -743,15 +788,16 @@ textarea:focus {
 /* ----------------  Photo lists ------------------------*/
 /* ------------------------------------------------------*/
 
-.photolist {width:100% border:solid 1px black; width:48%; float:left; border:solid 1px green;}
-#imageholder {margin-right:20px;}
-.listh1 {font-size:20px; padding-top:20px;}
-.listh2 {font-size:12px;}
-.listdetails {font-size:10px; color:red;}
-.logo {position:relative; top:-5px; z-index:888; width:250px; margin-left:16px;}
-.mgmenu {clear:right;}
-.mgmenu_container { margin-top:-65px;}
-
+.photolist {width:48%; float:left;}
+.ridinglist {width:48%; float:left;}
+.ridinglist > .listh1 {font-family: 'Oswald',sans-serif; line-height:100%; color:#5c4a4a;}
+.ridinglist > .listh2 {font-family: 'Oswald',sans-serif; font-size:19; line-height:102%; color:#9B161F; margin-top:4px;}
+p.detail {margin-top:1px;}
+.wrap {min-height:110px; width:100%; clear:left;}
+#imageholder img {width:32.5%;}
+.photolist_detailholder {max-width:50%; height:120px; float:left; padding-left:4%; margin-bottom:8px; min-height:120px;}
+.photolist_detailholder > .listh1 {font-family: 'Oswald',sans-serif; line-height:100%; color:#5c4a4a;}
+.photolist_detailholder > .listh2 {font-family: 'Oswald',sans-serif; font-size:19; line-height:102%; color:#9B161F;}
 
 
 /* ------------------------------------------------------*/
@@ -760,10 +806,28 @@ textarea:focus {
 
 
 @media all and (max-width: 768px) {
-.logo {position:relative; top:10px; z-index:0; width:250px; border:solid 1px red; display:block;}
+
+.default,
+.wynne,
+.wynneinconversation,
+.wynne_kids,
+.join,
+.wynne_mpp {background:none;}
+.logo {display:none;}
 .mobile {display:block;}
 /* the menu will pop to mobile mode at this point */
 .main {width:100%}
 .col-4{display:none;}	  
-.join {background:none;}	  
+.join {background:none;}
+
+
+       #about_donations_main > p:nth-child(2) {width:100%;}
+       #about_donations_main > p:nth-child(3) {width:100%;}
+       #about_donations_main > p:nth-child(4) {width:100%;}
+       #about_donations_main > p:nth-child(5) {width:100%;}
+       #about_donations_main > p:nth-child(6) {width:100%;}
+
+h1.pagetitle {font-size:2.9em;}
+
+	  
   }	
