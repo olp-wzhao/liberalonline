@@ -1,5 +1,5 @@
 class MyLiberalController < ApplicationController
-
+    before_filter :authenticate_user!
     #layout "inside_layout"
 
     def index
@@ -9,6 +9,7 @@ class MyLiberalController < ApplicationController
     		@local_candidate_documents = nil
         @olp_passport_user_web_site_manager = nil
 
+      binding.pry
   		if current_user
 
         #check if there is a web_site_manager attached

@@ -27,5 +27,7 @@
 //= require unobtrusive_flash_ui
 //= require facebook
 
+//= require jquery.remotipart
+
 // require turbolinks
 // require_tree .
