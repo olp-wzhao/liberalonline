@@ -11,7 +11,7 @@ class RidingAddressesController < ApplicationController
     end
     respond_to do |format|
       begin
-        if(!@riding_locations.empty?)
+        if(!@riding_locations.nil? || !@riding_locations.empty?)
           #format.html # index.html.erb
           format.json { render json: {status: :success, name: @riding_locations.first.riding.title, riding_id: @riding_locations.first.riding.riding_id,
             riding_address_id: @riding_locations.first.id} }

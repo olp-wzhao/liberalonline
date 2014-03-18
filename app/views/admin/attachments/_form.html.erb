@@ -3,7 +3,7 @@
       <%= f.error_notification %>
         <%= f.input :title %>
         <%= f.input :description %>
-        <%= f.input :pdf, as: :file, label: 'Add File' %>
+        <%= f.input :pdf, as: :file, label: t('add_file') %>
         <%= f.hidden_field :pdf_cache %>
         <br/>
       <%= f.button :submit %>

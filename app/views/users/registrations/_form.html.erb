@@ -6,24 +6,24 @@
 <%= javascript_include_tag 'facebook-modal' %>
 <%= link_to 'Sign in with facebook', user_omniauth_authorize_path(:facebook), id: 'sign_in', class: 'popup facebook_sign_in', data: { width: 600, height: 400} %>
 
-<%= simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name), :remote => true) do |f| %>
+<%= simple_form_for(resource, :as => resource_name, :html => { :class => 'form-horizontal' }, :url => registration_path(resource_name), :remote => true) do |f| %>
 
-  <%= f.input :email, required: true, icon: 'email', autofocus: true, class: 'submittable', placeholder: 'Enter Email', input_html: { onblur: 'isEmailUnique("' + validate_user_url + '")' }, label: false %>
-  <span id="user_email_validation"></span>
-  <%= f.input :first_name, placeholder: 'First Name', label: false %>
-  <%= f.input :last_name, placeholder: 'Last Name', label: false %>
-  <%= f.input :password, :required => true, placeholder: 'Password', label: false %>
-  <%= f.input :password_confirmation, :required => true, placeholder: 'Repeat Password', label: false %>
-  <%= f.input :address, placeholder: 'Address', label: false %>
-  <%= f.input :postal_code, placeholder: 'Postal Code' , input_html: { onblur: 'findRiding("' + find_riding_url + '")' }, label: false %>
+  <%= f.input :email, required: true, autofocus: true, class: 'submittable form-control tooltip',
+                          placeholder: 'Enter Email',
+                          data: { toggle: 'tooltip', placement: 'right' }, title: 'Please enter your email' %>
+  <%= f.input :first_name, placeholder: 'First Name', label: false, data: { toggle: 'tooltip', placement: 'right' }, title: 'Enter your first name', input_html: { class: 'tooltip' } %>
+  <%= f.input :last_name, placeholder: 'Last Name', label: false, data: { toggle: 'tooltip', placement: 'right' }, title: 'Enter your last name', input_html: { class: 'tooltip' } %>
+  <%= f.input :password, :required => true, placeholder: 'Password', label: false, data: { toggle: 'tooltip', placement: 'right' }, title: 'Enter your password', class: 'tooltip' %>
+  <%= f.input :password_confirmation, :required => true, placeholder: 'Repeat Password', label: false, data: { toggle: 'tooltip', placement: 'right' }, title: 'Repeat your password', class: 'tooltip' %>
+  <%= f.input :address, placeholder: 'Address', label: false, data: { toggle: 'tooltip', placement: 'right' }, title: 'Enter your address', class: 'tooltip' %>
+  <%= f.input :postal_code, placeholder: 'Postal Code' , input_html: { onblur: 'findRiding("' + find_riding_url + '")' }, label: false, data: { toggle: 'tooltip', placement: 'right' }, title: 'Enter your postal code', class: 'tooltip' %>
   <span id='riding_box'></span>
   <%= f.hidden_field :riding_id %>
-  <%= f.input :city, placeholder: 'City', label: false %>
-  <%= f.input :phone_number, as: :tel, :size => 30, placeholder: 'Phone Number', label: false %>
+  <%= f.input :city, placeholder: 'City', label: false, data: { toggle: 'tooltip', placement: 'right' }, title: 'Enter your city', class: 'tooltip' %>
+  <%= f.input :phone_number, as: :tel, :size => 30, placeholder: 'Phone Number', label: false, data: { toggle: 'tooltip', placement: 'right' }, title: 'Enter your phone number', class: 'tooltip' %>
   <%= f.input :birthday, label:'Date of Birth', as: :date, start_year: Date.today.year - 90,
                                                 end_year: Date.today.year - 12 %>
-  <%#= f.input :image, as: :file, label: 'Upload Image' %>
-    <%= f.input :image, :as => :image_preview, :input_html => {:preview_version => :thumb} %>
+  <%= f.file_field :image, as: :image_preview, input_html: {preview_version: :thumb} %>
   <%= f.hidden_field :image_cache %>
   <%= f.button :submit, 'Sign up', :class => 'btn-primary' %>
   <div id="errors"></div>
@@ -34,6 +34,32 @@
 <%= content_for :scripts_for_body do %>
 
     <script>
+        $('.tooltip').tooltip();
+
+        $('#user_email').append('<span id="email_check"></span>');
+        var validateEmail = $('#validateEmail');
+        $('#user_email').keyup(function () {
+            var t = this;
+            if (this.value != this.lastValue) {
+                if (this.timer) clearTimeout(this.timer);
+                //This should be the loading the icon
+                $('#email_check').html('<i class="fa-li fa fa-spinner fa-spin"></i>checking availability...');
+                this.timer = setTimeout(function () {
+                    $.ajax({
+                        url: '<%= validate_user_path %>/' + $('#user_email').val(),
+                        //data: 'action=check_username&username=' + t.value,
+                        dataType: 'json',
+                        type: 'get',
+                        success: function (j) {
+                            //validateEmail.html(j.msg);
+                        }
+                    });
+                }, 200);
+
+                this.lastValue = this.value;
+            }
+        });
+
         function popupCenter(url, width, height, name) {
             var left = (screen.width/2)-(width/2);
             var top = (screen.height/2)-(height/2);

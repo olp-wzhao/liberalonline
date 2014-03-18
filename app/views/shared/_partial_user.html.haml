@@ -14,16 +14,7 @@
     %p 
         = current_user.email
 - else
-    = simple_fields_for :user do |u|
-        = u.input :email, :required => true, :autofocus => true
-        = u.input :first_name
-        = u.input :last_name
-        = u.input :address
-        = u.input :postal_code
-        #riding_box
-        = u.input :city
-        = u.input :phone_number, :size => 30
-        = u.input :birthday, as: :date, start_year: 1920, end_year: Date.today.year
+    = render 'users/registrations/form'
 
 = content_for :scripts_for_body do
     :javascript

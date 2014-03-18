@@ -196,6 +196,7 @@ V44::Application.routes.draw do
       resources :attachments
     end
     resources :transactions
+    resources :events
     resources :users do
     end
     get 'search/users' => 'users#search'

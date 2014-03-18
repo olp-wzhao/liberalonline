@@ -31,14 +31,15 @@ class User
   field :roles_mask, type: Integer
   field :security_key, type: String
   field :title, type: String
-  #field :riding_id, type: Integer
   field :web_site, type: String
   field :updated_time, type: DateTime
   field :birthday, type: DateTime, default: Date.new
   field :referal_url, type: String
 
   validates_presence_of :email, :postal_code #, :first_name, :city, :address, :phone_number, :birthday
-  #validates_uniqueness_of :email
+  validates_uniqueness_of :email
+  validates_format_of :email, with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/
+  validates_numericality_of :age, :greater_than => 13, :message => "must be 13 or older"
 
   belongs_to :riding
 
@@ -137,7 +138,7 @@ class User
     end
   end
 
-  validates_numericality_of :age, :greater_than => 13, :message => "must be 13 or older"
+
 
   def age
     now = Time.now.utc.to_date

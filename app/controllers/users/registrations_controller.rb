@@ -22,10 +22,12 @@ class Users::RegistrationsController < Devise::RegistrationsController
     build_resource(sign_up_params)
 
     #check and assign riding
-    if sign_up_params['riding_id']
+    if sign_up_params['riding_id'].empty?
+      riding = RidingAddress.near(sign_up_params[:postal_code], 10, :order => :distance).first
+    else
       riding = Riding.find_by(riding_id: sign_up_params['riding_id'])
-      resource.riding = riding
     end
+      resource.riding = riding
 
     #attempt to save new user
     if resource.save

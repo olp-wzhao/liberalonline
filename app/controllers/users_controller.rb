@@ -7,7 +7,10 @@ class UsersController < ApplicationController
   end
 
   def validate
-    @email_exists = User.where(email: params[:email]).exists?
+    @email_exists = false
+    unless params[:email].empty?
+      @email_exists = User.where(email: params[:email]).exists?
+    end
     respond_to do |format|
       format.js
     end

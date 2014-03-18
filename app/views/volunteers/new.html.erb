@@ -2,11 +2,14 @@
 
 <% if current_user.nil? %>
 	<h1> New volunteer </h1>
+    <%= render partial: 'users/registrations/form', user: :user %>
+    <script>
+
+    </script>
 <% else %>
 	<h1> Authenticated Volunteer </h1>
+    <%= render partial: 'volunteers/extended' %>
 <% end %>
-
-<%= render 'form' %>
 
 <div style="clear:both; display:block;">&nbsp;</div>
 

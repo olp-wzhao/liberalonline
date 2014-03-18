@@ -1,0 +1,36 @@
+<%= simple_form_for @event, url: admin_event_path(@event) do |f| %>
+    <%= f.input :title %>
+    <%= f.input :event_datetime %>
+    <%= f.input :location %>
+    <%= f.input :address %>
+    <%= f.input :address_hint %>
+    <%= f.input :email %>
+    <%= f.input :contact_person %>
+    <%= f.input :phone_number %>
+    <%= f.input :summary, as: :text %>
+    <%= f.input :require_register, as: :boolean %>
+    <%= f.input :member_only, as: :boolean %>
+    <%= f.input :feature_level %>
+    <%= f.input :ticket_for_sell %>
+    <%= f.input :ticket_price_single %>
+    <%= f.input :ticket_price_pair %>
+    <%= f.input :ticket_price_table %>
+    <%= f.input :ticket_price_abc %>
+    <%= f.input :ticket_price_red_trillium %>
+    <%= f.input :ticket_price_youth %>
+    <%= f.input :ticket_price_senior %>
+    <%= f.input :ticket_price_observer %>
+    <%= f.input :ticket_price_free %>
+    <%= f.input :ticket_price_other %>
+    <%= f.input :ticket_price_option %>
+    <%= f.input :published, as: :boolean %>
+    <%= f.input :display_date %>
+    <%= f.input :expiry_date %>
+    <%= f.input :publish_on_olp, as: :boolean %>
+    <%= f.input :publish_on_mpp, as: :boolean %>
+    <%= f.input :publish_on_pla, as: :boolean %>
+    <%= f.input :publish_on_elect, as: :boolean %>
+    <%= f.input :partisan %>
+    <%= f.input :riding_id %>
+
+<% end %>

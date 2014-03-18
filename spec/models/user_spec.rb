@@ -22,10 +22,11 @@ describe User do
 
   context "after create" do
     let(:user) { FactoryGirl.create(:user) }
-    # it 'calls "add_to_riding" on user creation' do
-    #   user.should_recieve(:add_to_riding)
-    #   user.save
-    # end
+    it 'is given a riding on user creation' do
+        #user.should_recieve(:add_to_riding)
+        user.save
+        user.riding.should_not be_nil
+     end
   end
 
   context "#invitations" do

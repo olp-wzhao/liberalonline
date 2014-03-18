@@ -21,6 +21,10 @@ class VolunteersController < ApplicationController
   def new
     @volunteer = Volunteer.new
     @volunteer.user = User.new
+    respond_to do |format|
+      format.js
+      format.html
+    end
   end
 
   # GET /volunteers/1/edit

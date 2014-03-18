@@ -39,31 +39,31 @@
   font-family: 'Oswald';
   font-style: normal;
   font-weight: 400;
-  src: local('Oswald Regular'), local('Oswald-Regular'), url(fonts/Oswald400.woff) format('woff');
+  src: local('Oswald Regular'), local('Oswald-Regular'), font-url('fonts/Oswald400.woff') format('woff');
 }
 @font-face {
   font-family: 'Oswald';
   font-style: normal;
   font-weight: 700;
-  src: local('Oswald Bold'), local('Oswald-Bold'), url(fonts/Oswald700.woff) format('woff');
+  src: local('Oswald Bold'), local('Oswald-Bold'), font-url('fonts/Oswald700.woff') format('woff');
 }
 @font-face {
   font-family: 'Droid Sans';
   font-style: normal;
   font-weight: 400;
-  src: local('Droid Sans'), local('DroidSans'), url(fonts/DroidSans400.woff) format('woff');
+  src: local('Droid Sans'), local('DroidSans'), font-url('fonts/DroidSans400.woff') format('woff');
 }
 @font-face {
   font-family: 'Droid Sans';
   font-style: normal;
   font-weight: 700;
-  src: local('Droid Sans Bold'), local('DroidSans-Bold'), url(fonts/DroidSans700.woff) format('woff');
+  src: local('Droid Sans Bold'), local('DroidSans-Bold'), font-url('fonts/DroidSans700.woff') format('woff');
 }
 @font-face {
   font-family: 'League Gothic';
   font-style: normal;
   font-weight: 400;
-  src: local('League Gothic'), local('LeagueGothic400'), url(fonts/LeagueGothic400.woff) format('woff');
+  src: local('League Gothic'), local('LeagueGothic400'), font-url('fonts/LeagueGothic400.woff') format('woff');
 }
 
 
@@ -71,25 +71,25 @@
   font-family: 'Roboto Condensed';
   font-style: normal;
   font-weight: 300;
-  src: local('Roboto Condensed Light'), local('RobotoCondensed-Light'), url(fonts/RobotoCondensed300.woff) format('woff');
+  src: local('Roboto Condensed Light'), local('RobotoCondensed-Light'), font-url('fonts/RobotoCondensed300.woff') format('woff');
 }
 @font-face {
   font-family: 'Roboto Condensed';
   font-style: normal;
   font-weight: 400;
-  src: local('Roboto Condensed Regular'), local('RobotoCondensed-Regular'), url(fonts/RobotoCondensed400.woff) format('woff');
+  src: local('Roboto Condensed Regular'), local('RobotoCondensed-Regular'), font-url('fonts/RobotoCondensed400.woff') format('woff');
 }
 @font-face {
   font-family: 'Roboto Condensed';
   font-style: normal;
   font-weight: 700;
-  src: local('Roboto Condensed Bold'), local('RobotoCondensed-Bold'), url(fonts/RobotoCondensed700.woff) format('woff');
+  src: local('Roboto Condensed Bold'), local('RobotoCondensed-Bold'), font-url('fonts/RobotoCondensed700.woff') format('woff');
 }
 @font-face {
   font-family: 'Roboto Condensed';
   font-style: italic;
   font-weight: 300;
-  src: local('Roboto Condensed Light Italic'), local('RobotoCondensed-LightItalic'), url(fonts/RobotoCondensedItalic300.woff) format('woff');
+  src: local('Roboto Condensed Light Italic'), local('RobotoCondensed-LightItalic'), font-url('fonts/RobotoCondensedItalic300.woff') format('woff');
 }
 
   /* Sample pallete  */
@@ -135,7 +135,7 @@ body {
 	background-color:#e5e5e6;  
 	font-size:0.9em;
 }
-h1,h2,h3,h4,h5,h6,listh1  {	
+h1,h2,h3,h4,h5,h6, .listh1  {
     font-weight:400;
 	font-family: 'Roboto Condensed', sans-serif;
 	margin:0px;
@@ -371,7 +371,7 @@ margin-top:26px;
    padding:0px;
    margin:0px;
    margin-top:6px;
-   background: url(../assets/social.jpg);
+   background: url('social.jpg');
    background-repeat: no-repeat;
    background-position: center top;
 }
@@ -407,12 +407,12 @@ margin-top:26px;
 #socialmediaicons li:hover {
    background-repeat: no-repeat;
 }
-#socialmediaicons li.facebook:hover {background: url("../assets/socialovr.jpg");background-position: -2px 0px;}
-#socialmediaicons li.twitter:hover {background: url("../assets/socialovr.jpg");background-position: -39px 0px;}
-#socialmediaicons li.flickr:hover {background: url("../assets/socialovr.jpg");background-position: -69px 0px;}
-#socialmediaicons li.youtube:hover {background: url("../assets/socialovr.jpg");background-position: -99px 0px;}
-#socialmediaicons li.fred:hover {background: url("../assets/socialovr.jpg");background-position: -129px 0px;}
-#socialmediaicons li.linkedin:hover {background: url("../assets/socialovr.jpg");background-position: -159px 0px;}
+#socialmediaicons li.facebook:hover {background: url("socialovr.jpg");background-position: -2px 0px;}
+#socialmediaicons li.twitter:hover {background: url("socialovr.jpg");background-position: -39px 0px;}
+#socialmediaicons li.flickr:hover {background: url("socialovr.jpg");background-position: -69px 0px;}
+#socialmediaicons li.youtube:hover {background: url("socialovr.jpg");background-position: -99px 0px;}
+#socialmediaicons li.fred:hover {background: url("socialovr.jpg");background-position: -129px 0px;}
+#socialmediaicons li.linkedin:hover {background: url("socialovr.jpg");background-position: -159px 0px;}
 
 
 		 
@@ -422,7 +422,7 @@ margin-top:26px;
 /*----------------------*/	
 
 .dropshadow {
-   background-image:url("../assets/box-shadow-960.png");
+   background-image:url("box-shadow-960.png");
    background-position:center top;
    background-size:99%;
    background-repeat:no-repeat;
@@ -743,7 +743,7 @@ textarea:focus {
 /* ----------------  Photo lists ------------------------*/
 /* ------------------------------------------------------*/
 
-.photolist {width:100% border:solid 1px black; width:48%; float:left; border:solid 1px green;}
+.photolist {width:100%; border:solid 1px black; width:48%; float:left; border:solid 1px green;}
 #imageholder {margin-right:20px;}
 .listh1 {font-size:20px; padding-top:20px;}
 .listh2 {font-size:12px;}

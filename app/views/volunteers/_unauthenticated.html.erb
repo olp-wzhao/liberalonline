@@ -1,0 +1,10 @@
+<%= simple_form_for(@volunteer, :html => {:class => 'form-horizontal' }) do |f| %>
+    <%= f.error_notification %>
+
+    <h2>
+      <%= t("interests") %>
+    </h2>
+    <br/>
+    <%= render 'simple', volunteer: f %>
+    <%= f.button :submit %>
+<% end %>

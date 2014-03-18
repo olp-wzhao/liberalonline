@@ -26,3 +26,8 @@
     </tbody>
   </table>
 <%#= paginate @users %>
+  <div>
+    <% User.attribute_names.each do |attribute_name| %>
+        <div id="<%= attribute_name %>"><%= attribute_name %> </div>
+    <% end %>
+  </div>

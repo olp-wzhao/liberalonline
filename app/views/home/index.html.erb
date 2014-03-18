@@ -11,15 +11,15 @@
 <% if @rotator_documents != nil && @rotator_documents.length > 0 %>
 <div class="flexslider"><!-- set this div to percentages for responsive -->
     <ul class="slides">
-    <% @rotator_documents.each do |rotator_document| %>
-        <li>
-            <img src="<%= raw(croped_image_url(('http://pantone201.ca/webskins/' + (rotator_document.is_draft ? 'mpp' : 'olp') + '/photos/' + rotator_document.image_name), 0, 20, 700, 277)) %>" class="grayscale" />
-            <div class="flex-caption">
-                <a href="<%= '/news/' + rotator_document.temp_id.to_s + '?l=' + @language %>"><div class="rotatorheadline"><%= raw(rotator_document.headline) %></div>
-                <div class="rotatorsub"><%= raw(rotator_document.subtitle) %></div></a>
-            </div>
-        </li>
-    <% end %>
+        <% @rotator_documents.each do |rotator_document| %>
+            <li>
+                <img src="<%= raw(croped_image_url(('http://pantone201.ca/webskins/' + (rotator_document.is_draft ? 'mpp' : 'olp') + '/photos/' + rotator_document.image_name), 0, 20, 700, 277)) %>" class="grayscale" />
+                <div class="flex-caption">
+                    <a href="<%= '/news/' + rotator_document.temp_id.to_s + '?l=' + @language %>"><div class="rotatorheadline"><%= raw(rotator_document.headline) %></div>
+                    <div class="rotatorsub"><%= raw(rotator_document.subtitle) %></div></a>
+                </div>
+            </li>
+        <% end %>
     </ul>
 </div><div class="dropshadow">&nbsp;</div><div style="clear:both;display:block; max-height:1px;">&nbsp;</div>	
 <% end %>

@@ -1,6 +1,7 @@
 <% if @email_exists %>
-	$("#user_email_validation").html('This email already exists');
+	$("#user_email_validation").html('<i class="fa fa-exclamation"></i>');
 <% else %>
-	$("#user_email_validation").html('<i class="fa fa-check">email available</i>');
+	$("#user_email_validation").html('<i class="fa fa-check"></i>');
 <% end %>
 
+$('#user_email_validation').append('')

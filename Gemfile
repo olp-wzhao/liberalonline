@@ -17,7 +17,6 @@ gem 'jquery-turbolinks'
 gem 'turbolinks'
 gem 'jbuilder', '~> 1.2'
 #gem 'bootstrap-sass'
-#gem 'bootstrap-datepicker-rails'
 gem 'font-awesome-sass-rails'
 gem 'kaminari'
 
@@ -48,6 +47,7 @@ group :development do
   gem 'binding_of_caller'
   gem 'meta_request'
   gem 'html_routes', '~> 1.0'
+  gem 'awesome_print'
 end
 
 group :development, :test do
@@ -94,3 +94,5 @@ gem 'select2-rails'
 gem 'remotipart', '~> 1.2'
 gem 'figaro'
 gem 'unobtrusive_flash', '>=3'
+gem 'high_voltage', '~> 2.1.0'
+gem 'simple_form_fancy_uploads'
