@@ -7,7 +7,7 @@
     <% if web_site_manager.r_fsr %>
         <div class="photolist last">
             <div id="imageholder"><img src="/photos/mpp/mpp_photos/<%= web_site_manager.r_id.to_s %>_thumbnail.jpg" class="drop-shadow lifted" ></div>
-            <div style="height:200px;">
+            <div class="photolist_detailholder">
                 <div class="listh1"><%= web_site_manager.m_nf %> <%= web_site_manager.m_nl %></div>
                 <div class="listh2"><%= raw(web_site_manager.r_name_en) %></div>
                 <div class="listdetails"><%= raw(web_site_manager.m_nm) %></div>
@@ -20,6 +20,9 @@
 
 <div style="clear:both; display:block;">&nbsp;</div>
 
-<%# pass in pageimageholder background class and main column id %>
+<%# pass in pageimageholder background class and main column id and submenu %>
 <% content_for :backgroundclass do %>wynne_mpp<% end %>	
 <% content_for :main_id do %>mpps_main<% end %>
+<% content_for :col4content do %><%= render "shared/sub_menu_about" %><% end %>
+
+

@@ -1,4 +1,4 @@
-<h1>History</h1>
+<h1 class="pagetitle">History</h1>
 
 
 <h3>The Foundation of the Party</h3>
@@ -102,15 +102,10 @@
 
 
 
-<% content_for :column do %>
-
-<div class="sidecolumn kathleen">
-<%= render "shared/about" %>
-
-This is content that should be rendered in the accompanying column. Above this should render a menu specific to the About section that is in the shared directory.
-</div> <!-- closes .m_sidecolumn -->
-
-<% end %>
+<%# pass in pageimageholder background class and main column id and submenu %>
+<% content_for :backgroundclass do %>wynne_mpp<% end %>	
+<% content_for :main_id do %>mpps_main<% end %>
+<% content_for :col4content do %><%= render "shared/sub_menu_about" %><% end %>
 
 
 

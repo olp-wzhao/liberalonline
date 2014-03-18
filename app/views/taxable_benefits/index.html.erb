@@ -1,4 +1,4 @@
-<h1>TaxableBenefits</h1>
+<h1 class="pagetitle">Taxable Benefits</h1>
 
 
 <h3>Who Can Contribute</h3>
@@ -27,7 +27,7 @@ Liberal Party and up to $1,240 to any Ontario Liberal Party candidate
 so long as the total contribution to all Ontario Liberal Party
 candidates does not exceed $6,200.</p>
 
-<table border="1" width="500">
+<table border="1" width="100%">
 <tbody>
 <tr>
 <th align="center">Maximum Contributions </th>
@@ -100,3 +100,8 @@ $2,604 based on political contributions at the annual limit of $18,600.
 Any contributions exceeding the annual limit will be carried forward to
 a subsequent taxation year, but will be limited to the annual ceiling
 for that year.</p>
+
+
+<%# pass in pageimageholder background class and main column id and submenu %>
+<% content_for :backgroundclass do %>wynne_kids<% end %>	
+<% content_for :main_id do %>main_taxable_benefits<% end %>

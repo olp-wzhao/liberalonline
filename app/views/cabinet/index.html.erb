@@ -20,5 +20,8 @@
 
 
 
-<% content_for :col4content do %>test<% end %>
+<%# pass in pageimageholder background class and main column id and submenu %>
+<% content_for :backgroundclass do %>wynne_mpp<% end %>	
+<% content_for :main_id do %>mpps_main<% end %>
+<% content_for :col4content do %><%= render "shared/sub_menu_about" %><% end %>
 

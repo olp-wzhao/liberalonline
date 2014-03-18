@@ -515,9 +515,11 @@ LINE 120 - Top Level Menu Font parameters
 	margin:0;
 	font-weight: normal;
 	color:#222222;
-	text-shadow:1px 1px 1px #c5c5c5;
 	margin-bottom:4px;
 }
+.mgmenu p + h4 {margin-top:20px;}
+.mgmenu h4 + p {margin-bottom:2px;}
+.mgmenu p {}
 .mgmenu h1, 
 .mgmenu h2, 
 .mgmenu h3, 
@@ -528,7 +530,8 @@ LINE 120 - Top Level Menu Font parameters
 	font-weight:700;
 }
 .mgmenu p {
-	font-size:12px;
+	font-size:14px;
+    line-height:110%;	
 }
 .mgmenu h1 {
 	font-size:32px;

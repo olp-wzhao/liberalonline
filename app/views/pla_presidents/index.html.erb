@@ -1,28 +1,25 @@
+<h1 class="pagetitle">Riding Presidents</h1>
 
-
-
-        <h1>Riding Presidents</h1>
-
-
+<br><br>
 
 <% for i in 1..107 %>
         <% if i % 2 != 0 %>
-                <div class="photolist wrap">
+                <div class="wrap">
                 <% if @riding_executives_hash[i] != nil %>
-                        <div class="photolist last">
+                        <div class="ridinglist">
                                 <div class="listh1"><%= @web_site_managers[@riding_executives_hash[i].riding_id-1].r_name_en %></div>
                                 <div class="listh2"><%= @riding_executives_hash[i].first_name + ' ' + @riding_executives_hash[i].last_name %></div>
-                                <p class="listp"><%= if @riding_executives_hash[i].email != nil && @riding_executives_hash[i].email != '' then @riding_executives_hash[i].email end %></p>
-                                <p class="listp"><%= if @riding_executives_hash[i].phone_number != nil && @riding_executives_hash[i].phone_number != '' then @riding_executives_hash[i].phone_number end %></p>
+                                <p class="detail"><%= if @riding_executives_hash[i].email != nil && @riding_executives_hash[i].email != '' then @riding_executives_hash[i].email end %>
+                                <br><%= if @riding_executives_hash[i].phone_number != nil && @riding_executives_hash[i].phone_number != '' then @riding_executives_hash[i].phone_number end %></p>
 
                         </div>
                 <% end %>
                 <% if @riding_executives_hash[i+1] != nil %>
-                        <div class="photolist last">
+                        <div class="ridinglist">
                                 <div class="listh1"><%= @web_site_managers[@riding_executives_hash[i+1].riding_id-1].r_name_en %></div>
                                 <div class="listh2"><%= @riding_executives_hash[i+1].first_name + ' ' + @riding_executives_hash[i+1].last_name %></div>
-                                <p class="listp"><%= if @riding_executives_hash[i+1].email != nil && @riding_executives_hash[i+1].email != '' then @riding_executives_hash[i+1].email end %></p>
-                                <p class="listp"><%= if @riding_executives_hash[i+1].phone_number != nil && @riding_executives_hash[i+1].phone_number != '' then @riding_executives_hash[i+1].phone_number end %></p>
+                                <p class="detail"><%= if @riding_executives_hash[i+1].email != nil && @riding_executives_hash[i+1].email != '' then @riding_executives_hash[i+1].email end %>
+                                <br><%= if @riding_executives_hash[i+1].phone_number != nil && @riding_executives_hash[i+1].phone_number != '' then @riding_executives_hash[i+1].phone_number end %></p>
 
                         </div>
                 <% end %>
@@ -31,3 +28,7 @@
 <% end %>
 
 
+<%# pass in pageimageholder background class and main column id and submenu %>
+<% content_for :backgroundclass do %>wynne_mpp<% end %>	
+<% content_for :main_id do %>mpps_main<% end %>
+<% content_for :col4content do %><%= render "shared/sub_menu_about" %><% end %>
