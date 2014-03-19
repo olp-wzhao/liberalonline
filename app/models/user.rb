@@ -41,6 +41,8 @@ class User
   validates_format_of :email, with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/
   validates_numericality_of :age, :greater_than => 13, :message => "must be 13 or older"
 
+  validates_format_of :postal_code, with: /[ABCEGHJKLMNPRSTVXY]\d[ABCEGHJKLMNPRSTWVXYZ]\d[ABCEGHJKLMNPRSTWVXYZ]\d/
+
   belongs_to :riding
 
   has_many :identities
@@ -138,13 +140,15 @@ class User
     end
   end
 
-
-
   def age
     now = Time.now.utc.to_date
     unless self.birthday.nil?
       now.year - self.birthday.year - (self.birthday.to_date.change(:year => now.year) > now ? 1 : 0)
     end
+  end
+
+  def transactions
+    Transaction.where(email: self.email)
   end
 
   slug :full_name, history: true

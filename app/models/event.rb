@@ -1,6 +1,8 @@
 class Event
   include Mongoid::Document
   include Mongoid::Timestamps
+  include Mongoid::Slug
+  include Mongoid::Search
 
   field :title, type: String
   field :event_datetime, type: DateTime
@@ -50,6 +52,8 @@ class Event
 
   accepts_nested_attributes_for :user
 
+  slug :title, history: true
 
+  search_in :title, :location
 
 end

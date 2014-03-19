@@ -1,5 +1,5 @@
 class Admin::AttachmentsController < Admin::AdminController
-  before_filter :authenticate_admin!
+
 
   def new
     @document = Document.find_or_create_by(id: params[:document_id])

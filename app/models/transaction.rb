@@ -36,7 +36,10 @@ class Transaction
   before_create :set_total
   before_save :find_or_create_user
 
-  scope :by_email, -> (email) { where(email: email).group } 
+  scope :transaction_user, lambda {|email|
+    where(email: email).group_by{ |t| t.email }
+  }
+  scope :by_email, -> (email) { where(email: email).group_by{ |t| t.email } }
   scope :memberships, -> { where(type: "Membership", ) }
   scope :donations, -> { where(type: "Donation") }
   scope :events, -> { where(type: "Item") }
@@ -57,7 +60,7 @@ class Transaction
   def fill_total
     unless self.gateway_response.nil?
       dollars = Hash.from_xml(self.gateway_response)["Result"]["FullTotal"].to_f * 100
-      self.total = Money.new(dollars, "CAD")
+      self.total = dollars #Money.new(dollars, "CAD")
     end
   end
 

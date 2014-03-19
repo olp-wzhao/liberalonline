@@ -1,13 +1,13 @@
 <%= simple_form_for @event, url: admin_event_path(@event) do |f| %>
     <%= f.input :title %>
-    <%= f.input :event_datetime %>
+    <%= f.input :event_datetime, :input_html => { :class => 'datepicker' } %>
     <%= f.input :location %>
     <%= f.input :address %>
     <%= f.input :address_hint %>
     <%= f.input :email %>
     <%= f.input :contact_person %>
     <%= f.input :phone_number %>
-    <%= f.input :summary, as: :text %>
+    <%= f.input :summary, as: :text, :input_html => { :class => 'tinymce', :rows => 40, :cols => 80 } %>
     <%= f.input :require_register, as: :boolean %>
     <%= f.input :member_only, as: :boolean %>
     <%= f.input :feature_level %>
@@ -31,6 +31,8 @@
     <%= f.input :publish_on_pla, as: :boolean %>
     <%= f.input :publish_on_elect, as: :boolean %>
     <%= f.input :partisan %>
-    <%= f.input :riding_id %>
-
+    <%#= f.input :riding_id %>
+    <%= f.button :submit, 'Save', id: 'save' %>
 <% end %>
+
+<%= tinymce %>

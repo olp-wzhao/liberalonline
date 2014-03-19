@@ -1,7 +1,7 @@
 class Admin::DocumentsController < Admin::AdminController
 
   #before_filter :authenticate_user!, :except => [:show, :index, :toolkit, :toolkit_show]
-  before_filter :authenticate_admin! #, :only => [:toolkit, :toolkit_show]
+  #before_filter :authenticate_admin! #, :only => [:toolkit, :toolkit_show]
   before_action :set_document, only: [:show, :edit, :update, :destroy]
 
   #respond_to :html, :json

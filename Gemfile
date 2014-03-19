@@ -5,6 +5,8 @@ ruby '2.0.0'
 gem 'rails', '4.0.0'
 #gem 'haml-rails'
 gem 'mongoid', github: 'mongoid/mongoid'
+gem 'bson'
+gem 'moped', github: 'mongoid/moped'
 
 gem 'carrierwave'
 gem 'carrierwave-mongoid', :require => 'carrierwave/mongoid'
@@ -40,14 +42,12 @@ group :production do
 end
 
 group :development do
-  gem 'pry'
   gem 'quiet_assets'
   gem 'thin'
   gem 'better_errors'
   gem 'binding_of_caller'
   gem 'meta_request'
   gem 'html_routes', '~> 1.0'
-  gem 'awesome_print'
 end
 
 group :development, :test do
@@ -60,6 +60,8 @@ group :development, :test do
   gem 'terminal-notifier-guard'
   gem 'guard'
   gem 'guard-rspec'
+  gem 'railroady'
+  gem 'jazz_hands'
 end
 
 group :test do

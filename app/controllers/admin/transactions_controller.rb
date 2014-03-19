@@ -1,5 +1,4 @@
 class Admin::TransactionsController < Admin::AdminController
-  before_filter :authenticate_admin!
   before_action :set_transaction, only: [:show, :destroy]
   respond_to :json, :html, :js
 
@@ -92,7 +91,7 @@ class Admin::TransactionsController < Admin::AdminController
   end
 
   def admin_index
-    @transactions = Transaction.all
+    @transactions = Transaction.all.group_by { |t| t.email }
     search_params
     controller_scopes
     @transactions = @transactions.order_by(id: :desc).limit(100)
@@ -110,6 +109,14 @@ class Admin::TransactionsController < Admin::AdminController
       @scope = params[:id]
     end
 
+    respond_to do |format|
+      format.js
+    end
+  end
+
+  def find_user
+    @transaction = Transaction.find params[:id]
+    @transaction_users = Transaction.where(email: @transaction.email)
     respond_to do |format|
       format.js
     end
@@ -185,6 +192,7 @@ class Admin::TransactionsController < Admin::AdminController
       @membership_count = Transaction.memberships.count
       @donation_count = Transaction.donations.count
     end
+
 
   # def create_or_update_transaction_user(transaction)
   #   # Check for unique email and don't attempt to create a new user

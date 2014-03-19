@@ -1,6 +1,5 @@
 class Admin::UsersController < Admin::AdminController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
-  before_filter :authenticate_admin!
 
   def index
     @users = User.order_by(:first_name.desc).page params[:page]

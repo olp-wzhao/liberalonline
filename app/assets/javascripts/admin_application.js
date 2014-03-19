@@ -20,6 +20,7 @@
 
 // require rails.validations
 //= require tinymce-jquery
+//= require admin
 
-//= require turbolinks
+// require turbolinks
 // require_tree .

@@ -195,14 +195,19 @@ V44::Application.routes.draw do
     resources :documents do
       resources :attachments
     end
-    resources :transactions
+    resources :transactions do
+
+    end
     resources :events
     resources :users do
     end
-    get 'search/users' => 'users#search'
-    get 'home' => 'home#home'
+
     get 'transactions' => 'transactions#admin_index'
     get 'transaction_scopes/:id' => 'transactions#scopes'
+    get 'transaction_user/:id', to: 'transactions#find_user'
+
+    get 'search/users' => 'users#search'
+    get 'home' => 'home#home'
     get 'petitions/:id' => 'petitions#index'
     get 'contact' => 'home#contact'
     get 'web' => 'home#web'

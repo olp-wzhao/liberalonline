@@ -11,7 +11,7 @@
 			<div class="transdeets">
 			Amt:<br><span class="bigdata">$<%= transaction.get_total %></span>
 			</div>
-			
+            <%= link_to 'details', controller: :'admin/transactions', action: 'find_user', id: transaction.id, remote: true %>
 		</div>	
       <% end %>
       <div>
@@ -19,5 +19,5 @@
                 <div id="<%= attribute_name %>"><%= attribute_name %> </div>
           <% end %>
       </div>
-</div>	
+</div>
 

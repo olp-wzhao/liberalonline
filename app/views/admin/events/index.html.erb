@@ -1,0 +1,27 @@
+<%= link_to 'Add Event', new_admin_event_path, remote: true %>
+<table>
+    <thead>
+        <tr>
+          <th>
+            Action
+          </th>
+          <% Event.attribute_names.each do |a| %>
+            <th id='<%= a %>'>
+                <%= a.humanize %>
+            </th>
+          <% end %>
+        </tr>
+    </thead>
+    <% @events.each do |event| %>
+        <tr>
+          <td>
+            <%= link_to 'Edit', edit_admin_event_path(event), remote: true %>
+          </td>
+          <% Event.attribute_names.each do |a| %>
+            <td>
+              <%= event[a] %>
+            </td>
+          <% end %>
+        </tr>
+    <% end %>
+</table>
