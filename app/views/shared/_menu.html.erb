@@ -45,15 +45,19 @@
 		
 		
 
-          <li class="right_item"><span>Donate<span class="subzy">See the Benefits</span></span><!-- Begin Item -->
+          <li class="right_item"><span><%= link_to "Donate", "https://contribute.ontarioliberal.ca/Home/Donate" %><span class="subzy">See the Benefits</span></span><!-- Begin Item -->
 			<div class="dropdown_container dropdown_fullwidth"><!-- Begin Item Container -->
+
 				<div class="col_3">
-					<h4>Donate Now</h4>
-					<a href="#"><img src="img/products/product01@2x.jpg" style="clip:rect(0px,60px,200px,0px)" width="220" height="140" alt="" class="inline_img" /></a>
-					<p>Your donations allow us to get our message out. Even a small donation can make a big difference.</p>
-				</div>
+					<h4><%= link_to "About Donations", "/aboutdonations" %></h4>
+					<a href="#"><img src="assets/product03@2x.jpg" width="220" height="140" alt="" class="inline_img" /></a>
+					<p>They're our schools, our hospitals, our environment, our economy, and our future. Your donation makes a big difference in the fight.</p>
+                    <h4><%= link_to "Taxable Benefits", "/taxablebenefits" %></h4>
+					<a href="#"><img src="img/products/product03@2x.jpg" width="220" height="140" alt="" class="inline_img" /></a>
+					<p>If you gave $300.00, you'd get back $225 at tax time. Read more about the benefits of donating.</p>
+				</div>				
 				<div class="col_3">
-					<h4>Make a Monthly Contribution (ABC)</h4>
+					<h4><%= link_to "ABC (Monthly Contribution)", "https://contribute.ontarioliberal.ca/Home/ABC?edid=9000" %></h4>
 					<a href="#"><img src="img/products/product02@2x.jpg" width="220" height="140" alt="" class="inline_img" /></a>
 					<p>Automatic membership renewal and special prices for Ontario Liberal events are just some of the perks of signing up for monthly contributions.</p>
 					
@@ -61,15 +65,16 @@
 					<p>RTC Membership affords you complimentary observer status at the upcoming Ontario Liberal Party Annual General Meeting as well as exclusive VIP reception at the Heritage Dinner.</p>
 				</div>
 				<div class="col_3">
-					<h4><%= link_to "Taxable Benefits", "/taxablebenefits" %></h4>
-					<a href="#"><img src="img/products/product03@2x.jpg" width="220" height="140" alt="" class="inline_img" /></a>
-					<p>If you gave $300.00, you'd get back $225 at tax time. Read more about the benefits of donating.</p>
+					
+					something else
+					
 				</div>
 				<div class="col_3">
-					<h4><%= link_to "About Donations", "/aboutdonations" %></h4>
-					<a href="#"><img src="img/products/product03@2x.jpg" width="220" height="140" alt="" class="inline_img" /></a>
-					<p>They're our schools, our hospitals, our environment, our economy, and our future. Your donation makes a big difference in the fight.</p>
-				</div>
+					<h4><%= link_to "Donate Now", "https://contribute.ontarioliberal.ca/Home/Donate" %></h4>
+					<a href="#"><img src="img/products/product01@2x.jpg" style="clip:rect(0px,60px,200px,0px)" width="220" height="140" alt="" class="inline_img" /></a>
+					<p>Your donations allow us to get our message out. Even a small donation can make a big difference.</p>
+				</div>				
+
 			</div><!-- End Item Container -->
 		</li><!-- End Item -->
 		
