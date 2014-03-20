@@ -19,9 +19,9 @@
 
 // require rails.validations
 
-//= require underscore
-//= require json2
-//= require judge
+// require underscore
+// require json2
+// require judge
 
 //= require helpers
 //= require main
