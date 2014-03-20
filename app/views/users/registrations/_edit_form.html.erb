@@ -17,11 +17,10 @@
     <%= f.hidden_field :riding_id %>
     <%= f.input :city, placeholder: 'City', label: false %>
     <%= f.input :phone_number, as: :tel, :size => 30, placeholder: 'Phone Number', label: false %>
-    <%= f.input :birthday, label:'Date of Birth', as: :date, start_year: Date.today.year - 90,
-                end_year: Date.today.year - 12 %>
+    <%= f.input :birthday, :input_html => { :class => 'datepicker', value: @user.birthday.strftime('%d/%m/%Y') } %>
     <%= f.input :image, as: :file, label: 'Upload Image' %>
     <%= f.hidden_field :image_cache %>
-    <%= f.button :submit, 'Sign up', :class => 'btn-primary' %>
+    <%= f.button :submit, 'Update', :class => 'btn-primary' %>
     <div id="errors"></div>
 <% end %>
 

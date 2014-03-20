@@ -44,4 +44,6 @@ V44::Application.configure do
   
   #config.force_ssl = true
   config.log_level = :debug
+
+  I18n.enforce_available_locales = false
 end
