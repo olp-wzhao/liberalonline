@@ -9,11 +9,13 @@ class Users::PasswordsController < Devise::PasswordsController
   end
 
   def edit
+    binding.pry
     super
-    respond_to do |format|
-      format.js
-      format.html
-    end
+
+    #respond_to do |format|
+    #  format.js
+    #  format.html
+    #end
   end
 
   def resource_params

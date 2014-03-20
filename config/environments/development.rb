@@ -6,7 +6,7 @@ V44::Application.configure do
     authentication: "plain",
     enable_starttls_auto: true, # detects and uses STARTTLS
     user_name: "jessenaiman@gmail.com",
-    password: ENV['EMAIL_PASSWORD']
+    password: '56e9ac24-203c-4387-80c5-d4f9a4543a47'
   }
 
   #BetterErrors::Middleware.allow_ip! "10.0.2.2"
