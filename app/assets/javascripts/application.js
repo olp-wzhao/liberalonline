@@ -15,12 +15,13 @@
 //= require jquery_ujs
 //= require jquery.ui.effect
 //= require jquery.ui.datepicker
+//= require dates
 
-// require bootstrap
-
-// require mgmenu
-// require mgmenu_plugins
 // require rails.validations
+
+//= require underscore
+//= require json2
+//= require judge
 
 //= require helpers
 //= require main

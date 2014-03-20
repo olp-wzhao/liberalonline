@@ -5,6 +5,32 @@
       </div>
       <div class="modal-body">
         <%= f.input :roles, :collection => AppConfig.roles, :as => :check_boxes, :label_method => lambda {|r| r.titleize}, :label => false, :item_wrapper_class => 'inline', checked: @user.roles %>
+        <%= f.input :name %>
+        <%= f.input :image, as: :image_preview, input_html: {preview_version: :thumb} %>
+        <%= f.input :username %>
+        <%= f.input :first_name %>
+        <%= f.input :last_name %>
+        <%= f.input :gender %>
+        <%= f.input :hometown %>
+        <%= f.input :address %>
+        <%= f.input :postal_code %>
+        <%= f.input :city %>
+        <%= f.input :phone_number %>
+        <%= f.input :link %>
+        <%= f.input :location %>
+        <%= f.input :locale %>
+        <%= f.input :relationship_status %>
+        <%= f.input :significant_other %>
+        <%= f.input :timezone %>
+        <%= f.input :work %>
+        <%= f.input :verified %>
+        <%= f.input :roles_mask %>
+        <%= f.input :security_key %>
+        <%= f.input :title %>
+        <%= f.input :web_site %>
+        <%= f.input :updated_time %>
+        <%= f.input :birthday, as: :datepicker %>
+        <%= f.input :referal_url %>
       </div>
       <div class="modal-footer">
         <%= f.submit 'Change Role', :class => 'btn' %>

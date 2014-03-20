@@ -61,7 +61,8 @@ group :development, :test do
   gem 'guard'
   gem 'guard-rspec'
   gem 'railroady'
-  gem 'jazz_hands'
+  gem 'jazz_hands', github: 'nixme/jazz_hands', branch: 'bring-your-own-debugger'
+  gem 'pry-byebug'
 end
 
 group :test do
@@ -98,3 +99,5 @@ gem 'figaro'
 gem 'unobtrusive_flash', '>=3'
 gem 'high_voltage', '~> 2.1.0'
 gem 'simple_form_fancy_uploads'
+gem 'judge'
+gem 'judge-simple_form'

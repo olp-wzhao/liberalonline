@@ -6,7 +6,7 @@ console.log('sessions.create.js.erb');
     $('#micromenu_placeholder').html('<%= j render '/shared/micromenu' %>');
 
 <% else %>
-    $('#errors').html('');
+    $('form .errors').html('');
     console.log('errors should be displayed');
-    $('#errors').html('<%= j devise_error_messages!%>');
+    $('form .errors').html('<%= j devise_error_messages!%>');
 <% end %>

@@ -9,20 +9,18 @@
 <%= simple_form_for(resource, :as => resource_name, :html => { :class => 'form-horizontal' }, :url => registration_path(resource_name), :remote => true) do |f| %>
 
   <%= f.input :email, required: true, autofocus: true, class: 'submittable form-control tooltip',
-                          placeholder: 'Enter Email',
-                          data: { toggle: 'tooltip', placement: 'right' }, title: 'Please enter your email' %>
-  <%= f.input :first_name, placeholder: 'First Name', label: false, data: { toggle: 'tooltip', placement: 'right' }, title: 'Enter your first name', input_html: { class: 'tooltip' } %>
-  <%= f.input :last_name, placeholder: 'Last Name', label: false, data: { toggle: 'tooltip', placement: 'right' }, title: 'Enter your last name', input_html: { class: 'tooltip' } %>
-  <%= f.input :password, :required => true, placeholder: 'Password', label: false, data: { toggle: 'tooltip', placement: 'right' }, title: 'Enter your password', class: 'tooltip' %>
-  <%= f.input :password_confirmation, :required => true, placeholder: 'Repeat Password', label: false, data: { toggle: 'tooltip', placement: 'right' }, title: 'Repeat your password', class: 'tooltip' %>
-  <%= f.input :address, placeholder: 'Address', label: false, data: { toggle: 'tooltip', placement: 'right' }, title: 'Enter your address', class: 'tooltip' %>
-  <%= f.input :postal_code, placeholder: 'Postal Code' , input_html: { onblur: 'findRiding("' + find_riding_url + '")' }, label: false, data: { toggle: 'tooltip', placement: 'right' }, title: 'Enter your postal code', class: 'tooltip' %>
+                          placeholder: 'Enter Email', title: 'Please enter your email' %>
+  <%= f.input :first_name, placeholder: 'First Name', label: false, title: 'Enter your first name' %>
+  <%= f.input :last_name, placeholder: 'Last Name', label: false, title: 'Enter your last name' %>
+  <%= f.input :password, required: true, placeholder: 'Password', label: false, title: 'Enter your password' %>
+  <%= f.input :password_confirmation, required: true, placeholder: 'Repeat Password', label: false, title: 'Repeat your password' %>
+  <%= f.input :address, placeholder: 'Address', label: false, title: 'Enter your address' %>
+  <%= f.input :postal_code, placeholder: 'Postal Code' , input_html: { onblur: 'findRiding("' + find_riding_url + '")' }, label: false, title: 'Enter your postal code' %>
   <span id='riding_box'></span>
   <%= f.hidden_field :riding_id %>
-  <%= f.input :city, placeholder: 'City', label: false, data: { toggle: 'tooltip', placement: 'right' }, title: 'Enter your city', class: 'tooltip' %>
-  <%= f.input :phone_number, as: :tel, :size => 30, placeholder: 'Phone Number', label: false, data: { toggle: 'tooltip', placement: 'right' }, title: 'Enter your phone number', class: 'tooltip' %>
-  <%= f.input :birthday, label:'Date of Birth', as: :date, start_year: Date.today.year - 90,
-                                                end_year: Date.today.year - 12 %>
+  <%= f.input :city, placeholder: 'City', label: false, title: 'Enter your city' %>
+  <%= f.input :phone_number, as: :tel, :size => 30, placeholder: 'Phone Number', label: false, title: 'Enter your phone number' %>
+  <%= f.input :birthday, :input_html => { :class => 'datepicker', value: @user.birthday.strftime("%d/%m/%Y") } %>
   <%= f.file_field :image, as: :image_preview, input_html: {preview_version: :thumb} %>
   <%= f.hidden_field :image_cache %>
   <%= f.button :submit, 'Sign up', :class => 'btn-primary' %>

@@ -18,5 +18,5 @@ console.log('registrations.create.js.erb');
 <% else %>
     $('#errors').html('');
     console.log('errors should be displayed');
-    $('#errors').html('<%= j devise_error_messages!%>');
+    $('form .errors').html('<%= j devise_error_messages!%>');
 <% end %>
