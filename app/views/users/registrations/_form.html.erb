@@ -12,15 +12,17 @@
                           placeholder: 'Enter Email', title: 'Please enter your email' %>
   <%= f.input :first_name, placeholder: 'First Name', label: false, title: 'Enter your first name' %>
   <%= f.input :last_name, placeholder: 'Last Name', label: false, title: 'Enter your last name' %>
-  <%= f.input :password, required: true, placeholder: 'Password', label: false, title: 'Enter your password' %>
+  <%= f.input :password, required: true, placeholder: 'Password', label: false, hint: 'Make sure you can remember your password' %>
   <%= f.input :password_confirmation, required: true, placeholder: 'Repeat Password', label: false, title: 'Repeat your password' %>
+    <div class="password_confirmation_error">Password does not match</div>
   <%= f.input :address, placeholder: 'Address', label: false, title: 'Enter your address' %>
-  <%= f.input :postal_code, placeholder: 'Postal Code' , input_html: { onblur: 'findRiding("' + find_riding_url + '")' }, label: false, title: 'Enter your postal code' %>
+  <%= f.input :postal_code, placeholder: 'Postal Code' , input_html: { onblur: 'findRiding("' + find_riding_url + '")', class: 'postal_code' },
+              label: false, title: 'Enter your postal code' %>
   <span id='riding_box'></span>
   <%= f.hidden_field :riding_id %>
   <%= f.input :city, placeholder: 'City', label: false, title: 'Enter your city' %>
-  <%= f.input :phone_number, as: :tel, :size => 30, placeholder: 'Phone Number', label: false, title: 'Enter your phone number' %>
-  <%= f.input :birthday, :input_html => { :class => 'datepicker', value: @user.birthday.strftime("%d/%m/%Y") } %>
+  <%= f.input :phone_number, as: :tel, :size => 30, placeholder: 'Phone Number', label: false, title: 'Enter your phone number', input_html: {class: 'phone_number'} %>
+  <%= f.input :birthday, :input_html => { :class => 'datepicker', value: Date._strptime("%d/%m/%Y") } %>
   <%= f.file_field :image, as: :image_preview, input_html: {preview_version: :thumb} %>
   <%= f.hidden_field :image_cache %>
   <%= f.button :submit, 'Sign up', :class => 'btn-primary' %>
@@ -29,10 +31,13 @@
 
 <%= render 'users/shared/links' %>
 
+<script>
+    initializeValidation();
+</script>
+
 <%= content_for :scripts_for_body do %>
 
     <script>
-        $('.tooltip').tooltip();
 
         $('#user_email').append('<span id="email_check"></span>');
         var validateEmail = $('#validateEmail');

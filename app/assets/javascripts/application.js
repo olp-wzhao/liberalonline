@@ -16,6 +16,7 @@
 //= require jquery.ui.effect
 //= require jquery.ui.datepicker
 //= require dates
+//= require jquery.formance
 
 // require rails.validations
 
@@ -30,6 +31,8 @@
 //= require facebook
 
 //= require jquery.remotipart
+
+//= require jesse.validation
 
 // require turbolinks
 // require_tree .
