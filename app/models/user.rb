@@ -39,9 +39,13 @@ class User
   validates_presence_of :email, :postal_code #, :first_name, :city, :address, :phone_number, :birthday
   validates_uniqueness_of :email
   validates_format_of :email, with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/
+  validates_length_of :email, minimum: 4
+
   validates_numericality_of :age, :greater_than => 13, :message => "must be 13 or older"
 
   validates_format_of :postal_code, with: /[ABCEGHJKLMNPRSTVXY]\d[ABCEGHJKLMNPRSTWVXYZ]\d[ABCEGHJKLMNPRSTWVXYZ]\d/
+  validates_length_of :first_name, minimum: 2
+  validates_length_of :last_name, minimum: 2
 
   belongs_to :riding
 

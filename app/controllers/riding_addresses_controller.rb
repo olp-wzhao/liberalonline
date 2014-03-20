@@ -5,9 +5,8 @@ class RidingAddressesController < ApplicationController
   # GET /riding_addresses.json
   def index
     #@riding_addresses = RidingAddress.all
-    if params[:search].present?
+    unless params[:search].empty?
       @riding_locations = RidingAddress.near(params[:search], 10, :order => :distance)
-      
     end
     respond_to do |format|
       begin
