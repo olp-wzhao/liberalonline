@@ -1,3 +1,3 @@
-Judge.configure do
-  expose User, :email
-end
+#Judge.configure do
+#  expose User, :email
+#end
