@@ -1,24 +1,26 @@
 
-  <table class="table table-condensed">
+  <table id="usertable" class="table table-condensed">
     <thead>
     <tr>
       <th>Username</th>
       <th>Email</th>
       <th>Registered</th>
-      <th>Role</th>
+      <th>&nbsp;</th>
       <th></th>
       <th></th>
     </tr>
     </thead>
     <tbody>
+	
+	
     <% @users.each do |user| %>
         <tr id="<%= user.id %>">
           <td><%= user.full_name %></td>
-          <td><%= user.email %></td>
+          <td><%= user.email %><br>Gender:<%= user.gender %><br>Riding:<%= Riding.find (user.riding_id).title unless user.riding_id.nil? %><br>Postal Code:<%= user.postal_code %><br>Image:<%= user.image %><br>Signed in:<%= user.sign_in_count %></td>
           <td><%= user.created_at.to_date %></td>
           <td><%= user.roles.join(', ').titleize unless user.roles.first.nil? %></td>
           <td>
-            <%= link_to 'Change role', admin_users_url + '/' + user.id, remote: true %>
+            <%= link_to 'Modify', admin_users_url + '/' + user.id, remote: true %>
           </td>
           <td><%= link_to("Delete user", admin_user_path(user), remote: true, data: { confirm: "Are you sure?" }, method: :delete, class: 'btn btn-mini btn-danger') unless user == current_user %></td>
         </tr>
@@ -26,7 +28,9 @@
     </tbody>
   </table>
 <%#= paginate @users %>
-  <div>
+
+  <div style="padding-top:30px; display:block; clear:both;">
+  <h3>Available attributes</h3>
     <% User.attribute_names.each do |attribute_name| %>
         <div id="<%= attribute_name %>"><%= attribute_name %> </div>
     <% end %>
