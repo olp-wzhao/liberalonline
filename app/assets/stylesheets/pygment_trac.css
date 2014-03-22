@@ -74,6 +74,15 @@
     box-shadow: none;
 }
 
+.has-success::after{
+    color: green;
+    content: "\2713";
+}
+
+.is-loading::after{
+    background-image: url('loading.gif');
+}
+
 .has-error label, .has-error input {
     color: red;
     border-color: red;

@@ -3,9 +3,9 @@
 <% if current_user.nil? %>
 	<h1> New volunteer </h1>
     <%= render partial: 'users/registrations/form', user: :user %>
-    <script>
-
-    </script>
+      <script>
+          initializeValidation();
+      </script>
 <% else %>
 	<h1> Authenticated Volunteer </h1>
     <%= render partial: 'volunteers/extended' %>

@@ -13,6 +13,7 @@ class UsersController < ApplicationController
     end
     respond_to do |format|
       format.js
+      format.json { render json: @email_exists }
     end
   end
 

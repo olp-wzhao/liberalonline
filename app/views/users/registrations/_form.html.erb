@@ -3,18 +3,20 @@
         <%= image_tag current_user.identities.first.image %>
    <% end %>
 <% end %>
+
 <%= javascript_include_tag 'facebook-modal' %>
-<%= link_to 'Sign in with facebook', user_omniauth_authorize_path(:facebook), id: 'sign_in', class: 'popup facebook_sign_in', html: {multipart: true}, data: { width: 600, height: 400} %>
+<%= link_to 'Sign in with facebook', user_omniauth_authorize_path(:facebook), id: 'sign_in', class: 'popup facebook_sign_in', html: {multipart: true},
+            data: { width: 600, height: 400} %>
 
 <%= simple_form_for(resource, :as => resource_name, :html => { :class => 'form-horizontal' }, :url => registration_path(resource_name), :remote => true) do |f| %>
 
-  <%= f.input :email, required: true, autofocus: true, class: 'submittable form-control tooltip',
-                          placeholder: 'Enter Email', title: 'Please enter your email' %>
-  <%= f.input :first_name, placeholder: 'First Name', label: false, title: 'Enter your first name' %>
-  <%= f.input :last_name, placeholder: 'Last Name', label: false, title: 'Enter your last name' %>
-  <%= f.input :password, required: true, placeholder: 'Password', label: false, hint: 'Make sure you can remember your password' %>
-  <%= f.input :password_confirmation, required: true, placeholder: 'Repeat Password', label: false, title: 'Repeat your password' %>
-    <div class="password_confirmation_error">Password does not match</div>
+  <%= f.input :email, required: true, autofocus: true, class: 'submittable', placeholder: 'Enter Email',
+              input_html: { data: { validatation: 'email' } }%>
+  <%= f.input :first_name, placeholder: 'First Name', label: false, title: 'Enter your first name',
+              input_html: { data: { required: true }, class: 'alpha_length' }%>
+  <%= f.input :last_name, placeholder: 'Last Name', label: false, title: 'Enter your last name', input_html: { class: 'alpha_length' } %>
+  <%= f.input :password, required: true, placeholder: 'Password', label: false %>
+  <%= f.input :password_confirmation, required: true, placeholder: 'Repeat Password', label: false %>
   <%= f.input :address, placeholder: 'Address', label: false, title: 'Enter your address' %>
   <%= f.input :postal_code, placeholder: 'Postal Code' , input_html: { onblur: 'findRiding("' + find_riding_url + '")', class: 'postal_code' },
               label: false, title: 'Enter your postal code' %>
@@ -22,46 +24,44 @@
   <%= f.hidden_field :riding_id %>
   <%= f.input :city, placeholder: 'City', label: false, title: 'Enter your city' %>
   <%= f.input :phone_number, as: :tel, :size => 30, placeholder: 'Phone Number', label: false, title: 'Enter your phone number', input_html: {class: 'phone_number'} %>
-  <%= f.input :birthday, :input_html => { :class => 'datepicker', value: Date._strptime("%d/%m/%Y") } %>
+  <%= f.input :birthday, :input_html => { :class => 'datepicker dd_mm_yyyy', value: Date._strptime("%d/%m/%Y") } %>
   <%= f.file_field :image, as: :image_preview, input_html: {preview_version: :thumb} %>
   <%= f.hidden_field :image_cache %>
   <%= f.button :submit, 'Sign up', :class => 'btn-primary' %>
   <div id="errors"></div>
+
+  <%= javascript_include_tag 'strong_pass' %>
+  <%= javascript_include_tag 'awesome_form' %>
+  <%= javascript_include_tag 'jesse.validation' %>
 <% end %>
 
 <%= render 'users/shared/links' %>
 
-<script>
-    initializeValidation();
-</script>
-
 <%= content_for :scripts_for_body do %>
 
+    <%= javascript_include_tag 'moment/moment-with-langs.min' %>
+
     <script>
+        var spinner_opts = {
+            lines: 13, // The number of lines to draw
+            length: 20, // The length of each line
+            width: 10, // The line thickness
+            radius: 30, // The radius of the inner circle
+            corners: 1, // Corner roundness (0..1)
+            rotate: 0, // The rotation offset
+            direction: 1, // 1: clockwise, -1: counterclockwise
+            color: '#000', // #rgb or #rrggbb or array of colors
+            speed: 1, // Rounds per second
+            trail: 60, // Afterglow percentage
+            shadow: false, // Whether to render a shadow
+            hwaccel: false, // Whether to use hardware acceleration
+            className: 'spinner', // The CSS class to assign to the spinner
+            zIndex: 2e9, // The z-index (defaults to 2000000000)
+            top: 'auto', // Top position relative to parent in px
+            left: 'auto' // Left position relative to parent in px
+        };
 
-        $('#user_email').append('<span id="email_check"></span>');
-        var validateEmail = $('#validateEmail');
-        $('#user_email').keyup(function () {
-            var t = this;
-            if (this.value != this.lastValue) {
-                if (this.timer) clearTimeout(this.timer);
-                //This should be the loading the icon
-                $('#email_check').html('<i class="fa-li fa fa-spinner fa-spin"></i>checking availability...');
-                this.timer = setTimeout(function () {
-                    $.ajax({
-                        url: '<%= validate_user_path %>/' + $('#user_email').val(),
-                        //data: 'action=check_username&username=' + t.value,
-                        dataType: 'json',
-                        type: 'get',
-                        success: function (j) {
-                            //validateEmail.html(j.msg);
-                        }
-                    });
-                }, 200);
-
-                this.lastValue = this.value;
-            }
-        });
+        initializeValidation();
 
         function popupCenter(url, width, height, name) {
             var left = (screen.width/2)-(width/2);
@@ -75,5 +75,54 @@
             e.stopPropagation(); return false;
         });
 
+        $(function(){
+
+            $('input#user_email').formance('format_email')
+                    .addClass('form-control')
+                    .wrap('<div class=\'form-group\' />')
+                    .parent()
+                    .append('<label class=\'control-label\'>Required!</label><div id=\'spinner\'></div>');
+
+            $('input#user_email').on('keyup', function () {
+                return function () {
+                    $this = $(this);
+                    if ($this.formance('validate_email')) {
+                        $("input[type='submit']").prop("disabled", false);
+                        $this.parent()
+                                .removeClass('has-success has-error')
+                                .addClass('has-success')
+                                .children(':last')
+                                .text('');
+                    } else {
+                        $("input[type='submit']").prop("disabled", true);
+                        $this.parent()
+                                .removeClass('has-success has-error')
+                                .addClass('has-error')
+                                .children(':last')
+                                .text('Invalid');
+                    }
+                }
+            }());
+
+            $('input#user_email').on('change blur', function() {
+                $this = $(this);
+                console.log('unique email check');
+                var spinner = new Spinner(spinner_opts).spin($('#spinner'));
+                setTimeout(function(){
+                    $.get("<%= validate_user_url %>", { email: $('#user_email').val() })
+                            .done(function(){
+                                spinner.stop();
+                            });
+                }, 5000);
+            });
+
+            $("#user_postal_code").blur( function() {
+                $.getJSON("<%= find_riding_url %>", {search: $("#user_postal_code").val()})
+                        .done(function(data){
+                            $("#riding_box").html(data.name);
+                            $('#riding_id').val(data.riding_id);
+                        });
+                });
+        });
     </script>
 <% end %>

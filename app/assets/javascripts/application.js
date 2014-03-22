@@ -15,8 +15,9 @@
 //= require jquery_ujs
 //= require jquery.ui.effect
 //= require jquery.ui.datepicker
-//= require dates
 //= require jquery.formance
+//= require spin
+//= require mootools.1.4.5
 
 // require rails.validations
 
@@ -32,7 +33,7 @@
 
 //= require jquery.remotipart
 
-//= require jesse.validation
+// require parsley
 
 // require turbolinks
 // require_tree .
