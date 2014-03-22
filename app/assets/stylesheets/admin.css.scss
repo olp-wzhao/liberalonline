@@ -433,3 +433,46 @@ a.button-red:hover {
   -moz-box-shadow: inset 0px 9px 10px -9px #2e0101;
   box-shadow: inset 0px 9px 10px -9px #2e0101;
 }
+
+
+
+#usertable {
+	background-color:none;
+	border-collapse:collapse;
+	text-align: left;
+	font-family: verdana;
+	font-size: 12px;
+	font-weight: 400;
+	display: table-cell;
+	vertical-align: middle;
+	color: #706150;
+	white-space: normal;
+	width:100%;
+            }
+#usertable.td:hover {font-size:13px;}
+#usertable td, #usertable th {padding:7px; vertical-align:top;}			
+#usertable thead {
+	font-weight:400;
+	font-size: 12px;
+	text-align: left;
+	padding-bottom: 5px;
+	vertical-align: bottom;
+	border-bottom-width: medium;
+	border-bottom-style: solid;
+	border-bottom-color: #706150;
+}	
+#usertable tbody {
+	border-bottom-width: thin;
+	border-bottom-style: dotted;
+	border-bottom-color: #E8B470;
+}		
+tbody td + td,
+thead td + td  {
+	border-left-width: thin;
+	border-left-style: dotted;
+	border-left-color: #E8B470;
+}		
+.tabletotal {font-weight:700; font-size: 13px; margin-top:20px; vertical-align: bottom; line-height:11px;} 
+
+.tabletotalrow {line-height:26px;}
+
