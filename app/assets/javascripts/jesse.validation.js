@@ -1,5 +1,20 @@
 function initializeValidation(){
 
+    var success_animations_css_classes = 'has-success animated wobble';
+    var error_animations_css_classes = 'has-error animated flash';
+
+    var passwordChecker = new StrongPass("user_password", {
+        render: true,
+        onPass: function(score, verdict) {
+            console.log('pass', score, verdict)
+
+        },
+        onFail: function(score, verdict) {
+            console.log('fail', score, verdict);
+
+        }
+    });
+
     var spinner_opts = {
         lines: 13, // The number of lines to draw
         length: 20, // The length of each line
@@ -34,14 +49,14 @@ function initializeValidation(){
                     $("input[type='submit']").prop("disabled", false);
                     $this.parent()
                         .removeClass('has-success has-error')
-                        .addClass('has-success')
+                        .addClass(success_animations_css_classes)
                         .children(':last')
                         .text('');
                 } else {
                     $("input[type='submit']").prop("disabled", true);
                     $this.parent()
                         .removeClass('has-success has-error')
-                        .addClass('has-error')
+                        .addClass(error_animations_css_classes)
                         .children(':last')
                         .text('Invalid');
                 }

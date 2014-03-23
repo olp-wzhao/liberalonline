@@ -33,14 +33,11 @@
   <%= f.button :submit, 'Sign up', :class => 'btn-primary' %>
   <div id="errors"></div>
 
-  <%= javascript_include_tag 'strong_pass' %>
-  <%= javascript_include_tag 'awesome_form' %>
-  <%= javascript_include_tag 'jesse.validation' %>
 <% end %>
 
 <%= render 'users/shared/links' %>
 
-
+    <%# javascript_include_tag 'MUX.loader' %>
     <%= javascript_include_tag 'moment/moment-with-langs.min' %>
 
     <script>
@@ -57,5 +54,20 @@
             popupCenter($(this).attr("href"), $(this).attr("data-width"), $(this).attr("data-height"), "authPopup");
             e.stopPropagation(); return false;
         });
+
+        var ajaxyLoader;
+
+//        $( this ).ajaxStart(function() {
+//            console.log( "Triggered ajaxStart handler." );
+//            //$('.loader').show();
+//            ajaxyLoader = new ajaxLoader($('body'), {bgColor: '#fff', duration: 800, opacity: 0.7, classOveride: "loader"});
+//        });
+//
+//        $( this ).ajaxStop(function() {
+//            console.log( "Triggered ajaxStop handler." );
+//            setTimeout(function(){
+//                ajaxyLoader.remove();
+//            }, 3000);
+//        });
 
     </script>s

@@ -312,14 +312,4 @@
     // change to any object / ns
 }.call(this));
 
-var passwordChecker = new StrongPass("user_password", {
-    render: true,
-    onPass: function(score, verdict) {
-        console.log('pass', score, verdict)
 
-    },
-    onFail: function(score, verdict) {
-        console.log('fail', score, verdict);
-
-    }
-});

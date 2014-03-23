@@ -15,16 +15,9 @@
 //= require jquery_ujs
 //= require jquery.ui.effect
 //= require jquery.ui.datepicker
-//= require jquery.formance
 //= require spin
-//= require mootools.1.4.5
-// require MUX.loader
-
-// require rails.validations
 
 // require underscore
-// require json2
-// require judge
 
 //= require helpers
 //= require main
@@ -32,7 +25,8 @@
 //= require unobtrusive_flash_ui
 
 //= require jquery.remotipart
-// require modernizr
+//= require modernizr
+//= require ajax_loader
 
 // require turbolinks
 // require_tree .

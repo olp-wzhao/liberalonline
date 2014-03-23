@@ -9,6 +9,9 @@ jQuery(function($){
         'postal_code',
         'alpha_length']
 
+    var success_animations_css_classes = 'has-success animated wobble';
+    var error_animations_css_classes = 'has-error animated flash';
+
     $.each( fields, function (index, value) {
         $('input.'+value).formance('format_'+value)
             .addClass('form-control')
@@ -23,14 +26,14 @@ jQuery(function($){
                     $("input[type='submit']").prop("disabled", false);
                     $this.parent()
                         .removeClass('has-success has-error')
-                        .addClass('has-success')
+                        .addClass(success_animations_css_classes)
                         .children(':last')
                         .text('');
                 } else {
                     $("input[type='submit']").prop("disabled", true);
                     $this.parent()
                         .removeClass('has-success has-error')
-                        .addClass('has-error')
+                        .addClass(error_animations_css_classes)
                         .children(':last')
                         .text('Invalid');
                 }

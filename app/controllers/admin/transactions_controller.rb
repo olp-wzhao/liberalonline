@@ -26,6 +26,7 @@ class Admin::TransactionsController < Admin::AdminController
 
   def search
     @transactions = Transaction.search(params['query']).page 0
+    log.warn("Transaction count is: #{@transactions.count}")
     respond_to do |format|
       format.js
     end

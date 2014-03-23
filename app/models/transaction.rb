@@ -35,15 +35,15 @@ class Transaction
   
   belongs_to :user
   before_create :set_total
-  before_save :find_or_create_user
+  #before_save :find_or_create_user
 
   scope :transaction_user, lambda {|email|
     where(email: email).group_by{ |t| t.email }
   }
   scope :by_email, -> (email) { where(email: email).group_by{ |t| t.email } }
-  scope :memberships, -> { where(type: "Membership", ) }
-  scope :donations, -> { where(type: "Donation") }
-  scope :events, -> { where(type: "Item") }
+  scope :memberships, -> { where(type: 'Membership', ) }
+  scope :donations, -> { where(type: 'Donation') }
+  scope :events, -> { where(type: 'Item') }
   scope :under_twenty_dollars, -> { lte(get_total: 20) }
   scope :total_sum, ->(email) { where(email: email).sum(:total) }
   #scope :between, -> (first, last) {  }
