@@ -9,10 +9,6 @@
     <%= render partial: 'admin/users/user_list' %>
 </div>
 
-<div id="loading">
-  <%= image_tag 'ajax-loader.gif' %>
-</div>
-
 <script>
   $('#user_search').searchbox({ url: '<%= admin_search_users_path %>.js'});
 </script>

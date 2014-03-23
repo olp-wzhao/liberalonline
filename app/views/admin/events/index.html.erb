@@ -1,3 +1,10 @@
+<%= javascript_include_tag 'searchbox' %>
+
+<div id="search_box">
+  <p>Search for user</p>
+  <input type="search" id="user_search" data-remote="true" />
+</div>
+
 <%= link_to 'Add Event', new_admin_event_path, remote: true %>
 <table>
     <thead>
@@ -25,3 +32,7 @@
         </tr>
     <% end %>
 </table>
+
+<script>
+    $('#user_search').searchbox({ url: '<%= admin_search_users_path %>.js'});
+</script>

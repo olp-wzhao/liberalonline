@@ -1,5 +1,75 @@
 function initializeValidation(){
 
+    var spinner_opts = {
+        lines: 13, // The number of lines to draw
+        length: 20, // The length of each line
+        width: 10, // The line thickness
+        radius: 30, // The radius of the inner circle
+        corners: 1, // Corner roundness (0..1)
+        rotate: 0, // The rotation offset
+        direction: 1, // 1: clockwise, -1: counterclockwise
+        color: '#000', // #rgb or #rrggbb or array of colors
+        speed: 1, // Rounds per second
+        trail: 60, // Afterglow percentage
+        shadow: false, // Whether to render a shadow
+        hwaccel: false, // Whether to use hardware acceleration
+        className: 'spinner', // The CSS class to assign to the spinner
+        zIndex: 2e9, // The z-index (defaults to 2000000000)
+        top: 'auto', // Top position relative to parent in px
+        left: 'auto' // Left position relative to parent in px
+    };
+
+    $(function(){
+
+        $('input#user_email').formance('format_email')
+            .addClass('form-control')
+            .wrap('<div class=\'form-group\' />')
+            .parent()
+            .append('<label class=\'control-label\'>Required!</label>');
+
+        $('input#user_email').on('keyup', function () {
+            return function () {
+                $this = $(this);
+                if ($this.formance('validate_email')) {
+                    $("input[type='submit']").prop("disabled", false);
+                    $this.parent()
+                        .removeClass('has-success has-error')
+                        .addClass('has-success')
+                        .children(':last')
+                        .text('');
+                } else {
+                    $("input[type='submit']").prop("disabled", true);
+                    $this.parent()
+                        .removeClass('has-success has-error')
+                        .addClass('has-error')
+                        .children(':last')
+                        .text('Invalid');
+                }
+            }
+        }());
+
+        $('input#user_email').on('change blur', function() {
+            $this = $(this);
+            console.log('unique email check');
+            $this.append('<div id=\'spinner\'></div>');
+            var spinner = new Spinner(spinner_opts).spin($('#spinner'));
+            setTimeout(function(){
+                $.get("<%= validate_user_url %>", { email: $('#user_email').val() })
+                    .done(function(){
+                        spinner.stop();
+                    });
+            }, 5000);
+        });
+
+        $("#user_postal_code").blur( function() {
+            $.getJSON("<%= find_riding_url %>", {search: $("#user_postal_code").val()})
+                .done(function(data){
+                    $("#riding_box").html(data.name);
+                    $('#riding_id').val(data.riding_id);
+                });
+        });
+    });
+
     $("input[type='submit']").prop("disabled", true); // disable the submit button
 
     $("input#user_password_confirmation") // setup the formatter

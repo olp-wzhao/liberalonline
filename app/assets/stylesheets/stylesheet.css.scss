@@ -39,57 +39,57 @@
   font-family: 'Oswald';
   font-style: normal;
   font-weight: 400;
-  src: local('Oswald Regular'), local('Oswald-Regular'), font-url('fonts/Oswald400.woff') format('woff');
+  src: local('Oswald Regular'), local('Oswald-Regular'), font_path('Oswald400.woff') format('woff');
 }
 @font-face {
   font-family: 'Oswald';
   font-style: normal;
   font-weight: 700;
-  src: local('Oswald Bold'), local('Oswald-Bold'), font-url('fonts/Oswald700.woff') format('woff');
+  src: local('Oswald Bold'), local('Oswald-Bold'), font_path('Oswald700.woff') format('woff');
 }
 @font-face {
   font-family: 'Droid Sans';
   font-style: normal;
   font-weight: 400;
-  src: local('Droid Sans'), local('DroidSans'), font-url('fonts/DroidSans400.woff') format('woff');
+  src: local('Droid Sans'), local('DroidSans'), font_path('DroidSans400.woff') format('woff');
 }
 @font-face {
   font-family: 'Droid Sans';
   font-style: normal;
   font-weight: 700;
-  src: local('Droid Sans Bold'), local('DroidSans-Bold'), font-url('fonts/DroidSans700.woff') format('woff');
+  src: local('Droid Sans Bold'), local('DroidSans-Bold'), font_path('DroidSans700.woff') format('woff');
 }
-
 @font-face {
   font-family: 'League Gothic';
   font-style: normal;
   font-weight: 400;
-  src: local('League Gothic'), local('LeagueGothic400'), font-url('fonts/LeagueGothic400.woff') format('woff');
+  src: local('League Gothic'), local('LeagueGothic400'), font_path('LeagueGothic400.woff') format('woff');
 }
 
-@font-face {
-  font-family: 'Roboto Condensed';
-  font-style: normal;
-  font-weight: 300;
-  src: local('Roboto Condensed Light'), local('RobotoCondensed-Light'), font-url('fonts/RobotoCondensed300.woff') format('woff');
-}
+
+/*@font-face {*/
+  /*font-family: 'Roboto Condensed';*/
+  /*font-style: normal;*/
+  /*font-weight: 300;*/
+  /*src: local('Roboto Condensed Light'), local('RobotoCondensed-Light'), font_path('RobotoCondensed300.woff) format('woff');*/
+/*}*/
 @font-face {
   font-family: 'Roboto Condensed';
   font-style: normal;
   font-weight: 400;
-  src: local('Roboto Condensed Regular'), local('RobotoCondensed-Regular'), font-url('fonts/RobotoCondensed400.woff') format('woff');
+  src: local('Roboto Condensed Regular'), local('RobotoCondensed-Regular'), font_path('RobotoCondensed400.woff') format('woff');
 }
 @font-face {
   font-family: 'Roboto Condensed';
   font-style: normal;
   font-weight: 700;
-  src: local('Roboto Condensed Bold'), local('RobotoCondensed-Bold'), font-url('fonts/RobotoCondensed700.woff') format('woff');
+  src: local('Roboto Condensed Bold'), local('RobotoCondensed-Bold'), font_path('RobotoCondensed700.woff') format('woff');
 }
 @font-face {
   font-family: 'Roboto Condensed';
   font-style: italic;
   font-weight: 300;
-  src: local('Roboto Condensed Light Italic'), local('RobotoCondensed-LightItalic'), font-url('fonts/RobotoCondensedItalic300.woff') format('woff');
+  src: local('Roboto Condensed Light Italic'), local('RobotoCondensed-LightItalic'), font_path('RobotoCondensedItalic300.woff') format('woff');
 }
 
   /* Sample pallete  */
@@ -127,7 +127,7 @@
 /* ----------------------------------------------------------------*/
 
 
-
+	
 html {margin:0px; padding:0px;}	
 body {
     font-family: 'Droid sans', sans-serif;
@@ -136,7 +136,7 @@ body {
 	background-color:#e5e5e6;  
 	font-size:0.9em;
 }
-h1,h2,h3,h4,h5,h6, .listh1  {
+h1,h2,h3,h4,h5,h6,.listh1  {
     font-weight:400;
 	font-family: 'Roboto Condensed', sans-serif;
 	margin:0px;
@@ -157,9 +157,7 @@ h1.pagetitle {
   }
 h2.pagesubtitle {
    font-family: 'Oswald',sans-serif; 
-   font-size:2.2em;
-   text-shadow: 0px 2px 3px rgba(0,0,0,0.4),
-             0px 4px 7px rgba(0,0,0,0.1)
+   font-size:1.8em;
    }
 .listright > h1, .listright > h2 {font-size:1.2em;}
 
@@ -351,7 +349,7 @@ h2 + h1 {padding-top:20px;}
 	 color:#fff; 
 	 text-decoration:none; 
      text-shadow: 0px 4px 3px rgba(0,0,0,0.4),
-             0px 8px 13px rgba(0,0,0,0.1)
+             0px 8px 13px rgba(0,0,0,0.1);
 }
 
 
@@ -406,7 +404,7 @@ margin-top:26px;
    padding:0px;
    margin:0px;
    margin-top:6px;
-   background: url('social.jpg');
+   background: url(social.jpg);
    background-repeat: no-repeat;
    background-position: center top;
 }
@@ -788,7 +786,6 @@ textarea:focus {
 /* ----------------  Photo lists ------------------------*/
 /* ------------------------------------------------------*/
 
-
 .photolist {width:48%; float:left;}
 .ridinglist {width:48%; float:left;}
 .ridinglist > .listh1 {font-family: 'Oswald',sans-serif; line-height:100%; color:#5c4a4a;}
@@ -799,8 +796,13 @@ p.detail {margin-top:1px;}
 .photolist_detailholder {max-width:50%; height:120px; float:left; padding-left:4%; margin-bottom:8px; min-height:120px;}
 .photolist_detailholder > .listh1 {font-family: 'Oswald',sans-serif; line-height:100%; color:#5c4a4a;}
 .photolist_detailholder > .listh2 {font-family: 'Oswald',sans-serif; font-size:19; line-height:102%; color:#9B161F;}
-
-
+#unobtrusive-flash-messages.unobtrusive-flash-message-wrapper {background-color:#f84241;}
+.videocontainer {display:block; clear:left;}
+.vidthumb {background-repeat:no-repeat; clear:left; float:left; width:120px; height:140px; margin-right:20px;}
+.posted {font-size:9px; color:#d72f30;}
+.date {font-size:9px; color:#494949;}
+.listh1 + p {margin-top:-.2em;}
+.date + .listh1 {padding-top:5px;}
 /* ------------------------------------------------------*/
 /* -------------------  Reponses ------------------------*/
 /* ------------------------------------------------------*/

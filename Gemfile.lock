@@ -143,6 +143,7 @@ GEM
       erubis (>= 2.6.6)
     binding_of_caller (0.7.2)
       debug_inspector (>= 0.0.1)
+    browser (0.4.1)
     bson (2.2.0)
     builder (3.1.4)
     byebug (2.7.0)
@@ -460,6 +461,7 @@ PLATFORMS
 DEPENDENCIES
   better_errors
   binding_of_caller
+  browser
   bson
   cancan
   capybara

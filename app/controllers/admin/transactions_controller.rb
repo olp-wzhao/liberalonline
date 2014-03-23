@@ -24,6 +24,14 @@ class Admin::TransactionsController < Admin::AdminController
     end
   end
 
+  def search
+    @transactions = Transaction.search(params['query']).page 0
+    respond_to do |format|
+      format.js
+    end
+
+  end
+
   # GET /transactions/new
   def new
     @transaction = Transaction.new

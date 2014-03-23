@@ -18,6 +18,7 @@
 //= require jquery.formance
 //= require spin
 //= require mootools.1.4.5
+// require MUX.loader
 
 // require rails.validations
 
@@ -29,11 +30,9 @@
 //= require main
 //= require unobtrusive_flash
 //= require unobtrusive_flash_ui
-//= require facebook
 
 //= require jquery.remotipart
-
-// require parsley
+// require modernizr
 
 // require turbolinks
 // require_tree .

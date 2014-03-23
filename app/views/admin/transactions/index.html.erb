@@ -10,7 +10,16 @@
   </li>
 </ul>
 
+<div id="search_box">
+  <p>Search for user</p>
+  <input type="search" id="transaction_search" data-remote="true" />
+</div>
 <h1>Listing <%= @scope %> transactions</h1>
 
 <div id="index_data"></div>
 <%= render partial: 'index_scopes' %>
+
+<%= javascript_include_tag 'searchbox' %>
+<script>
+    $('#transaction_search').searchbox({ url: '<%= admin_search_transactions_path %>.js'});
+</script>

@@ -4,14 +4,17 @@
    <% end %>
 <% end %>
 
-<%= javascript_include_tag 'facebook-modal' %>
+<% unless browser.ie? %>
+    <%= javascript_include_tag 'facebook-modal' %>
+<% end %>
+
 <%= link_to 'Sign in with facebook', user_omniauth_authorize_path(:facebook), id: 'sign_in', class: 'popup facebook_sign_in', html: {multipart: true},
             data: { width: 600, height: 400} %>
 
 <%= simple_form_for(resource, :as => resource_name, :html => { :class => 'form-horizontal' }, :url => registration_path(resource_name), :remote => true) do |f| %>
 
   <%= f.input :email, required: true, autofocus: true, class: 'submittable', placeholder: 'Enter Email',
-              input_html: { data: { validatation: 'email' } }%>
+              input_html: { data: { validatation: 'email' } }%><div id='spinner'></div>
   <%= f.input :first_name, placeholder: 'First Name', label: false, title: 'Enter your first name',
               input_html: { data: { required: true }, class: 'alpha_length' }%>
   <%= f.input :last_name, placeholder: 'Last Name', label: false, title: 'Enter your last name', input_html: { class: 'alpha_length' } %>
@@ -41,25 +44,6 @@
     <%= javascript_include_tag 'moment/moment-with-langs.min' %>
 
     <script>
-        var spinner_opts = {
-            lines: 13, // The number of lines to draw
-            length: 20, // The length of each line
-            width: 10, // The line thickness
-            radius: 30, // The radius of the inner circle
-            corners: 1, // Corner roundness (0..1)
-            rotate: 0, // The rotation offset
-            direction: 1, // 1: clockwise, -1: counterclockwise
-            color: '#000', // #rgb or #rrggbb or array of colors
-            speed: 1, // Rounds per second
-            trail: 60, // Afterglow percentage
-            shadow: false, // Whether to render a shadow
-            hwaccel: false, // Whether to use hardware acceleration
-            className: 'spinner', // The CSS class to assign to the spinner
-            zIndex: 2e9, // The z-index (defaults to 2000000000)
-            top: 'auto', // Top position relative to parent in px
-            left: 'auto' // Left position relative to parent in px
-        };
-
         initializeValidation();
 
         function popupCenter(url, width, height, name) {
@@ -69,58 +53,9 @@
         }
 
         $("a.popup").click(function(e) {
-            vex.hide();
+            vex.close();
             popupCenter($(this).attr("href"), $(this).attr("data-width"), $(this).attr("data-height"), "authPopup");
             e.stopPropagation(); return false;
         });
 
-        $(function(){
-
-            $('input#user_email').formance('format_email')
-                    .addClass('form-control')
-                    .wrap('<div class=\'form-group\' />')
-                    .parent()
-                    .append('<label class=\'control-label\'>Required!</label><div id=\'spinner\'></div>');
-
-            $('input#user_email').on('keyup', function () {
-                return function () {
-                    $this = $(this);
-                    if ($this.formance('validate_email')) {
-                        $("input[type='submit']").prop("disabled", false);
-                        $this.parent()
-                                .removeClass('has-success has-error')
-                                .addClass('has-success')
-                                .children(':last')
-                                .text('');
-                    } else {
-                        $("input[type='submit']").prop("disabled", true);
-                        $this.parent()
-                                .removeClass('has-success has-error')
-                                .addClass('has-error')
-                                .children(':last')
-                                .text('Invalid');
-                    }
-                }
-            }());
-
-            $('input#user_email').on('change blur', function() {
-                $this = $(this);
-                console.log('unique email check');
-                var spinner = new Spinner(spinner_opts).spin($('#spinner'));
-                setTimeout(function(){
-                    $.get("<%= validate_user_url %>", { email: $('#user_email').val() })
-                            .done(function(){
-                                spinner.stop();
-                            });
-                }, 5000);
-            });
-
-            $("#user_postal_code").blur( function() {
-                $.getJSON("<%= find_riding_url %>", {search: $("#user_postal_code").val()})
-                        .done(function(data){
-                            $("#riding_box").html(data.name);
-                            $('#riding_id').val(data.riding_id);
-                        });
-                });
-        });
     </script>s

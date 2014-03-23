@@ -54,6 +54,6 @@ class Event
 
   slug :title, history: true
 
-  search_in :title, :location
+  search_in :title, :location, :temp_id
 
 end

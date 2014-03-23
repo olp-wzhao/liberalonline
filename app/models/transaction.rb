@@ -1,6 +1,7 @@
 class Transaction
   include Mongoid::Document
   include Mongoid::Timestamps
+  include Mongoid::Search
 
   field :prefix, type: String
   field :first_name, type: String
@@ -99,4 +100,5 @@ class Transaction
   # end
 
   #scope: total_transactions_to_date, gt(expiry_date: DateTime.now).sum(:)
+  search_in :first_name, :last_name, :email, :postal_code, :riding_id, :temp_id
 end

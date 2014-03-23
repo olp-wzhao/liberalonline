@@ -207,6 +207,8 @@ V44::Application.routes.draw do
     get 'transaction_user/:id', to: 'transactions#find_user'
 
     get 'search/users' => 'users#search'
+    get 'search/transactions' => 'transactions#search'
+    get 'search/events' => 'events#search'
     get 'home' => 'home#home'
     get 'petitions/:id' => 'petitions#index'
     get 'contact' => 'home#contact'
@@ -216,8 +218,6 @@ V44::Application.routes.draw do
 
   get '*a', :to => redirect('/404.html')
   #get '/', :to => redirect('home#index')
-
-  #mount Judge::Engine => '/judge'
 
   namespace :api do
     namespace :v1  do
