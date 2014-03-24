@@ -67,12 +67,12 @@
 }
 
 
-/*@font-face {*/
-  /*font-family: 'Roboto Condensed';*/
-  /*font-style: normal;*/
-  /*font-weight: 300;*/
-  /*src: local('Roboto Condensed Light'), local('RobotoCondensed-Light'), font_path('RobotoCondensed300.woff) format('woff');*/
-/*}*/
+@font-face {
+  font-family: 'Roboto Condensed';
+  font-style: normal;
+  font-weight: 300;
+  src: local('Roboto Condensed Light'), local('RobotoCondensed-Light'), font_path('RobotoCondensed300.woff') format('woff');
+}
 @font-face {
   font-family: 'Roboto Condensed';
   font-style: normal;
@@ -109,8 +109,8 @@
   /* new portrait bg #e5e5e6 */
   /* shadclor for new portrait #c0c0c0  */
   
-  /* Headline color #5c4a4a */
-  /* Subtitle color #8e7d7e */
+  /* Headline color #5c4a4a visited color #786969 */
+  /* Subtitle color #8e7d7e visited color #a09293 */
 
 .hrbreake7e6e7 {
 	background-image: url("hr_e7e6e7.gif");
@@ -129,6 +129,22 @@
 
 	
 html {margin:0px; padding:0px;}	
+
+::selection {
+	background: #da080d; /* Safari */
+	color:#fff;
+	}
+::-moz-selection {
+	background: #da080d; /* Firefox */
+		color:#fff;
+}
+.main ul li {padding-bottom:4px;}
+.main ul li a,.main p a {color:#bb1115; text-decoration:underline;}
+.main ul li a:visited,.main p a:visited {color:#442d2d; text-decoration:underline;}
+.main ul li a:active,.main p a:active {color:#f84241; text-decoration:underline;}
+.main ul li a:hover,.main p a:hover{color:#bb1115; text-decoration:underline;}
+.main > p.strong {color:#442d2d;}
+
 body {
     font-family: 'Droid sans', sans-serif;
     margin: 0 auto 0;
@@ -292,7 +308,7 @@ h2 + h1 {padding-top:20px;}
 		   background-size: 100% Auto;		   
 	       }	
 	   .wynne_mpp {    
-           background-image: url("pageimageholder_wynne_mpp.jpg");
+           background-image: url("bg_imagecontainer_wynne_seated.jpg");
            background-repeat: no-repeat;
            background-position: center bottom;
 		   background-size: 100% Auto;		   
@@ -307,11 +323,13 @@ h2 + h1 {padding-top:20px;}
        #about_donations_main > p:nth-child(6) {width:70%;}
 
        /* ---- contact main uses wynneinconversation.jpg ----*/
-       #contact_main > p:nth-child(2) {width:100%; border:solid 1px red;}
-       #contact_main > p:nth-child(3) {width:100%; border:solid 1px red;}
-       #contact_main > p:nth-child(4) {width:100%; border:solid 1px red;}
-       #contact_main > p:nth-child(5) {width:100%; border:solid 1px red;}
-       #contact_main > p:nth-child(6) {width:100%; border:solid 1px red;}	
+       #main_taxable_benefits > p:nth-child(10) {width:70%;}
+       #main_taxable_benefits > p:nth-child(11) {width:67%;}
+
+       /* ---- contact main uses wynneinconversation.jpg ----*/
+       #main_eligibility > p:nth-child(10) {width:70%; border:solid 1px red;}
+       #main_eligibility > p:nth-child(11) {width:70%; border:solid 1px red;}
+
 	
 
 #footer {
@@ -335,8 +353,7 @@ h2 + h1 {padding-top:20px;}
 .main {
     width: 64%;
 	float:left;
-	min-height:800px;
-	border-right:solid 1px #cccccc;
+	min-height:900px;
 }
 .menulengthcheck {padding-left:50px;}
 .menulengthcheck > .listh1 > a:link,
@@ -349,7 +366,7 @@ h2 + h1 {padding-top:20px;}
 	 color:#fff; 
 	 text-decoration:none; 
      text-shadow: 0px 4px 3px rgba(0,0,0,0.4),
-             0px 8px 13px rgba(0,0,0,0.1);
+             0px 8px 13px rgba(0,0,0,0.1),
 }
 
 
@@ -373,7 +390,6 @@ h2 + h1 {padding-top:20px;}
 	position:static;
 	top:400px;
 	padding-top:40px;
-		border:solid 1px beige;
 }
 
 .clear {display:block; clear:both;}
@@ -765,8 +781,12 @@ textarea:focus {
 }
 
 
-.listh1 {font-size:20px; padding-top:20px;}
+.listh1 {font-size:20px; padding-top:20px; font-family: 'Oswald',sans-serif; line-height:100%;}
 .listh2 {font-size:16px;}
+.listh1 a:link {text-decoration:none; color:#5c4a4a;}
+.listh2 a:link {text-decoration:none; color:#5c4a4a;}
+.listh1 a:visited {text-decoration:none; color:#786969;}
+.listh2 a:visited {text-decoration:none; color:#786969;} 
 .listdetails {font-size:10px; color:red;}
 .logo {position:relative; top:-5px; z-index:888; width:250px; margin-left:16px;}
 .mgmenu {clear:right;}
@@ -802,7 +822,13 @@ p.detail {margin-top:1px;}
 .posted {font-size:9px; color:#d72f30;}
 .date {font-size:9px; color:#494949;}
 .listh1 + p {margin-top:-.2em;}
-.date + .listh1 {padding-top:5px;}
+.date + .listh1 {padding-top:5px;} 
+
+
+.boolean {width:17px; height:17px; padding:0; margin:0; vertical-align:bottom; position:relative; top:1px; *overflow:hidden;}
+.control-label {display:block; padding-left:19px; text-indent:-19px;border:solid 1px yellow;}
+.control-label:before {content:"where"; display:block; clear:both;}
+.volunteer_still_photography {border:solid 1px red; width:100%; height:30px; margin-bottom:40px;}
 /* ------------------------------------------------------*/
 /* -------------------  Reponses ------------------------*/
 /* ------------------------------------------------------*/
@@ -810,27 +836,26 @@ p.detail {margin-top:1px;}
 
 @media all and (max-width: 768px) {
 
-.default,
-.wynne,
-.wynneinconversation,
-.wynne_kids,
-.join,
-.wynne_mpp {background:none;}
-.logo {display:none;}
-.mobile {display:block;}
-/* the menu will pop to mobile mode at this point */
-.main {width:100%}
-.col-4{display:none;}	  
-.join {background:none;}
+  .default,
+  .wynne,
+  .wynneinconversation,
+  .wynne_kids,
+  .join,
+  .wynne_mpp {background:none;}
+  .logo {display:none;}
+  .mobile {display:block;}
+  /* the menu will pop to mobile mode at this point */
+  .main {width:100%}
+  .col-4{display:none;}
+  .join {background:none;}
 
 
-       #about_donations_main > p:nth-child(2) {width:100%;}
-       #about_donations_main > p:nth-child(3) {width:100%;}
-       #about_donations_main > p:nth-child(4) {width:100%;}
-       #about_donations_main > p:nth-child(5) {width:100%;}
-       #about_donations_main > p:nth-child(6) {width:100%;}
+         #about_donations_main > p:nth-child(2) {width:100%;}
+         #about_donations_main > p:nth-child(3) {width:100%;}
+         #about_donations_main > p:nth-child(4) {width:100%;}
+         #about_donations_main > p:nth-child(5) {width:100%;}
+         #about_donations_main > p:nth-child(6) {width:100%;}
 
-h1.pagetitle {font-size:2.9em;}
+  h1.pagetitle {font-size:2.9em;}
 
-	  
-  }	
+}
