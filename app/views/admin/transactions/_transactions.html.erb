@@ -1,23 +1,21 @@
-<div id="index_data">
 <h2>Recent Transactions</h2>
-      <% @transactions.each do |transaction| %>
-        <div class="listperson">
-		  <span class="avatar"><img src="../assets/defaultavatar.png"></span>
-            <p class="name"><%= transaction.first_name %> <%= transaction.last_name %></p>
-            <p class="email"><%= transaction.email %></p>
-			<div class="hrbreake7e6e7">&nbsp;</div>
-			<p>Status: Member? | Cumulative: $xx | Count: xx</p>
-			<div class="hrbreake7e6e7">&nbsp;</div>
-			<div class="transdeets">
-			Amt:<br><span class="bigdata">$<%= transaction.get_total %></span>
-			</div>
-            <%= link_to 'details', controller: :'admin/transactions', action: 'find_user', id: transaction.id, remote: true %>
-		</div>	
-      <% end %>
-      <div>
-          <% Transaction.attribute_names.each do |attribute_name| %>
-                <div id="<%= attribute_name %>"><%= attribute_name %> </div>
-          <% end %>
-      </div>
+<% @transactions.each do |transaction| %>
+<div class="listperson">
+  <span class="avatar"><%= image_tag 'defaultavatar' %></span>
+    <p class="name"><%= transaction.first_name %> <%= transaction.last_name %></p>
+    <p class="email"><%= transaction.email %></p>
+    <div class="hrbreake7e6e7">&nbsp;</div>
+    <p>Status: Member? | Cumulative: $xx | Count: xx</p>
+    <div class="hrbreake7e6e7">&nbsp;</div>
+    <div class="transdeets">
+    Amt:<br><span class="bigdata">$<%= transaction.get_total %></span>
+    </div>
+    <%= link_to 'details', controller: :'admin/transactions', action: 'find_user', id: transaction.id, remote: true %>
+</div>
+<% end %>
+<div>
+  <% Transaction.attribute_names.each do |attribute_name| %>
+        <div id="<%= attribute_name %>"><%= attribute_name %> </div>
+  <% end %>
 </div>
 

@@ -7,7 +7,7 @@ class Admin::TransactionsController < Admin::AdminController
   def index
     search_params
 
-    @transactions = @transactions.order_by(id: :desc).limit(100)
+    @transactions = @transactions.order_by(id: :desc).limit 5
     respond_to do |format|
       format.json { render json: @transactions }
       format.html { render layout: 'admin'}
@@ -25,7 +25,7 @@ class Admin::TransactionsController < Admin::AdminController
   end
 
   def search
-    @transactions = Transaction.search(params['query']).page 0
+    @transactions = Transaction.search(params['query']).page(0).limit(20)
     log.warn("Transaction count is: #{@transactions.count}")
     respond_to do |format|
       format.js

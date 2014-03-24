@@ -25,7 +25,16 @@
             popupCenter($(this).attr("href"), $(this).attr("data-width"), $(this).attr("data-height"), "authPopup");
             e.stopPropagation(); return false;
         });
+
+        var ajaxyLoader;
+
+        $.ajaxStart(function() {
+            console.log( "Triggered ajaxStart handler on session/form." );
+            //$('.loader').show();
+            ajaxyLoader = new ajaxLoader($('body'), { bgColor: '#fff', duration: 8000, opacity: 0.7 });
+        });
     </script>
+
 <% end %>
 
 <%= render 'shared/modal' %>

@@ -14,6 +14,8 @@
 //= require jquery_ujs
 //= require jquery.remotipart
 //= require select2
+//= require jquery.ui.effect
+//= require jquery.ui.datepicker
 // require jquery.iframe-transport
 
 
@@ -22,6 +24,13 @@
 //= require tinymce-jquery
 //= require admin
 //= require dates
+
+//= require unobtrusive_flash
+//= require unobtrusive_flash_ui
+//= require modernizr
+//= require selectivizr/selectivizr
+//= require moment/moment.min
+//= require ajax_loader
 
 // require turbolinks
 // require_tree .

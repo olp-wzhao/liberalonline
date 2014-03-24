@@ -209,12 +209,15 @@ V44::Application.routes.draw do
     get 'search/users' => 'users#search'
     get 'search/transactions' => 'transactions#search'
     get 'search/events' => 'events#search'
+    get 'rapportive' => 'users#rapportive'
     get 'home' => 'home#home'
     get 'petitions/:id' => 'petitions#index'
     get 'contact' => 'home#contact'
     get 'web' => 'home#web'
     get 'lit_samples' => 'home#lit_samples'
   end
+
+  get 'friends' => 'users#friends'
 
   get '*a', :to => redirect('/404.html')
   #get '/', :to => redirect('home#index')

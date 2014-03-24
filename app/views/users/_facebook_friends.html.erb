@@ -1,0 +1,6 @@
+<h1>Facebook Friend List</h1>
+<ul>
+  <% @facebook_friends.each do |friend| %>
+    <li id="<%= friend.id %>"><%= friend.name %></li>
+  <% end %>
+</ul>

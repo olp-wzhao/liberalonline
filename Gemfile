@@ -57,12 +57,13 @@ group :development, :test do
   gem 'rb-inotify', :require => false
   gem 'rb-fsevent', :require => false
   gem 'rb-fchange', :require => false
-  gem 'terminal-notifier-guard'
-  gem 'guard'
-  gem 'guard-rspec'
   gem 'railroady'
   gem 'jazz_hands', github: 'nixme/jazz_hands', branch: 'bring-your-own-debugger'
   gem 'pry-byebug'
+
+  gem 'terminal-notifier-guard'
+  gem 'guard-rspec'
+  gem 'guard'
 end
 
 group :test do
@@ -78,7 +79,14 @@ gem 'devise', '~> 3.0.0'
 gem 'cancan'
 gem 'omniauth'
 gem 'omniauth-facebook'
-#gem 'omniauth-twitter'
+gem 'koala'
+gem 'fb_graph'
+gem 'omniauth-google-oauth2'
+gem 'omniauth-linkedin'
+gem 'omniauth-twitter'
+gem 'omniauth-github'
+gem 'twitter'
+
 gem 'devise_invitable'
 gem 'hashugar', github: 'alex-klepa/hashugar'
 
@@ -100,3 +108,7 @@ gem 'unobtrusive_flash', '>=3'
 gem 'high_voltage', '~> 2.1.0'
 gem 'simple_form_fancy_uploads'
 gem 'browser'
+
+#facebook for Phil
+
+gem 'httpi'

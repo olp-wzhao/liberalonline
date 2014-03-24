@@ -17,6 +17,15 @@ class UsersController < ApplicationController
     end
   end
 
+  def friends
+    current_user.fetch_facebook_friends
+    @friend_list = current_user.facebook_friend_list
+    @facebook_friends = @friend_list.facebook_friends
+    respond_to do |format|
+      format.js
+    end
+  end
+
   def show
   end
 
@@ -60,9 +69,7 @@ class UsersController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_user
-      if params[:id].is_a? Integer
-        @user = User.find(params[:id])
-      end
+      @user = User.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

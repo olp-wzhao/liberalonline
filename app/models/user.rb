@@ -53,6 +53,7 @@ class User
   has_many :invitees, :class_name => self.name, :as => :invited_by
   has_one :volunteer
   has_many :lawnsign_requests
+  has_one :facebook_friend_list
 
   has_many :about_ridings
   has_many :art_contest_emails
@@ -153,6 +154,49 @@ class User
 
   def transactions
     Transaction.where(email: self.email)
+  end
+
+  def grap_facebook_albums
+    facebook = self.identities.where(provider: 'facebook')
+    binding.pry
+    fb_user = ::FbGraph::User.fetch facebook.uid, :access_token => facebook.token
+
+    fb_albums = fb_user.albums
+  end
+
+  def fetch_facebook_friends
+    identity = Identity.where(user_id: self.id, provider: 'facebook')
+    if identity.exists?
+      graph = Koala::Facebook::API.new(identity.first.token)
+      friends = graph.get_connections('me', 'friends')
+      unless friends.nil?
+        graph.get_object("me")
+        #check for the existance of a previous facebook friend list
+        if self.facebook_friend_list.nil?
+          self.facebook_friend_list = FacebookFriendList.new
+        end
+
+        #loop through friends and save new friends and attach all to current user
+        friends.each do |friend|
+          #check if friend is already on the list. If they are then nothing is needed
+
+          myface = self.facebook_friend_list.facebook_friends.where(facebook_id: friend['id'])
+          unless myface.exists?
+            f = FacebookFriend.where(id: friend['id'])
+
+            #Create a new facebook user if f is empty
+            if !f.exists?
+              f = FacebookFriend.new
+              f.facebook_id = friend['id']
+              f.name = friend['name']
+            end
+            #add our newly created user
+            self.facebook_friend_list.facebook_friends << f
+            f.save
+          end
+        end
+      end
+    end
   end
 
   slug :full_name, history: true

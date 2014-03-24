@@ -252,9 +252,13 @@ Devise.setup do |config|
   # up on your models and hooks.
   # config.omniauth :github, 'APP_ID', 'APP_SECRET', :scope => 'user,public_repo'
   config.omniauth :facebook, ENV['FACEBOOK_APP_ID'], ENV['FACEBOOK_SECRET'],
-                  :scope => 'email, user_birthday, read_stream',
+                  :scope => 'email, user_birthday, read_stream, read_friendlists',
                   :display => 'popup',
                   :provider_ignores_state => true
+  config.omniauth :twitter, ENV["TWITTER_KEY"], ENV["TWITTER_SECRET"], { :scope => 'r_fullprofile, r_emailaddress', :client_options => {:ssl => {:ca_file => '/usr/lib/ssl/certs/ca-certificates.crt'}}}
+  config.omniauth :linkedin, ENV["LINKEDIN_KEY"], ENV["LINKEDIN_SECRET"], { :scope => 'r_fullprofile r_emailaddress', :client_options => {:ssl => {:ca_file => '/usr/lib/ssl/certs/ca-certificates.crt'}}}
+  config.omniauth :github, ENV['GITHUB_KEY'], ENV['GITHUB_SECRET'], scope: "user, public_repo"
+  config.omniauth :google_oauth2, ENV['GOOGLE_KEY'], ENV['GOOGLE_SECRET'], {}
 # Indicates whether the user account has been verified. This is distinct from the is_verified field. Someone is considered verified if they take any of the following actions:
 
   #config.omniauth :twitter,'tqfa7iV6zrbglF7Kjr3zg', '4UjibpBNP9EO9gtKkJG952mrE0X6IsaQYHwsT4weYQ'

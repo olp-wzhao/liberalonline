@@ -9,7 +9,7 @@
 //
 // Read Sprockets README (https://github.com/sstephenson/sprockets#sprockets-directives) for details
 // about supported directives.
-//
+//s
 
 //= require jquery
 //= require jquery_ujs
@@ -27,6 +27,7 @@
 //= require jquery.remotipart
 //= require modernizr
 //= require ajax_loader
+//= require slidr.min
 
 // require turbolinks
 // require_tree .

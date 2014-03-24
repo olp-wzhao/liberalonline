@@ -5,8 +5,8 @@ V44::Application.configure do
     domain: "https://secureolp.liberalonline.ca",
     authentication: "plain",
     enable_starttls_auto: true, # detects and uses STARTTLS
-    user_name: "jessenaiman@gmail.com",
-    password: '56e9ac24-203c-4387-80c5-d4f9a4543a47'
+    user_name: ENV['madrill_email'],
+    password: ENV['madrill_password']
   }
 
   #BetterErrors::Middleware.allow_ip! "10.0.2.2"

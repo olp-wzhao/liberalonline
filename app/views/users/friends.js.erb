@@ -1,0 +1,12 @@
+console.log('friends.js.erb');
+
+vex.close();
+vex.open({
+
+    content: '<%= j render partial: 'facebook_friends' %>',
+
+    afterClose: function() {
+        return console.log('vexClose');
+    }
+
+});

@@ -1,0 +1,15 @@
+<div>
+  <% binding.pry %>
+  <% @rapportives.each do |r| %>
+      <p><%= r.email %></p>
+      <p><%= r.twitter_username %></p>
+      <p><%= r.name %></p>
+
+      <p><%= r.location %></p>
+      <p><%= r.headline %></p>
+      <p><%= r.images %></p>
+      <p><%= r.phones %></p>
+      <p><%= r.occupations %></p>
+      <p><%= r.memberships %></p>
+  <% end %>
+</div>

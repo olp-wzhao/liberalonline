@@ -3,6 +3,7 @@ class Document
   include Mongoid::Timestamps
   include Mongoid::MultiParameterAttributes
   include Mongoid::Slug
+  include Mongoid::Search
 
   mount_uploader :image, ImageUploader
 
@@ -86,4 +87,5 @@ class Document
   # end
 
   slug :headline, history: true
+  search_in :riding_id, :temp_id, :headline, :customized_category
 end

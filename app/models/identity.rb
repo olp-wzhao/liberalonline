@@ -26,9 +26,6 @@ class Identity
     identity = where(auth.slice(:provider, :uid)).first_or_create do |identity|
       identity.provider     = auth.provider
       identity.uid          = auth.uid
-      identity.token        = auth.credentials.token
-      identity.secret       = auth.credentials.secret if auth.credentials.secret
-      identity.expires_at   = auth.credentials.expires_at if auth.credentials.expires_at
       identity.email        = auth.info.email if auth.info.email
       identity.image        = auth.info.image if auth.info.image
       identity.nickname     = auth.info.nickname
@@ -37,6 +34,9 @@ class Identity
       identity.gender       = auth.extra.raw_info.gender if auth.extra.raw_info.gender
       identity.raw_info     = auth.extra.raw_info if auth.extra.raw_info
     end
+    identity.token        = auth.credentials.token
+    identity.secret       = auth.credentials.secret if auth.credentials.secret
+    identity.expires_at   = auth.credentials.expires_at if auth.credentials.expires_at
     identity.save!
 
     if !identity.persisted?
@@ -86,7 +86,5 @@ class Identity
     end
   end
 
-  def create_user
 
-  end
 end

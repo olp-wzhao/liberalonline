@@ -16,10 +16,26 @@
 </div>
 <h1>Listing <%= @scope %> transactions</h1>
 
-<div id="index_data"></div>
-<%= render partial: 'transactions' %>
+<div id="index_data">
+    <%= render partial: 'transactions' %>
+</div>
 
 <%= javascript_include_tag 'searchbox' %>
 <script>
     $('#transaction_search').searchbox({ url: '<%= admin_search_transactions_path %>.js'});
+
+    var ajaxyLoader;
+
+    $( this ).ajaxStart(function() {
+        console.log( "Triggered ajaxStart handler." );
+        //$('.loader').show();
+        ajaxyLoader = new ajaxLoader($('body'), { bgColor: '#fff', duration: 8000, opacity: 0.7 });
+    });
+
+    $( this ).ajaxStop(function() {
+        console.log( "Triggered ajaxStop handler." );
+        //setTimeout(function(){
+            ajaxyLoader.remove();
+        //}, 3000);
+    });
 </script>

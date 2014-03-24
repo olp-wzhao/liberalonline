@@ -46,7 +46,8 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
     #end
 
     render :json => { :success => (current_user ? true : false),
-                      :current_user => current_user.as_json(:only => [:email]) }
+                      :current_user => current_user.as_json(:only => [:email]),
+                      :identity => identity.as_json }
   end
 
   def signout
@@ -55,5 +56,9 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
   end
 
   alias_method :facebook, :all
-  #alias_method :twitter, :all
+  alias_method :twitter, :all
+  alias_method :linkedin, :all
+  alias_method :github, :all
+  alias_method :passthru, :all
+  alias_method :google_oauth2, :all
 end

@@ -22,6 +22,14 @@ class Admin::UsersController < Admin::AdminController
     end
   end
 
+  def rapportive
+    client = Rapportive::Search.new
+    @rapportives = client.search(params[:email])
+    respond_to do |format|
+      format.js
+    end
+  end
+
   def update
     respond_to do |format|
       if @user.update_attributes(user_params)
