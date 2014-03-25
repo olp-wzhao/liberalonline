@@ -1,6 +1,8 @@
 class LawnsignRequestsController < ApplicationController
   before_action :set_lawnsign_request, only: [:show, :edit, :update, :destroy]
 
+  layout 'inside_layout'
+
   # GET /lawnsign_requests
   # GET /lawnsign_requests.json
   def index

@@ -15,19 +15,26 @@
 //= require jquery_ujs
 //= require jquery.ui.effect
 //= require jquery.ui.datepicker
-//= require spin
+// require spin
 
-// require underscore
+//= require underscore.min
 
-//= require helpers
-//= require main
+// require helpers
+// require main
 //= require unobtrusive_flash
 //= require unobtrusive_flash_ui
 
 //= require jquery.remotipart
 //= require modernizr
-//= require ajax_loader
+// require ajax_loader
 //= require slidr.min
+
+//= require moment/moment-with-langs.min
+// require mootools.1.4.5
+// require strongpass
+//= require jquery.formance
+//= require jquery.passy
+//= require jesse.validation
 
 // require turbolinks
 // require_tree .

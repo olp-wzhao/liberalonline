@@ -13,15 +13,15 @@
 
 <%= simple_form_for(resource, :as => resource_name, :html => { :class => 'form-horizontal' }, :url => registration_path(resource_name), :remote => true) do |f| %>
 
-  <%= f.input :email, required: true, autofocus: true, class: 'submittable', placeholder: 'Enter Email',
-              input_html: { data: { validatation: 'email' } }%><div id='spinner'></div>
+  <%= f.input :email, required: true, autofocus: true, class: 'submittable', placeholder: 'Enter Email', label: false,input_html: { data: { validatation: 'email', url: validate_user_url } }%>
+  <span id='checking_unique_email' style="display:none"><i class="fa fa-spinner fa-spin"></i></span>
   <%= f.input :first_name, placeholder: 'First Name', label: false, title: 'Enter your first name',
-              input_html: { data: { required: true }, class: 'alpha_length' }%>
+              input_html: { class: 'alpha_length' }%>
   <%= f.input :last_name, placeholder: 'Last Name', label: false, title: 'Enter your last name', input_html: { class: 'alpha_length' } %>
-  <%= f.input :password, required: true, placeholder: 'Password', label: false %>
+  <%= f.input :password, required: true, placeholder: 'Password', label: false %><span id='strength'></span>
   <%= f.input :password_confirmation, required: true, placeholder: 'Repeat Password', label: false %>
   <%= f.input :address, placeholder: 'Address', label: false, title: 'Enter your address' %>
-  <%= f.input :postal_code, placeholder: 'Postal Code' , input_html: { onblur: 'findRiding("' + find_riding_url + '")', class: 'postal_code' },
+  <%= f.input :postal_code, placeholder: 'Postal Code' , input_html: { class: 'postal_code' },
               label: false, title: 'Enter your postal code' %>
   <span id='riding_box'></span>
   <%= f.hidden_field :riding_id %>
@@ -37,23 +37,9 @@
 
 <%= render 'users/shared/links' %>
 
-    <%# javascript_include_tag 'MUX.loader' %>
-    <%= javascript_include_tag 'moment/moment-with-langs.min' %>
-
     <script>
-        initializeValidation();
-
-        function popupCenter(url, width, height, name) {
-            var left = (screen.width/2)-(width/2);
-            var top = (screen.height/2)-(height/2);
-            return window.open(url, name, "menubar=no,toolbar=no,status=no,width="+width+",height="+height+",toolbar=no,left="+left+",top="+top);
-        }
-
-        $("a.popup").click(function(e) {
-            vex.close();
-            popupCenter($(this).attr("href"), $(this).attr("data-width"), $(this).attr("data-height"), "authPopup");
-            e.stopPropagation(); return false;
-        });
-
-
+      $(document).ready(function(){
+        var form = new Application.UserValidation();
+        form.setup();
+      });
     </script>s

@@ -145,7 +145,7 @@
          */
         initialize: function(element, options){
             this.setOptions(options);
-            this.element = document.getElementById(element);
+            this.element = document.id(element);
             this.options.render && this.createBox();
             this.attachEvents();
             this.fireEvent('ready');
@@ -311,5 +311,3 @@
 
     // change to any object / ns
 }.call(this));
-
-

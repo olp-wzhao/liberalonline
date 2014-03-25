@@ -58,12 +58,16 @@ group :development, :test do
   gem 'rb-fsevent', :require => false
   gem 'rb-fchange', :require => false
   gem 'railroady'
-  gem 'jazz_hands', github: 'nixme/jazz_hands', branch: 'bring-your-own-debugger'
-  gem 'pry-byebug'
+  gem 'hirb'
+  gem 'jazz_hands'
+  gem 'byebug'
 
+  gem 'guard'
+  gem 'guard-livereload', require: false
+  gem 'rack-livereload'
   gem 'terminal-notifier-guard'
   gem 'guard-rspec'
-  gem 'guard'
+
 end
 
 group :test do

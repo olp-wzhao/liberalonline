@@ -2,6 +2,8 @@ class VolunteersController < ApplicationController
   before_action :set_volunteer, only: [:show, :edit, :update, :destroy]
   include DateTimeFixes
 
+  layout 'inside_layout'
+
   # GET /volunteers
   # GET /volunteers.json
   def index

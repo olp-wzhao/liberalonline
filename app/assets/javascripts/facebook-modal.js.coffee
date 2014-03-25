@@ -8,3 +8,14 @@ $('#sign_out').click (e) ->
   FB.getLoginStatus (response) ->
     FB.logout() if response.authResponse
   true
+
+popupCenter = (url, width, height, name) ->
+  left = (screen.width / 2) - (width / 2)
+  top = (screen.height / 2) - (height / 2)
+  window.open url, name, "menubar=no,toolbar=no,status=no,width=" + width + ",height=" + height + ",toolbar=no,left=" + left + ",top=" + top
+
+$("a.popup").click (e) ->
+  vex.close()
+  popupCenter $(this).attr("href"), $(this).attr("data-width"), $(this).attr("data-height"), "authPopup"
+  e.stopPropagation()
+  false
