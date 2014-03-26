@@ -13,12 +13,9 @@
 //= require jquery
 //= require jquery_ujs
 //= require jquery.remotipart
-//= require select2
 //= require jquery.ui.effect
 //= require jquery.ui.datepicker
 // require jquery.iframe-transport
-
-
 
 // require rails.validations
 //= require tinymce-jquery

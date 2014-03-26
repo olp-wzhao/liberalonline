@@ -1,3 +1,5 @@
+require 'uglifier'
+
 V44::Application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 
@@ -88,4 +90,6 @@ V44::Application.configure do
       password: ENV['EMAIL_PASSWORD']
   }
   config.action_mailer.default_url_options = {host: "https://secureolp.liberalonline.ca"}
+
+  config.assets.js_compressor = Uglifier.new(output: {ascii_only: true, quote_keys: true})
 end

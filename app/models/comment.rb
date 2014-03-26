@@ -19,9 +19,8 @@ class Comment
   field :db_role, type: String
   
   belongs_to :document
-  belongs_to :comment
   belongs_to :user
-  belongs_to :riding
-  has_many :omni_facebook_users
 
+  #this relationship is implied through the item being commented on
+  #belongs_to :riding
 end

@@ -3,7 +3,7 @@ source 'https://rubygems.org'
 ruby '2.0.0'
 
 gem 'rails', '4.0.0'
-#gem 'haml-rails'
+gem 'haml-rails'
 gem 'mongoid', github: 'mongoid/mongoid'
 gem 'bson'
 gem 'moped', github: 'mongoid/moped'
@@ -15,8 +15,10 @@ gem 'mini_magick', :git => 'git://github.com/probablycorey/mini_magick.git'
 gem 'therubyracer', platforms: :ruby
 gem 'jquery-rails'
 gem 'jquery-ui-rails'
+
 gem 'jquery-turbolinks'
 gem 'turbolinks'
+
 gem 'jbuilder', '~> 1.2'
 #gem 'bootstrap-sass'
 gem 'font-awesome-sass-rails'
@@ -48,6 +50,7 @@ group :development do
   gem 'binding_of_caller'
   gem 'meta_request'
   gem 'html_routes', '~> 1.0'
+  gem 'mongoid_colored_logger'
 end
 
 group :development, :test do
@@ -61,13 +64,14 @@ group :development, :test do
   gem 'hirb'
   gem 'jazz_hands'
   gem 'byebug'
-
+  gem 'bond'
+  gem 'gist'
   gem 'guard'
   gem 'guard-livereload', require: false
   gem 'rack-livereload'
   gem 'terminal-notifier-guard'
   gem 'guard-rspec'
-
+  gem 'letter_opener'
 end
 
 group :test do
@@ -95,16 +99,21 @@ gem 'hashugar', github: 'alex-klepa/hashugar'
 
 gem 'money'
 gem 'mongoid_search'
+gem 'mongoid_taggable'
+gem 'mongoid_commentable'
+
 gem 'geocoder', github: 'alexreisner/geocoder'
 
 gem 'mandrill-api'
 
-gem 'rails_admin', :git => 'git://github.com/sferik/rails_admin.git'
+#gem 'rails_admin', :git => 'git://github.com/sferik/rails_admin.git'
 
 #gem 'best_in_place'
 gem 'mongoid_slug'
 gem 'tinymce-rails'
 gem 'select2-rails'
+gem 'chosen-rails'
+
 gem 'remotipart', '~> 1.2'
 gem 'figaro'
 gem 'unobtrusive_flash', '>=3'
@@ -112,6 +121,20 @@ gem 'high_voltage', '~> 2.1.0'
 gem 'simple_form_fancy_uploads'
 gem 'browser'
 
-#facebook for Phil
-
 gem 'httpi'
+
+#api
+gem 'grape'
+#gem 'grape-entity'
+#gem 'rack-contrib'
+#gem 'grape-cors', github: 'cambridge-healthcare/grape-cors'
+gem 'grape-swagger'
+gem 'grape-swagger-rails'
+#gem 'grape-kaminari'
+
+gem 'her'
+gem 'faraday'
+gem 'faraday-http-cache'
+gem 'faraday_middleware'
+
+gem 'resque'

@@ -15,9 +15,9 @@
 
   <%= f.input :email, required: true, autofocus: true, class: 'submittable', placeholder: 'Enter Email', label: false,input_html: { data: { validatation: 'email', url: validate_user_url } }%>
   <span id='checking_unique_email' style="display:none"><i class="fa fa-spinner fa-spin"></i></span>
-  <%= f.input :first_name, placeholder: 'First Name', label: false, title: 'Enter your first name',
+  <%= f.input :first_name, placeholder: 'First Name', label: false, hint: 'Enter your first name',
               input_html: { class: 'alpha_length' }%>
-  <%= f.input :last_name, placeholder: 'Last Name', label: false, title: 'Enter your last name', input_html: { class: 'alpha_length' } %>
+  <%= f.input :last_name, placeholder: 'Last Name', label: false, title: 'Enter your last name', input_html: { class: 'alpha_length', data: { tip: 'Last name is required' } } %>
   <%= f.input :password, required: true, placeholder: 'Password', label: false %><span id='strength'></span>
   <%= f.input :password_confirmation, required: true, placeholder: 'Repeat Password', label: false %>
   <%= f.input :address, placeholder: 'Address', label: false, title: 'Enter your address' %>

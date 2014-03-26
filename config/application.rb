@@ -34,5 +34,9 @@ module V44
     config.autoload_paths += %W(#{config.root}/app/models/ckeditor)
     
     config.secret_key_base = 'blipblapblup'
+
+    #grape api configuration
+    config.paths.add File.join('app', 'api'), glob: File.join('**', '*.rb')
+    config.autoload_paths += Dir[Rails.root.join('app', 'api', '*')]
   end
 end

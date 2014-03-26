@@ -4,6 +4,7 @@ class Document
   include Mongoid::MultiParameterAttributes
   include Mongoid::Slug
   include Mongoid::Search
+  include Mongoid::Taggable
 
   mount_uploader :image, ImageUploader
 
@@ -88,4 +89,6 @@ class Document
 
   slug :headline, history: true
   search_in :riding_id, :temp_id, :headline, :customized_category
+
+  validates_absence_of :headline
 end

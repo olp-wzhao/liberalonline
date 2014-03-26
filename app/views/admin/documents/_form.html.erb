@@ -40,8 +40,8 @@
 	
 	<div class="hrbreake7e6e7">&nbsp;</div>
 	
-    <%= f.input :category_id, collection: categories, selected: 'Generic' %>
-    <%= f.input :customized_category, collection: customized_categories %>
+    <%= f.input :category_id, as: :select, collection: categories, selected: 'Generic', input_html: { class: 'chosen-select' } %>
+    <%= f.input :customized_category, as: :select, collection: customized_categories, input_html: { class: 'chosen-select' } %>
     <%#= f.input :publish_on_toolkit, as: :boolean %>
     <%#= f.input :require_authentication, as: :boolean %>
 
@@ -68,3 +68,5 @@
 <%= button_to 'Delete', admin_document_path(@document), method: :delete, id: 'delete', :data => { :confirm => 'Are you sure?' } %>
 
 <%= tinymce %>
+
+<%= javascript_include_tag '' %>

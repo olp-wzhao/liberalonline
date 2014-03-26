@@ -180,7 +180,7 @@ jQuery.fn.dataTableExt.oSort['percent-desc'] = function(a,b) {
  * Copyright (c) 2008 - 2010 Janis Skarnelis
  *
  * Version: 1.3.1 (05/03/2010)
- * Requires: jQuery v1.3+
+ * Requires: jQuery olp.3+
  *
  * Dual licensed under the MIT and GPL licenses:
  *   http://www.opensource.org/licenses/mit-license.php
@@ -218,7 +218,7 @@ d,f.left);g.css(f);h=false};b.fn.fancybox.defaults={padding:10,margin:20,opacity
 easingIn:"swing",easingOut:"swing",showCloseButton:true,showNavArrows:true,enableEscapeButton:true,onStart:null,onCancel:null,onComplete:null,onCleanup:null,onClosed:null};b(document).ready(function(){aa()})})(jQuery);
 /*
  * timeago: a jQuery plugin, version: 0.9 (2010-06-21)
- * @requires jQuery v1.2.3 or later
+ * @requires jQuery olp.2.3 or later
  *
  * Timeago is a jQuery plugin that makes it easy to support automatically
  * updating fuzzy timestamps (e.g. "4 minutes ago" or "about 1 day ago").

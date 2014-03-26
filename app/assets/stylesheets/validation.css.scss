@@ -11,3 +11,36 @@ div.pass-hint {
   font-family: arial;
   font-size: 11px;
 }
+
+.required input{
+  border-color: orange;
+}
+
+.has-success label, .has-success input {
+  color: green;
+  border-color: green;
+  box-shadow: none;
+
+  .help-block{
+    display: none;
+  }
+}
+
+.has-success::after{
+  color: green;
+  content: "\2713";
+}
+
+.is-loading::after{
+  background-image: url('loading.gif');
+}
+
+.has-error label, .has-error input {
+  color: red;
+  border-color: red;
+  box-shadow: none;
+}
+
+.help-block {
+  display: inline;
+}
