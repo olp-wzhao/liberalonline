@@ -27,7 +27,7 @@
 					<% if @menu_video != nil %>
 						<a href="/videos">
 							<div class="inline_img frame" style="background-size:100% 100%; background-image:url(http://i4.ytimg.com/vi/<%= @menu_video.video_uri %>/default.jpg)">
-								<img src="/stylesheets/img/play.png" border="0" alt="" />
+                              <%= image_tag 'play.png', border: 0 %>
 							</div>
 						</a>
 						<p><%= raw(@menu_video.title) %></p>
@@ -50,18 +50,18 @@
 
 				<div class="col_3">
 					<h4><%= link_to "About Donations", "/aboutdonations" %></h4>
-					<a href="#"><img src="assets/product03@2x.jpg" width="220" height="140" alt="" class="inline_img" /></a>
+					<a href="#"><%= image_tag 'product03@2x.jpg', width: "220", height: "140", class: "inline_img" %></a>
 					<p>They're our schools, our hospitals, our environment, our economy, and our future. Your donation makes a big difference in the fight.</p>
                     <h4><%= link_to "Taxable Benefits", "/taxablebenefits" %></h4>
-					<a href="#"><img src="img/products/product03@2x.jpg" width="220" height="140" alt="" class="inline_img" /></a>
+					<a href="#"><%= image_tag 'product03@2x.jpg', width:"220", height:"140", alt:"", class:"inline_img" %> /></a>
 					<p>If you gave $300.00, you'd get back $225 at tax time. Read more about the benefits of donating.</p>
                     <h4><%= link_to "Eligibility", "/eligibility" %></h4>
-					<a href="#"><img src="img/products/product03@2x.jpg" width="220" height="140" alt="" class="inline_img" /></a>
+					<a href="#"><%= image_tag 'product03@2x.jpg', width:"220", height:"140", alt:"", class:"inline_img" %> /></a>
 					<p>The Ontario Liberal Party does not accept contributions from hospitals, colleges, universities, municipalities, or from any organization that receives public funding</p>					
 				</div>				
 				<div class="col_3">
 					<h4><%= link_to "ABC (Monthly Contribution)", "https://contribute.ontarioliberal.ca/Home/ABC?edid=9000" %></h4>
-					<a href="#"><img src="img/products/product02@2x.jpg" width="220" height="140" alt="" class="inline_img" /></a>
+					<a href="#"><%= image_tag 'product02@2x.jpg', width:"220", height:"140", alt:"", class:"inline_img" %> /></a>
 					<p>Automatic membership renewal and special prices for Ontario Liberal events are just some of the perks of signing up for monthly contributions.</p>
 					
 					<h4>Red Trillium Club</h4>
@@ -74,7 +74,7 @@
 				</div>
 				<div class="col_3">
 					<h4><%= link_to "Donate Now", "https://contribute.ontarioliberal.ca/Home/Donate" %></h4>
-					<a href="#"><img src="img/products/product01@2x.jpg" style="clip:rect(0px,60px,200px,0px)" width="220" height="140" alt="" class="inline_img" /></a>
+					<a href="#"><%= image_tag 'product01@2x.jpg', style:"clip:rect(0px,60px,200px,0px)", width:"220", height:"140", alt:"", class:"inline_img" %> /></a>
 					<p>Your donations allow us to get our message out. Even a small donation can make a big difference.</p>
 				</div>				
 

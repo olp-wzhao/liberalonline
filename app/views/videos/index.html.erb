@@ -34,7 +34,7 @@
 				<div class="videoinfo">			
 					<div class="vidthumb" style="background-image:url(https://i4.ytimg.com/vi/<%= video.video_uri %>/default.jpg)">
 						<a href='<%= "/videos/" + video.id.to_s %>'>
-							<img src="assets/play.png" border="0" alt="" />
+                          <%= image_tag 'play', border: 0 %>
 						</a>
 					</div>
 					<div class="date"><span class="posted">Posted:&nbsp;</span><%= video.created_date.strftime('%B %d, %Y %I:%M %p') %></div>

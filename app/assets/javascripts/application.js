@@ -16,7 +16,6 @@
 //= require jquery.ui.effect
 //= require jquery.ui.datepicker
 
-// require underscore.min
 
 // require helpers
 // require main

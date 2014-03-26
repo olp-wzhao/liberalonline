@@ -1893,17 +1893,4 @@
         return this.val().length > 2;
     };
 
-//    $.formance.fn.format_password_strength = function(){
-//
-//    }
-//
-//    $.formance.fn.validate_password_strength = function (){
-////        var requiredStrength = $el.valAttr('strength')
-////        if(requiredStrength && requiredStrength > 3)
-//        var requiredStrength = 2;
-//        var passwordStrength = $.formance.fn.calculatePasswordStrength(this.val());
-//        console.log(passwordStrength);
-//        return passwordStrength >= requiredStrength;
-//    }
-
 }).call(this);

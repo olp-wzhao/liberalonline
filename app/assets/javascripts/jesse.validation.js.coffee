@@ -136,19 +136,32 @@ window.Application.UserValidation = class UserValidation
       #"alpha_length"
     ]
 
-    $.each fields, (index, value) ->
-      $("input." + value).formance("format_" + value).addClass("required")#.addClass("form-control").wrap("<div class='form-group' />").parent().append "<label class='control-label'>Required!</label>"
-      #move the placeholder text to the right of the textbox
+    #phone number validation
+    $("input.phone_number").formance("format_phone_number").addClass("required")#.addClass("form-control").wrap("<div class='form-group' />").parent().append "<label class='control-label'>Required!</label>"
+    #move the placeholder text to the right of the textbox
 
-      $("input." + value).on "keyup change blur", (value) ->
-        $this = $(this)
-        #console.log("validate_" + value)
-        if $this.formance("validate_" + value)
-          $("input[type='submit']").prop "disabled", false
-          $this.parent().removeClass("has-success has-error").addClass(success_animations_css_classes).children(":last").text ""
-        else
-          $("input[type='submit']").prop "disabled", true
-          $this.parent().removeClass("has-success has-error").addClass(error_animations_css_classes).children(":last").text "Invalid"
-        return
+    $("input.phone_number").on "keyup change blur", ->
+      $this = $(this)
+      #console.log("validate_" + value)
+      if $this.formance("validate_phone_number")
+        $("input[type='submit']").prop "disabled", false
+        $this.parent().removeClass("has-success has-error").addClass(success_animations_css_classes).children(":last").text ""
+      else
+        $("input[type='submit']").prop "disabled", true
+        $this.parent().removeClass("has-success has-error").addClass(error_animations_css_classes).children(":last").text "Phone number is invalid"
+      return
 
-    return
+    #postal code validation
+    $("input." + value).formance("format_" + value).addClass("required")#.addClass("form-control").wrap("<div class='form-group' />").parent().append "<label class='control-label'>Required!</label>"
+    #move the placeholder text to the right of the textbox
+
+    $("input.postal_code").on "keyup change blur", ->
+      $this = $(this)
+      #console.log("validate_" + value)
+      if $this.formance("validate_postal_code")
+        $("input[type='submit']").prop "disabled", false
+        $this.parent().removeClass("has-success has-error").addClass(success_animations_css_classes).children(":last").text ""
+      else
+        $("input[type='submit']").prop "disabled", true
+        $this.parent().removeClass("has-success has-error").addClass(error_animations_css_classes).children(":last").text "Postal code invalid or missing"
+      return
