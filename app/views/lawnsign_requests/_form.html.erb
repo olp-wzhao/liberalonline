@@ -1,8 +1,9 @@
-<div class=".et-wrapper">
-  = render 'users/registrations/form'
+<div class=".et-page et-rotate" et-in="rotateSladeIn" et-out="rotateSlideOut">
+<div class="" >
+  <%= render 'users/registrations/form', user: current_user %>
 </div>
-<div class=".et-wrapper">
-  <%= simple_form_for(@lawnsign_request) do |f| %>
+<div class=".et-page">
+  <%= simple_form_for@lawnsign_request do |f| %>
     <%= f.collection_radio_buttons :sign_size_large, [[true, t(:large)], [false, t(:normal)]], :first, :last, :class => 'lawnsign_radiobutton' %>
     <p>
       <%= t(:lawnsign_instructions) %>
@@ -11,4 +12,5 @@
     <br/>
     <%= f.button :submit %>
   <% end %>
+<div>
 <%= javascript_include_tag 'lawnsign_requests' %>

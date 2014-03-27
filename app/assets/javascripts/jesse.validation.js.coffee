@@ -15,24 +15,19 @@ window.Application.UserValidation = class UserValidation
       #Show the loading icon
       el = $("#checking_unique_email")
       el.show()
-
-      $.getJSON(
-        type: "GET"
-        url: $this.data("url") + "?email=" + $this.val()
-        dataType: "json"
+      console.log $this.data("url")
+      $.getJSON($this.data("url") + "?email=" + $this.val()
       ).done((result) ->
         console.log 'successful return of email validation'
         console.log "email already exists: " + result
         if result == false
-          $("input[type='submit']").prop "disabled", false
+          #this is a unique address, but lets still check the formatting
           if $('input.email').formance('validate_email')
-
+            console.log('email passes both unique and formatting validation')
             $this.parent().removeClass("has-success has-error").addClass("has-success").children(":last").html ""
-            $("#riding_box").html(result.name);
           else
             $this.parent().removeClass("has-success has-error").addClass("has-error").children(":last").html "Incomplete email address or incorrect format"
         else
-          $("input[type='submit']").prop "disabled", true
           $this.parent().removeClass("has-success has-error").addClass("has-error").children(":last").html "Email already exists in our system"
         return
       ).fail((error) ->

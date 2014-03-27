@@ -138,4 +138,4 @@ gem 'faraday'
 gem 'faraday-http-cache'
 gem 'faraday_middleware'
 
-gem 'resque'
+#gem 'resque'

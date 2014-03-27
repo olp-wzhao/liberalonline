@@ -1,6 +1,6 @@
 class Users::RegistrationsController < Devise::RegistrationsController
   before_filter :configure_permitted_parameters
-  include DateTimeFixes
+  #include DateTimeFixes
   
   #before_update
 
@@ -20,7 +20,9 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   def create
     build_resource(sign_up_params)
-
+    random_pass = Devise.friendly_token.first(8)
+    resource.password = random_pass
+    resource.password_confirmation = random_pass
     #check and assign riding
     if sign_up_params['riding_id'].empty?
       riding = RidingAddress.near(sign_up_params[:postal_code], 10, :order => :distance).first
@@ -47,6 +49,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
         end
       end
     else
+      binding.pry
       #facebook authentication creates an incomplete profile and so the user must be informed that their account is missing information
       clean_up_passwords resource
       respond_to do |format|
@@ -97,17 +100,25 @@ class Users::RegistrationsController < Devise::RegistrationsController
   #   params[:user].delete :"birthday(3i)"
   # end
 
-  def fix_scrambled_date_parameters_on_create
-    x,y,z = params[:user][:"birthday(1i)"], params[:user][:"birthday(2i)"], params[:user][:"birthday(3i)"]
-    params[:user][:birthday] = "#{z}/#{y}/#{x}"
-    params[:user].delete :"birthday(1i)"
-    params[:user].delete :"birthday(2i)"
-    params[:user].delete :"birthday(3i)"
+  #def fix_scrambled_date_parameters_on_create
+  #  x,y,z = params[:user][:"birthday(1i)"], params[:user][:"birthday(2i)"], params[:user][:"birthday(3i)"]
+  #  params[:user][:birthday] = "#{z}/#{y}/#{x}"
+  #  params[:user].delete :"birthday(1i)"
+  #  params[:user].delete :"birthday(2i)"
+  #  params[:user].delete :"birthday(3i)"
+  #end
+
+  def assign_random_pass
+    random_pass = Devise.friendly_token.first(6)
+    params['password'] = random_pass
+    params['password_confirmation'] = random_pass
   end
 
   def configure_permitted_parameters
     devise_parameter_sanitizer.for(:sign_up) do |u|
-      fix_scrambled_date_parameters_on_create
+      #only assign random passwords on creation
+      assign_random_pass
+      #fix_scrambled_date_parameters_on_create
       u.permit(:first_name, :last_name,
         :email, :password, :password_confirmation,
         :address, :postal_code, :city, :phone_number,
@@ -115,7 +126,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
     end
 
     devise_parameter_sanitizer.for(:account_update) do |u|
-      fix_scrambled_date_parameters_on_create
+      #fix_scrambled_date_parameters_on_create
       u.permit(:first_name, :last_name,
         :email, :password, :password_confirmation, :current_password,
         :address, :postal_code, :city, :phone_number,
