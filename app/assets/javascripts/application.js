@@ -34,7 +34,7 @@
 //= require jquery.passy
 //= require jesse.validation
 //= require placeholder_fix
-//= require elementTransition
+
 
 // require turbolinks
 // require_tree .
