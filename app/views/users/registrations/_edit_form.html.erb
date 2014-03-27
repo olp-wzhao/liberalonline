@@ -17,9 +17,9 @@
     <%= f.hidden_field :riding_id %>
     <%= f.input :city, placeholder: 'City', label: false %>
     <%= f.input :phone_number, as: :tel, :size => 30, placeholder: 'Phone Number', label: false %>
-    <%= f.input :birthday, :input_html => { :class => 'datepicker' , :value => @user.birthday.nil? ? Date.new : @user.birthday.strftime('%d/%m/%Y') } %>
-    <%= f.input :image, as: :file, label: 'Upload Image' %>
-    <%= f.hidden_field :image_cache %>
+    <%= f.input :birthday, placeholder: 'DD/MM/YYYY', :input_html => { :class => 'datepicker' , :value => @user.birthday.nil? ? Date.new : @user.birthday.strftime('%d/%m/%Y') } %>
+    <%#= f.file_field :image, as: :image_preview, input_html: {preview_version: :thumb} %>
+    <%#= f.hidden_field :image_cache %>
     <%= f.button :submit, 'Update', :class => 'btn-primary' %>
     <div id="errors"></div>
 <% end %>

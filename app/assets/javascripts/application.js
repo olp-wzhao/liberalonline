@@ -15,14 +15,17 @@
 //= require jquery_ujs
 //= require jquery.ui.effect
 //= require jquery.ui.datepicker
+//= require jquery.remotipart
+// require jquery.turbolinks
 
+//= require bootstrap
+//= require bootstrap-datepicker
 
 // require helpers
 // require main
 //= require unobtrusive_flash
 //= require unobtrusive_flash_ui
 
-//= require jquery.remotipart
 //= require modernizr
 //= require slidr.min
 
@@ -30,6 +33,7 @@
 //= require jquery.formance
 //= require jquery.passy
 //= require jesse.validation
+//= require placeholder_fix
 
-//= require turbolinks
+// require turbolinks
 // require_tree .

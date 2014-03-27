@@ -1,0 +1,14 @@
+<div class=".et-wrapper">
+  = render 'users/registrations/form'
+</div>
+<div class=".et-wrapper">
+  <%= simple_form_for(@lawnsign_request) do |f| %>
+    <%= f.collection_radio_buttons :sign_size_large, [[true, t(:large)], [false, t(:normal)]], :first, :last, :class => 'lawnsign_radiobutton' %>
+    <p>
+      <%= t(:lawnsign_instructions) %>
+    </p>
+    <%= f.input :message, :rows => 10, :cols => 50, :class => 'lawnsign_textarea' %>
+    <br/>
+    <%= f.button :submit %>
+  <% end %>
+<%= javascript_include_tag 'lawnsign_requests' %>

@@ -20,7 +20,6 @@
 // require rails.validations
 //= require tinymce-jquery
 //= require admin
-//= require dates
 
 //= require unobtrusive_flash
 //= require unobtrusive_flash_ui

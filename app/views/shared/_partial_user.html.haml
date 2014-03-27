@@ -13,20 +13,19 @@
         = current_user.phone_number
     %p 
         = current_user.email
-- else
-    = render 'users/registrations/form'
+
 
 = content_for :scripts_for_body do
-    :javascript
-        $(document).ready(function(){
-          $('#user_email').blur( function() {
-            $.get("#{validate_user_url}", { email: $('#user_email').val() })
-          });
-
-          $("#user_postal_code").blur( function() {
-            $.getJSON("#{find_riding_url}", {search: $("#user_postal_code").val()})
-                .done(function(data){
-                    $("#riding_box").html(data.name);
-                });
-            });
-        });
+    -#:javascript
+    -#    $(document).ready(function(){
+    -#      $('#user_email').blur( function() {
+    -#        $.get("#{validate_user_url}", { email: $('#user_email').val() })
+    -#      });
+    -#
+    -#      $("#user_postal_code").blur( function() {
+    -#        $.getJSON("#{find_riding_url}", {search: $("#user_postal_code").val()})
+    -#            .done(function(data){
+    -#                $("#riding_box").html(data.name);
+    -#            });
+    -#        });
+    -#    });

@@ -1,22 +1,9 @@
 console.log('registrations.create.js.erb');
 <% if @user.errors.count == 0 %>
-
     vex.close();
     $('#micromenu_placeholder').html('<%= j render '/shared/micromenu' %>');
-    //$('#signed_in_box').show()
-    //$('#sign_in').( "drop", { direction: "down" }, "slow" );
-
-//$('#user_email').val(json.current_user.email);
-//$('#user_first_name').val(json.current_user.first_name);
-//$('#user_last_name').val(json.current_user.last_name);
-//$('#user_address').val(json.current_user.address);
-//$('#user_postal_code').val(json.current_user.postal_code);
-//$('#user_city').val(json.current_user.city);
-//$('#user_phone_number').val(json.current_user.phone_number);
-//$('#user_birthday').val(json.current_user.birthday);
-
 <% else %>
     $('#errors').html('');
     console.log('errors should be displayed');
-    $('form .errors').html('<%= j devise_error_messages!%>');
+    $('#errors').html('<%= j devise_error_messages!%>');
 <% end %>

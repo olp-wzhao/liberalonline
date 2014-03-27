@@ -16,16 +16,19 @@ window.Application.UserValidation = class UserValidation
       el = $("#checking_unique_email")
       el.show()
 
-      $.ajax(
+      $.getJSON(
         type: "GET"
         url: $this.data("url") + "?email=" + $this.val()
         dataType: "json"
       ).done((result) ->
+        console.log 'successful return of email validation'
         console.log "email already exists: " + result
         if result == false
           $("input[type='submit']").prop "disabled", false
           if $('input.email').formance('validate_email')
+
             $this.parent().removeClass("has-success has-error").addClass("has-success").children(":last").html ""
+            $("#riding_box").html(result.name);
           else
             $this.parent().removeClass("has-success has-error").addClass("has-error").children(":last").html "Incomplete email address or incorrect format"
         else
@@ -43,28 +46,6 @@ window.Application.UserValidation = class UserValidation
         return
 
       return
-
-    $input = $('#user_password')
-    $output = $('#strength')
-
-    $.passy.requirements.length.min = 4
-
-    feedback = [
-      { color: '#c00', text: 'poor' },
-      { color: '#c80', text: 'okay' },
-      { color: '#0c0', text: 'good' },
-      { color: '#0c0', text: 'fabulous!' }
-    ];
-
-    $('#user_password').passy (strength, valid) ->
-      $this = $(this);
-      $output.text(feedback[strength].text);
-      $output.css('background-color', feedback[strength].color);
-
-      if( valid )
-        return $input.css ' border-color', 'green'
-      else
-        return $input.css 'border-color', 'red'
 
     $("#user_postal_code").blur ->
       $.getJSON("<%= find_riding_url %>",
@@ -89,8 +70,7 @@ window.Application.UserValidation = class UserValidation
       return
 
     $ ->
-      $("input.datepicker").each (i) ->
-        $(this).datepicker dateFormat: "dd/mm/yy"
+      $('[data-behaviour~=datepicker]').datepicker();
 
     #lock in the ui
     $("input.datepicker").formance("format_dd_mm_yyyy").addClass("required")
@@ -152,7 +132,7 @@ window.Application.UserValidation = class UserValidation
       return
 
     #postal code validation
-    $("input." + value).formance("format_" + value).addClass("required")#.addClass("form-control").wrap("<div class='form-group' />").parent().append "<label class='control-label'>Required!</label>"
+    $("input.postal_code").formance("format_postal_code").addClass("required")#.addClass("form-control").wrap("<div class='form-group' />").parent().append "<label class='control-label'>Required!</label>"
     #move the placeholder text to the right of the textbox
 
     $("input.postal_code").on "keyup change blur", ->
@@ -161,6 +141,13 @@ window.Application.UserValidation = class UserValidation
       if $this.formance("validate_postal_code")
         $("input[type='submit']").prop "disabled", false
         $this.parent().removeClass("has-success has-error").addClass(success_animations_css_classes).children(":last").text ""
+        $.getJSON($this.data("url"),
+          search: $this.val()
+        ).done (data) ->
+          $('.riding_details').remove()
+          $this.append '<div class="riding_details"><span class="riding_box"></span><input type="hidden" id="riding_id" value="'+ data.id + '" /></div>'
+          $(".riding_details").html data.name
+          return
       else
         $("input[type='submit']").prop "disabled", true
         $this.parent().removeClass("has-success has-error").addClass(error_animations_css_classes).children(":last").text "Postal code invalid or missing"

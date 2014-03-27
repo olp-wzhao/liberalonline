@@ -156,14 +156,6 @@ class User
     Transaction.where(email: self.email)
   end
 
-  def grap_facebook_albums
-    facebook = self.identities.where(provider: 'facebook')
-    binding.pry
-    fb_user = ::FbGraph::User.fetch facebook.uid, :access_token => facebook.token
-
-    fb_albums = fb_user.albums
-  end
-
   def fetch_facebook_friends
     identity = Identity.where(user_id: self.id, provider: 'facebook')
     if identity.exists?

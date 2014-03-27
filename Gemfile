@@ -20,7 +20,8 @@ gem 'jquery-turbolinks'
 gem 'turbolinks'
 
 gem 'jbuilder', '~> 1.2'
-#gem 'bootstrap-sass'
+gem 'bootstrap-sass'
+gem 'bootstrap-datepicker-rails'
 gem 'font-awesome-sass-rails'
 gem 'kaminari'
 
