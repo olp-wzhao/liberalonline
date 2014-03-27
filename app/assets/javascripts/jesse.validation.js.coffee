@@ -17,29 +17,29 @@ window.Application.UserValidation = class UserValidation
       el.show()
       console.log $this.data("url")
       $.getJSON($this.data("url") + "?email=" + $this.val()
-      ).done((result) ->
+      ).done((isEmailAlreadyTaken) ->
         console.log 'successful return of email validation'
-        console.log "email already exists: " + result
-        if result == false
-          #this is a unique address, but lets still check the formatting
-          if $('input.email').formance('validate_email')
-            console.log('email passes both unique and formatting validation')
-            $this.parent().removeClass("has-success has-error").addClass("has-success").children(":last").html ""
+        console.log "email already exists: " + isEmailAlreadyTaken
+        setTimeout (->
+          el.hide()
+          if isEmailAlreadyTaken == false && $this.val() != ""
+            #this is a unique address, but lets still check the formatting
+            if $('input.email').formance('validate_email')
+              console.log('email passes both unique and formatting validation')
+              $this.parent().removeClass("has-success has-error").addClass("has-success").children(":last").html "Username is available"
+            else
+              console.log 'email does not exist but is in the wrong format'
+              $this.parent().removeClass("has-success has-error").addClass("has-error").children(":last").html "Incomplete email address or incorrect format"
           else
-            $this.parent().removeClass("has-success has-error").addClass("has-error").children(":last").html "Incomplete email address or incorrect format"
-        else
-          $this.parent().removeClass("has-success has-error").addClass("has-error").children(":last").html "Email already exists in our system"
+            console.log 'email already exists'
+            $this.parent().removeClass("has-success has-error").addClass("has-error").children(":last").html "Email already exists in our system"
+          return
+        ), 4000
         return
       ).fail((error) ->
         $this.removeClass("has-success has-error").children(":last").text "Invalid" + error
         return
-      ).always ->
-        setTimeout (->
-          el.hide()
-          return
-        ), 4000
-        return
-
+      )
       return
 
     $("#user_postal_code").blur ->

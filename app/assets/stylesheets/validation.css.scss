@@ -20,15 +20,15 @@ div.pass-hint {
   color: green;
   border-color: green;
   box-shadow: none;
-
-  .help-block{
-    display: none;
-  }
 }
 
 .has-success::after{
   color: green;
   content: "\2713";
+}
+
+.has-error::after{
+  content: "Invalid";
 }
 
 .is-loading::after{

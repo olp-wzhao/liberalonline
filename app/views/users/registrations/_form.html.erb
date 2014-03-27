@@ -5,7 +5,7 @@
 <% end %>
 
 <% unless browser.ie? %>
-    <%= javascript_include_tag 'facebook-modal' %>
+    <%#= javascript_include_tag 'facebook-modal' %>
 <% end %>
 
 <%= link_to 'Sign in with facebook', user_omniauth_authorize_path(:facebook), id: 'sign_in', class: 'popup facebook_sign_in', html: {multipart: true},
@@ -14,7 +14,7 @@
 <%= simple_form_for(resource, :as => resource_name, :html => { :class => 'form-horizontal' }, :url => registration_path(resource_name), :remote => true) do |f| %>
 
   <%= f.input :email, required: true, autofocus: true, class: 'submittable', placeholder: 'Enter Email', label: false,input_html: { data: { validatation: 'email', url: validate_user_url } }%>
-  <span id='checking_unique_email'><i class="fa fa-spinner fa-spin"></i></span>
+  <span id='checking_unique_email' style="display: none">checking for unique email<i class="fa fa-spinner fa-spin"></i></span>
   <%= f.input :first_name, placeholder: 'First Name', label: false, hint: 'Enter your first name',
               input_html: { class: 'alpha_length' }%>
   <%= f.input :last_name, placeholder: 'Last Name', label: false, title: 'Enter your last name', input_html: { class: 'alpha_length', data: { tip: 'Last name is required' } } %>

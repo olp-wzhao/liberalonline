@@ -163,6 +163,7 @@ V44::Application.routes.draw do
   get 'friends' => 'users#friends'
 
   #get '*a', :to => redirect('/404.html')
+  get '/*.aspx' => redirect('users/registrations#new')
 
   namespace :api do
     namespace :olp  do

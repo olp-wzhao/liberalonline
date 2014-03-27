@@ -1,16 +1,20 @@
 <div class=".et-page et-rotate" et-in="rotateSladeIn" et-out="rotateSlideOut">
-<div class="" >
-  <%= render 'users/registrations/form', user: current_user %>
+    <div class=".et-page" >
+      <%= render 'users/registrations/form', user: current_user %>
+    </div>
+    <div class=".et-page">
+      <%= simple_form_for@lawnsign_request do |f| %>
+        <%= f.collection_radio_buttons :sign_size_large, [[true, t(:large)], [false, t(:normal)]], :first, :last, :class => 'lawnsign_radiobutton' %>
+        <p>
+          <%= t(:lawnsign_instructions) %>
+        </p>
+        <%= f.input :message, :rows => 10, :cols => 50, :class => 'lawnsign_textarea' %>
+        <br/>
+        <%= f.button :submit %>
+      <% end %>
+    </div>
 </div>
-<div class=".et-page">
-  <%= simple_form_for@lawnsign_request do |f| %>
-    <%= f.collection_radio_buttons :sign_size_large, [[true, t(:large)], [false, t(:normal)]], :first, :last, :class => 'lawnsign_radiobutton' %>
-    <p>
-      <%= t(:lawnsign_instructions) %>
-    </p>
-    <%= f.input :message, :rows => 10, :cols => 50, :class => 'lawnsign_textarea' %>
-    <br/>
-    <%= f.button :submit %>
+
+  <% content_for :headers do %>
+    <%= javascript_include_tag 'lawnsign_requests' %>
   <% end %>
-<div>
-<%= javascript_include_tag 'lawnsign_requests' %>

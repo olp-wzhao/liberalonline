@@ -13,12 +13,12 @@
 
 //= require jquery
 //= require jquery_ujs
-//= require jquery.ui.effect
-//= require jquery.ui.datepicker
 //= require jquery.remotipart
-// require jquery.turbolinks
+//= require jquery.turbolinks
+//= require flowtype
+//= require jquery-scrolltofixed-min
 
-//= require bootstrap
+// require facebook
 
 // require helpers
 // require main
@@ -26,7 +26,6 @@
 //= require unobtrusive_flash_ui
 
 //= require modernizr
-//= require slidr.min
 
 //= require moment/moment-with-langs.min
 //= require jquery.formance
@@ -35,5 +34,5 @@
 //= require placeholder_fix
 
 
-// require turbolinks
+//= require turbolinks
 // require_tree .

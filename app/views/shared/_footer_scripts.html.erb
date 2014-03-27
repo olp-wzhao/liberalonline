@@ -75,5 +75,14 @@
 //
 //      });
 </script>
-<%= stylesheet_link_tag 'datepicker' %>
-<%= javascript_include_tag 'bootstrap-datepicker' %>
+
+<script src="/vex/js/vex.js"></script>
+<script src="/vex/js/vex.dialog.js"></script>
+
+<script>vex.defaultOptions.className = 'vex-theme-flat-attack';</script>
+
+<% unless browser.ie? %>
+    <%= javascript_include_tag 'facebook' %>
+    <%= javascript_include_tag 'selectivizr/selectivizr' %>
+    <%= javascript_include_tag 'polyfills/requestAnimationFrame.min' %>
+<% end %>

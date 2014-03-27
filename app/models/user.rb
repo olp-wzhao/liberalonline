@@ -43,7 +43,7 @@ class User
 
   validates_numericality_of :age, :greater_than => 13, :message => "must be 13 or older"
 
-  validates_format_of :postal_code, with: /[ABCEGHJKLMNPRSTVXY]\d[ABCEGHJKLMNPRSTWVXYZ]\d[ABCEGHJKLMNPRSTWVXYZ]\d/
+  #validates_format_of :postal_code, with: /[ABCEGHJKLMNPRSTVXY]\d[ABCEGHJKLMNPRSTWVXYZ]\d[ABCEGHJKLMNPRSTWVXYZ]\d/
   validates_length_of :first_name, minimum: 2
   validates_length_of :last_name, minimum: 2
 
