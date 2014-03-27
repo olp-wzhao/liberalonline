@@ -19,7 +19,6 @@
 // require jquery.turbolinks
 
 //= require bootstrap
-//= require bootstrap-datepicker
 
 // require helpers
 // require main

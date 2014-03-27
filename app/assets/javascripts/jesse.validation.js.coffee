@@ -64,8 +64,7 @@ window.Application.UserValidation = class UserValidation
         $this.parent().removeClass("has-success has-error").addClass("has-error").children(":last").text "Password must match and not be empty"
       return
 
-    $ ->
-      $('[data-behaviour~=datepicker]').datepicker();
+    $('.datepicker').datepicker()
 
     #lock in the ui
     $("input.datepicker").formance("format_dd_mm_yyyy").addClass("required")
