@@ -11,7 +11,7 @@
 <%= link_to 'Sign in with facebook', user_omniauth_authorize_path(:facebook), id: 'sign_in', class: 'popup facebook_sign_in', html: {multipart: true},
             data: { width: 600, height: 400} %>
 
-<%= simple_form_for(resource, :as => resource_name, :html => { :class => 'form-horizontal' }, :url => registration_path(resource_name), :remote => true) do |f| %>
+<%= simple_form_for(resource, as: resource_name, html: { id: 'new_user_form', class: 'form-horizontal' }, url: registration_path(resource_name), remote: true) do |f| %>
 
   <%= f.input :email, required: true, autofocus: true, class: 'submittable', placeholder: 'Enter Email', label: false,input_html: { data: { validatation: 'email', url: validate_user_url } }%>
   <span id='checking_unique_email' style="display: none">checking for unique email<i class="fa fa-spinner fa-spin"></i></span>

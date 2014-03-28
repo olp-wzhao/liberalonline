@@ -7,6 +7,6 @@ jQuery ->
     cache: true
 
 
-window.fbAsyncInit = ->
-  FB.init(appId: '539610256085770', cookie: true, status: true, xfbml: true)
+  window.fbAsyncInit = ->
+    FB.init(appId: '<%= ENV['FACEBOOK_APP_ID'] %>', cookie: true, status: true, xfbml: true)
 

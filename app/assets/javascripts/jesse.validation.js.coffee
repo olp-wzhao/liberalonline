@@ -11,36 +11,35 @@ window.Application.UserValidation = class UserValidation
     $("input#user_email").on "change blur", ->
       $this = $(this)
       console.log "unique email check"
-
-      #Show the loading icon
-      el = $("#checking_unique_email")
-      el.show()
       console.log $this.data("url")
-      $.getJSON($this.data("url") + "?email=" + $this.val()
-      ).done((isEmailAlreadyTaken) ->
-        console.log 'successful return of email validation'
-        console.log "email already exists: " + isEmailAlreadyTaken
-        setTimeout (->
-          el.hide()
-          if isEmailAlreadyTaken == false && $this.val() != ""
-            #this is a unique address, but lets still check the formatting
-            if $('input.email').formance('validate_email')
-              console.log('email passes both unique and formatting validation')
-              $this.parent().removeClass("has-success has-error").addClass("has-success").children(":last").html "Username is available"
+      if $this.val() != ""
+        $.getJSON($this.data("url") + "?email=" + $this.val())
+        .done((isEmailAlreadyTaken) ->
+          el = $("#checking_unique_email")
+          el.show()
+          console.log 'successful return of email validation'
+          console.log "email already exists: " + isEmailAlreadyTaken
+          setTimeout (->
+            el.hide()
+            if isEmailAlreadyTaken == false && $this.val() != ""
+              #this is a unique address, but lets still check the formatting
+              if $('input.email').formance('validate_email')
+                console.log('email passes both unique and formatting validation')
+                $this.parent().removeClass("has-success has-error").addClass("has-success").children(":last").html "Username is available"
+              else
+                console.log 'email does not exist but is in the wrong format'
+                $this.parent().removeClass("has-success has-error").addClass("has-error").children(":last").html "Incomplete email address or incorrect format"
             else
-              console.log 'email does not exist but is in the wrong format'
-              $this.parent().removeClass("has-success has-error").addClass("has-error").children(":last").html "Incomplete email address or incorrect format"
-          else
-            console.log 'email already exists'
-            $this.parent().removeClass("has-success has-error").addClass("has-error").children(":last").html "Email already exists in our system"
+              console.log 'email already exists'
+              $this.parent().removeClass("has-success has-error").addClass("has-error").children(":last").html "Email already exists in our system"
+            return
+          ), 4000
           return
-        ), 4000
+        ).fail((error) ->
+          $this.removeClass("has-success has-error").children(":last").text "Invalid" + error
+          return
+        )
         return
-      ).fail((error) ->
-        $this.removeClass("has-success has-error").children(":last").text "Invalid" + error
-        return
-      )
-      return
 
     $("#user_postal_code").blur ->
       $.getJSON("<%= find_riding_url %>",
@@ -51,16 +50,16 @@ window.Application.UserValidation = class UserValidation
         return
       return
 
-    $("input[type='submit']").prop "disabled", true # disable the submit button
+    $("#new_user_form > input[type='submit']").prop "disabled", true # disable the submit button
     # setup the formatter
     $("input#user_password_confirmation").addClass("form-control").wrap("<div class='form-group' />").parent().append "<label class='control-label'>Required!</label>"
     $("input#user_password_confirmation").on "keypress keyup change blur", (event) ->
       $this = $(this)
       if ($this.val() is $("input#user_password").val()) and ($this.val() isnt "")
-        $("input[type='submit']").prop "disabled", false
+        $("#new_user_form > input[type='submit']").prop "disabled", false
         $this.parent().removeClass("has-success has-error").addClass("has-success").children(":last").text ""
       else
-        $("input[type='submit']").prop "disabled", true
+        $("#new_user_form > input[type='submit']").prop "disabled", true
         $this.parent().removeClass("has-success has-error").addClass("has-error").children(":last").text "Password must match and not be empty"
       return
 
@@ -75,10 +74,10 @@ window.Application.UserValidation = class UserValidation
       birthday = moment($this.val(), "DD-MM-YYYY")
       thirteen_year_ago = moment().subtract("years", 13)
       if $this.formance("validate_dd_mm_yyyy") and birthday.isBefore(thirteen_year_ago)
-        $("input[type='submit']").prop "disabled", false
+        $("#new_user_form > input[type='submit']").prop "disabled", false
         $this.parent().removeClass("has-success has-error").addClass("has-success").children(":last").text ""
       else
-        $("input[type='submit']").prop "disabled", true
+        $("#new_user_form > input[type='submit']").prop "disabled", true
         $this.parent().removeClass("has-success has-error").addClass("has-error").children(":last").text "Must be at least 13 years old to register"
       return
 
@@ -89,10 +88,10 @@ window.Application.UserValidation = class UserValidation
     $("input.alpha_length").on "keyup change blur", -> # setup the event listeners to validate the field whenever the user takes an action
       $this = $(this)
       if $this.formance("validate_alpha_length")
-        $("input[type='submit']").prop "disabled", false
+        $("#new_user_form > input[type='submit']").prop "disabled", false
         $this.parent().removeClass("has-success has-error").addClass("has-success").children(":last").text ""
       else
-        $("input[type='submit']").prop "disabled", true
+        $("#new_user_form > input[type='submit']").prop "disabled", true
         $this.parent().removeClass("has-success has-error").addClass("has-error").children(":last").text "Field cannot be empty"
       return
 
@@ -118,10 +117,10 @@ window.Application.UserValidation = class UserValidation
       $this = $(this)
       #console.log("validate_" + value)
       if $this.formance("validate_phone_number")
-        $("input[type='submit']").prop "disabled", false
+        $("#new_user_form > input[type='submit']").prop "disabled", false
         $this.parent().removeClass("has-success has-error").addClass(success_animations_css_classes).children(":last").text ""
       else
-        $("input[type='submit']").prop "disabled", true
+        $("#new_user_form > input[type='submit']").prop "disabled", true
         $this.parent().removeClass("has-success has-error").addClass(error_animations_css_classes).children(":last").text "Phone number is invalid"
       return
 
@@ -133,7 +132,7 @@ window.Application.UserValidation = class UserValidation
       $this = $(this)
       #console.log("validate_" + value)
       if $this.formance("validate_postal_code")
-        $("input[type='submit']").prop "disabled", false
+        $("#new_user_form > input[type='submit']").prop "disabled", false
         $this.parent().removeClass("has-success has-error").addClass(success_animations_css_classes).children(":last").text ""
         $.getJSON($this.data("url"),
           search: $this.val()
@@ -143,6 +142,6 @@ window.Application.UserValidation = class UserValidation
           $(".riding_details").html data.name
           return
       else
-        $("input[type='submit']").prop "disabled", true
+        $("#new_user_form > input[type='submit']").prop "disabled", true
         $this.parent().removeClass("has-success has-error").addClass(error_animations_css_classes).children(":last").text "Postal code invalid or missing"
       return

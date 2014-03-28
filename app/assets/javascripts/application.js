@@ -14,7 +14,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require jquery.remotipart
-//= require jquery.turbolinks
+// require jquery.turbolinks
 //= require flowtype
 //= require jquery-scrolltofixed-min
 
@@ -33,6 +33,8 @@
 //= require jesse.validation
 //= require placeholder_fix
 
-
-//= require turbolinks
+// require turbolinks
 // require_tree .
+
+//= require mgmenu.js
+//= require mgmenu_plugins.js

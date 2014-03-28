@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Empty test layout</title>
+  <%= render partial: 'shared/header_scripts' %>
+  <%= yield :scripts_for_header %>
+</head>
+<body>
+    <%= yield %>
+    <%= render partial: 'shared/footer_scripts' %>
+    <%= yield :scripts_for_body %>
+</body>
+</html>

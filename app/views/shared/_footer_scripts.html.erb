@@ -81,8 +81,9 @@
 
 <script>vex.defaultOptions.className = 'vex-theme-flat-attack';</script>
 
-<% unless browser.ie? %>
-    <%= javascript_include_tag 'facebook' %>
+<% if browser.ie? %>
     <%= javascript_include_tag 'selectivizr/selectivizr' %>
     <%= javascript_include_tag 'polyfills/requestAnimationFrame.min' %>
+<% else %>
+    <%= javascript_include_tag 'facebook' %>
 <% end %>

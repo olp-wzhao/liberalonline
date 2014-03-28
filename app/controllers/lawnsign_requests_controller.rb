@@ -36,7 +36,7 @@ class LawnsignRequestsController < ApplicationController
     respond_to do |format|
       if @lawnsign_request.save
         format.html { redirect_to root_url, notice: 'Lawnsign request was successfully created.' }
-        format.json { render action: 'show', status: :created, location: @lawnsign_request }
+        format.json { render json: @lawnsign_request, status: :created, location: @lawnsign_request }
       else
         format.html { render action: 'new' }
         format.json { render json: @lawnsign_request.errors, status: :unprocessable_entity }
