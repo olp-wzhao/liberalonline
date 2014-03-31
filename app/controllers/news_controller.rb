@@ -16,20 +16,16 @@ class NewsController < ApplicationController
     def show
 
 			@current_document = nil
-			
-			begin
-        #@current_documents = Document.where(id: params[:id], published: true, language: @language)
-					#							.between(riding_id: -6..0)
-					#							.gt(expiry_date: DateTime.now)
-					#							.order_by(:id.desc)
-        if params[:id].respond_to?(:to_i)
-          @current_document = Document.find_by(temp_id: params[:id])
-        else
-          @current_document = Document.find(temp_id: params[:id])
-        end
-			rescue ActiveRecord::RecordNotFound
-				redirect_to '/news?l=' + @language
-			end
+
+      #@current_documents = Document.where(id: params[:id], published: true, language: @language)
+        #							.between(riding_id: -6..0)
+        #							.gt(expiry_date: DateTime.now)
+        #							.order_by(:id.desc)
+      if params[:id].respond_to?(:to_i)
+        @current_document = Document.find_by(temp_id: params[:id])
+      else
+        @current_document = Document.find params[:id]
+      end
 
 			if @current_document == nil
 				redirect_to '/error'
