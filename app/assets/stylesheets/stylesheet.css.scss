@@ -6,6 +6,12 @@
 		float:left;
 		top:55px;
 	}
+	
+#fbflyout {
+    width: 350px;
+    height: 350px;
+    background-color: lightgray;
+}
 
 /* -------------------- */
 /* SECTION ONE ---------*/
@@ -71,7 +77,7 @@
   font-family: 'Roboto Condensed';
   font-style: normal;
   font-weight: 300;
-  src: local('Roboto Condensed Light'), local('RobotoCondensed-Light'), font_path('RobotoCondensed300.woff') format('woff');
+  src: local('Roboto Condensed Light'), local('RobotoCondensed-Light'), font_path('RobotoCondensedLight300.woff') format('woff');
 }
 @font-face {
   font-family: 'Roboto Condensed';
@@ -152,12 +158,14 @@ body {
 	background-color:#e5e5e6;  
 	font-size:0.9em;
 }
-h1,h2,h3,h4,h5,h6,.listh1  {
+h1,h2,h3,h4,h5,h6 {
     font-weight:400;
-	font-family: 'Roboto Condensed', sans-serif;
+	font-family: 'Roboto Condensed', sans-serif;  
+	/* font-family: 'Oswald',sans-serif; */
 	margin:0px;
 	padding:0px;
 	font-size:2.4em;
+	line-height:104%;
 	}
 h1 { color:#5c4a4a; line-height:102%;}
 h2 {color:#8e7d7e; line-height:102%;}
@@ -179,11 +187,31 @@ h2.pagesubtitle {
 
 
 h2 + h1 {padding-top:20px;}
-
+h3 + p {padding-top:0px; margin-top:8px;}
+p + h3 {padding-top:26px; margin-top:0px;}
+h1 + h3 {margin-top:18px;}
+h3 {
+  color:#5C4A4A;
+  font-family: 'Oswald',sans-serif; 
+  font-size:1.8em; 
+  }
+h4 {
+  color:#a09293;
+  font-family: 'Oswald',sans-serif; 
+  font-size:1.2em; 
+  margin-top:18px;
+  }
+.page > a,.next > a,.last > a,
+.page > a:visited,.next > a:visited,.last > a:visited {
+   font-size:0.9em;
+   color:#DA080D;
+   }
+  
 #imageholder {margin-bottom:0px; margin-top:23px;}
 .tiny {font-size:12px;}
 .tiny a:link,
 .tiny a:visited {color:#8e7d7e;}
+.detail {margin-top:1px; font-size:.5em;}
 
 /* ----------------------------------------------------------------*/	 
 /* ------------------------ SECTION THREE -------------------------*/
@@ -809,8 +837,8 @@ textarea:focus {
 .photolist {width:48%; float:left;}
 .ridinglist {width:48%; float:left;}
 .ridinglist > .listh1 {font-family: 'Oswald',sans-serif; line-height:100%; color:#5c4a4a;}
-.ridinglist > .listh2 {font-family: 'Oswald',sans-serif; font-size:19; line-height:102%; color:#9B161F; margin-top:4px;}
-p.detail {margin-top:1px;}
+.ridinglist > .listh2 {font-family: 'Oswald',sans-serif; font-size:19px; line-height:102%; color:#9B161F; margin-top:4px;}
+
 .wrap {min-height:110px; width:100%; clear:left;}
 #imageholder img {width:32.5%;}
 .photolist_detailholder {max-width:50%; height:120px; float:left; padding-left:4%; margin-bottom:8px; min-height:120px;}

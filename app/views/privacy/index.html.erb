@@ -1,5 +1,30 @@
+<% if @language == 'FR' %>
+<h1 class="pagetitle">Déclaration de confidentialité</h1>
+<p>Le Parti libéral de l'Ontario s'engage à respecter votre vie privée et
+protéger vos renseignements personnels. Cette déclaration de confidentialité explique
+les pratiques de gestion de l'information en cours de nos sites Web.</p>
 
-<h1>Privacy Statement</h1>
+La gestion des renseignements personnels par le Parti libéral de l'Ontario
+est régie par l’accès à l’information et la protection de la vie privée
+(LAIPVP). Nous nous engageons à protéger votre vie privée si vous parcourez
+pour obtenir des informations ou faire des affaires avec nous électroniquement.
+
+
+La gestion des renseignements personnels par le Parti libéral de l'Ontario
+est régie par la liberté de l'information et de la protection de la vie privée 
+(Lorsque vous visitez notre site Web, nous ne recueillons vos renseignements personnels, 
+sauf si vous choisissez d'utiliser et de recevoir des produits et services en 
+ligne qui exige. Pour les transactions impliquant des cartes de crédit, 
+nous utilisons jusqu'à protocoles de sécurité à la date-pour assurer l'intégrité 
+et la confidentialité de renseignements et des systèmes.
+
+<h2>Vos renseignements financières</h2>
+
+<% else %>
+
+
+
+<h1 class="pagetitle">Privacy Statement</h1>
 <p>The Ontario Liberal Party is committed to respecting your privacy and 
 protecting your personal information. This Privacy Statement explains 
 the current information management practices at our websites.</p>
@@ -16,7 +41,7 @@ security protocols to ensure the integrity and confidentiality of information
 and systems</p>
 
 
-<h2>Financial information</h2>
+<h3>Financial information</h3>
 <p>OntarioLiberal.ca does not store credit card numbers.
 When making a donation your information is passed to the 
 payment processor using asymmetric cryptography, where your 
@@ -28,7 +53,7 @@ donations in excess of xx, to Elections Ontario</p>
 
 
 
-<h2>MyLiberal Facebook Authentication App</h2>
+<h3>MyLiberal Facebook Authentication App</h3>
 
 <p>The MyLiberal Facebook app is used to confirm the authenticity of
 the email address you've provided and to allow you to fill 
@@ -110,7 +135,7 @@ showing you which of your friends have registered for an event.</p>
 occassionally birth year (where they've chosen to share this 
 information with you).</p>
 
-<h2>Uninstalling the MyLiberal App</h2>
+<h3>Uninstalling the MyLiberal App</h3>
 <p>Log into your facebook profile and go to 
 <a href="https://www.facebook.com/appcenter/my">https://www.facebook.com/appcenter/my</a>. 
 This will give you a list of all the apps you've installed on 
@@ -119,7 +144,7 @@ and an x will appear in the top right corner of the cell.
 Click to delete.<p>
 
 
-
+<% end %>
 
 
 

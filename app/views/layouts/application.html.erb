@@ -20,8 +20,61 @@
   </head>
 
     <body>
-        <div id="errors"></div>
+	
+	
+	<div id="fb-root"></div>
+<div id="fb-root"></div>
 
+
+
+
+
+
+        <div id="errors"></div>
+		
+		
+		<div id="fbflyout">
+		<h4>facebook</h4>
+		</div>
+		
+		
+<script>
+
+$.fn.flyout = function(options) {
+    var el = this;
+    var edge = options.edge || 30;
+    el.css({
+        position : "absolute",
+        top : "30px",
+        left : -1 * (el.width() - edge)
+    });
+    el.click(function () {
+        $(this).animate({left : "0px"}); 
+    });
+    el.mouseleave(function () {
+        $(this).animate({left : -1 * (el.width() - edge) });
+    });
+}
+
+    $("#fbflyout").flyout({"edge" : "30"});
+
+</script>
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+	   <div style="display:none; box-shadow: 9px 9px 8px -4px #C7C7C7; padding:20px; background-color:#fff; height:100%; position:absolute; left:250px; height:100%; z-index:1001;">
+	   <h4>twitter</h4>
+	   <a class="twitter-timeline"  href="https://twitter.com/Kathleen_Wynne"  data-widget-id="443492150303420416">Tweets by @Kathleen_Wynne</a>
+       <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+		</div>
+		
         <div id="logpanel">
            <div class="container">
              <span id="micromenu_placeholder">
@@ -39,21 +92,23 @@
             </div><!-- closes the .container encompassing the logo and the menu -->
         </div><!-- closes #logoandmenu -->
 
-        <div id="undermenu">
-            <div class="container">
-                <div style="clear:both; width:100%; display:block;">&nbsp;</div>
-            </div>
-        </div>
+          <div class="responsiveheader">&nbsp;</div>
+
+        <!-- <div id="undermenu"> 
+                <div class="container">
+                    <div style="clear:both; width:100%; display:block;">&nbsp;</div>
+                </div>
+             </div>  -->
         <!-- Close top container -->
 
-        <div id="pageimageholder" class="<%= yield :backgroundclass %>">
+        <div id="pageimageholder" style="background-color:#fff;" "class="<%= yield :backgroundclass %>">
               <div class="container">
                 <%= yield %>
               </div>
         </div>
 
         <div id="footertrigger">
-            &nbsp;
+            
         </div>
 
         <div id="footer">
