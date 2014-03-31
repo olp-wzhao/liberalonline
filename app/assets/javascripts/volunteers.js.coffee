@@ -7,7 +7,7 @@ $ ->
   $('#lawnsign_submit').disabled = false
 
   #show the first step
-  $('#step1').show()
+  #$('#step1').show()
 
   $('#simple_volunteer_form').submit (evt) ->
     $this = $(this)

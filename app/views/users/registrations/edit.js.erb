@@ -8,7 +8,7 @@ function showRegistrationForm(){
         content: '<%= j (render partial: 'users/registrations/edit_form', user: @user) %>',
 
         afterOpen: function($vexContent) {
-            return $vexContent.append($el);
+            //return $vexContent.append($el);
         },
 
         afterClose: function() {

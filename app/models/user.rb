@@ -153,7 +153,7 @@ class User
   end
 
   def riding_name
-    self.riding.nil? ? 'Central' : riding.name
+    self.riding.nil? ? 'Central' : riding.title
   end
 
   def transactions

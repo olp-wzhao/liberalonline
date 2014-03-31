@@ -12,7 +12,7 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
       flash[:notice] = "Thank you for creating an account, please visit your profile to complete registration"
       sign_in @user
       respond_to do |format|
-        format.html { redirect_to root_url }
+        format.html { redirect_to my_liberal_index_path + '/' + @user.id }
         format.json { render :json => { :success => (current_user ? true : false),
                           :current_user => current_user.as_json } }
       end

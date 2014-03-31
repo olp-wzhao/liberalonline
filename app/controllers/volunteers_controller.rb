@@ -37,7 +37,7 @@ class VolunteersController < ApplicationController
   # POST /volunteers
   # POST /volunteers.json
   def create
-
+    current_user = current_user.nil? ? User.new : current_user
     current_user.build_volunteer(volunteer_params)
     success = current_user.save!(validate: false)
     @volunteer = current_user.volunteer

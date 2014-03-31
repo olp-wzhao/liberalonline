@@ -138,3 +138,5 @@ gem 'faraday-http-cache'
 gem 'faraday_middleware'
 
 #gem 'resque'
+
+gem 'mail_form'

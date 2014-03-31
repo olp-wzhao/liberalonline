@@ -2,14 +2,11 @@
 # All this logic will automatically be available in application.js.
 
 $ ->
-  #hide all steps
-
-  #the validation for users currently disables all form buttons, so we're going to re-enable the lawnsign button
   $('#lawnsign_submit').disabled = false
-
+  #$('input[type=submit]').attr('disabled', 'disabled');
   #show the first step
   $('#step1').show()
-  $('#new_lawnsign_form').submit (evt) ->
+  $('#new_lawnsign_form').on('submit', (evt) ->
     $this = $(this)
     data = $this.serialize()
     console.log data || 'empty'
@@ -24,9 +21,21 @@ $ ->
         #$('#user_birthday').hide()
         $("#new_lawnsign_form > input[type='submit']").hide()
     evt.preventDefault()
-    return
+    return)
 
-  $("#new_user_form").submit (evt) ->
+  $("#new_user_form").on('submit', (evt) ->
     evt.preventDefault()
+    console.log 'trying to ajax send the form'
+
     #window.history.back()
-    return
+    $this = $(this)
+    data = $this.serialize()
+    $.ajax
+      type:     "POST"
+      dataType: "json"
+      url: $this.attr('action')
+      data: data
+      success: (data) ->
+        $('#step3').show()
+        $('#step2').hide()
+    return )

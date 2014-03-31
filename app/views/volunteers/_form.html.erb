@@ -40,13 +40,17 @@
 <div style="display:block; clear:both;"></div>
 
 <script>
+    $('.step').hide();
     //determine the step at which the user should be placed
     <% if current_user.nil? %>
         //we are obviously at step1 because you cannot be a volunteer yet
-        $('step1').show();
+        <%# binding.pry %>
+        $('#step1').show();
     <% elsif current_user.volunteer.nil? %>
-        $('step1').show();
+        <%# binding.pry %>
+        $('#step1').show();
     <% else %>
-        $('step3').show();
+        <%# binding.pry %>
+        $('#step3').show();
     <% end %>
 </script>

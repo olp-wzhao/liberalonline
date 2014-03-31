@@ -1,11 +1,15 @@
 console.log('registrations.new.js.erb');
 vex.close();
+$('#registration_form').remove();
 vex.open({
 
     content: '<%= j (render partial: 'users/registrations/form', user: @user) %>',
 
     afterOpen: function($vexContent) {
-        return $vexContent.append($el);
+        //return $vexContent.append($el);
+        console.log('applying validation a second time')
+        var form = new Application.UserValidation();
+        form.setup();
     },
 
     afterClose: function() {

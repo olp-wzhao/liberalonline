@@ -2,14 +2,14 @@ V44::Application.configure do
   config.action_mailer.smtp_settings = {
     address: 'smtp.gmail.com',
     port: 587,
-    domain: 'localhost:3000',
+    domain: ENV['email_host'],
     authentication: 'plain',
     enable_starttls_auto: true, # detects and uses STARTTLS
     user_name: ENV['google_email'],
     password: ENV['google_password']
   }
 
-  #BetterErrors::Middleware.allow_ip! "10.0.2.2"
+  BetterErrors::Middleware.allow_ip! ENV['host_ip']
 
   #config.action_mailer.delivery_method = :letter_opener
   

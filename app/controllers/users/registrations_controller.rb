@@ -25,7 +25,10 @@ class Users::RegistrationsController < Devise::RegistrationsController
     resource.password_confirmation = random_pass
     #check and assign riding
     if sign_up_params['riding_id'].empty?
-      riding = RidingAddress.near(sign_up_params[:postal_code], 10, :order => :distance).first
+      ridingAddresses = RidingAddress.near(sign_up_params[:postal_code], 10, :order => :distance)
+      unless ridingAddresses.nil?
+        riding = ridingAddresses.first.riding
+      end
     else
       riding = Riding.find_by(riding_id: sign_up_params['riding_id'])
     end
@@ -38,7 +41,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
     #attempt to save new user
     if resource.save
-      logger.debug "User Saved: #{resource.id}".colorize(:red)
+      logger.debug "User Saved: #{resource.id}".colorize(:green)
       if resource.active_for_authentication?
         set_flash_message :notice, :signed_up if is_navigational_format?
         sign_up(resource_name, resource)
@@ -55,7 +58,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
         end
       end
     else
-      logger.debug "Could not save the user due to the following errors: #{resource.errors do |error| error.message end }".colorize(:red)
+      logger.debug "Could not save the user due to the following errors: #{resource.errors.messages do |error|  error.message end }".colorize(:red)
       #facebook authentication creates an incomplete profile and so the user must be informed that their account is missing information
       clean_up_passwords resource
       respond_to do |format|

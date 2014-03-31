@@ -7,11 +7,14 @@
             </p>
             <%= f.input :message, :rows => 10, :cols => 50, :class => 'lawnsign_textarea' %>
             <br/>
-            <%= f.button :submit, id: 'lawnsign_submit' %>
+            <%= f.button :submit, id: 'lawnsign_submit', value: 'We need some more information to complete your application' %>
         <% end %>
       </div>
-    <div id="step2" class="et-page step">
+    <div id="step2" class="et-page step unauthenticated">
       <%= render 'users/registrations/form', user: current_user %>
+    </div>
+    <div id="step3" class="et-page step">
+      <p>Thank you for applying for a lawnsign</p>
     </div>
 </div>
 

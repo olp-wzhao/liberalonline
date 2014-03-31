@@ -5,6 +5,4 @@ $('.notice').remove();
 //$('#signed_in_box').fade();
 $('#micromenu_placeholder').html('<%= j render '/shared/micromenu' %>');
 
-<% if flash[:notice] %>
-    UnobtrusiveFlash.showFlashMessage('<%= flash[:notice] %>', {type: 'notice'})
-<% end %>
+location.reload();

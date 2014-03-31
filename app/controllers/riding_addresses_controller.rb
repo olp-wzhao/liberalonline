@@ -5,11 +5,17 @@ class RidingAddressesController < ApplicationController
   # GET /riding_addresses.json
   def index
     #@riding_addresses = RidingAddress.all
-    unless params[:search].empty?
-      @riding_locations = RidingAddress.near(params[:search], 10, :order => :distance)
+    begin
+      unless params[:search].empty?
+        @riding_locations = RidingAddress.near(params[:search], 10, :order => :distance)
+      end
+    rescue Moped::Errors::QueryFailure => e
+      logger.warn e.message.colorize(:orange)
+      format.json { render json: {status: :failure, name: "Central", riding_id: 9000,
+                                  riding_address_id: nil} }
     end
+
     respond_to do |format|
-      begin
         if(!@riding_locations.nil? || !@riding_locations.empty?)
           #format.html # index.html.erb
           format.json { render json: {status: :success, name: @riding_locations.first.riding.title, riding_id: @riding_locations.first.riding.riding_id,
@@ -18,10 +24,6 @@ class RidingAddressesController < ApplicationController
           format.json { render json: {status: :failure, name: "Central", riding_id: 9000,
             riding_address_id: nil} }
         end
-      rescue Moped::Errors::QueryFailure => e
-        format.json { render json: {status: :failure, name: "Central", riding_id: 9000,
-            riding_address_id: nil} }
-      end
     end
   end
 

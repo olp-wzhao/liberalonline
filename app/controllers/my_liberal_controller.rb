@@ -10,7 +10,7 @@ class MyLiberalController < ApplicationController
         @olp_passport_user_web_site_manager = nil
 
   		if current_user
-
+        binding.pry
         #check if there is a web_site_manager attached
         if current_user.riding.web_site_manager == nil
           current_user.riding.web_site_manager = WebSiteManager.find_by(r_id: (current_user.riding.riding_id + 9000) )
