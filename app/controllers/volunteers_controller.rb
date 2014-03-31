@@ -22,6 +22,7 @@ class VolunteersController < ApplicationController
   # GET /volunteers/new
   def new
     @volunteer = Volunteer.new
+    @user = current_user.nil? ? User.new : current_user
     @volunteer.user = User.new
     respond_to do |format|
       format.js
@@ -36,23 +37,15 @@ class VolunteersController < ApplicationController
   # POST /volunteers
   # POST /volunteers.json
   def create
-    success = false
 
-    if current_user.nil?
-      user = build_partial_user
-      user.build_volunteer(volunteer_params) 
-      success = user.save!(validate: false)
-      @volunteer = user.volunteer
-    else
-      current_user.build_volunteer(volunteer_params)
-      success = current_user.save
-      @volunteer = current_user.volunteer
-    end
+    current_user.build_volunteer(volunteer_params)
+    success = current_user.save!(validate: false)
+    @volunteer = current_user.volunteer
 
     respond_to do |format|
       if success
         format.html { redirect_to volunteer_path(@volunteer), notice: 'Volunteer was successfully created.' }
-        format.json { render action: 'show', status: :created, location: @volunteer }
+        format.json { render json: @volunteer, status: :created }
       else
         format.html { render action: 'new' }
         format.json { render json: @volunteer.errors, status: :unprocessable_entity }
@@ -96,12 +89,12 @@ class VolunteersController < ApplicationController
       params.require(:volunteer).permit(:availability_weekdays, :availability_weeknights, :availability_weekends, :still_photography, :video_production, :graphic_design, :voice_acting, :set_design, :screenwriter, :web_design, :composer, :motion_graphics, :data_mining, :process_analysis, :programming, :arc_view, :excel, :email_marketing, :sql, :trained_on_libe, :canvassing, :trained_on_liberalist, :telemarketing, :campaign_manager, :digital_ad_buying, :printing, :ad_buying, :screen_printing, :accounting)
     end
 
-    def user_params
-      fix_scrambled_date_parameters
-      params.require(:user).permit(:id, :email, :first_name, :last_name, :address, :postal_code, :city, :phone_number, :birthday)
-    end
-
-    def build_partial_user
-      user = User.new(user_params)
-    end
+    #def user_params
+    #  #fix_scrambled_date_parameters
+    #  params.require(:user).permit(:id, :email, :first_name, :last_name, :address, :postal_code, :city, :phone_number, :birthday)
+    #end
+    #
+    #def build_partial_user
+    #  user = User.new(user_params)
+    #end
 end

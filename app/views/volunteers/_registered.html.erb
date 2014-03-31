@@ -1,0 +1,15 @@
+<h1>
+  You're Registered! Thanks <%= raw(current_user.first_name + ' ' + current_user.last_name) %>
+</h1>
+<p>
+  Here is your information:
+  <br/>
+  <%= raw(current_user.first_name + ' ' + current_user.last_name) %>
+  <br/>
+</p>
+<p><%= current_user.address %></p>
+<p><%= current_user.postal_code %></p>
+<p><%= current_user.city %></p>
+<p><%= current_user.phone_number %></p>
+<p><%= current_user.email %></p>
+<p>If you have a moment now, please help us by filling in your skills so we know how to maximize your skills.</p>

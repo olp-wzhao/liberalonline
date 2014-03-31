@@ -1,20 +1,4 @@
-<% if current_user.nil? %>
-	<h1 class="pagetitle">Volunteer </h1>
-	<p>Campaigns are successful because of the volunteers like you. Login if you have an account or simply
-	fill in the form below and watch your inbox to activate your account. Creating an account allows you 
-	to update your volunteer profile and receive credit for online activities.</p>
-    <%= render partial: 'users/registrations/form', user: :user %>
-<% else %>
-	<h1 class="pagetitle">Volunteer</h1>
-	<h2 class="subtitle">Your Skills Profile</h2>	
-	<p><strong>IF EMAIL_UNAUTHENTICATED: Check your inbox and confirm your email</strong>. Campaigns will always need people to canvass and work the phones, but it doesn’t 
-    end there. If you’re interested in dedicating your special talents to a good cause 
-    you can start by letting us know what you’re good at - we may have some special 
-    projects for you to consider.</p>
-	
-	
-    <%= render partial: 'volunteers/extended' %>
-<% end %>
+<%= render partial: 'form' %>
 
 
 <div style="clear:both; display:block;">&nbsp;</div>
@@ -23,3 +7,8 @@
 <%# pass in pageimageholder background class and main column id and submenu %>
 <% content_for :backgroundclass do %>join<% end %>	
 <% content_for :main_id do %>main_volunteer<% end %>
+
+<% content_for :scripts_for_header do %>
+    <%= javascript_include_tag 'volunteers' %>
+    <%= stylesheet_link_tag 'volunteers' %>
+<% end %>

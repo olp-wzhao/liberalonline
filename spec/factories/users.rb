@@ -1,6 +1,7 @@
 FactoryGirl.define do
   factory :user do
-    first_name "factory_girl_guest"
+    first_name 'Doctor'
+    last_name 'Who'
     sequence(:email) { |n| "foo#{n}@example.com" }
     roles ['webadmin']
     postal_code 'M2H2N1'

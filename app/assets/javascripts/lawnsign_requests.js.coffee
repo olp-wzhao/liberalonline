@@ -12,7 +12,7 @@ $ ->
   $('#new_lawnsign_form').submit (evt) ->
     $this = $(this)
     data = $this.serialize()
-    #console.log data
+    console.log data || 'empty'
     $.ajax
       type:     "POST"
       dataType: "json"

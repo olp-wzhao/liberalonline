@@ -11,9 +11,9 @@ V44::Application.configure do
 
   #BetterErrors::Middleware.allow_ip! "10.0.2.2"
 
-  config.action_mailer.delivery_method = :letter_opener
+  #config.action_mailer.delivery_method = :letter_opener
   
-  config.action_mailer.default_url_options = {host: 'localhost:3000'}
+  config.action_mailer.default_url_options = {host: ENV['email_host']}
 
   # Settings specified here will take precedence over those in config/application.rb.
 
@@ -51,5 +51,5 @@ V44::Application.configure do
   I18n.enforce_available_locales = false
 
   # Add Rack::LiveReload to the bottom of the middleware stack with the default options.
-  #config.middleware.use Rack::LiveReload
+  config.middleware.use Rack::LiveReload
 end

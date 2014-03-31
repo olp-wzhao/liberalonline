@@ -69,9 +69,9 @@ group :development, :test do
   gem 'guard'
   gem 'guard-livereload', require: false
   gem 'rack-livereload'
-  gem 'terminal-notifier-guard'
   gem 'guard-rspec'
   gem 'letter_opener'
+  gem 'colorize'
 end
 
 group :test do

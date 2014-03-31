@@ -3,7 +3,6 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
 
-<%= stylesheet_link_tag 'application', :media => 'all' %>
 <%= javascript_include_tag 'application' %>
 <%= csrf_meta_tags %>
 
@@ -11,17 +10,15 @@
 <%= javascript_include_tag 'mgmenu_plugins.js' %><!-- Mega Menu Plugins -->
 <%= javascript_include_tag 'mgmenu.js' %><!-- Mega Menu Script -->
 
-<%= stylesheet_link_tag 'mgmenulib.css', media: 'screen' %>
-<%= stylesheet_link_tag 'stylesheet', media: 'screen' %>
+<%#= stylesheet_link_tag 'mgmenulib.css', media: 'screen' %>
+<%#= stylesheet_link_tag 'stylesheet', media: 'screen' %>
 
-<%= stylesheet_link_tag 'jquery.ui.all' %>
-<%= stylesheet_link_tag 'datepicker' %>
-
+<%#= stylesheet_link_tag 'jquery.ui.all' %>
+<%= stylesheet_link_tag 'application', :media => 'all' %>
 <!-- Mini Account Menu - http://www.jqueryrain.com/?M89s3TG4 -->
 <%= stylesheet_link_tag 'jquery.dropdown' %>
 <%= javascript_include_tag 'jquery.dropdown' %>
 
-<%= javascript_include_tag 'bootstrap' %>
-<%= javascript_include_tag 'bootstrap-datepicker' %>
+<%= stylesheet_link_tag 'stylesheet' %>
 
 

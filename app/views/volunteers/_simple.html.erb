@@ -1,12 +1,13 @@
 <div style="clear:left; padding-top:20px; margin-top:20px; margin-bottom:200px;">
   <h2>
-    <%= t("availability") %>
+    <%= t('availability') %>
   </h2>
   <div style="float:left;">
-    <%= simple_fields_for :volunteer do |f| %>
-      <%= f.input :availability_weekdays, as: :boolean, :label => t("weekdays") %>
-      <%= f.input :availability_weeknights, as: :boolean, :label => t("weeknights") %>
-      <%= f.input :availability_weekends, as: :boolean, :label => t("weekends") %>
+    <%= simple_form_for @volunteer, html: { id: 'simple_volunteer_form' } do |f| %>
+      <%= f.input :availability_weekdays, as: :boolean, :label => t('weekdays') %>
+      <%= f.input :availability_weeknights, as: :boolean, :label => t('weeknights') %>
+      <%= f.input :availability_weekends, as: :boolean, :label => t('weekends') %>
+      <%= f.button :submit %>
     <% end %>
   </div>
   <div style="clear:left; padding-top:20px; margin-top:20px; margin-bottom:200px;"></div>

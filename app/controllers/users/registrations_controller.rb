@@ -31,8 +31,14 @@ class Users::RegistrationsController < Devise::RegistrationsController
     end
       resource.riding = riding
 
+    #date will be misbehaving until validation is modified to test the mm/dd/yyyy standard
+    #the birthday will be converted by hand
+    logger.debug sign_up_params[:birthday]
+    resource.birthday = Date.strptime(sign_up_params[:birthday], '%d / %m / %Y')
+
     #attempt to save new user
     if resource.save
+      logger.debug "User Saved: #{resource.id}".colorize(:red)
       if resource.active_for_authentication?
         set_flash_message :notice, :signed_up if is_navigational_format?
         sign_up(resource_name, resource)
@@ -49,7 +55,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
         end
       end
     else
-      binding.pry
+      logger.debug "Could not save the user due to the following errors: #{resource.errors do |error| error.message end }".colorize(:red)
       #facebook authentication creates an incomplete profile and so the user must be informed that their account is missing information
       clean_up_passwords resource
       respond_to do |format|
@@ -122,7 +128,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
       u.permit(:first_name, :last_name,
         :email, :password, :password_confirmation,
         :address, :postal_code, :city, :phone_number,
-        :birthday, :image, :image_cache, :riding_id)
+        :birthday, :image, :image_cache, :riding_id, :birthday)
     end
 
     devise_parameter_sanitizer.for(:account_update) do |u|
@@ -130,7 +136,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
       u.permit(:first_name, :last_name,
         :email, :password, :password_confirmation, :current_password,
         :address, :postal_code, :city, :phone_number,
-        :birthday, :image, :image_cache, :riding_id)
+        :birthday, :image, :image_cache, :riding_id, :birthday)
     end
   end
 

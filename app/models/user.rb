@@ -41,7 +41,7 @@ class User
   validates_format_of :email, with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/, allow_nil: false
   validates_length_of :email, minimum: 4
 
-  validates_numericality_of :age, :greater_than => 13, :message => "must be 13 or older"
+  validates_numericality_of :age, :greater_than => 13, :message => 'must be 13 or older'
 
   #validates_format_of :postal_code, with: /[ABCEGHJKLMNPRSTVXY]\d[ABCEGHJKLMNPRSTWVXYZ]\d[ABCEGHJKLMNPRSTWVXYZ]\d/
   validates_length_of :first_name, minimum: 2
@@ -150,6 +150,10 @@ class User
     unless self.birthday.nil?
       now.year - self.birthday.year - (self.birthday.to_date.change(:year => now.year) > now ? 1 : 0)
     end
+  end
+
+  def riding_name
+    self.riding.nil? ? 'Central' : riding.name
   end
 
   def transactions

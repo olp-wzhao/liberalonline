@@ -50,7 +50,7 @@ function ajaxLoader (el, options) {
 				overlay.remove();
 			});
 		}	
-	}
+	};
 
     this.init();
 }	

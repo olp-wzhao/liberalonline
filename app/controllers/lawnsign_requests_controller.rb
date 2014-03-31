@@ -16,6 +16,7 @@ class LawnsignRequestsController < ApplicationController
 
   # GET /lawnsign_requests/new
   def new
+    @user = current_user.nil? ? User.new : current_user
     @lawnsign_request = LawnsignRequest.new
   end
 

@@ -23,18 +23,17 @@
 // require helpers
 // require main
 //= require unobtrusive_flash
-//= require unobtrusive_flash_ui
+//= require unobtrusive_flash_bootstrap
 
 //= require modernizr
 
 //= require moment/moment-with-langs.min
 //= require jquery.formance
 //= require jquery.passy
-//= require jesse.validation
+//= require jesse.validation.js.coffee
 //= require placeholder_fix
+//= require bootstrap
+//= require bootstrap-datepicker
 
 // require turbolinks
 // require_tree .
-
-//= require mgmenu.js
-//= require mgmenu_plugins.js

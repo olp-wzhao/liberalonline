@@ -41,14 +41,14 @@ window.Application.UserValidation = class UserValidation
         )
         return
 
-    $("#user_postal_code").blur ->
-      $.getJSON("<%= find_riding_url %>",
-        search: $("#user_postal_code").val()
-      ).done (data) ->
-        $("#riding_box").html data.name
-        $("#riding_id").val data.riding_id
-        return
-      return
+#    $("#user_postal_code").blur ->
+#      $.getJSON("<%= find_riding_url %>",
+#        search: $("#user_postal_code").val()
+#      ).done (data) ->
+#        $("#riding_box").html data.name
+#        $("#riding_id").val data.riding_id
+#        return
+#      return
 
     $("#new_user_form > input[type='submit']").prop "disabled", true # disable the submit button
     # setup the formatter
@@ -137,9 +137,8 @@ window.Application.UserValidation = class UserValidation
         $.getJSON($this.data("url"),
           search: $this.val()
         ).done (data) ->
-          $('.riding_details').remove()
-          $this.append '<div class="riding_details"><span class="riding_box"></span><input type="hidden" id="riding_id" value="'+ data.id + '" /></div>'
-          $(".riding_details").html data.name
+          $("#riding_box").html data.name
+          $("#riding_id").val data.riding_id
           return
       else
         $("#new_user_form > input[type='submit']").prop "disabled", true
