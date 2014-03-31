@@ -21,7 +21,7 @@ class NewsController < ApplicationController
         #							.between(riding_id: -6..0)
         #							.gt(expiry_date: DateTime.now)
         #							.order_by(:id.desc)
-      if params[:id].respond_to?(:to_i)
+      if params[:id].numeric?
         @current_document = Document.find_by(temp_id: params[:id])
       else
         @current_document = Document.find params[:id]
