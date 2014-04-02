@@ -9,7 +9,7 @@ V44::Application.configure do
     password: ENV['google_password']
   }
 
-  BetterErrors::Middleware.allow_ip! ENV['host_ip']
+  #BetterErrors::Middleware.allow_ip! ENV['host_ip']
 
   #config.action_mailer.delivery_method = :letter_opener
   
@@ -49,8 +49,5 @@ V44::Application.configure do
   config.log_level = :debug
 
   I18n.enforce_available_locales = false
-
-  # Add Rack::LiveReload to the bottom of the middleware stack with the default options.
-  config.middleware.use Rack::LiveReload
 
 end
