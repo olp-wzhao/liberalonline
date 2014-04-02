@@ -4,7 +4,7 @@ class CandidatesController < ApplicationController
 
     def index
 
-    	@web_site_managers = WebSiteManager.gt(expiry_date: DateTime.now).order_by(:r_id.desc)
+    	@web_site_managers = WebSiteManager.gt(expiry_date: DateTime.now).order_by(:r_id.asc)
         
         @web_site_managers.each do |web_site_manager|
 			candidate_infos = CandidateInfo.where(:riding_id => web_site_manager.r_id - 9000)
