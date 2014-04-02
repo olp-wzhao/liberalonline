@@ -19,7 +19,13 @@ class Users::RegistrationsController < Devise::RegistrationsController
   end
 
   def create
-    build_resource(sign_up_params)
+    if current_user.nil?
+      build_resource(sign_up_params)
+    else
+
+      @user.update_attributes(sign_up_params)
+    end
+
     random_pass = Devise.friendly_token.first(8)
     resource.password = random_pass
     resource.password_confirmation = random_pass

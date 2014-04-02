@@ -13,7 +13,6 @@ describe "Documents" do
       # Run the generator again with the --webrat flag if you want to use webrat methods/matchers
       get admin_documents_list_path
       response.status.should be(300)
-      binding.pry
     end
   end
 
@@ -31,8 +30,7 @@ describe "Documents" do
     it "accepts JSON data" do
       post "#{documents_path}/?auth_token=#{@token}", document.to_json,  {'CONTENT_TYPE' => 'application/json', 'ACCEPT' => 'application/json' }
       #response.header['Content-Type'].should include 'text/javascript'
-      
-      binding.pry
+
       response.status.should be(201)
       #assert_redirected_to document_url(Document.last)
     end
@@ -40,7 +38,6 @@ describe "Documents" do
     it"accepts JSON document" do
       json = File.read("spec/fixtures/valid_document.json")
       post "#{documents_path}/?auth_token=#{@token}", json,  {'CONTENT_TYPE' => 'application/json', 'ACCEPT' => 'application/json' }
-      binding.pry
     end
 
   end

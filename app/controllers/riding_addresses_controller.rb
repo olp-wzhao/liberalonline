@@ -10,19 +10,28 @@ class RidingAddressesController < ApplicationController
         @riding_locations = RidingAddress.near(params[:search], 10, :order => :distance)
       end
     rescue Moped::Errors::QueryFailure => e
-      logger.warn e.message.colorize(:orange)
-      format.json { render json: {status: :failure, name: "Central", riding_id: 9000,
+
+      logger.debug e.message.colorize(:red)
+      format.json { render json: {status: :failure, name: 'Central', riding_id: 9000,
                                   riding_address_id: nil} }
     end
 
+    #if @riding_locations.empty?
+    #  @riding = Riding.where(title: 'Central').first
+    #else
+    #  @riding = @riding_locations.first
+    #end
+
     respond_to do |format|
         if(!@riding_locations.nil? || !@riding_locations.empty?)
-          #format.html # index.html.erb
-          format.json { render json: {status: :success, name: @riding_locations.first.riding.title, riding_id: @riding_locations.first.riding.riding_id,
-            riding_address_id: @riding_locations.first.id} }
-        else
           format.json { render json: {status: :failure, name: "Central", riding_id: 9000,
-            riding_address_id: nil} }
+                                      riding_address_id: Riding.central.first.id } }
+        else
+          #format.html # index.html.erb
+          format.json { render json: {status: :success,
+                                      name: @riding_locations.first.riding.title,
+                                      riding_id: @riding_locations.first.riding.riding_id,
+                                      riding_address_id: @riding_locations.first.id} }
         end
     end
   end

@@ -4,24 +4,27 @@
 $ ->
 
   #the validation for users currently disables all form buttons, so we're going to re-enable the lawnsign button
-  $('#lawnsign_submit').disabled = false
+  #$('#lawnsign_submit').disabled = false
 
   #show the first step
   #$('#step1').show()
 
+  $('#sign_in').hide();
+  $('#authentication_links').hide();
+
   $('#simple_volunteer_form').submit (evt) ->
     $this = $(this)
-    data = $this.serialize()
     #console.log data
     $.ajax
       type:     "POST"
       dataType: "json"
       url: $this.attr('action')
-      data: data
+      data: $this.serialize()
       success: (data) ->
         $('#step2').show()
         $('#step1').hide()
         #$('#user_birthday').hide()
+        $('#user_id').val(data)
         $("#simple_volunteer_form > input[type='submit']").hide()
     evt.preventDefault()
     return
@@ -37,9 +40,13 @@ $ ->
       url: $this.attr('action')
       data: data
       success: (data) ->
+        console.log 'form was sent from volunteer to setup a new user'
         $('#step3').show()
         $('#step2').hide()
     return
 
 
+#  $.ajaxSetup
+#    headers:
+#      'X-CSRF-Token': $('meta[name="csrf-token"]').attr('content')
 

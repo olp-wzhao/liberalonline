@@ -1,12 +1,21 @@
 class ApplicationController < ActionController::Base
 
   protect_from_forgery with: :null_session
-  #before_filter :check_registration
+  before_filter :check_registration
   before_filter :configure_permitted_parameters, if: :devise_controller?
-  before_filter :load_application_action, :load_application_layout, :most_recent_event
+  before_filter :load_application_action, :load_application_layout, :most_recent_event, :log_stuff
   after_filter :prepare_unobtrusive_flash
 
   layout :layout_by_resource
+
+  def log_stuff
+    if !current_user.nil?
+      message = "Current User: #{current_user.full_name}".colorize(:green)
+    else
+      message = "Current User is nil".colorize(:yellow)
+    end
+    logger.debug message
+  end
 
   def layout_by_resource
     if devise_controller? && resource_name == :admin
@@ -17,16 +26,16 @@ class ApplicationController < ActionController::Base
   end
 
   #this is supposed to handle csrf token errors
-  def verified_request?
-    if request.content_type == "application/json"
-      true
-    else
-      super()
-    end
-  end
+  #def verified_request?
+  #  if request.content_type == "application/json"
+  #    true
+  #  else
+  #    super()
+  #  end
+  #end
   
   rescue_from CanCan::AccessDenied do |exception|
-    redirect_to "/", :alert => exception.message
+    redirect_to "/", :alert => exception
   end
 
   include NewsExtras
@@ -325,14 +334,13 @@ class ApplicationController < ActionController::Base
 
     private
 
-    def routing_error
-        render :text => "404 Error", :status => 404
-    end
+      def routing_error
+          render :text => "404 Error", :status => 404
+      end
 
-  def check_registration
-    if current_user && !current_user.valid?
-      flash[:warning] = "Please finish your #{view_context.link_to "registration", edit_user_registration_url }  before continuing.".html_safe
-    end
-  end
-
+      def check_registration
+        if current_user && !current_user.valid?
+          flash[:warning] = "Please complete your #{view_context.link_to "registration", edit_user_registration_url }.".html_safe
+        end
+      end
 end

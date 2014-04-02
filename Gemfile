@@ -50,7 +50,6 @@ group :development do
   gem 'binding_of_caller'
   gem 'meta_request'
   gem 'html_routes', '~> 1.0'
-  gem 'mongoid_colored_logger'
 end
 
 group :development, :test do
@@ -87,6 +86,7 @@ gem 'devise', '~> 3.0.0'
 gem 'cancan'
 gem 'omniauth'
 gem 'omniauth-facebook'
+#allows facebook graph queries
 gem 'koala'
 gem 'omniauth-google-oauth2'
 gem 'omniauth-linkedin'
@@ -112,7 +112,6 @@ gem 'mandrill-api'
 gem 'mongoid_slug'
 gem 'tinymce-rails'
 gem 'select2-rails'
-gem 'chosen-rails'
 
 gem 'remotipart', '~> 1.2'
 gem 'figaro'
@@ -140,3 +139,4 @@ gem 'faraday_middleware'
 #gem 'resque'
 
 gem 'mail_form'
+#gem 'yell-rails'

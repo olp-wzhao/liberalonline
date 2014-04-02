@@ -50,6 +50,4 @@ V44::Application.configure do
 
   I18n.enforce_available_locales = false
 
-  # Add Rack::LiveReload to the bottom of the middleware stack with the default options.
-  #config.middleware.use Rack::LiveReload
 end

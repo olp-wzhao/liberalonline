@@ -14,7 +14,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require jquery.remotipart
-// require jquery.turbolinks
+//= require jquery.turbolinks
 //= require flowtype
 //= require jquery-scrolltofixed-min
 
@@ -23,7 +23,7 @@
 // require helpers
 // require main
 //= require unobtrusive_flash
-//= require unobtrusive_flash_bootstrap
+//= require unobtrusive_flash_ui
 
 //= require modernizr
 
@@ -35,5 +35,5 @@
 //= require bootstrap
 //= require bootstrap-datepicker
 
-// require turbolinks
+//= require turbolinks
 // require_tree .

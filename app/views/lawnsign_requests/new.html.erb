@@ -1,8 +1,16 @@
-<h1>New lawnsign_request</h1>
-
+<h1 class="pagetitle">Order a Lawn Sign</h1>
+<p>New lawn sign request</p>
 <%= render 'form' %>
 
 <% content_for :scripts_for_header do %>
     <%= javascript_include_tag 'lawnsign_requests' %>
     <%= stylesheet_link_tag 'lawnsign_requests' %>
+
+    <%= javascript_include_tag 'tinymce-jquery' %>
 <% end %>
+
+
+<%# pass in pageimageholder background class and main column id and submenu %>
+<% content_for :backgroundclass do %>lawnsign<% end %>	
+<% content_for :main_id do %>lawnsign_main<% end %>
+<% content_for :col4content do %>&nbsp;<% end %>

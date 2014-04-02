@@ -30,7 +30,6 @@ class LawnsignRequestsController < ApplicationController
     current_user = current_user.nil? ? User.new : current_user
     @lawnsign_request = current_user.lawnsign_requests.build(lawnsign_request_params)
     success = current_user.save!(validate: false)
-
     respond_to do |format|
       if success
         format.html { redirect_to @lawnsign_request, notice: 'Lawnsign request was successfully created.' }
