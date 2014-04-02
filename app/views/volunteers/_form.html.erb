@@ -1,11 +1,8 @@
 <h1><%= t('volunteer') %></h1>
-
   <%= t('volunteer_heading', :riding_name => (current_user.nil? ? '' : current_user.riding_name)) %>
-
 <p>
   <%= t('volunteer_second_paragraph') %>
 </p>
-
 
 <div class="et-wrapper steps">
   <div id="step1" class="et-page step">
@@ -44,13 +41,10 @@
     //determine the step at which the user should be placed
     <% if current_user.nil? %>
         //we are obviously at step1 because you cannot be a volunteer yet
-        <%# binding.pry %>
         $('#step1').show();
     <% elsif current_user.volunteer.nil? %>
-        <%# binding.pry %>
         $('#step1').show();
     <% else %>
-        <%# binding.pry %>
         $('#step3').show();
     <% end %>
 </script>

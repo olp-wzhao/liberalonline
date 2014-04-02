@@ -23,15 +23,16 @@ class Users::SessionsController < Devise::SessionsController
 
     respond_to do |format|
       format.js {
-        @user = User.where(email: sign_in_params[:email]).first
-        if @user.nil?
-          @user = User.new
-          @user.errors.add(:email, 'does not exist in our database')
+        self.resource = User.where(email: sign_in_params[:email]).first
+        binding.pry
+        if self.resource.nil?
+          self.resource = User.new
+          self.resource.errors.add(:email, 'does not exist in our database')
         else
-          if @user.valid_password?(sign_in_params[:password])
-            sign_in @user
+          if
+            sign_in self.resource
           else
-            @user.errors.add(:password, 'missing or incorrect please try again')
+            self.resource.errors.add(:password, 'missing or incorrect please try again')
           end
         end
       }

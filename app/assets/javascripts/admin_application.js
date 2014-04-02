@@ -15,7 +15,7 @@
 //= require jquery.remotipart
 //= require jquery.ui.effect
 //= require jquery.ui.datepicker
-// require jquery.iframe-transport
+//= require jquery.iframe-transport
 
 // require rails.validations
 //= require tinymce-jquery
@@ -27,6 +27,7 @@
 //= require selectivizr/selectivizr
 //= require moment/moment.min
 //= require ajax_loader
+//= require jquery.formance
 
 // require turbolinks
 // require_tree .

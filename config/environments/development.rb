@@ -52,4 +52,5 @@ V44::Application.configure do
 
   # Add Rack::LiveReload to the bottom of the middleware stack with the default options.
   config.middleware.use Rack::LiveReload
+
 end

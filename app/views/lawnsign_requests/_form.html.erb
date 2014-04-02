@@ -5,7 +5,7 @@
             <p>
               <%= t(:lawnsign_instructions) %>
             </p>
-            <%= f.input :message, :rows => 10, :cols => 50, :class => 'lawnsign_textarea' %>
+            <%= f.input :message, :rows => 10, :cols => 50, input_html: { class: 'lawnsign_textarea tinymce' } %>
             <br/>
             <%= f.button :submit, id: 'lawnsign_submit', value: 'We need some more information to complete your application' %>
         <% end %>
@@ -18,3 +18,4 @@
     </div>
 </div>
 
+<%= tinymce %>

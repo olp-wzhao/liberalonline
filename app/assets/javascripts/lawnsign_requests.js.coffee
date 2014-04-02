@@ -39,3 +39,7 @@ $ ->
         $('#step3').show()
         $('#step2').hide()
     return )
+
+  $.ajaxSetup
+    headers:
+      'X-CSRF-Token': $('meta[name="csrf-token"]').attr('content')

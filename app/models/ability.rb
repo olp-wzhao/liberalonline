@@ -23,6 +23,10 @@ class Ability
         can :read, :all
         cannot :access, :users
     end
+
+    if user.has_role? :toolkit
+      can :manage, :toolkit
+    end
     #
     # The first argument to `can` is the action you are giving the user 
     # permission to do.

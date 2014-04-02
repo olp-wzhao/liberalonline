@@ -1,5 +1,6 @@
 class VolunteersController < ApplicationController
   before_action :set_volunteer, only: [:show, :edit, :update, :destroy]
+  before_filter :authenticate_user!
   include DateTimeFixes
 
   layout 'inside_layout'
@@ -23,7 +24,9 @@ class VolunteersController < ApplicationController
   def new
     @volunteer = Volunteer.new
     @user = current_user.nil? ? User.new : current_user
-    @volunteer.user = User.new
+    current_user.volunteer = @volunteer
+    binding.pry
+    log_stuff
     respond_to do |format|
       format.js
       format.html
@@ -38,14 +41,17 @@ class VolunteersController < ApplicationController
   # POST /volunteers.json
   def create
     current_user = current_user.nil? ? User.new : current_user
-    current_user.build_volunteer(volunteer_params)
-    success = current_user.save!(validate: false)
-    @volunteer = current_user.volunteer
+    @volunteer = current_user.build_volunteer(volunteer_params)
 
+    current_user.save!(validate: false)
+    @user = current_user
+    binding.pry
+    log_stuff
+    success = @volunteer.save
     respond_to do |format|
       if success
         format.html { redirect_to volunteer_path(@volunteer), notice: 'Volunteer was successfully created.' }
-        format.json { render json: @volunteer, status: :created }
+        format.json { render json: @volunteer.id, status: :created }
       else
         format.html { render action: 'new' }
         format.json { render json: @volunteer.errors, status: :unprocessable_entity }
@@ -97,4 +103,9 @@ class VolunteersController < ApplicationController
     #def build_partial_user
     #  user = User.new(user_params)
     #end
+
+    def log_stuff
+      logger.debug "User id: #{current_user.id}".to_s.colorize(:green)
+      logger.debug "Volunteer id: #{current_user.volunteer.id}".colorize(:green)
+    end
 end

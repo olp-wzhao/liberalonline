@@ -330,7 +330,7 @@ h4 {
 		   background-size: 100% Auto;		   
 	       }	
        .join {    
-           background-image: url("bg_container_join.jpg");
+//           background-image: url("bg_container_join.jpg");
            background-repeat: no-repeat;
            background-position: center bottom;
 		   background-size: 100% Auto;		   
@@ -744,7 +744,7 @@ input[type="submit"] {
     border: 1px solid rgb(160, 23, 28);
     margin-top: 5px;
 	margin-bottom:20px;
-	width:160px;		
+	width:160px;
 }
 input[type="submit"] {
     border-radius: 3px;
@@ -763,7 +763,7 @@ input[type="submit"]:hover {
   /* fallback color */
   background: -moz-linear-gradient(top, #a0171c, #cb2027);
   background: -ms-linear-gradient(top, #a0171c, #cb2027);
-  background: -webkit-linear-gradient(top, #a0171c, #cb2027); 
+  background: -webkit-linear-gradient(top, #a0171c, #cb2027);
   }
 
 #user_birthday_1i,

@@ -121,4 +121,6 @@ class Riding
     self.web_site_manager = WebSiteManager.where(r_id: self.riding_id)
   end
 
+  scope :central, -> { where(riding_id: 9000) }
+
 end

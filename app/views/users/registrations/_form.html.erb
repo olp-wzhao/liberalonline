@@ -13,7 +13,7 @@
             data: { width: 600, height: 400} %>
 
 <%= simple_form_for(resource, as: resource_name, html: { id: 'new_user_form', class: 'form-horizontal' }, url: registration_path(resource_name) ) do |f| %>
-
+  <%= f.input :id, as: :hidden %>
   <%= f.input :email, required: true, autofocus: true, class: 'submittable', placeholder: 'Enter Email', label: false,input_html: { data: { validatation: 'email', url: validate_user_url } }%>
   <span id='checking_unique_email' style="display: none">checking for unique email<i class="fa fa-spinner fa-spin"></i></span>
   <%= f.input :first_name, placeholder: 'First Name', label: false, hint: 'Enter your first name',

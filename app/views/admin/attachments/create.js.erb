@@ -1,4 +1,5 @@
-console.log('attachments/create.js');
+
+console.log('attachment should have been added from create.js');
 <% if @attachment.valid? %>
     vex.close();
     $("#attachments").append("<%= j render @attachment %>");

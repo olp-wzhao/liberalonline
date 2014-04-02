@@ -1,1 +1,1 @@
-#BetterErrors::Middleware.allow_ip! "10.0.2.2" if defined? BetterErrors && Rails.env == :development
+#BetterErrors::Middleware.allow_ip! '192.168.0.105' if defined? BetterErrors && Rails.env == :development
