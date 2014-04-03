@@ -4,7 +4,7 @@
 <%= simple_form_for [:admin, @document], :html => {multipart: true} do |f| %>
   <%= f.error_notification %>
     <%= f.input :id, as: :hidden %>
-    <%= f.input :doc_type, collection: DocumentType.all.map{|t| [t.name, t.temp_id]}, as: :select, selected: '20', label: false %>
+    <%= f.input :doc_type, collection: DocumentType.all.map{|t| [t.name, t.temp_id]}, as: :select, selected: '20', label: false, input_html: { style: 'width:300px' } %>
     <%= f.input :language, collection: %w(English French), priority: ['English'], selected: 'English', label: false %>
 	<div class='hrbreake7e6e7'>&nbsp;</div>
     <%= f.input :headline, placeholder: 'Headline', label: false %>
@@ -26,7 +26,10 @@
 
 
     <%#= f.input :copy_protect, as: :boolean %>
-    <%= f.input :document_date, as: :date, default: Date.today %>
+    <%= f.input :document_date, as: :date, default: Date.today,
+                start_year: Date.today.year - 90,
+                end_year: Date.today.year,
+                input_html: { style: 'width:300px' } %>
     <%#= f.input :display_date, as: :date %>
     <%#= f.input :expiry_date, as: :date %>
     <%#= f.input :publish_on_olp, as: :boolean %>
@@ -68,3 +71,4 @@
 <%= button_to 'Delete', admin_document_path(@document), method: :delete, id: 'delete', :data => { :confirm => 'Are you sure?' } %>
 
 <%= tinymce %>
+<%= javascript_include_tag 'documents' %>
