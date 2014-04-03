@@ -1,0 +1,8 @@
+[2014-04-02T20:47:42.723 WARN (3916) #] Creating scope :central. Overwriting existing method Riding.central.
+[2014-04-02T20:47:42.792 WARN (3916) #] Creating scope :near. Overwriting existing method RidingAddress.near.
+[2014-04-02T20:47:42.989 WARN (3916) #] Overwriting existing field image in class User.
+[2014-04-02T20:47:43.029 WARN (3916) #] Creating scope :near. Overwriting existing method User.near.
+[2014-04-02T20:49:01.162 WARN (3948) #] Creating scope :central. Overwriting existing method Riding.central.
+[2014-04-02T20:49:01.226 WARN (3948) #] Creating scope :near. Overwriting existing method RidingAddress.near.
+[2014-04-02T20:49:01.431 WARN (3948) #] Overwriting existing field image in class User.
+[2014-04-02T20:49:01.465 WARN (3948) #] Creating scope :near. Overwriting existing method User.near.
