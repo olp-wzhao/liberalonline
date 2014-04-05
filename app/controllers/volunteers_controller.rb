@@ -25,7 +25,6 @@ class VolunteersController < ApplicationController
     @volunteer = Volunteer.new
     @user = current_user.nil? ? User.new : current_user
     current_user.volunteer = @volunteer
-    binding.pry
     log_stuff
     respond_to do |format|
       format.js
@@ -45,7 +44,6 @@ class VolunteersController < ApplicationController
 
     current_user.save!(validate: false)
     @user = current_user
-    binding.pry
     log_stuff
     success = @volunteer.save
     respond_to do |format|
@@ -105,7 +103,11 @@ class VolunteersController < ApplicationController
     #end
 
     def log_stuff
-      logger.debug "User id: #{current_user.id}".to_s.colorize(:green)
-      logger.debug "Volunteer id: #{current_user.volunteer.id}".colorize(:green)
+      if current_user
+        logger.debug "User id: #{current_user.id}".to_s.colorize(:green)
+        if current_user.volunteer
+          logger.debug "Volunteer id: #{current_user.volunteer.id}".colorize(:green)
+        end
+      end
     end
 end

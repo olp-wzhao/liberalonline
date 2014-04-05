@@ -9,7 +9,7 @@ V44::Application.configure do
     password: ENV['google_password']
   }
 
-  #BetterErrors::Middleware.allow_ip! ENV['host_ip']
+  BetterErrors::Middleware.allow_ip! ENV['host_ip']
 
   #config.action_mailer.delivery_method = :letter_opener
   
