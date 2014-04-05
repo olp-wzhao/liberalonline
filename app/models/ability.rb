@@ -25,7 +25,7 @@ class Ability
     end
 
     if user.has_role? :toolkit
-      can :manage, :toolkit
+      can :access, :toolkit
     end
     #
     # The first argument to `can` is the action you are giving the user 

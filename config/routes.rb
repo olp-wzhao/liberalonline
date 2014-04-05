@@ -129,6 +129,9 @@ V44::Application.routes.draw do
   get 'toolkit' => 'toolkit#index'
   get 'toolkit/:id' => 'toolkit#show'
 
+  resources :petitions do
+    post 'add_user', :on => :collection
+  end
 
   devise_for :admins, controllers: { sessions: 'admins/sessions' }
 
@@ -154,7 +157,7 @@ V44::Application.routes.draw do
     get 'search/events' => 'events#search'
     get 'rapportive' => 'users#rapportive'
     get 'home' => 'home#home'
-    get 'petitions/:id' => 'petitions#index'
+
     get 'contact' => 'home#contact'
     get 'web' => 'home#web'
     get 'lit_samples' => 'home#lit_samples'

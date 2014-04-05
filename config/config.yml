@@ -4,7 +4,7 @@ defaults: &defaults
     - admin
     - webadmin
     - toolkit
-    - volunteer
+    - employee
   default_role: user
 
 development:

@@ -93,6 +93,7 @@ gem 'omniauth-linkedin'
 gem 'omniauth-twitter'
 gem 'omniauth-github'
 gem 'twitter'
+gem 'omnicontacts'
 
 gem 'devise_invitable'
 gem 'hashugar', github: 'alex-klepa/hashugar'

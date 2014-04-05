@@ -11,6 +11,7 @@ class Admin::UsersController < Admin::AdminController
 
   def show
     respond_to do |format|
+      format.html
       format.js
     end
   end
