@@ -90,5 +90,5 @@ class Document
   slug :headline, history: true
   search_in :riding_id, :temp_id, :headline, :customized_category
 
-  validates_absence_of :headline
+  validates_presence_of :headline
 end

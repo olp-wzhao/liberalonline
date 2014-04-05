@@ -67,7 +67,7 @@ group :development, :test do
   gem 'gist'
   gem 'guard'
   gem 'guard-livereload', require: false
-  #gem 'rack-livereload'
+  gem 'rack-livereload'
   gem 'guard-rspec'
   #gem 'letter_opener'
   gem 'colorize'
@@ -139,4 +139,4 @@ gem 'faraday_middleware'
 #gem 'resque'
 
 gem 'mail_form'
-#gem 'yell-rails'
+gem 'term-ansicolor'

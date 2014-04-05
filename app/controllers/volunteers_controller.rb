@@ -1,6 +1,6 @@
 class VolunteersController < ApplicationController
   before_action :set_volunteer, only: [:show, :edit, :update, :destroy]
-  before_filter :authenticate_user!
+  #before_filter :authenticate_user!
   include DateTimeFixes
 
   layout 'inside_layout'
@@ -24,7 +24,12 @@ class VolunteersController < ApplicationController
   def new
     @volunteer = Volunteer.new
     @user = current_user.nil? ? User.new : current_user
+    current_user = @user
     current_user.volunteer = @volunteer
+<<<<<<< HEAD
+=======
+
+>>>>>>> c4204348febd7bc71d4020230b5f3b05a85ca1a8
     log_stuff
     respond_to do |format|
       format.js
@@ -108,6 +113,8 @@ class VolunteersController < ApplicationController
         if current_user.volunteer
           logger.debug "Volunteer id: #{current_user.volunteer.id}".colorize(:green)
         end
+      else
+        logger.debug "User is not logged in, or has lost connection".colorize(:light_yellow)
       end
     end
 end
