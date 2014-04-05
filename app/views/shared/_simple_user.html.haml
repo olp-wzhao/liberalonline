@@ -1,0 +1,17 @@
+= simple_fields_for :user do |u|
+    = u.input :email, :required => true, :autofocus => true, :placeholder => t(:email), :label => false, :input_html => {:class => "signup"}
+    #email_validation
+    = u.input :first_name, :placeholder => t(:first_name), :label => false, :input_html => {:class => "signup", :required => "", :minlength => "2"}
+    = u.input :last_name, :placeholder => t(:last_name), :label => false, :input_html => {:class => "signup", :required => "", :minlength => "2"}
+    = u.input :postal_code, :placeholder => t(:postal_code), :label => false, :input_html => {:class => "signup", :required => "", :minlength => "6"}
+    = u.button :submit, t(:sign_up), :class => "button-red", :id => "petition_submit"
+
+= content_for :scripts_for_body do
+    :javascript
+        $(document).ready(function(){
+            $('#user_email').blur( function() {
+                $.get("#{validate_user_url}", { email: $('#user_email').val() })
+            });
+            $("#new_user").validate();
+            $('input').placeholder();
+        });

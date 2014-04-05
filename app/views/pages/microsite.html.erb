@@ -1,0 +1,86 @@
+<div id="main" class="col-8">
+
+  <div id="playimage1"><a class='inline' href="#playimage1_link"><img src="/assets/play1.jpg"></a></div><br>
+  <div id="playimage2"><a class='inline' href="#playimage2_link"><img src="/assets/play1.jpg"></a></div><br>
+  <div id="playimage3"><a class='inline' href="#playimage3_link"><img src="/assets/play1.jpg"></a></div><br>
+
+  <!-- This contains the hidden content for inline calls -->
+  <div style='display:none'>
+    <div id='playimage1_link' style='padding:10px; background:#fff;'>
+      <iframe width="560" height="315" src="//www.youtube.com/embed/x2PXySGHbnk" frameborder="0" allowfullscreen></iframe>
+      <h2>Stuff can go here</h2>
+    </div>
+  </div>
+
+  <div style='display:none'>
+    <div id='playimage2_link' style='padding:10px; background:#fff;'>
+      <iframe width="560" height="315" src="//www.youtube.com/embed/x2PXySGHbnk" frameborder="0" allowfullscreen></iframe>
+      <h2>Stuff can go here 2</h2>
+    </div>
+  </div>
+
+  <div style='display:none'>
+    <div id='playimage3_link' style='padding:10px; background:#fff;' onclick='inline_colorbox'>
+      <iframe width="560" height="315" src="//www.youtube.com/embed/x2PXySGHbnk" frameborder="0" allowfullscreen></iframe>
+      <h2>Stuff can go here 3</h2>
+    </div>
+  </div>
+  <!--
+  <div id="vid1" style="display:none;"></div>
+  <div id="playimage1" data-vidid="x2PXySGHbnk"></div>
+
+  <div id="vid2" style="display:none;"></div>
+  <div id="playimage2" data-vidid="x2PXySGHbnk"></div>
+
+  <div id="vid3" style="display:none;"></div>
+  <div id="playimage3" data-vidid="x2PXySGHbnk"></div>
+  -->
+
+
+  <!-- <h4 class="black">We've accomplished so much together. Can you help us build on our progress in 2014? Sign-up and get involved today.</h4> -->
+
+  <br><br><br>
+
+</div>
+
+<div id="right" class="col-4">
+  <h1 class="grey"><%= t(:petition_sign_up_heading) %></h1>
+  <p class="black">We still have work to do. Sign-up below to<br>
+    join the Premier Wynne and help build on <br>
+    our progress in 2014.</p>
+  <%#= simple_form_for @user, :url => add_user_petitions_url, :remote => true do |f| %>
+      <%#= render 'shared/simple_user', user: :user %>
+  <%# end %>
+  <%= render partial: 'users/registrations/form' %>
+  <a class="button-facebook" href="http://api.addthis.com/oexchange/0.8/forward/facebook/offer?url=http://pensions.ontarioliberal.ca?pubid=ra-5150c0b15241e409"><%= t(:share_on_facebook) %></a>
+  <a class="button-twitter" href="https://twitter.com/intent/tweet?text=Your%20retirement%20is%20at%20risk.%20Stand%20with%20Ontario%20to%20help%20safeguard%20Canadian%20pensions%20Safety&hashtags=onpoli&url=http://pensions.ontarioliberal.ca"><%= t(:tweet_this) %></a>
+
+
+  <% if false%>
+      <h2>
+        <%= t(:signatures) %>: <span class="action"><%= @petition_counter %></span>
+      </h2>
+  <% end %>
+
+
+</div>
+
+<div style='display:none'>
+
+  <div id='inline_content' style='padding:40px; background:#fff;'>
+
+    <h1><%= t(:share_this).html_safe %></h1>
+
+    <p><%= t(:tell_your_friends) %></p>
+
+    <a class="button-facebook" href="http://api.addthis.com/oexchange/0.8/forward/facebook/offer?url=http://neverstop.ontarioliberal.ca?pubid=ra-5150c0b15241e409"><%= t(:share_on_facebook) %></a>
+    <a class="button-twitter" href="https://twitter.com/intent/tweet?text=Watch%20the%20video%20everyone%20is%20talking%20about&hashtags=onpoli&url=http://neverstop.ontarioliberal.ca">
+
+      <%= t(:tweet_this) %>
+
+    </a>
+
+  </div>
+
+</div>
+

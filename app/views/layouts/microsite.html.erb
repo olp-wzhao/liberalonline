@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>One Year</title>
+  <%= stylesheet_link_tag    "application", media: "all" %>
+  <%= javascript_include_tag "application" %>
+  <link href='http://fonts.googleapis.com/css?family=Oswald:400,700' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Droid+Sans:400,700' rel='stylesheet' type='text/css'>
+  <%= csrf_meta_tags %>
+
+  <meta name="keywords" content="Kathleen Wynne" />
+  <meta name="description" content="See what you’ve helped accomplish and what we plan to do in 2014" />
+
+  <meta property="og:title" content="One Year" />
+  <meta property="og:type" content="politician" />
+  <meta property="og:description" content="See what you've helped accomplish and what we plan to do in 2014" />
+  <meta property="og:url" content="http://oneyear.ontarioliberal.ca" />
+  <meta property="og:image" content="http://oneyear.ontarioliberal.ca/bg_maincontainer-f8f8f8.jpg" />
+  <meta property="og:site_name" content="One Year" />
+  <meta property="fb:admins" content="100003812622252,686700080,552055122" />
+
+
+</head>
+<body>
+
+<div class="container" style="min-height:81px; padding-top:20px;">
+  <%= image_tag("logo-sm.png", :alt => "Ontario Liberal") %>
+
+  <div id="nav" style="float:right; padding-top:2px; margin-right:106px; display:inline;">
+    <!-- <%= image_tag("neverstop.png", :alt => "Ontario Liberal") %> -->
+    <span style="display:inline; font-size:10px;"><%= link_to_unless_current "English", locale: "en" %>&nbsp;&nbsp;<%= link_to_unless_current "Français", locale: "fr" %></span>
+  </div>
+
+</div>
+
+<div id="headerimageholder">
+  <div class="container">
+    <div id="headertext">
+      <p class="black"><img src="/assets/togetherforward.png">Together, we've accomplished so much. We’ve been hard at work building a strong Ontario. We’re investing in people by creating opportunities and ensuring people are secure. See what you’ve helped accomplish and what we plan to do in 2014.</p>
+    </div>
+    <div id="headerimage">
+      &nbsp;
+    </div>
+  </div>
+</div>
+
+
+
+
+<div id="pageimageholder">
+  <div class="container">
+
+
+
+
+    <%= yield %>
+
+
+
+  </div>
+</div>
+
+
+<div id="collageholder">&nbsp;</div>
+
+
+<!-- <div id="footertrigger">
+    <div class="container" style="text-align:center; padding-top:9px;"><h1 class="grey">Stronger pensions, better education, more jobs</h1></div>
+</div> -->
+
+<div id="footer">
+
+  <!--		   <div id="threeupcontainer" style="text-align:center; width:750px; margin:0 auto; padding-top:57px;">
+             <div id="widgetholderleft"><span class="widgeth">Pension</span><div class="widgetsub">Ensuring that every Ontarian<br>has a secure and<br>adequate pension.</div></div>
+             <div id="widgetholdercenter"><span class="widgeth">Education</span><div class="widgetsub">Making university and<br>college more affordable and<br>helping young people enter<br>the workforce.</div></div>
+             <div id="widgetholderright"><span class="widgeth">Jobs</span><div class="widgetsub">Boosting our economy<br>with job-creating investments<br>in roads, hospitals<br>and transit.</div></div>
+             </div>  -->
+
+  <div class="container" style="display:block; clear:both; text-align:center; padding-top:57px;">
+    <p style="line-height: 10px; padding-top:40px; font-size:10px; text-align:center;">Authorized by the CFO for the Ontario Liberal Party.</p>
+    <p style="line-height: 10px; padding-top:3px; margin-top:0px; font-size:10px; text-align:center;">Copyright &copy; 2014 Ontario Liberal Party</p>
+  </div>
+
+</div>
+
+
+<%= yield :scripts_for_body %>
+
+
+
+<script>
+    //  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    //  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    //  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    //  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    //  ga('create', 'UA-46626502-1', 'ontarioliberal.ca');
+    //  ga('send', 'pageview');
+
+</script>
+
+
+
+
+
+
+
+</body>
+</html>
