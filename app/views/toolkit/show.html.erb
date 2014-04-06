@@ -26,10 +26,12 @@
 
             <% unless @document.attachments.nil? %>
                  <% @document.attachments.each do |a| %>
-                    <div class="<%= a.pdf.file.extension %>" >
-                        <h1><%= link_to a.title, a.pdf.url %></h1>
-						<p><%= link_to a.description, a.pdf.url %></p>
-                    </div>
+                    <% unless a.pdf.file.nil? %>
+                        <div class="<%= a.pdf.file.extension %>" >
+                            <h1><%= link_to a.title, a.pdf.url %></h1>
+                            <p><%= link_to a.description, a.pdf.url %></p>
+                        </div>
+                    <% end %>
                  <% end %>
             <% end %>
   </div>

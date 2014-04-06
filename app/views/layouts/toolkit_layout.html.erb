@@ -55,31 +55,31 @@
         font-family: 'Oswald';
         font-style: normal;
         font-weight: 400;
-        src: local('Oswald Regular'), local('Oswald-Regular'), url('https://secureolp.liberalonline.ca/fonts/Oswald400.woff') format('woff');
+        src: local('Oswald Regular'), local('Oswald-Regular'), font-url('Oswald400.woff') format('woff');
       }
       @font-face {
         font-family: 'Oswald';
         font-style: normal;
         font-weight: 700;
-        src: local('Oswald Bold'), local('Oswald-Bold'), url('https://secureolp.liberalonline.ca/fonts/Oswald700.woff') format('woff');
+        src: local('Oswald Bold'), local('Oswald-Bold'), font-url('Oswald700.woff') format('woff');
       }
       @font-face {
         font-family: 'Droid Sans';
         font-style: normal;
         font-weight: 400;
-        src: local('Droid Sans'), local('DroidSans'), url('https://secureolp.liberalonline.ca/fonts/DroidSans400.woff') format('woff');
+        src: local('Droid Sans'), local('DroidSans'), font-url('DroidSans400.woff') format('woff');
       }
       @font-face {
         font-family: 'Droid Sans';
         font-style: normal;
         font-weight: 700;
-        src: local('Droid Sans Bold'), local('DroidSans-Bold'), url('https://secureolp.liberalonline.ca/fonts/DroidSans700.woff') format('woff');
+        src: local('Droid Sans Bold'), local('DroidSans-Bold'), font-url('DroidSans700.woff') format('woff');
       }
       @font-face {
         font-family: 'League Gothic';
         font-style: normal;
         font-weight: 400;
-        src: local('League Gothic'), local('LeagueGothic400'), url('https://secureolp.liberalonline.ca/fonts/LeagueGothic400.woff') format('woff');
+        src: local('League Gothic'), local('LeagueGothic400'), font-url('LeagueGothic400.woff') format('woff');
       }
 
 
@@ -87,25 +87,25 @@
         font-family: 'Roboto Condensed';
         font-style: normal;
         font-weight: 300;
-        src: local('Roboto Condensed Light'), local('RobotoCondensed-Light'), url('https://secureolp.liberalonline.ca/fonts/RobotoCondensed300.woff') format('woff');
+        src: local('Roboto Condensed Light'), local('RobotoCondensed-Light'), font-url('RobotoCondensed300.woff') format('woff');
       }
       @font-face {
         font-family: 'Roboto Condensed';
         font-style: normal;
         font-weight: 400;
-        src: local('Roboto Condensed Regular'), local('RobotoCondensed-Regular'), url('https://secureolp.liberalonline.ca/fonts/RobotoCondensed400.woff') format('woff');
+        src: local('Roboto Condensed Regular'), local('RobotoCondensed-Regular'), font-url('RobotoCondensed400.woff') format('woff');
       }
       @font-face {
         font-family: 'Roboto Condensed';
         font-style: normal;
         font-weight: 700;
-        src: local('Roboto Condensed Bold'), local('RobotoCondensed-Bold'), url('https://secureolp.liberalonline.ca/fonts/RobotoCondensed700.woff') format('woff');
+        src: local('Roboto Condensed Bold'), local('RobotoCondensed-Bold'), font-url('RobotoCondensed700.woff') format('woff');
       }
       @font-face {
         font-family: 'Roboto Condensed';
         font-style: italic;
         font-weight: 300;
-        src: local('Roboto Condensed Light Italic'), local('RobotoCondensed-LightItalic'), url('https://secureolp.liberalonline.ca/fonts/RobotoCondensedItalic300.woff') format('woff');
+        src: local('Roboto Condensed Light Italic'), local('RobotoCondensed-LightItalic'), font-url('RobotoCondensedItalic300.woff') format('woff');
       }
       *,html {padding:0px; margin:0px;}
       ul,ol {margin-left:30px;}
@@ -159,10 +159,8 @@ img.grayscale {
 		 width:100%; 
 		  min-height:356px; 
 		  height:462px;
-		  background-image: url("https://secureolp.liberalonline.ca/assets/toolkitheader.jpg");
-		  background-position: center -8px;
-		  background: cover; 
-		  -webkit-background-size: cover;
+          background: url("toolkitheader.jpg") center -8px;
+          -webkit-background-size: cover;
           -moz-background-size: cover;
           -o-background-size: cover;
 		  } 
@@ -182,7 +180,9 @@ img.grayscale {
 	 .toolkitmenitem:last-child {border-right:none;}	  
 	  
 	  
-      .toolkittitle { min-height:79px; background-repeat: no-repeat; background-image: url("https://secureolp.liberalonline.ca/assets/toolkit_logo.png"); position:relative; top:90px; padding-bottom:0px; min-height:200px;}
+      .toolkittitle { min-height:79px;
+          background: url("toolkit_logo.png") no-repeat;
+          position:relative; top:90px; padding-bottom:0px; min-height:200px;}
       .toolkittag {margin-top:2px; font-size:27px; color:#6b6b6b; line-height:27px; text-shadow: 0px 1px 2px rgba(150, 150, 150, 1);}
 
 	  
@@ -228,7 +228,7 @@ img.grayscale {
 		  width:100%; 
 		  min-height:600px; 
 		  background: cover; 
-		  background-image: url("assets/bg_bottomopening.jpg");
+		  background-image: url("bg_bottomopening.jpg");
 		  background-color:#c7c0ba; 
 		  -webkit-background-size: cover;
           -moz-background-size: cover;
@@ -242,7 +242,7 @@ img.grayscale {
 
 
       .hrbreake7e6e7 {
-          background-image: url('https://secureolp.liberalonline.ca/assets/hr_e7e6e7.gif');
+          background-image: url('hr_e7e6e7.gif');
           background-repeat: repeat-x;
           background-position: left center;
           width:100%;
@@ -260,15 +260,15 @@ img.grayscale {
 		  margin-top:10px;
 		  float:left;
 }
-.pdf > h1,.doc > h1,.docx > h1,.xls > h1,.xlsx > h1,.ppt > h1,.zip > h1 { font-size:15px; line-height:15px; margin:0px; font-family: 'Droid sans', sans serif;}
-.pdf > p,.doc > p,.docx > p,.xls > p,.xlsx > p,.ppt > p,.zip > p { font-size:13px; line-height:12px; margin-top:-10px;}
-.pdf { background-image: url('../assets/pdf.png');}
-.doc { background-image: url('../assets/doc.png');}
-.docx { background-image: url('../assets/doc.png');}
-.xls { background-image: url('../assets/xlsx.png');}
-.xlsx { background-image: url('../assets/xlsx.png');}
-.ppt { background-image: url('../assets/ppt.png');}
-.zip { background-image: url('../assets/zip.png');}
+.pdf > h1,.doc > h1,.docx > h1,.xls > h1,.xlsx > h1,.ppt > h1,.zip > h1 { font-size:15px; line-height:15px; margin:0px; font-family: 'Droid sans', sans serif; }
+.pdf > p,.doc > p,.docx > p,.xls > p,.xlsx > p,.ppt > p,.zip > p { font-size:13px; line-height:12px; margin-top:-10px; }
+.pdf { background-image: url('pdf.png');}
+.doc { background-image: url('doc.png');}
+.docx { background-image: url('doc.png');}
+.xls { background-image: url('xlsx.png');}
+.xlsx { background-image: url('xlsx.png');}
+.ppt { background-image: url('ppt.png');}
+.zip { background-image: url('zip.png');}
 
 .pageimageholder{
    margin-top:30px; 
@@ -292,17 +292,17 @@ img.grayscale {
   padding-top: 135px;}
   
 #widgetholderleft {
-  background: url("/assets/bicon_cfo.png");
+  background: url("bicon_cfo.png");
   background-repeat: no-repeat;
   background-position: center top; }
 
 #widgetholdercenter {
-  background: url("/assets/bicon_lit.png");
+  background: url("bicon_lit.png");
   background-repeat: no-repeat;
   background-position: center top; }
 
 #widgetholderright {
-  background: url("/assets/bicon_contact.png");
+  background: url("bicon_contact.png");
   background-repeat: no-repeat;
   background-position: center top; }
 
@@ -319,7 +319,7 @@ img.grayscale {
   color: #595959;
   letter-spacing: .5px; }
 
-.footer { color:#fff; background-color:#6b6b6b; style="box-shadow: 0px 9px 10px -9px #AAADB1 inset;" width:100%;}  
+.footer { color:#fff; background-color:#6b6b6b; box-shadow: 0px 9px 10px -9px #AAADB1 inset; width:100%; }
 
 @media all and (max-width: 700px) {
       .container {padding-left:20px; padding-right:20px; width:80%}

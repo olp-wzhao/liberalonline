@@ -46,7 +46,6 @@ class VolunteersController < ApplicationController
 
     current_user.save!(validate: false)
     @user = current_user
-    binding.pry
     log_stuff
     success = @volunteer.save
     respond_to do |format|
