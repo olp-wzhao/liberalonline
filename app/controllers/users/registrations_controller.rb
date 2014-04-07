@@ -106,22 +106,22 @@ class Users::RegistrationsController < Devise::RegistrationsController
     my_liberal_index_path(resource)
   end
 
-  # def fix_scrambled_date_parameters_on_edit
-  #   x,y,z = params[:user][:"birthday(1i)"], params[:user][:"birthday(2i)"], params[:user][:"birthday(3i)"]
-  #   @user.birthday = "#{z}/#{y}/#{x}".to_date
+  def fix_scrambled_date_parameters_on_edit
+    x,y,z = params[:user][:"birthday(1i)"], params[:user][:"birthday(2i)"], params[:user][:"birthday(3i)"]
+    @user.birthday = "#{z}/#{y}/#{x}".to_date
 
-  #   params[:user].delete :"birthday(1i)"
-  #   params[:user].delete :"birthday(2i)"
-  #   params[:user].delete :"birthday(3i)"
-  # end
+    params[:user].delete :"birthday(1i)"
+    params[:user].delete :"birthday(2i)"
+    params[:user].delete :"birthday(3i)"
+  end
 
-  #def fix_scrambled_date_parameters_on_create
-  #  x,y,z = params[:user][:"birthday(1i)"], params[:user][:"birthday(2i)"], params[:user][:"birthday(3i)"]
-  #  params[:user][:birthday] = "#{z}/#{y}/#{x}"
-  #  params[:user].delete :"birthday(1i)"
-  #  params[:user].delete :"birthday(2i)"
-  #  params[:user].delete :"birthday(3i)"
-  #end
+  def fix_scrambled_date_parameters_on_create
+  x,y,z = params[:user][:"birthday(1i)"], params[:user][:"birthday(2i)"], params[:user][:"birthday(3i)"]
+  params[:user][:birthday] = "#{z}/#{y}/#{x}"
+  params[:user].delete :"birthday(1i)"
+  params[:user].delete :"birthday(2i)"
+  params[:user].delete :"birthday(3i)"
+  end
 
   def assign_random_pass
     random_pass = Devise.friendly_token.first(6)
