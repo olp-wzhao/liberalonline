@@ -109,7 +109,7 @@ class VolunteersController < ApplicationController
         logger.debug "User id: #{current_user.id}".to_s.colorize(:green)
         logger.debug "Volunteer id: #{current_user.volunteer.id}".colorize(:green)
       else
-        logger.debug "User is not logged in, or has lost connection".colorize(:light_yellow)
+        logger.debug 'User is not logged in, or has lost connection'.colorize(:light_yellow)
       end
     end
 end
