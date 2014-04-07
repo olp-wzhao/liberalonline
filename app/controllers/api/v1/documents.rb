@@ -1,8 +1,8 @@
 module API
   module V1
     class Documents < Grape::API
-      version 'v1' # path-based versioning by default
-      format :json # We don't like xml anymore
+      #version 'v1' # path-based versioning by default
+      #format :json # We don't like xml anymore
       # common Grape settings
       include API::V1::Defaults
 

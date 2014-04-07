@@ -175,5 +175,5 @@ V44::Application.routes.draw do
   end
 
   mount API::Base => '/api'
-  mount GrapeSwaggerRails::Engine => '/swagger'
+  #mount GrapeSwaggerRails::Engine => '/swagger'
 end
