@@ -24,7 +24,6 @@ class Users::SessionsController < Devise::SessionsController
     respond_to do |format|
       format.js {
         self.resource = User.where(email: sign_in_params[:email]).first
-        binding.pry
         if self.resource.nil?
           self.resource = User.new
           self.resource.errors.add(:email, 'does not exist in our database')
@@ -53,7 +52,7 @@ class Users::SessionsController < Devise::SessionsController
     respond_to do |format|
       format.js
       format.html { head :no_content }
-      format.any(*navigational_formats) { redirect_to redirect_path }
+      format.any(*navigational_formats) { redirect_to root }
     end
   end
 
