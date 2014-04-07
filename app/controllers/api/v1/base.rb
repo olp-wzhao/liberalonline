@@ -4,6 +4,7 @@ module API
   module V1
     class Base < Grape::API
 
+      mount API::V1::Tokens
       mount API::V1::Documents
       #mount Olp::Commen
 
