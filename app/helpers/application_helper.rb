@@ -797,7 +797,7 @@ MEGAMENU_JAVASCRIPT
 			photo_file = '_Thumbnail.jpg'
 			photo_url['_Thumbnail.jpg'] = ''
 		end
-    if request.port == 'Real directory'
+        if request.port == 80
           if Net::HTTP.get_response(URI.parse('http://' + request.host + '/photos/' + photo_site + photo_dir + photo_url + photo_file)).kind_of?(Net::HTTPSuccess) == false
 
             open('/home/service201/webdocs/photos/' + photo_site + photo_dir + photo_url + photo_file, 'wb') do |file|
