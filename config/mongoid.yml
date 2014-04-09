@@ -7,8 +7,8 @@ development:
       # of host:port pairs. (required)
       hosts:
         - localhost:27017
-      options:
-        #safe: true
+#      options:
+#        safe: true
         #skip_version_check: true
 test:  # Configure available database sessions. (required)
 

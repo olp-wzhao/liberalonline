@@ -1,5 +1,5 @@
 class NewsController < ApplicationController
-  impressionist
+  #impressionist
 
   layout 'inside_layout'
 

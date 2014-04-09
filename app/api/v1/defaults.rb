@@ -15,6 +15,22 @@ module API
         #   error_response(message: e.message, status: 404)
         # end
 
+        helpers do
+          def authenticate!
+            error!('Unauthorized. Invalid or expired token', 401) unless current_user
+          end
+
+          def current_user
+            user_email = params[:user_email].presence
+            user = user_email && User.find_by(email: user_email)
+            if user && Devise.secure_compare(user.authentication_token, params[:user_token])
+              user
+            else
+              false
+            end
+          end
+        end
+
         # global exception handler, used for error notifications
         rescue_from :all do |e|
           if Rails.env.development?
@@ -27,7 +43,7 @@ module API
 
         # HTTP header based authentication
         before do
-          #error!('Unauthorized', 401) unless headers['Authorization'] == "some token"
+          error!('Unauthorized', 401) unless current_user #headers['Authorization'] == "some token"
         end
       end
     end

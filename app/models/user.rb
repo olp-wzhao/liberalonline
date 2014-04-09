@@ -195,7 +195,15 @@ class User
     end
   end
 
-  slug :full_name, history: true
+  def fetch_oauth2(grant_code)
+    app_id = '1e1bf9712365861964839722640e23bdb51beaee05413acce2d2fe2f48ed69cd'
+    secret = '40ac466fc3bf3d4397b183f95eaeedfa2a6895866f199d51bbb5375b9c16433f'
+    client = OAuth2::Client.new(app_id, secret, site: "http://#{ENV['email_host']}")
+    access = OAuth2::AccessToken.from_hash(client, {"access_token" => grant_code, "token_type" => "bearer","expires_in" => 7200})
+    access
+  end
+
+  #slug :full_name, history: true
 
   search_in :first_name, :last_name, :email
 end
