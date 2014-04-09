@@ -9,7 +9,7 @@ V44::Application.configure do
     password: ENV['google_password']
   }
 
-  #BetterErrors::Middleware.allow_ip! ENV['host_ip']
+  BetterErrors::Middleware.allow_ip! ENV['host_ip']
 
   #config.action_mailer.delivery_method = :letter_opener
   
@@ -46,13 +46,11 @@ V44::Application.configure do
   config.action_controller.perform_caching = true
   
   #config.force_ssl = true
-
-  # logrotate: 4M * 8
   config.logger = ColorfulLogger.new("log/#{Rails.env}.log", 8, 4 * 1024 ** 2)
   config.log_level = :debug
 
   I18n.enforce_available_locales = false
-  # Specifying Rack::LiveReload options.
+    
   config.middleware.use(Rack::LiveReload,
                         #:min_delay        => 500,    # default 1000
                         #:max_delay        => 10_000, # default 60_000
@@ -60,4 +58,5 @@ V44::Application.configure do
                         #:host             => 'myhost.cool.wow',
                         #:ignore           => [ %r{dont/modify\.html$} ]
   )
+
 end

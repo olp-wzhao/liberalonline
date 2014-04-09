@@ -5,11 +5,12 @@ development:
     default:
       # Defines the name of the default database that Mongoid can connect to.
       # (required).
-      database: olp
+      # database: olp
       # Provides the hosts the default session can connect to. Must be an array
       # of host:port pairs. (required)
-      hosts:
-        - localhost:27017
+      # hosts:
+      #  - localhost:27017
+      uri:  <%= ENV['MONGOLAB_URI'] %>
       options:
         # Change the default write concern. (default = { w: 1 })
         # write:
@@ -65,10 +66,11 @@ development:
 test:
   sessions:
     default:
-      database: olp_test
-      hosts:
-        - localhost:27017
-      options:
+      # database: olp_test
+      # hosts:
+      #  - localhost:27017
+       uri:  <%= ENV['MONGOHQ_URL'] %>
+       options:
         read: primary
         # In the test environment we lower the retries and retry interval to
         # low amounts for fast failures.
@@ -79,8 +81,9 @@ production:
     default:
       # Defines the name of the default database that Mongoid can connect to.
       # (required).
-      database: olp
+      # database: olp
       # Provides the hosts the default session can connect to. Must be an array
       # of host:port pairs. (required)
-      hosts:
-        - localhost:27017
+      # hosts:
+      #  - localhost:27017
+       uri:  <%= ENV['MONGOLAB_URI'] %>

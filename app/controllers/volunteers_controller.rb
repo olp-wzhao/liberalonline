@@ -26,7 +26,10 @@ class VolunteersController < ApplicationController
     @user = current_user.nil? ? User.new : current_user
     current_user = @user
     current_user.volunteer = @volunteer
+<<<<<<< HEAD
+=======
 
+>>>>>>> c4204348febd7bc71d4020230b5f3b05a85ca1a8
     log_stuff
     respond_to do |format|
       format.js
@@ -46,7 +49,6 @@ class VolunteersController < ApplicationController
 
     current_user.save!(validate: false)
     @user = current_user
-    binding.pry
     log_stuff
     success = @volunteer.save
     respond_to do |format|
@@ -108,9 +110,11 @@ class VolunteersController < ApplicationController
     def log_stuff
       if current_user
         logger.debug "User id: #{current_user.id}".to_s.colorize(:green)
-        logger.debug "Volunteer id: #{current_user.volunteer.id}".colorize(:green)
+        if current_user.volunteer
+          logger.debug "Volunteer id: #{current_user.volunteer.id}".colorize(:green)
+        end
       else
-        logger.debug "User is not logged in, or has lost connection".colorize(:light_yellow)
+        logger.debug 'User is not logged in, or has lost connection'.colorize(:light_yellow)
       end
     end
 end

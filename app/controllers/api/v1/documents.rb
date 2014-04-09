@@ -1,8 +1,8 @@
 module API
   module V1
     class Documents < Grape::API
-      version 'v1' # path-based versioning by default
-      format :json # We don't like xml anymore
+      #version 'v1' # path-based versioning by default
+      #format :json # We don't like xml anymore
       # common Grape settings
       include API::V1::Defaults
 
@@ -14,7 +14,27 @@ module API
         get do
           Document.all.limit(10)
         end
+
+        desc 'update or create a document'
+        params do
+          requires :id
+        end
+        post do
+          # API calls need to use temp_id, perhaps they should be in an API controller
+
+          @document = Document.where(id: params['id']).first
+          if !@document.nil?
+             @document.update(params)
+          else
+             @document = Document.new(params)
+             @document.save
+          end
+        end
       end
+
+      # def permitter_params
+      #   @permitted_params ||= declared(params, include_missing: false)
+      # end
 
         ## POST /documents
         ## POST /documents.json
