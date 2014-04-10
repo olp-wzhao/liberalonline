@@ -26,10 +26,6 @@ class VolunteersController < ApplicationController
     @user = current_user.nil? ? User.new : current_user
     current_user = @user
     current_user.volunteer = @volunteer
-<<<<<<< HEAD
-=======
-
->>>>>>> c4204348febd7bc71d4020230b5f3b05a85ca1a8
     log_stuff
     respond_to do |format|
       format.js

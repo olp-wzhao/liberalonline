@@ -61,8 +61,8 @@ group :development, :test do
   gem 'rb-fchange', :require => false
   gem 'railroady'
   gem 'hirb'
-  gem 'jazz_hands'
-  gem 'byebug'
+  gem 'jazz_hands', github: 'nixme/jazz_hands', branch: 'bring-your-own-debugger'
+  gem 'pry-byebug'
   gem 'bond'
   gem 'gist'
   gem 'guard'
@@ -70,7 +70,6 @@ group :development, :test do
   gem 'rack-livereload'
   gem 'guard-rspec'
   #gem 'letter_opener'
-  gem 'colorize'
 end
 
 group :test do
@@ -143,3 +142,7 @@ gem 'mail_form'
 gem 'term-ansicolor'
 gem 'colorize'
 #gem 'impressionist'
+gem 'doorkeeper'
+gem 'settingslogic'
+gem 'rack-cors', :require => 'rack/cors'
+gem 'rack-oauth2'

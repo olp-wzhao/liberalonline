@@ -37,6 +37,19 @@ module V44
 
     #grape api configuration
     config.paths.add File.join('app', 'api'), glob: File.join('**', '*.rb')
+    config.paths.add 'app/api', glob: '**/*.rb'
+    config.paths.add 'app/services', glob: '**/*.rb'
     config.autoload_paths += Dir[Rails.root.join('app', 'api', '*')]
+    config.autoload_paths += Dir["#{Rails.root}/app/api/*"]
+    config.autoload_paths += Dir["#{Rails.root}/app/services/*"]
+
+
+    config.middleware.use Rack::Cors do
+      allow do
+        origins '*'
+        resource '*', :headers => :any, :methods => [:get, :post, :put, :delete, :options]
+      end
+    end
+
   end
 end

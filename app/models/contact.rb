@@ -9,6 +9,7 @@ class Contact
   field :phone_number, type: String
   field :postal_code, type: String
   field :body, type: String
+  field :inquiry_type, type: String
 
   #attr_accessor :name, :email, :subject, :body
 

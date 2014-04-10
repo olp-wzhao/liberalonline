@@ -33,6 +33,11 @@
   <p>Message</p>
   <%= f.text_area :body, :rows => 10, :cols => 50, :class=> "rounded" %>
 
+  <p>Inquiry Category</p>
+  <%= f.select :inquiry_type, options_for_select({'General Inquiry' => 'default', 'Technical Issue' => 'technical', 'Questions regarding a donation' => 'donation', 'Questions regarding a ticket purchase' => 'purchase', 'Questions about Membership' => 'membership', 'Typo or Correction' => 'correction'}, 'default') %>
+  
+  <p>&nbsp;</p>
+
   <%= f.submit 'Send' %>
 
   <% @contact.errors.full_messages.each do |msg| %>  

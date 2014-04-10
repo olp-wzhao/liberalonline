@@ -8,7 +8,7 @@ module User::AuthDefinitions
     # :lockable, :timeoutable and :omniauthable
     devise :database_authenticatable, :registerable,
            :recoverable, :rememberable, :trackable, :validatable, :confirmable, 
-           :omniauthable, :token_authenticatable,
+           :omniauthable, #:token_authenticatable,
            :invitable
 
     ## Database authenticatable
