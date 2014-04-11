@@ -13,7 +13,7 @@ class Contact
 
   #attr_accessor :name, :email, :subject, :body
 
-  validates :first_name, :last_name, :email, :phone_number, :postal_code, :body, :presence => true
+  validates :first_name, :last_name, :email, :phone_number, :postal_code, :body, :inquiry_type, :presence => true
   validates :email, :format => { :with => %r{.+@.+\..+} }, :allow_blank => true
   
   # def initialize(attributes = {})
