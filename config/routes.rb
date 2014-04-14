@@ -1,5 +1,6 @@
 V44::Application.routes.draw do
 
+  use_doorkeeper
   devise_for :users, controllers: {
     registrations: 'users/registrations',
     omniauth_callbacks: 'users/omniauth_callbacks',
@@ -168,12 +169,12 @@ V44::Application.routes.draw do
   #get '*a', :to => redirect('/404.html')
   get '/*.aspx' => redirect('users/registrations#new')
 
-  namespace :api do
-    namespace :olp  do
-      resources :tokens,:only => [:create, :destroy]
-    end
-  end
+  # namespace :api do
+  #   namespace :olp  do
+  #     resources :tokens,:only => [:create, :destroy]
+  #   end
+  # end
 
-  mount API::Base => '/api'
+  mount ApplicationAPI => '/api'
   #mount GrapeSwaggerRails::Engine => '/swagger'
 end

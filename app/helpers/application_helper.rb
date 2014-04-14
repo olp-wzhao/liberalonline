@@ -816,9 +816,9 @@ MEGAMENU_JAVASCRIPT
               FileUtils.mkdir_p(dir)
           end
 
-          File.open(save_path_with_filename, 'wb') do |file|
-            file << open('http://pantone201.ca/webskins/' + photo_site + 'photos/' + photo_dir + photo_url + photo_file).read
-          end
+          # File.open(save_path_with_filename, 'wb') do |file|
+          #   file << open('http://pantone201.ca/webskins/' + photo_site + 'photos/' + photo_dir + photo_url + photo_file).read
+          # end
         end
         
         '/photos/' + photo_site + photo_dir + photo_url + photo_file

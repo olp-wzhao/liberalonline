@@ -87,7 +87,7 @@ class Document
   #   self.headline = options[:headline]
   # end
 
-  slug :headline, history: true
+  #slug :headline, history: true
   search_in :riding_id, :temp_id, :headline, :customized_category
 
   validates_presence_of :headline

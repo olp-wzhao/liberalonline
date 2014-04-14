@@ -1,0 +1,54 @@
+# Files in the config/locales directory are used for internationalization
+# and are automatically loaded by Rails. If you want to use locales other
+# than English, add the necessary files in this directory.
+#
+# To use the locales, use `I18n.t`:
+#
+#     I18n.t 'hello'
+#
+# In views, this is aliased to just `t`:
+#
+#     <%= t('hello') %>
+#
+# To use a different locale, set it with `I18n.locale`:
+#
+#     I18n.locale = :es
+#
+# This would use the information in config/locales/es.yml.
+#
+# To learn more, please read the Rails Internationalization guide
+# available at http://guides.rubyonrails.org/i18n.html.
+
+en:
+  address: "Address"
+  city: "City"
+  postal_code: "Postal Code"
+  phone_number: "Phone Number"
+  email: "Email"
+  profile: "Profile"
+  interests: "Interested in"
+  first_name: "First Name"
+  canvassing: "Canvassing"
+  sign_crew: "Sign Crew"
+  dropping_literature: "Dropping Literature"
+  office_work: "Office Work"
+  election_day: "Election Day"
+  driver: "Driver"
+  scrutineer: "Scrutineer"
+  local_captain: "Local Captain"
+  availability: "Availability"
+  availability_weekdays: "Weekdays"
+  availability_weeknights: "Weeknights"
+  availability_weekends: "Weekends"
+  welcome_email: "Thank you for registering for myliberal.ca"
+
+  volunteer: "Volunteer"
+  volunteer_heading: "Volunteering for the %{riding_name} Provincial Liberal Association is a great way to get involved in your community while working for a better future for all Ontarians - and having fun!"
+  volunteer_second_paragraph: "Provincial Liberal Association are successful because of the volunteers like you who get all the different jobs done. Once you complete and submit the volunteer information form below, we will add you to our volunteer distribution list."
+  thank_you: "Thank you"
+  posted: "Posted"
+
+  normal: "Normal"
+  large: "Large"
+  lawnsign_instructions: "Is there anything the sign crew should be aware of?"
+  add_file: "Add File"

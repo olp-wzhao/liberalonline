@@ -30,6 +30,23 @@ GIT
       optionable (~> 0.2.0)
 
 GIT
+  remote: git://github.com/nixme/jazz_hands.git
+  revision: 5e4b48f145883ecb14b55bf04eacc28ac9662676
+  branch: bring-your-own-debugger
+  specs:
+    jazz_hands (0.5.2)
+      awesome_print (~> 1.2)
+      coolline (>= 0.4.2)
+      hirb (~> 0.7.1)
+      pry (~> 0.9.12)
+      pry-doc (~> 0.4.6)
+      pry-git (~> 0.2.3)
+      pry-rails (~> 0.3.2)
+      pry-remote (>= 0.1.7)
+      pry-stack_explorer (~> 0.4.9)
+      railties (>= 3.0, < 5.0)
+
+GIT
   remote: git://github.com/plataformatec/simple_form.git
   revision: e14437c29b7510d2d3524df5d9b97d710ddf4b14
   specs:
@@ -101,6 +118,7 @@ GEM
     addressable (2.3.6)
     arel (4.0.2)
     atomic (1.1.16)
+    attr_required (1.0.0)
     awesome_print (1.2.0)
     axiom-types (0.0.5)
       descendants_tracker (~> 0.0.1)
@@ -167,12 +185,7 @@ GEM
     daemons (1.1.9)
     database_cleaner (1.2.0)
     debug_inspector (0.0.2)
-    debugger (1.6.6)
-      columnize (>= 0.3.1)
-      debugger-linecache (~> 1.2.0)
-      debugger-ruby_core_source (~> 1.3.2)
     debugger-linecache (1.2.0)
-    debugger-ruby_core_source (1.3.2)
     descendants_tracker (0.0.3)
     devise (3.0.4)
       bcrypt-ruby (~> 3.0)
@@ -185,6 +198,8 @@ GEM
     diff-lcs (1.2.5)
     diffy (3.0.3)
     docile (1.1.3)
+    doorkeeper (1.1.0)
+      railties (>= 3.1)
     em-websocket (0.5.0)
       eventmachine (>= 0.12.9)
       http_parser.rb (~> 0.5.3)
@@ -270,23 +285,12 @@ GEM
       launchy (~> 2.0)
       syntax (~> 1.0)
     http_parser.rb (0.5.3)
+    httpclient (2.3.4.1)
     httpi (2.1.0)
       rack
       rubyntlm (~> 0.3.2)
     i18n (0.6.9)
     ice_nine (0.11.0)
-    jazz_hands (0.5.2)
-      awesome_print (~> 1.2)
-      coolline (>= 0.4.2)
-      hirb (~> 0.7.1)
-      pry (~> 0.9.12)
-      pry-debugger (~> 0.2.2)
-      pry-doc (~> 0.4.6)
-      pry-git (~> 0.2.3)
-      pry-rails (~> 0.3.2)
-      pry-remote (>= 0.1.7)
-      pry-stack_explorer (~> 0.4.9)
-      railties (>= 3.0, < 5.0)
     jbuilder (1.5.3)
       activesupport (>= 3.0.0)
       multi_json (>= 1.2.0)
@@ -410,9 +414,9 @@ GEM
       coderay (~> 1.0)
       method_source (~> 0.8)
       slop (~> 3.4)
-    pry-debugger (0.2.2)
-      debugger (~> 1.3)
-      pry (~> 0.9.10)
+    pry-byebug (1.3.2)
+      byebug (~> 2.7)
+      pry (~> 0.9.12)
     pry-doc (0.4.6)
       pry (>= 0.9)
       yard (>= 0.8)
@@ -435,10 +439,18 @@ GEM
       rack (>= 0.4)
     rack-contrib (1.1.0)
       rack (>= 0.9.1)
+    rack-cors (0.2.7)
+      rack
     rack-livereload (0.3.15)
       rack
     rack-mount (0.8.3)
       rack (>= 1.0.0)
+    rack-oauth2 (1.0.7)
+      activesupport (>= 2.3)
+      attr_required (>= 0.0.5)
+      httpclient (>= 2.2.0.2)
+      multi_json (>= 1.3.6)
+      rack (>= 1.1)
     rack-test (0.6.2)
       rack (>= 1.0)
     railroady (1.1.1)
@@ -488,6 +500,7 @@ GEM
       rdoc (~> 3.10)
     select2-rails (3.5.4)
       thor (~> 0.14)
+    settingslogic (2.0.9)
     simple_form_fancy_uploads (0.1.0)
       carrierwave
       rails (~> 4.0.0)
@@ -560,7 +573,6 @@ DEPENDENCIES
   bootstrap-sass
   browser
   bson
-  byebug
   cancan
   capybara
   carrierwave
@@ -571,6 +583,7 @@ DEPENDENCIES
   database_cleaner
   devise (~> 3.0.0)
   devise_invitable
+  doorkeeper
   factory_girl_rails (~> 4.0)
   faraday
   faraday-http-cache
@@ -592,7 +605,7 @@ DEPENDENCIES
   hirb
   html_routes (~> 1.0)
   httpi
-  jazz_hands
+  jazz_hands!
   jbuilder (~> 1.2)
   jquery-rails
   jquery-turbolinks
@@ -620,8 +633,11 @@ DEPENDENCIES
   omniauth-linkedin
   omniauth-twitter
   omnicontacts
+  pry-byebug
   quiet_assets
+  rack-cors
   rack-livereload
+  rack-oauth2
   railroady
   rails (= 4.0.0)
   rb-fchange
@@ -632,6 +648,7 @@ DEPENDENCIES
   sass-rails!
   sdoc (= 0.3.20)
   select2-rails
+  settingslogic
   simple_form!
   simple_form_fancy_uploads
   simplecov

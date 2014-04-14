@@ -4,14 +4,15 @@
 
 		<!-------y HERE ARE THE CLASSES FOR THE DATA REPEATER -------->
 		<!------- DON'T FORGET THE FRAME CLASS ON IMG -------->
-		<% @web_site_managers.each do |web_site_manager| %>
-			<% if web_site_manager.c_fpes %>
+		<%# @web_site_managers.each do |web_site_manager| %>
+		<% @candidates.each do |candidate| %>
+			<% if candidate.published %>
 				<div class="photolist">
-					<div id="imageholder"><img src="http://pantone201.ca/webskins/vote/candidate_photos/<%= web_site_manager.r_id.to_s %>_thumbnail.jpg" class="drop-shadow lifted"></div>
+					<div id="imageholder"><img src="http://pantone201.ca/webskins/vote/candidate_photos/<%= (candidate.riding_id + 9000).to_s %>_thumbnail.jpg" class="drop-shadow lifted"></div>
 					<div class="photolist_detailholder">
-						<div class="listh1"><%= web_site_manager.c_nf %> <%= web_site_manager.c_nl %></div>
-						<div class="listh2"><%= raw(web_site_manager.r_name_en) %></div>
-						<a href="http://<%= web_site_manager.c_dl %>" target="_blank">website</a>
+						<div class="listh1"><%= candidate.first_name %> <%= candidate.last_name %></div>
+						<div class="listh2"><%= candidate.riding_id %></div>
+						<a href="http://<%= candidate.web_site %>" target="_blank">website</a>
 					</div>
 				</div>	
 			<% end %>

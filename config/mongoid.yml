@@ -10,7 +10,7 @@ development:
       # of host:port pairs. (required)
       # hosts:
       #  - localhost:27017
-      uri: mongodb://admin:abc123@dharma.mongohq.com:10026/olp #'mongodb://admin:abc123@ds029630.mongolab.com:29630/olp'
+      uri: mongodb://jesse:abc123@dharma.mongohq.com:10026/olp #'mongodb://admin:abc123@ds029630.mongolab.com:29630/olp'
       options:
         # Change the default write concern. (default = { w: 1 })
         # write:
@@ -86,4 +86,4 @@ production:
       # of host:port pairs. (required)
       # hosts:
       #  - localhost:27017
-       uri: mongodb://admin:abc123@dharma.mongohq.com:10026/olp #'mongodb://admin:abc123@ds029630.mongolab.com:29630/olp'
+       uri: mongodb://jesse:abc123@dharma.mongohq.com:10026/olp #'mongodb://admin:abc123@ds029630.mongolab.com:29630/olp'

@@ -9,10 +9,11 @@ class Contact
   field :phone_number, type: String
   field :postal_code, type: String
   field :body, type: String
+  field :inquiry_type, type: String
 
   #attr_accessor :name, :email, :subject, :body
 
-  validates :first_name, :last_name, :email, :phone_number, :postal_code, :body, :presence => true
+  validates :first_name, :last_name, :email, :phone_number, :postal_code, :body, :inquiry_type, :presence => true
   validates :email, :format => { :with => %r{.+@.+\..+} }, :allow_blank => true
   
   # def initialize(attributes = {})

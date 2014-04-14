@@ -11,7 +11,7 @@ FactoryGirl.define do
     city "Toronto"
     address "1 Rspec Dr"
     phone_number "555-5555"
-    riding FactoryGirl.create(:riding)
+    #riding FactoryGirl.create(:riding)
     #after(:create) { |user| user.confirm! }
   end
 end
